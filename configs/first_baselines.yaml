@@ -1,0 +1,34 @@
+# First-stage baseline configuration for industrial anomaly detection.
+# Dataset root should contain MVTec AD class folders: bottle/, cable/, capsule/, ...
+project_name: iad_vlm_starter
+seed: 42
+
+data:
+  dataset: MVTecAD
+  root: ./datasets/MVTecAD
+  image_size: 256
+  train_batch_size: 16
+  eval_batch_size: 16
+  num_workers: 8
+  categories:
+    - bottle
+    - cable
+    - capsule
+    - metal_nut
+    - screw
+    - transistor
+
+baselines:
+  # Traditional strong baselines.
+  - patchcore
+  - padim
+
+  # EfficientAD is useful, but can be added after PatchCore/PaDiM are stable.
+  # - efficientad
+
+  # VLM baseline. WinCLIP can be run in zero-shot or few-shot mode.
+  - winclip_zero
+  - winclip_4shot
+
+output:
+  root: ./results/baselines_mvtec

@@ -1,0 +1,77 @@
+# =========================
+# Dataset files
+# =========================
+datasets/*
+!datasets/README.md
+!datasets/.gitkeep
+
+# Dataset archives
+*.tar
+*.tar.gz
+*.tar.xz
+*.zip
+*.rar
+*.7z
+
+# =========================
+# Heavy model files
+# =========================
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.engine
+*.safetensors
+
+# =========================
+# Runtime outputs
+# Keep only lightweight metric summaries.
+# =========================
+runs/**
+!runs/
+!runs/baselines/
+!runs/baselines/**/
+!runs/baselines/**/metrics.json
+
+results/**
+!results/
+!results/baselines/
+!results/baselines/*.csv
+!results/baselines/*.json
+
+# =========================
+# Backups
+# =========================
+backups/
+
+# =========================
+# Python cache
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# =========================
+# Environment files
+# =========================
+.env
+.venv/
+venv/
+conda-meta/
+
+# =========================
+# Logs and cache
+# =========================
+*.log
+.cache/
+wandb/
+lightning_logs/
+mlruns/
+
+# =========================
+# System files
+# =========================
+.DS_Store
+Thumbs.db

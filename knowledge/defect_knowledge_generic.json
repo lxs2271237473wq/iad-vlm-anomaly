@@ -1,0 +1,92 @@
+{
+  "scratch": {
+    "visual_attributes": ["thin", "linear", "edge-like", "high-frequency", "surface-localized"],
+    "possible_causes": ["friction during handling", "mechanical contact", "surface processing failure", "transportation damage"],
+    "common_materials": ["metal", "plastic", "painted surface", "leather"],
+    "common_regions": ["exposed surface", "edge", "contact area"],
+    "confusable_normal_patterns": ["regular texture line", "reflection", "printed line"],
+    "positive_prompts": ["a thin linear scratch on the surface", "a surface region with friction-induced damage", "a high-frequency line-shaped defect"],
+    "negative_prompts": ["a clean intact surface", "a regular texture line", "a harmless surface reflection"]
+  },
+  "crack": {
+    "visual_attributes": ["irregular line", "fracture", "branch-like", "sharp boundary", "structural discontinuity"],
+    "possible_causes": ["material stress", "thermal stress", "impact damage", "fatigue"],
+    "common_materials": ["metal", "ceramic", "plastic", "glass"],
+    "common_regions": ["edge", "load-bearing region", "thin structure"],
+    "confusable_normal_patterns": ["seam", "printed boundary", "mold line"],
+    "positive_prompts": ["an irregular crack on the product", "a fracture-like line on the surface", "a structural discontinuity defect"],
+    "negative_prompts": ["a normal seam", "a regular product boundary", "an intact structure"]
+  },
+  "contamination": {
+    "visual_attributes": ["stain", "dirty region", "color inconsistency", "irregular blob", "low-contrast pollution"],
+    "possible_causes": ["oil residue", "dust accumulation", "insufficient cleaning", "foreign material residue"],
+    "common_materials": ["plastic", "metal", "glass", "textile", "food package"],
+    "common_regions": ["surface", "transparent part", "contact area"],
+    "confusable_normal_patterns": ["shadow", "lighting variation", "material texture"],
+    "positive_prompts": ["a contaminated product surface", "an irregular dirty stain", "a surface region with foreign residue"],
+    "negative_prompts": ["a clean product surface", "a normal shadow", "a regular material texture"]
+  },
+  "dent": {
+    "visual_attributes": ["local depression", "concave shape", "deformed reflection", "round pit"],
+    "possible_causes": ["impact", "pressing damage", "handling collision", "machining defect"],
+    "common_materials": ["metal", "plastic", "painted surface"],
+    "common_regions": ["flat surface", "edge", "contact area"],
+    "confusable_normal_patterns": ["designed concavity", "normal hole", "lighting reflection"],
+    "positive_prompts": ["a local dent on the surface", "a concave deformation defect", "an impact-induced depression"],
+    "negative_prompts": ["a normal designed hole", "a smooth flat surface", "a regular surface curvature"]
+  },
+  "hole": {
+    "visual_attributes": ["unexpected opening", "dark circular region", "missing material", "puncture"],
+    "possible_causes": ["drilling error", "material loss", "puncture", "corrosion"],
+    "common_materials": ["metal", "plastic", "leather", "textile"],
+    "common_regions": ["surface", "thin region", "edge"],
+    "confusable_normal_patterns": ["designed hole", "screw hole", "shadow"],
+    "positive_prompts": ["an unexpected hole in the product", "a puncture defect", "a missing-material opening"],
+    "negative_prompts": ["a designed product hole", "a regular screw hole", "an intact surface"]
+  },
+  "missing_part": {
+    "visual_attributes": ["absent component", "empty slot", "structural incompleteness", "broken assembly"],
+    "possible_causes": ["assembly omission", "component drop-off", "welding failure", "packaging damage"],
+    "common_materials": ["electronic assembly", "mechanical assembly", "cable", "connector"],
+    "common_regions": ["component area", "connector area", "slot", "edge"],
+    "confusable_normal_patterns": ["empty designed slot", "occlusion", "background gap"],
+    "positive_prompts": ["a missing component", "an incomplete assembly region", "an absent part defect"],
+    "negative_prompts": ["a complete assembly", "a designed empty slot", "an occluded but normal region"]
+  },
+  "deformation": {
+    "visual_attributes": ["bent shape", "irregular contour", "warping", "geometric distortion"],
+    "possible_causes": ["pressure", "temperature change", "mold deviation", "transportation damage"],
+    "common_materials": ["plastic", "metal", "rubber", "packaging"],
+    "common_regions": ["edge", "thin structure", "whole object contour"],
+    "confusable_normal_patterns": ["perspective distortion", "normal product curvature", "pose variation"],
+    "positive_prompts": ["a deformed product shape", "a bent or warped region", "an irregular geometric contour"],
+    "negative_prompts": ["a normal product shape", "regular perspective distortion", "a designed curved structure"]
+  },
+  "discoloration": {
+    "visual_attributes": ["color change", "burn mark", "oxidation", "uneven coating", "local color shift"],
+    "possible_causes": ["oxidation", "heat damage", "coating failure", "chemical reaction"],
+    "common_materials": ["metal", "plastic", "painted surface", "capsule"],
+    "common_regions": ["surface", "edge", "coated region"],
+    "confusable_normal_patterns": ["illumination change", "material texture", "shadow"],
+    "positive_prompts": ["a discolored defect region", "a local abnormal color change", "a burn or oxidation mark"],
+    "negative_prompts": ["normal color variation", "illumination shadow", "regular material texture"]
+  },
+  "misalignment": {
+    "visual_attributes": ["wrong position", "shifted component", "irregular arrangement", "alignment error"],
+    "possible_causes": ["assembly offset", "placement error", "fixture deviation", "printing misregistration"],
+    "common_materials": ["PCB", "printed product", "assembled component", "packaging"],
+    "common_regions": ["component area", "printed pattern", "connector", "repeated structure"],
+    "confusable_normal_patterns": ["perspective shift", "valid pose variation", "occlusion"],
+    "positive_prompts": ["a misaligned component", "an incorrectly positioned part", "an arrangement anomaly"],
+    "negative_prompts": ["a correctly aligned component", "a regular arrangement", "a normal pose variation"]
+  },
+  "foreign_object": {
+    "visual_attributes": ["unexpected object", "extra material", "local clutter", "visible particle"],
+    "possible_causes": ["foreign material contamination", "packaging residue", "dust", "process debris"],
+    "common_materials": ["all product types"],
+    "common_regions": ["surface", "gap", "container", "assembly area"],
+    "confusable_normal_patterns": ["normal component", "printed mark", "background object"],
+    "positive_prompts": ["an unexpected foreign object", "extra material on the product", "a foreign particle on the surface"],
+    "negative_prompts": ["a normal product component", "a regular printed mark", "clean background"]
+  }
+}
