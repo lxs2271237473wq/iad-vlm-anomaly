@@ -1,2 +1,7 @@
 image_AUROC,image_F1Score,pixel_AUROC,pixel_F1Score,model,dataset,category,datamodule,backbone,layers,coreset_sampling_ratio,num_neighbors,image_size,center_crop_size
-1.0000001192092896,1.0,0.9795131683349609,0.724614143371582,patchcore,MVTecAD,bottle,Folder,wide_resnet50_2,"layer2,layer3",0.1,9,256,224
+0.9928570985794067,0.9655172228813171,0.9897653460502625,0.39711901545524597,patchcore,MVTecAD,screw,Folder,wide_resnet50_2,"layer2,layer3",0.1,9,256,224
+1.0,0.9756097793579102,0.9774338603019714,0.7030894756317139,patchcore,MVTecAD,transistor,Folder,wide_resnet50_2,"layer2,layer3",0.1,9,256,224
+1.0,1.0,0.9797483682632446,0.7249171733856201,patchcore,MVTecAD,bottle,Folder,wide_resnet50_2,"layer2,layer3",0.1,9,256,224
+0.9696969389915466,0.9532710313796997,0.9889897108078003,0.546994149684906,patchcore,MVTecAD,capsule,Folder,wide_resnet50_2,"layer2,layer3",0.1,9,256,224
+0.9980657696723938,0.978723406791687,0.9785343408584595,0.8320768475532532,patchcore,MVTecAD,metal_nut,Folder,wide_resnet50_2,"layer2,layer3",0.1,9,256,224
+0.9880059957504272,0.9677419066429138,0.9817377328872681,0.6488621234893799,patchcore,MVTecAD,cable,Folder,wide_resnet50_2,"layer2,layer3",0.1,9,256,224
