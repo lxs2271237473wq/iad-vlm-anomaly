@@ -1,0 +1,16 @@
+{
+  "image_AUROC": 1.0000001192092896,
+  "image_F1Score": 1.0,
+  "pixel_AUROC": 0.9795131683349609,
+  "pixel_F1Score": 0.724614143371582,
+  "model": "patchcore",
+  "dataset": "MVTecAD",
+  "category": "bottle",
+  "datamodule": "Folder",
+  "backbone": "wide_resnet50_2",
+  "layers": "layer2,layer3",
+  "coreset_sampling_ratio": 0.1,
+  "num_neighbors": 9,
+  "image_size": "256",
+  "center_crop_size": "224"
+}
