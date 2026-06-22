@@ -1,0 +1,148 @@
+{
+  "dataset": "MVTec AD",
+  "note": "This file contains manufacturing-aware semantic priors derived from public category names, defect names, and general industrial visual inspection knowledge. It is not a real factory SOP.",
+  "generic_defect_types": {
+    "scratch": {
+      "visual_attributes": ["thin", "linear", "surface damage", "high local contrast"],
+      "possible_causes": ["friction", "handling damage", "transportation damage", "surface processing defect"],
+      "positive_prompts": [
+        "a thin scratch on the surface",
+        "a linear surface defect",
+        "a damaged surface with a scratch"
+      ],
+      "negative_prompts": [
+        "regular texture",
+        "normal surface grain",
+        "expected manufacturing pattern"
+      ]
+    },
+    "crack": {
+      "visual_attributes": ["irregular line", "broken structure", "sharp boundary"],
+      "possible_causes": ["material stress", "impact", "thermal stress", "molding defect"],
+      "positive_prompts": [
+        "a crack in the object",
+        "a broken surface region",
+        "an irregular fracture line"
+      ],
+      "negative_prompts": [
+        "normal edge",
+        "regular seam",
+        "natural texture boundary"
+      ]
+    },
+    "contamination": {
+      "visual_attributes": ["foreign material", "local stain", "unexpected blob", "color inconsistency"],
+      "possible_causes": ["dust", "oil", "residue", "insufficient cleaning"],
+      "positive_prompts": [
+        "foreign contamination on the product",
+        "an unexpected stain or residue",
+        "a dirty local region"
+      ],
+      "negative_prompts": [
+        "normal color variation",
+        "expected texture",
+        "lighting variation"
+      ]
+    },
+    "cut": {
+      "visual_attributes": ["sharp local damage", "thin gap", "surface discontinuity"],
+      "possible_causes": ["cutting damage", "tool contact", "handling damage"],
+      "positive_prompts": [
+        "a cut defect",
+        "a sharp damaged line",
+        "a local surface cut"
+      ],
+      "negative_prompts": [
+        "normal boundary",
+        "regular edge",
+        "expected object contour"
+      ]
+    },
+    "color": {
+      "visual_attributes": ["local discoloration", "abnormal color patch", "uneven appearance"],
+      "possible_causes": ["coating defect", "staining", "material inconsistency", "illumination-independent color defect"],
+      "positive_prompts": [
+        "an abnormal color region",
+        "a discoloration defect",
+        "an unexpected color patch"
+      ],
+      "negative_prompts": [
+        "normal color variation",
+        "shadow",
+        "illumination change"
+      ]
+    },
+    "deformation": {
+      "visual_attributes": ["bent part", "shape distortion", "misalignment", "structural change"],
+      "possible_causes": ["assembly error", "mechanical stress", "pressing defect", "handling damage"],
+      "positive_prompts": [
+        "a deformed object part",
+        "a bent or distorted structure",
+        "an abnormal shape"
+      ],
+      "negative_prompts": [
+        "normal pose variation",
+        "expected object geometry",
+        "regular structure"
+      ]
+    }
+  },
+  "categories": {
+    "grid": {
+      "object_type": "regular texture surface",
+      "material_or_surface": "grid-like patterned surface",
+      "inspection_focus": ["broken grid structure", "foreign material", "local pattern interruption"],
+      "normal_prompts": [
+        "a normal grid texture with regular repeated pattern",
+        "an intact grid surface without local defects"
+      ],
+      "defect_prompts": [
+        "a defective grid texture with broken local pattern",
+        "a grid surface with contamination or thread-like defect",
+        "an abnormal local interruption in a regular grid pattern"
+      ]
+    },
+    "screw": {
+      "object_type": "small metal fastener",
+      "material_or_surface": "metal object with thread and head structure",
+      "inspection_focus": ["thread damage", "scratch on head", "neck defect", "small structural defect"],
+      "normal_prompts": [
+        "a normal screw with intact head and thread",
+        "a metal screw without scratches or thread damage"
+      ],
+      "defect_prompts": [
+        "a defective screw with damaged thread",
+        "a screw with a scratch on the head or neck",
+        "a small structural defect on a metal screw"
+      ]
+    },
+    "leather": {
+      "object_type": "textured surface material",
+      "material_or_surface": "leather-like surface texture",
+      "inspection_focus": ["cut", "fold", "glue", "color defect", "surface damage"],
+      "normal_prompts": [
+        "a normal leather surface with natural regular texture",
+        "an intact leather texture without abnormal cuts or color defects"
+      ],
+      "defect_prompts": [
+        "a leather surface with a cut defect",
+        "a leather surface with abnormal color or glue contamination",
+        "a local defect on a textured leather surface"
+      ]
+    },
+    "wood": {
+      "object_type": "natural textured material",
+      "material_or_surface": "wood surface with natural grain",
+      "inspection_focus": ["scratch", "hole", "liquid stain", "color defect"],
+      "normal_prompts": [
+        "a normal wood surface with natural grain",
+        "an intact wood texture without abnormal stains or scratches"
+      ],
+      "defect_prompts": [
+        "a wood surface with a scratch or hole",
+        "a wood surface with liquid stain or abnormal color",
+        "a local defect on natural wood grain"
+      ]
+    }
+  }
+}

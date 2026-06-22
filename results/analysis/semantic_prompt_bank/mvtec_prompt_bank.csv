@@ -1,0 +1,57 @@
+dataset,category,prompt_type,prompt,object_type,material_or_surface,inspection_focus
+MVTec AD,grid,normal,a normal grid texture with regular repeated pattern,regular texture surface,grid-like patterned surface,broken grid structure; foreign material; local pattern interruption
+MVTec AD,grid,normal,an intact grid surface without local defects,regular texture surface,grid-like patterned surface,broken grid structure; foreign material; local pattern interruption
+MVTec AD,grid,defect,a defective grid texture with broken local pattern,regular texture surface,grid-like patterned surface,broken grid structure; foreign material; local pattern interruption
+MVTec AD,grid,defect,a grid surface with contamination or thread-like defect,regular texture surface,grid-like patterned surface,broken grid structure; foreign material; local pattern interruption
+MVTec AD,grid,defect,an abnormal local interruption in a regular grid pattern,regular texture surface,grid-like patterned surface,broken grid structure; foreign material; local pattern interruption
+MVTec AD,screw,normal,a normal screw with intact head and thread,small metal fastener,metal object with thread and head structure,thread damage; scratch on head; neck defect; small structural defect
+MVTec AD,screw,normal,a metal screw without scratches or thread damage,small metal fastener,metal object with thread and head structure,thread damage; scratch on head; neck defect; small structural defect
+MVTec AD,screw,defect,a defective screw with damaged thread,small metal fastener,metal object with thread and head structure,thread damage; scratch on head; neck defect; small structural defect
+MVTec AD,screw,defect,a screw with a scratch on the head or neck,small metal fastener,metal object with thread and head structure,thread damage; scratch on head; neck defect; small structural defect
+MVTec AD,screw,defect,a small structural defect on a metal screw,small metal fastener,metal object with thread and head structure,thread damage; scratch on head; neck defect; small structural defect
+MVTec AD,leather,normal,a normal leather surface with natural regular texture,textured surface material,leather-like surface texture,cut; fold; glue; color defect; surface damage
+MVTec AD,leather,normal,an intact leather texture without abnormal cuts or color defects,textured surface material,leather-like surface texture,cut; fold; glue; color defect; surface damage
+MVTec AD,leather,defect,a leather surface with a cut defect,textured surface material,leather-like surface texture,cut; fold; glue; color defect; surface damage
+MVTec AD,leather,defect,a leather surface with abnormal color or glue contamination,textured surface material,leather-like surface texture,cut; fold; glue; color defect; surface damage
+MVTec AD,leather,defect,a local defect on a textured leather surface,textured surface material,leather-like surface texture,cut; fold; glue; color defect; surface damage
+MVTec AD,wood,normal,a normal wood surface with natural grain,natural textured material,wood surface with natural grain,scratch; hole; liquid stain; color defect
+MVTec AD,wood,normal,an intact wood texture without abnormal stains or scratches,natural textured material,wood surface with natural grain,scratch; hole; liquid stain; color defect
+MVTec AD,wood,defect,a wood surface with a scratch or hole,natural textured material,wood surface with natural grain,scratch; hole; liquid stain; color defect
+MVTec AD,wood,defect,a wood surface with liquid stain or abnormal color,natural textured material,wood surface with natural grain,scratch; hole; liquid stain; color defect
+MVTec AD,wood,defect,a local defect on natural wood grain,natural textured material,wood surface with natural grain,scratch; hole; liquid stain; color defect
+MVTec AD,generic,defect_scratch,a thin scratch on the surface,generic industrial defect,,thin; linear; surface damage; high local contrast
+MVTec AD,generic,defect_scratch,a linear surface defect,generic industrial defect,,thin; linear; surface damage; high local contrast
+MVTec AD,generic,defect_scratch,a damaged surface with a scratch,generic industrial defect,,thin; linear; surface damage; high local contrast
+MVTec AD,generic,negative_scratch,regular texture,generic industrial normal pattern,,friction; handling damage; transportation damage; surface processing defect
+MVTec AD,generic,negative_scratch,normal surface grain,generic industrial normal pattern,,friction; handling damage; transportation damage; surface processing defect
+MVTec AD,generic,negative_scratch,expected manufacturing pattern,generic industrial normal pattern,,friction; handling damage; transportation damage; surface processing defect
+MVTec AD,generic,defect_crack,a crack in the object,generic industrial defect,,irregular line; broken structure; sharp boundary
+MVTec AD,generic,defect_crack,a broken surface region,generic industrial defect,,irregular line; broken structure; sharp boundary
+MVTec AD,generic,defect_crack,an irregular fracture line,generic industrial defect,,irregular line; broken structure; sharp boundary
+MVTec AD,generic,negative_crack,normal edge,generic industrial normal pattern,,material stress; impact; thermal stress; molding defect
+MVTec AD,generic,negative_crack,regular seam,generic industrial normal pattern,,material stress; impact; thermal stress; molding defect
+MVTec AD,generic,negative_crack,natural texture boundary,generic industrial normal pattern,,material stress; impact; thermal stress; molding defect
+MVTec AD,generic,defect_contamination,foreign contamination on the product,generic industrial defect,,foreign material; local stain; unexpected blob; color inconsistency
+MVTec AD,generic,defect_contamination,an unexpected stain or residue,generic industrial defect,,foreign material; local stain; unexpected blob; color inconsistency
+MVTec AD,generic,defect_contamination,a dirty local region,generic industrial defect,,foreign material; local stain; unexpected blob; color inconsistency
+MVTec AD,generic,negative_contamination,normal color variation,generic industrial normal pattern,,dust; oil; residue; insufficient cleaning
+MVTec AD,generic,negative_contamination,expected texture,generic industrial normal pattern,,dust; oil; residue; insufficient cleaning
+MVTec AD,generic,negative_contamination,lighting variation,generic industrial normal pattern,,dust; oil; residue; insufficient cleaning
+MVTec AD,generic,defect_cut,a cut defect,generic industrial defect,,sharp local damage; thin gap; surface discontinuity
+MVTec AD,generic,defect_cut,a sharp damaged line,generic industrial defect,,sharp local damage; thin gap; surface discontinuity
+MVTec AD,generic,defect_cut,a local surface cut,generic industrial defect,,sharp local damage; thin gap; surface discontinuity
+MVTec AD,generic,negative_cut,normal boundary,generic industrial normal pattern,,cutting damage; tool contact; handling damage
+MVTec AD,generic,negative_cut,regular edge,generic industrial normal pattern,,cutting damage; tool contact; handling damage
+MVTec AD,generic,negative_cut,expected object contour,generic industrial normal pattern,,cutting damage; tool contact; handling damage
+MVTec AD,generic,defect_color,an abnormal color region,generic industrial defect,,local discoloration; abnormal color patch; uneven appearance
+MVTec AD,generic,defect_color,a discoloration defect,generic industrial defect,,local discoloration; abnormal color patch; uneven appearance
+MVTec AD,generic,defect_color,an unexpected color patch,generic industrial defect,,local discoloration; abnormal color patch; uneven appearance
+MVTec AD,generic,negative_color,normal color variation,generic industrial normal pattern,,coating defect; staining; material inconsistency; illumination-independent color defect
+MVTec AD,generic,negative_color,shadow,generic industrial normal pattern,,coating defect; staining; material inconsistency; illumination-independent color defect
+MVTec AD,generic,negative_color,illumination change,generic industrial normal pattern,,coating defect; staining; material inconsistency; illumination-independent color defect
+MVTec AD,generic,defect_deformation,a deformed object part,generic industrial defect,,bent part; shape distortion; misalignment; structural change
+MVTec AD,generic,defect_deformation,a bent or distorted structure,generic industrial defect,,bent part; shape distortion; misalignment; structural change
+MVTec AD,generic,defect_deformation,an abnormal shape,generic industrial defect,,bent part; shape distortion; misalignment; structural change
+MVTec AD,generic,negative_deformation,normal pose variation,generic industrial normal pattern,,assembly error; mechanical stress; pressing defect; handling damage
+MVTec AD,generic,negative_deformation,expected object geometry,generic industrial normal pattern,,assembly error; mechanical stress; pressing defect; handling damage
+MVTec AD,generic,negative_deformation,regular structure,generic industrial normal pattern,,assembly error; mechanical stress; pressing defect; handling damage
