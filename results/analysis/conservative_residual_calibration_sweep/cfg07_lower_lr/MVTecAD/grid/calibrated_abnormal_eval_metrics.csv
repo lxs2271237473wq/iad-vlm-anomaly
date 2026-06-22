@@ -1,0 +1,15 @@
+image_path,threshold,iou,f1,pred_area,gt_area
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/metal_contamination/009.png,0.75,0.29062870699881377,0.45036764705882354,825,263
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/bent/004.png,0.75,0.37595419847328243,0.5464632454923717,894,548
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/metal_contamination/001.png,0.75,0.4809322033898305,0.6494992846924177,927,471
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/glue/009.png,0.75,0.6192468619246861,0.7648578811369509,406,368
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/broken/003.png,0.75,0.34516765285996054,0.5131964809384164,1309,737
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/bent/002.png,0.75,0.24213836477987422,0.389873417721519,583,207
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/glue/005.png,0.75,0.3154639175257732,0.47962382445141066,480,158
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/bent/000.png,0.75,0.2812960235640648,0.43908045977011495,526,344
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/thread/008.png,0.75,0.2754158964879852,0.4318840579710145,1401,2049
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/glue/007.png,0.75,0.5788497217068646,0.7332549941245593,528,323
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/bent/007.png,0.75,0.44036697247706424,0.6114649681528662,667,746
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/bent/003.png,0.75,0.13631522896698617,0.23992502343017807,620,447
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/thread/006.png,0.75,0.14821222606689735,0.25816172777498747,1157,834
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/glue/004.png,0.75,0.6823956442831216,0.8112189859762675,451,476

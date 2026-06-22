@@ -1,0 +1,16 @@
+image_path,threshold,iou,f1,pred_area,gt_area
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/hole/009.png,0.7,0.3558091286307054,0.5248661055853099,741,566
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/scratch/002.png,0.7,0.5231316725978647,0.6869158878504673,4996,3136
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/combined/008.png,0.7,0.31401320616287604,0.47794528196538244,2893,2480
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/liquid/009.png,0.7,0.6030385664199455,0.7523693803159174,1852,2263
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/liquid/003.png,0.7,0.49868766404199477,0.6654991243432574,2013,1984
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/liquid/006.png,0.7,0.614244741873805,0.7610305004441812,3079,3675
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/scratch/018.png,0.7,0.5738905644118915,0.7292636189433342,1498,2155
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/scratch/012.png,0.7,0.5268542199488491,0.6901172529313233,2610,4554
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/color/001.png,0.7,0.3990795529257068,0.5704887218045113,1445,2811
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/liquid/008.png,0.7,0.6689237348538846,0.80162289130899,4928,4438
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/combined/002.png,0.7,0.14691046658259774,0.2561847168774052,1586,233
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/combined/007.png,0.7,0.4470588235294118,0.6178861788617886,2854,3911
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/scratch/019.png,0.7,0.16200852676456656,0.2788422339991847,4025,881
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/hole/003.png,0.7,0.4922766957689725,0.6597659765976598,1411,811
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/liquid/004.png,0.7,0.48808104886769965,0.6559871846215458,1211,1286

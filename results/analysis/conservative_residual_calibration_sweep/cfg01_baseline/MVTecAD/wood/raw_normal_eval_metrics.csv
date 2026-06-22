@@ -1,0 +1,6 @@
+image_path,threshold,normal_pred_area,normal_fp_ratio
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/good/017.png,0.75,1113,0.022181919642857144
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/good/013.png,0.75,4785,0.09536431760204081
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/good/010.png,0.75,2158,0.04300860969387755
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/good/008.png,0.75,1842,0.03671077806122449
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/good/000.png,0.75,2296,0.04575892857142857

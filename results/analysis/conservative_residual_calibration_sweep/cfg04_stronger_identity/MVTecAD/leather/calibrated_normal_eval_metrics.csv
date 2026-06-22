@@ -1,0 +1,9 @@
+image_path,threshold,normal_pred_area,normal_fp_ratio
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/leather/test/good/023.png,0.85,378,0.007533482142857143
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/leather/test/good/006.png,0.85,341,0.006796077806122449
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/leather/test/good/021.png,0.85,211,0.004205197704081632
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/leather/test/good/004.png,0.85,371,0.007393973214285714
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/leather/test/good/028.png,0.85,262,0.005221619897959184
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/leather/test/good/010.png,0.85,649,0.012934470663265306
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/leather/test/good/002.png,0.85,404,0.008051658163265306
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/leather/test/good/007.png,0.85,339,0.006756218112244898

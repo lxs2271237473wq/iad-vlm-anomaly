@@ -1,0 +1,15 @@
+image_path,threshold,iou,f1,pred_area,gt_area
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/metal_contamination/009.png,0.7999999999999999,0.2862453531598513,0.44508670520231214,775,263
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/bent/004.png,0.7999999999999999,0.3793793793793794,0.5500725689404935,830,548
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/metal_contamination/001.png,0.7999999999999999,0.48775055679287305,0.655688622754491,865,471
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/glue/009.png,0.7999999999999999,0.610989010989011,0.7585266030013642,365,368
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/broken/003.png,0.7999999999999999,0.34228650137741046,0.5100051308363264,1212,737
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/bent/002.png,0.7999999999999999,0.25257731958762886,0.40329218106995884,522,207
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/glue/005.png,0.7999999999999999,0.3237250554323725,0.48911222780569513,439,158
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/bent/000.png,0.7999999999999999,0.2367601246105919,0.38287153652392947,450,344
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/thread/008.png,0.7999999999999999,0.25431530494821636,0.4055045871559633,1221,2049
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/glue/007.png,0.7999999999999999,0.6075697211155379,0.7558859975216853,484,323
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/bent/007.png,0.7999999999999999,0.4338235294117647,0.6051282051282051,619,746
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/bent/003.png,0.7999999999999999,0.13904338153503892,0.244140625,577,447
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/thread/006.png,0.7999999999999999,0.1444912703190849,0.2524986849026828,1067,834
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/glue/004.png,0.7999999999999999,0.6617375231053605,0.796440489432703,423,476
