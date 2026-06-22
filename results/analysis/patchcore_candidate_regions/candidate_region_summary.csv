@@ -1,0 +1,5 @@
+category,threshold,num_images,no_candidate_images,candidate_rows,candidate_csv
+grid,0.7999999999999999,28,0,36,results/analysis/patchcore_candidate_regions/MVTecAD/grid/candidate_regions/candidate_regions.csv
+screw,0.85,60,0,83,results/analysis/patchcore_candidate_regions/MVTecAD/screw/candidate_regions/candidate_regions.csv
+leather,0.9,46,0,46,results/analysis/patchcore_candidate_regions/MVTecAD/leather/candidate_regions/candidate_regions.csv
+wood,0.7,30,0,57,results/analysis/patchcore_candidate_regions/MVTecAD/wood/candidate_regions/candidate_regions.csv
