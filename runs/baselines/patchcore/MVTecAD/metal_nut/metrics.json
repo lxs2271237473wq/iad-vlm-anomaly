@@ -1,8 +1,8 @@
 {
-  "image_AUROC": 0.9980657696723938,
-  "image_F1Score": 0.978723406791687,
-  "pixel_AUROC": 0.9785343408584595,
-  "pixel_F1Score": 0.8320768475532532,
+  "image_AUROC": 0.9961315393447876,
+  "image_F1Score": 0.97826087474823,
+  "pixel_AUROC": 0.9788660407066345,
+  "pixel_F1Score": 0.8320217132568359,
   "model": "patchcore",
   "dataset": "MVTecAD",
   "category": "metal_nut",

@@ -1,8 +1,8 @@
 {
   "image_AUROC": 1.0,
-  "image_F1Score": 0.9756097793579102,
-  "pixel_AUROC": 0.9774338603019714,
-  "pixel_F1Score": 0.7030894756317139,
+  "image_F1Score": 0.9743589758872986,
+  "pixel_AUROC": 0.9788216948509216,
+  "pixel_F1Score": 0.7050474286079407,
   "model": "patchcore",
   "dataset": "MVTecAD",
   "category": "transistor",

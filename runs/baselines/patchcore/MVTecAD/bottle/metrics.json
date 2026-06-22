@@ -1,8 +1,8 @@
 {
   "image_AUROC": 1.0,
   "image_F1Score": 1.0,
-  "pixel_AUROC": 0.9797483682632446,
-  "pixel_F1Score": 0.7249171733856201,
+  "pixel_AUROC": 0.9796766042709351,
+  "pixel_F1Score": 0.7250464558601379,
   "model": "patchcore",
   "dataset": "MVTecAD",
   "category": "bottle",

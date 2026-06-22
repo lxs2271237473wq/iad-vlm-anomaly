@@ -1,8 +1,8 @@
 {
-  "image_AUROC": 0.9880059957504272,
-  "image_F1Score": 0.9677419066429138,
-  "pixel_AUROC": 0.9817377328872681,
-  "pixel_F1Score": 0.6488621234893799,
+  "image_AUROC": 0.985757052898407,
+  "image_F1Score": 0.978723406791687,
+  "pixel_AUROC": 0.9819286465644836,
+  "pixel_F1Score": 0.649442732334137,
   "model": "patchcore",
   "dataset": "MVTecAD",
   "category": "cable",

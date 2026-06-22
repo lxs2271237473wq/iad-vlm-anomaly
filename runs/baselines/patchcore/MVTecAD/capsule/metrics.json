@@ -1,8 +1,8 @@
 {
-  "image_AUROC": 0.9696969389915466,
-  "image_F1Score": 0.9532710313796997,
-  "pixel_AUROC": 0.9889897108078003,
-  "pixel_F1Score": 0.546994149684906,
+  "image_AUROC": 0.9621211886405945,
+  "image_F1Score": 0.9541284441947937,
+  "pixel_AUROC": 0.9887865781784058,
+  "pixel_F1Score": 0.5435410141944885,
   "model": "patchcore",
   "dataset": "MVTecAD",
   "category": "capsule",
