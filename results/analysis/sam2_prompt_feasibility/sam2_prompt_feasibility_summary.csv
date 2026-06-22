@@ -1,0 +1,5 @@
+category,num_images,patchcore_top1_gt_iou_mean,patchcore_top1_gt_f1_mean,sam2_gt_iou_mean,sam2_gt_f1_mean,result_csv
+grid,28,0.3149347142857143,0.4559350714285716,0.07564623290292402,0.12802264758867207,results/analysis/sam2_prompt_feasibility/MVTecAD/grid/sam2_box_prompt/sam2_box_prompt_results.csv
+screw,60,0.2735840666666667,0.38407579999999997,0.03566209955342403,0.06114261502991771,results/analysis/sam2_prompt_feasibility/MVTecAD/screw/sam2_box_prompt/sam2_box_prompt_results.csv
+leather,46,0.3444190652173913,0.5023771521739132,0.027767398140498622,0.04688663608304276,results/analysis/sam2_prompt_feasibility/MVTecAD/leather/sam2_box_prompt/sam2_box_prompt_results.csv
+wood,30,0.26785223333333336,0.39247019999999994,0.2504479058660883,0.3613647539695728,results/analysis/sam2_prompt_feasibility/MVTecAD/wood/sam2_box_prompt/sam2_box_prompt_results.csv
