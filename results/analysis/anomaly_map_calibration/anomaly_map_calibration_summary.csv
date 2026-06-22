@@ -1,0 +1,6 @@
+category,num_samples,best_method,best_value,best_keep_largest,best_mean_iou,best_mean_f1,best_mean_pred_area,best_mean_threshold,detail_csv
+grid,28,fixed,0.7999999999999999,False,0.32984431290806565,0.47579785315040163,764.5357142857143,0.8,results/analysis/anomaly_map_calibration/MVTecAD/grid/anomaly_map_calibration_detail.csv
+screw,60,fixed,0.85,False,0.2806462547114884,0.4024324777078432,491.3666666666667,0.85,results/analysis/anomaly_map_calibration/MVTecAD/screw/anomaly_map_calibration_detail.csv
+leather,46,fixed,0.9,False,0.345641324801399,0.5036351803751505,348.2391304347826,0.8999999999999998,results/analysis/anomaly_map_calibration/MVTecAD/leather/anomaly_map_calibration_detail.csv
+wood,30,fixed,0.7,False,0.36071847436320353,0.5004443546662555,3549.4333333333334,0.6999999999999997,results/analysis/anomaly_map_calibration/MVTecAD/wood/anomaly_map_calibration_detail.csv
+MEAN,164,,,,0.3292125916960391,0.4705774664749127,1288.3937111801242,0.8124999999999999,
