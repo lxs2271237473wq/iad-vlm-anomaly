@@ -1,0 +1,5 @@
+category,num_images,num_candidates,patchcore_top1_gt_iou,patchcore_top1_gt_f1,clip_rerank_gt_iou,clip_rerank_gt_f1,combined_rerank_gt_iou,combined_rerank_gt_f1,delta_combined_f1,result_csv
+grid,28,36,0.3149347142857143,0.4559350714285716,0.3126480000000001,0.45298617857142875,0.3126480000000001,0.45298617857142875,-0.0029488928571428374,results/analysis/clip_semantic_candidate_scoring/MVTecAD/grid/clip_candidate_scores.csv
+screw,60,83,0.2735840666666667,0.38407579999999997,0.28888548333333325,0.40908354999999996,0.28924199999999994,0.40598809999999996,0.021912299999999996,results/analysis/clip_semantic_candidate_scoring/MVTecAD/screw/clip_candidate_scores.csv
+leather,46,46,0.3444190652173913,0.5023771521739132,0.3444190652173913,0.5023771521739132,0.3444190652173913,0.5023771521739132,0.0,results/analysis/clip_semantic_candidate_scoring/MVTecAD/leather/clip_candidate_scores.csv
+wood,30,57,0.26785223333333336,0.39247019999999994,0.26985669999999995,0.3933002666666665,0.2651462,0.38780533333333334,-0.0046648666666666005,results/analysis/clip_semantic_candidate_scoring/MVTecAD/wood/clip_candidate_scores.csv
