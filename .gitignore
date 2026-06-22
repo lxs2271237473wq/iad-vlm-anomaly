@@ -79,3 +79,9 @@ Thumbs.db
 # Allow selected analysis visualizations
 !results/visualizations/
 !results/visualizations/**
+
+# Allow selected analysis result CSV files
+!results/analysis/
+!results/analysis/**
+!results/analysis/patchcore_threshold_diagnosis/
+!results/analysis/patchcore_threshold_diagnosis/**
