@@ -1,0 +1,12 @@
+image_path,threshold,normal_pred_area,normal_fp_ratio
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/screw/test/good/034.png,0.7999999999999999,413,0.008231026785714286
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/screw/test/good/031.png,0.7999999999999999,1251,0.024932238520408163
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/screw/test/good/037.png,0.7999999999999999,810,0.016143176020408163
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/screw/test/good/039.png,0.7999999999999999,956,0.01905293367346939
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/screw/test/good/002.png,0.7999999999999999,1232,0.024553571428571428
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/screw/test/good/029.png,0.7999999999999999,272,0.005420918367346939
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/screw/test/good/016.png,0.7999999999999999,622,0.012396364795918368
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/screw/test/good/035.png,0.7999999999999999,920,0.01833545918367347
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/screw/test/good/000.png,0.7999999999999999,340,0.006776147959183673
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/screw/test/good/024.png,0.7999999999999999,611,0.012177136479591837
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/screw/test/good/013.png,0.7999999999999999,417,0.008310746173469387
