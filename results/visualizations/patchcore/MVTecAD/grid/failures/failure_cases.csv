@@ -1,0 +1,9 @@
+rank,category,image_path,pred_score,gt_label,gt_area,pred_area,pixel_f1,visual_path
+1,grid,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/glue/001.png,0.5136317014694214,1.0,316,0,0.0,results/visualizations/patchcore/MVTecAD/grid/failures/rank_01_f1_0.0000.png
+2,grid,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/glue/007.png,0.6214331984519958,1.0,323,0,0.0,results/visualizations/patchcore/MVTecAD/grid/failures/rank_02_f1_0.0000.png
+3,grid,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/metal_contamination/009.png,0.5423069596290588,1.0,263,0,0.0,results/visualizations/patchcore/MVTecAD/grid/failures/rank_03_f1_0.0000.png
+4,grid,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/metal_contamination/007.png,0.6347033381462097,1.0,124,22,0.0410958904109589,results/visualizations/patchcore/MVTecAD/grid/failures/rank_04_f1_0.0411.png
+5,grid,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/bent/000.png,0.6414419412612915,1.0,344,64,0.058823529411764705,results/visualizations/patchcore/MVTecAD/grid/failures/rank_05_f1_0.0588.png
+6,grid,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/broken/004.png,1.0,1.0,288,1975,0.18382677861246133,results/visualizations/patchcore/MVTecAD/grid/failures/rank_06_f1_0.1838.png
+7,grid,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/thread/006.png,0.7285343408584595,1.0,834,814,0.2487864077669903,results/visualizations/patchcore/MVTecAD/grid/failures/rank_07_f1_0.2488.png
+8,grid,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/grid/test/broken/002.png,0.7726365327835083,1.0,89,582,0.26527570789865873,results/visualizations/patchcore/MVTecAD/grid/failures/rank_08_f1_0.2653.png

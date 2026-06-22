@@ -1,0 +1,9 @@
+rank,category,image_path,pred_score,gt_label,gt_area,pred_area,pixel_f1,visual_path
+1,leather,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/leather/test/color/002.png,0.735414445400238,1.0,363,0,0.0,results/visualizations/patchcore/MVTecAD/leather/failures/rank_01_f1_0.0000.png
+2,leather,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/leather/test/color/004.png,0.5758997201919556,1.0,446,0,0.0,results/visualizations/patchcore/MVTecAD/leather/failures/rank_02_f1_0.0000.png
+3,leather,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/leather/test/color/005.png,0.6615530848503113,1.0,125,0,0.0,results/visualizations/patchcore/MVTecAD/leather/failures/rank_03_f1_0.0000.png
+4,leather,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/leather/test/color/006.png,0.6741035580635071,1.0,59,0,0.0,results/visualizations/patchcore/MVTecAD/leather/failures/rank_04_f1_0.0000.png
+5,leather,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/leather/test/color/014.png,0.6693375110626221,1.0,130,0,0.0,results/visualizations/patchcore/MVTecAD/leather/failures/rank_05_f1_0.0000.png
+6,leather,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/leather/test/color/018.png,0.733077347278595,1.0,85,0,0.0,results/visualizations/patchcore/MVTecAD/leather/failures/rank_06_f1_0.0000.png
+7,leather,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/leather/test/cut/009.png,0.6335622668266296,1.0,105,0,0.0,results/visualizations/patchcore/MVTecAD/leather/failures/rank_07_f1_0.0000.png
+8,leather,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/leather/test/cut/010.png,0.6230934858322144,1.0,114,0,0.0,results/visualizations/patchcore/MVTecAD/leather/failures/rank_08_f1_0.0000.png

@@ -1,0 +1,9 @@
+rank,category,image_path,pred_score,gt_label,gt_area,pred_area,pixel_f1,visual_path
+1,screw,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/screw/test/manipulated_front/009.png,0.6526748538017273,1.0,421,0,0.0,results/visualizations/patchcore/MVTecAD/screw/failures/rank_01_f1_0.0000.png
+2,screw,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/screw/test/manipulated_front/010.png,0.6532894968986511,1.0,212,0,0.0,results/visualizations/patchcore/MVTecAD/screw/failures/rank_02_f1_0.0000.png
+3,screw,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/screw/test/manipulated_front/011.png,0.7674785256385803,1.0,191,134,0.0,results/visualizations/patchcore/MVTecAD/screw/failures/rank_03_f1_0.0000.png
+4,screw,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/screw/test/manipulated_front/012.png,0.5545104742050171,1.0,63,0,0.0,results/visualizations/patchcore/MVTecAD/screw/failures/rank_04_f1_0.0000.png
+5,screw,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/screw/test/manipulated_front/013.png,0.6745610237121582,1.0,194,0,0.0,results/visualizations/patchcore/MVTecAD/screw/failures/rank_05_f1_0.0000.png
+6,screw,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/screw/test/manipulated_front/020.png,0.5938753485679626,1.0,85,0,0.0,results/visualizations/patchcore/MVTecAD/screw/failures/rank_06_f1_0.0000.png
+7,screw,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/screw/test/manipulated_front/022.png,0.5076192021369934,1.0,94,0,0.0,results/visualizations/patchcore/MVTecAD/screw/failures/rank_07_f1_0.0000.png
+8,screw,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/screw/test/scratch_head/007.png,0.6925878524780273,1.0,169,0,0.0,results/visualizations/patchcore/MVTecAD/screw/failures/rank_08_f1_0.0000.png

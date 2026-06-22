@@ -75,3 +75,7 @@ mlruns/
 # =========================
 .DS_Store
 Thumbs.db
+
+# Allow selected analysis visualizations
+!results/visualizations/
+!results/visualizations/**

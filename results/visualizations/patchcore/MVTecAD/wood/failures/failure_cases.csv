@@ -1,0 +1,9 @@
+rank,category,image_path,pred_score,gt_label,gt_area,pred_area,pixel_f1,visual_path
+1,wood,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/hole/005.png,0.4329198896884918,1.0,792,0,0.0,results/visualizations/patchcore/MVTecAD/wood/failures/rank_01_f1_0.0000.png
+2,wood,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/scratch/001.png,0.34832021594047546,1.0,502,0,0.0,results/visualizations/patchcore/MVTecAD/wood/failures/rank_02_f1_0.0000.png
+3,wood,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/combined/002.png,0.8598407506942749,1.0,233,2320,0.18253035644339993,results/visualizations/patchcore/MVTecAD/wood/failures/rank_03_f1_0.1825.png
+4,wood,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/scratch/010.png,0.8541719913482666,1.0,1782,4524,0.19156359023152553,results/visualizations/patchcore/MVTecAD/wood/failures/rank_04_f1_0.1916.png
+5,wood,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/scratch/020.png,0.8076534271240234,1.0,1528,1739,0.21426385062748698,results/visualizations/patchcore/MVTecAD/wood/failures/rank_05_f1_0.2143.png
+6,wood,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/scratch/019.png,0.8349790573120117,1.0,881,4667,0.25702956020187456,results/visualizations/patchcore/MVTecAD/wood/failures/rank_06_f1_0.2570.png
+7,wood,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/scratch/008.png,1.0,1.0,1491,8869,0.27123552123552125,results/visualizations/patchcore/MVTecAD/wood/failures/rank_07_f1_0.2712.png
+8,wood,/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/scratch/009.png,0.9459003210067749,1.0,1404,3435,0.2756767927257698,results/visualizations/patchcore/MVTecAD/wood/failures/rank_08_f1_0.2757.png
