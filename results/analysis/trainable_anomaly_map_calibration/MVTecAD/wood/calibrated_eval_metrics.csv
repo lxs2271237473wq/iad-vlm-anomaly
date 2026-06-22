@@ -1,0 +1,16 @@
+image_path,threshold,iou,f1,pred_area,gt_area
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/combined/008.png,0.5499999999999999,0.31750847760128503,0.48198320238417774,4902,2480
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/color/001.png,0.5499999999999999,0.44972972972972974,0.6204325130499627,2553,2811
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/liquid/009.png,0.5499999999999999,0.5311853384569908,0.6938223938223939,2917,2263
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/scratch/002.png,0.5499999999999999,0.4266917293233083,0.5981554677206851,6731,3136
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/scratch/012.png,0.5499999999999999,0.49777605878940245,0.6646868947708199,3191,4554
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/liquid/004.png,0.5499999999999999,0.39025480554313813,0.5614147909967846,1824,1286
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/liquid/003.png,0.5499999999999999,0.4498861047835991,0.6205813040062844,3108,1984
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/liquid/008.png,0.5499999999999999,0.6382515491542455,0.7791862604784298,5344,4438
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/scratch/019.png,0.5499999999999999,0.16145947126939042,0.2780285929270128,4435,881
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/combined/007.png,0.5499999999999999,0.3022445280914541,0.4641901295364522,5430,3911
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/hole/003.png,0.5499999999999999,0.22031571722717913,0.3610798650168729,2745,811
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/scratch/018.png,0.5499999999999999,0.5235722499041778,0.6872955974842767,1820,2155
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/combined/002.png,0.5499999999999999,0.08823529411764706,0.16216216216216217,2431,233
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/liquid/006.png,0.5499999999999999,0.557031526744598,0.7155044932317143,5116,3675
+/root/private_data/iad-vlm-anomaly/datasets/MVTecAD/wood/test/hole/009.png,0.5499999999999999,0.33553500660501984,0.5024727992087042,1456,566
