@@ -85,3 +85,8 @@ Thumbs.db
 !results/analysis/**
 !results/analysis/patchcore_threshold_diagnosis/
 !results/analysis/patchcore_threshold_diagnosis/**
+
+# Local third-party dependencies, do not upload
+third_party/*
+!third_party/
+!third_party/README.md
