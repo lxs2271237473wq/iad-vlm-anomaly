@@ -1,0 +1,13 @@
+category,train_good,test_good,test_anomaly,masks,total_view_images,category_root
+candle,900,100,100,100,1100,datasets/VisA_anomalib_1cls/candle
+capsules,542,60,100,100,702,datasets/VisA_anomalib_1cls/capsules
+cashew,450,50,100,100,600,datasets/VisA_anomalib_1cls/cashew
+chewinggum,453,50,100,100,603,datasets/VisA_anomalib_1cls/chewinggum
+fryum,450,50,100,100,600,datasets/VisA_anomalib_1cls/fryum
+macaroni1,900,100,100,100,1100,datasets/VisA_anomalib_1cls/macaroni1
+macaroni2,900,100,100,100,1100,datasets/VisA_anomalib_1cls/macaroni2
+pcb1,904,100,100,100,1104,datasets/VisA_anomalib_1cls/pcb1
+pcb2,901,100,100,100,1101,datasets/VisA_anomalib_1cls/pcb2
+pcb3,905,101,100,100,1106,datasets/VisA_anomalib_1cls/pcb3
+pcb4,904,101,100,100,1105,datasets/VisA_anomalib_1cls/pcb4
+pipe_fryum,450,50,100,100,600,datasets/VisA_anomalib_1cls/pipe_fryum
