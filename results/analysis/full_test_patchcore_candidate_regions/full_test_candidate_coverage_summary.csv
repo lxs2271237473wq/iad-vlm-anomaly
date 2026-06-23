@@ -1,3 +1,6 @@
 category,manifest_images,candidate_images,covered_images,coverage_ratio,missing_images
 grid,57,56,56,0.9824561403508771,1
-MEAN,57,56,56,0.9824561403508771,1
+screw,119,119,119,1.0,0
+leather,92,92,92,1.0,0
+wood,60,60,60,1.0,0
+MEAN,328,327,327,0.9969512195121951,1

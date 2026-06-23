@@ -1,2 +1,5 @@
 category,threshold,num_abnormal_images,num_normal_skipped,no_candidate_images,candidate_rows,candidate_csv
-grid,0.7999999999999999,56,22,0,80,results/analysis/full_test_patchcore_candidate_regions/MVTecAD/grid/candidate_regions/candidate_regions.csv
+grid,0.7999999999999999,56,22,0,82,results/analysis/full_test_patchcore_candidate_regions/MVTecAD/grid/candidate_regions/candidate_regions.csv
+screw,0.85,119,41,0,160,results/analysis/full_test_patchcore_candidate_regions/MVTecAD/screw/candidate_regions/candidate_regions.csv
+leather,0.9,92,32,0,92,results/analysis/full_test_patchcore_candidate_regions/MVTecAD/leather/candidate_regions/candidate_regions.csv
+wood,0.7,60,19,0,115,results/analysis/full_test_patchcore_candidate_regions/MVTecAD/wood/candidate_regions/candidate_regions.csv
