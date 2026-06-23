@@ -16,6 +16,8 @@ from anomalib.data import Folder
 from anomalib.engine import Engine
 from anomalib.models import Patchcore
 
+from experiments.stage7_generalization.progress_utils import OneLineProgressCallback
+
 from experiments.analysis.patchcore_candidate_regions import (
     get_field,
     take_item,
@@ -174,11 +176,16 @@ def collect_predictions(args, category):
     work_dir = Path(args.work_root) / category
     work_dir.mkdir(parents=True, exist_ok=True)
 
+    progress_callback = OneLineProgressCallback(category=category)
+
     engine = Engine(
         default_root_dir=str(work_dir),
         accelerator="gpu" if torch.cuda.is_available() else "cpu",
         devices=1,
         logger=False,
+        enable_progress_bar=False,
+        enable_model_summary=False,
+        callbacks=[progress_callback],
     )
 
     print(f"[INFO] Fitting PatchCore on VisA category: {category}")
