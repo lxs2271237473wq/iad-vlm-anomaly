@@ -1,0 +1,2 @@
+category,threshold,num_abnormal_images,num_normal_skipped,no_candidate_images,candidate_rows,candidate_csv
+grid,0.7999999999999999,56,22,0,80,results/analysis/full_test_patchcore_candidate_regions/MVTecAD/grid/candidate_regions/candidate_regions.csv

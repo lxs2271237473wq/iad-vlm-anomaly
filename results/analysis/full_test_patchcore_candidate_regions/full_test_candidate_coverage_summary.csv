@@ -1,0 +1,3 @@
+category,manifest_images,candidate_images,covered_images,coverage_ratio,missing_images
+grid,57,56,56,0.9824561403508771,1
+MEAN,57,56,56,0.9824561403508771,1

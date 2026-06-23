@@ -1,0 +1,81 @@
+strategy,category,defect_type,num_prompts,prompts
+generic_label,grid,bent,1,a close-up photo of bent defect
+generic_label,grid,broken,1,a close-up photo of broken defect
+generic_label,grid,glue,1,a close-up photo of glue defect
+generic_label,grid,metal_contamination,1,a close-up photo of metal_contamination defect
+generic_label,grid,thread,1,a close-up photo of thread defect
+generic_label,leather,color,1,a close-up photo of color defect
+generic_label,leather,cut,1,a close-up photo of cut defect
+generic_label,leather,fold,1,a close-up photo of fold defect
+generic_label,leather,glue,1,a close-up photo of glue defect
+generic_label,leather,poke,1,a close-up photo of poke defect
+generic_label,screw,manipulated_front,1,a close-up photo of manipulated_front defect
+generic_label,screw,scratch_head,1,a close-up photo of scratch_head defect
+generic_label,screw,scratch_neck,1,a close-up photo of scratch_neck defect
+generic_label,screw,thread_side,1,a close-up photo of thread_side defect
+generic_label,screw,thread_top,1,a close-up photo of thread_top defect
+generic_label,wood,color,1,a close-up photo of color defect
+generic_label,wood,combined,1,a close-up photo of combined defect
+generic_label,wood,hole,1,a close-up photo of hole defect
+generic_label,wood,liquid,1,a close-up photo of liquid defect
+generic_label,wood,scratch,1,a close-up photo of scratch defect
+short_visual,grid,bent,1,a close-up inspection image showing a bent or deformed local structure
+short_visual,grid,broken,1,a close-up inspection image showing a broken or missing local structure
+short_visual,grid,glue,1,a close-up inspection image showing a glue-like contamination or sticky residue
+short_visual,grid,metal_contamination,1,a close-up inspection image showing a metallic foreign contamination spot
+short_visual,grid,thread,1,a close-up inspection image showing an irregular thread-like defect or line pattern interruption
+short_visual,leather,color,1,a close-up inspection image showing a local abnormal color change or stain
+short_visual,leather,cut,1,a close-up inspection image showing a sharp cut mark on the surface
+short_visual,leather,fold,1,a close-up inspection image showing a folded or wrinkled surface region
+short_visual,leather,glue,1,a close-up inspection image showing a glue-like contamination or sticky residue
+short_visual,leather,poke,1,a close-up inspection image showing a small puncture-like local damage
+short_visual,screw,manipulated_front,1,a close-up inspection image showing a manipulated or deformed front surface
+short_visual,screw,scratch_head,1,a close-up inspection image showing thin scratch marks on the screw head
+short_visual,screw,scratch_neck,1,a close-up inspection image showing thin scratch marks on the screw neck
+short_visual,screw,thread_side,1,a close-up inspection image showing abnormal damage along the side thread
+short_visual,screw,thread_top,1,a close-up inspection image showing abnormal damage on the top thread
+short_visual,wood,color,1,a close-up inspection image showing a local abnormal color change or stain
+short_visual,wood,combined,1,a close-up inspection image showing multiple mixed defect patterns in one region
+short_visual,wood,hole,1,a close-up inspection image showing a local hole or missing region
+short_visual,wood,liquid,1,a close-up inspection image showing a liquid-like stain or wet contamination
+short_visual,wood,scratch,1,a close-up inspection image showing a thin line-like scratch crossing the surface
+category_visual,grid,bent,1,a close-up crop of a defective grid texture surface showing a bent or deformed local structure
+category_visual,grid,broken,1,a close-up crop of a defective grid texture surface showing a broken or missing local structure
+category_visual,grid,glue,1,a close-up crop of a defective grid texture surface showing a glue-like contamination or sticky residue
+category_visual,grid,metal_contamination,1,a close-up crop of a defective grid texture surface showing a metallic foreign contamination spot
+category_visual,grid,thread,1,a close-up crop of a defective grid texture surface showing an irregular thread-like defect or line pattern interruption
+category_visual,leather,color,1,a close-up crop of a defective leather surface showing a local abnormal color change or stain
+category_visual,leather,cut,1,a close-up crop of a defective leather surface showing a sharp cut mark on the surface
+category_visual,leather,fold,1,a close-up crop of a defective leather surface showing a folded or wrinkled surface region
+category_visual,leather,glue,1,a close-up crop of a defective leather surface showing a glue-like contamination or sticky residue
+category_visual,leather,poke,1,a close-up crop of a defective leather surface showing a small puncture-like local damage
+category_visual,screw,manipulated_front,1,a close-up crop of a defective metal screw showing a manipulated or deformed front surface
+category_visual,screw,scratch_head,1,a close-up crop of a defective metal screw showing thin scratch marks on the screw head
+category_visual,screw,scratch_neck,1,a close-up crop of a defective metal screw showing thin scratch marks on the screw neck
+category_visual,screw,thread_side,1,a close-up crop of a defective metal screw showing abnormal damage along the side thread
+category_visual,screw,thread_top,1,a close-up crop of a defective metal screw showing abnormal damage on the top thread
+category_visual,wood,color,1,a close-up crop of a defective wood surface showing a local abnormal color change or stain
+category_visual,wood,combined,1,a close-up crop of a defective wood surface showing multiple mixed defect patterns in one region
+category_visual,wood,hole,1,a close-up crop of a defective wood surface showing a local hole or missing region
+category_visual,wood,liquid,1,a close-up crop of a defective wood surface showing a liquid-like stain or wet contamination
+category_visual,wood,scratch,1,a close-up crop of a defective wood surface showing a thin line-like scratch crossing the surface
+visual_ensemble,grid,bent,4,a close-up photo of bent defect || a close-up inspection image showing a bent or deformed local structure || a local defect region with a bent or deformed local structure || a defective grid texture surface on regular repeated grid pattern showing a bent or deformed local structure
+visual_ensemble,grid,broken,4,a close-up photo of broken defect || a close-up inspection image showing a broken or missing local structure || a local defect region with a broken or missing local structure || a defective grid texture surface on regular repeated grid pattern showing a broken or missing local structure
+visual_ensemble,grid,glue,4,a close-up photo of glue defect || a close-up inspection image showing a glue-like contamination or sticky residue || a local defect region with a glue-like contamination or sticky residue || a defective grid texture surface on regular repeated grid pattern showing a glue-like contamination or sticky residue
+visual_ensemble,grid,metal_contamination,4,a close-up photo of metal_contamination defect || a close-up inspection image showing a metallic foreign contamination spot || a local defect region with a metallic foreign contamination spot || a defective grid texture surface on regular repeated grid pattern showing a metallic foreign contamination spot
+visual_ensemble,grid,thread,4,a close-up photo of thread defect || a close-up inspection image showing an irregular thread-like defect or line pattern interruption || a local defect region with an irregular thread-like defect or line pattern interruption || a defective grid texture surface on regular repeated grid pattern showing an irregular thread-like defect or line pattern interruption
+visual_ensemble,leather,color,4,a close-up photo of color defect || a close-up inspection image showing a local abnormal color change or stain || a local defect region with a local abnormal color change or stain || a defective leather surface on soft textured leather surface showing a local abnormal color change or stain
+visual_ensemble,leather,cut,4,a close-up photo of cut defect || a close-up inspection image showing a sharp cut mark on the surface || a local defect region with a sharp cut mark on the surface || a defective leather surface on soft textured leather surface showing a sharp cut mark on the surface
+visual_ensemble,leather,fold,4,a close-up photo of fold defect || a close-up inspection image showing a folded or wrinkled surface region || a local defect region with a folded or wrinkled surface region || a defective leather surface on soft textured leather surface showing a folded or wrinkled surface region
+visual_ensemble,leather,glue,4,a close-up photo of glue defect || a close-up inspection image showing a glue-like contamination or sticky residue || a local defect region with a glue-like contamination or sticky residue || a defective leather surface on soft textured leather surface showing a glue-like contamination or sticky residue
+visual_ensemble,leather,poke,4,a close-up photo of poke defect || a close-up inspection image showing a small puncture-like local damage || a local defect region with a small puncture-like local damage || a defective leather surface on soft textured leather surface showing a small puncture-like local damage
+visual_ensemble,screw,manipulated_front,4,a close-up photo of manipulated_front defect || a close-up inspection image showing a manipulated or deformed front surface || a local defect region with a manipulated or deformed front surface || a defective metal screw on metal threaded surface showing a manipulated or deformed front surface
+visual_ensemble,screw,scratch_head,4,a close-up photo of scratch_head defect || a close-up inspection image showing thin scratch marks on the screw head || a local defect region with thin scratch marks on the screw head || a defective metal screw on metal threaded surface showing thin scratch marks on the screw head
+visual_ensemble,screw,scratch_neck,4,a close-up photo of scratch_neck defect || a close-up inspection image showing thin scratch marks on the screw neck || a local defect region with thin scratch marks on the screw neck || a defective metal screw on metal threaded surface showing thin scratch marks on the screw neck
+visual_ensemble,screw,thread_side,4,a close-up photo of thread_side defect || a close-up inspection image showing abnormal damage along the side thread || a local defect region with abnormal damage along the side thread || a defective metal screw on metal threaded surface showing abnormal damage along the side thread
+visual_ensemble,screw,thread_top,4,a close-up photo of thread_top defect || a close-up inspection image showing abnormal damage on the top thread || a local defect region with abnormal damage on the top thread || a defective metal screw on metal threaded surface showing abnormal damage on the top thread
+visual_ensemble,wood,color,4,a close-up photo of color defect || a close-up inspection image showing a local abnormal color change or stain || a local defect region with a local abnormal color change or stain || a defective wood surface on natural wood grain surface showing a local abnormal color change or stain
+visual_ensemble,wood,combined,4,a close-up photo of combined defect || a close-up inspection image showing multiple mixed defect patterns in one region || a local defect region with multiple mixed defect patterns in one region || a defective wood surface on natural wood grain surface showing multiple mixed defect patterns in one region
+visual_ensemble,wood,hole,4,a close-up photo of hole defect || a close-up inspection image showing a local hole or missing region || a local defect region with a local hole or missing region || a defective wood surface on natural wood grain surface showing a local hole or missing region
+visual_ensemble,wood,liquid,4,a close-up photo of liquid defect || a close-up inspection image showing a liquid-like stain or wet contamination || a local defect region with a liquid-like stain or wet contamination || a defective wood surface on natural wood grain surface showing a liquid-like stain or wet contamination
+visual_ensemble,wood,scratch,4,a close-up photo of scratch defect || a close-up inspection image showing a thin line-like scratch crossing the surface || a local defect region with a thin line-like scratch crossing the surface || a defective wood surface on natural wood grain surface showing a thin line-like scratch crossing the surface
