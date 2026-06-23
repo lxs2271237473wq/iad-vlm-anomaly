@@ -1,0 +1,9 @@
+Stage,Branch,Method,Metric,Main Gain,Main Limitation,Use in Paper
+Stage 4.1,localization,anomaly region scoring baseline,0.471249343426501,weak positive candidate ranking,uses candidate subset and hand-designed features,auxiliary / negative / motivation result
+Stage 4.2,localization,enhanced anomaly region scoring,0.4745791025522283,adds contrast/stability/shape features,does not outperform Stage 4.1,auxiliary / negative / motivation result
+Stage 5.1,localization,simple anomaly-map calibration,0.4705774664749127,tests fixed/percentile/mean-std thresholding,best method remains fixed threshold,auxiliary / negative / motivation result
+Stage 5.2,localization,trainable Tiny CNN anomaly-map calibration,0.3955828949574317,tests trainable calibration,naive trainable calibration collapses on several categories,auxiliary / negative / motivation result
+Stage 5.3,localization,conservative residual anomaly-map calibration,0.5150067848961855,stable residual calibration,gain is too small to use as main module,auxiliary / negative / motivation result
+Stage 5.4,localization,conservative residual calibration sweep best: cfg03_larger_delta,0.5183686629377395,best residual calibration setting found by sweep,best gain remains too small; trainable calibration line stopped,auxiliary / negative / motivation result
+Stage 6.5,manufacturing_explanation,manufacturing-aware explanation generation,0.3397873279746681,adds structured manufacturing-aware explanation without changing classification output,"explanations are candidate reasoning, not verified causal diagnosis",auxiliary / negative / motivation result
+SAM2 analysis,localization,naive SAM2 box prompt and anomaly-aware SAM2 selection,below or similar to PatchCore component mask,shows that generic segmentation does not directly solve defect mask refinement,SAM2 tends to segment object/texture regions rather than defect regions,negative result / motivation

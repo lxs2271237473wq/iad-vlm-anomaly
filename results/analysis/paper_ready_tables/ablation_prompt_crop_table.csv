@@ -1,0 +1,21 @@
+Strategy,Input Mode,Setting Type,Used Images,Coverage,Fallback,Skipped,Top-1,Top-2,Macro-F1
+category_visual,full_all,realistic_full_test,328.0,1.0000,0.0,0.0,0.2592,0.4633,0.1857
+category_visual,crop_or_full,realistic_full_test,328.0,0.9970,1.0,0.0,0.2787,0.4934,0.1952
+category_visual,crop_topk_ensemble,realistic_full_test,328.0,0.9970,1.0,0.0,0.2872,0.5124,0.2069
+category_visual,crop_only,near_full_candidate_subset,327.0,0.9970,0.0,1.0,0.2798,0.4955,0.1961
+category_visual,crop_topk_only,near_full_candidate_subset,327.0,0.9970,0.0,1.0,0.2884,0.5146,0.2083
+generic_label,full_all,realistic_full_test,328.0,1.0000,0.0,0.0,0.2850,0.4990,0.1543
+generic_label,crop_or_full,realistic_full_test,328.0,0.9970,1.0,0.0,0.3178,0.5030,0.1950
+generic_label,crop_topk_ensemble,realistic_full_test,328.0,0.9970,1.0,0.0,0.3388,0.5072,0.2206
+generic_label,crop_only,near_full_candidate_subset,327.0,0.9970,0.0,1.0,0.3188,0.5002,0.1954
+generic_label,crop_topk_only,near_full_candidate_subset,327.0,0.9970,0.0,1.0,0.3398,0.5045,0.2209
+short_visual,full_all,realistic_full_test,328.0,1.0000,0.0,0.0,0.2798,0.4705,0.1600
+short_visual,crop_or_full,realistic_full_test,328.0,0.9970,1.0,0.0,0.3104,0.5131,0.1972
+short_visual,crop_topk_ensemble,realistic_full_test,328.0,0.9970,1.0,0.0,0.3187,0.5131,0.2022
+short_visual,crop_only,near_full_candidate_subset,327.0,0.9970,0.0,1.0,0.3112,0.5151,0.1975
+short_visual,crop_topk_only,near_full_candidate_subset,327.0,0.9970,0.0,1.0,0.3196,0.5151,0.2025
+visual_ensemble,full_all,realistic_full_test,328.0,1.0000,0.0,0.0,0.3170,0.4911,0.1912
+visual_ensemble,crop_or_full,realistic_full_test,328.0,0.9970,1.0,0.0,0.2822,0.5641,0.1743
+visual_ensemble,crop_topk_ensemble,realistic_full_test,328.0,0.9970,1.0,0.0,0.2801,0.5722,0.1681
+visual_ensemble,crop_only,near_full_candidate_subset,327.0,0.9970,0.0,1.0,0.2830,0.5663,0.1745
+visual_ensemble,crop_topk_only,near_full_candidate_subset,327.0,0.9970,0.0,1.0,0.2809,0.5743,0.1683

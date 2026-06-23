@@ -1,0 +1,8 @@
+Stage,Method,Prompt Strategy,Input,Candidate Source,Images,Top-1,Top-2,Macro-F1,Role
+Stage 6.2,category_visual + gt_crop,category_visual,gt_crop,GT mask,328.0,0.3102,0.4655,0.2460,"upper-bound diagnostic, not fair deployable result"
+Stage 6.2,short_visual + gt_crop,short_visual,gt_crop,GT mask,328.0,0.3045,0.4669,0.2100,"upper-bound diagnostic, not fair deployable result"
+Stage 6.1-D,category_aware + gt_crop,category_aware,gt_crop,GT mask,328.0,0.2973,0.5022,0.2147,"upper-bound diagnostic, not fair deployable result"
+Stage 6.2,generic_label + gt_crop,generic_label,gt_crop,GT mask,328.0,0.2925,0.4721,0.1973,"upper-bound diagnostic, not fair deployable result"
+Stage 6.1-D,generic + gt_crop,generic,gt_crop,GT mask,328.0,0.2904,0.4623,0.1865,"upper-bound diagnostic, not fair deployable result"
+Stage 6.1-D,manufacturing_aware + gt_crop,manufacturing_aware,gt_crop,GT mask,328.0,0.2788,0.4539,0.1969,"upper-bound diagnostic, not fair deployable result"
+Stage 6.2,visual_ensemble + gt_crop,visual_ensemble,gt_crop,GT mask,328.0,0.2744,0.4974,0.1837,"upper-bound diagnostic, not fair deployable result"

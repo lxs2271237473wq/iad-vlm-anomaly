@@ -1,0 +1,5 @@
+Prompt Strategy,Baseline,Method,Images,Top-1,Top-1 Δ,Top-2,Top-2 Δ,Macro-F1,Macro-F1 Δ,Fair Setting
+generic_label,full_all,crop_topk_ensemble,328,0.3388,+0.0537,0.5072,+0.0082,0.2206,+0.0663,same 328-image setting
+short_visual,full_all,crop_topk_ensemble,328,0.3187,+0.0390,0.5131,+0.0426,0.2022,+0.0422,same 328-image setting
+category_visual,full_all,crop_topk_ensemble,328,0.2872,+0.0281,0.5124,+0.0492,0.2069,+0.0213,same 328-image setting
+visual_ensemble,full_all,crop_topk_ensemble,328,0.2801,-0.0368,0.5722,+0.0811,0.1681,-0.0232,same 328-image setting

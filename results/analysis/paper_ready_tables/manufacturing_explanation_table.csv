@@ -1,0 +1,6 @@
+Category,Reports,Predicted Defect Types,Defect Families,Top-1,Top-2,Confidence Margin,Role
+grid,56,4,3,0.2321,0.3750,0.0043,"explanation layer, not accuracy-improvement module"
+leather,92,5,4,0.2826,0.4130,0.0026,"explanation layer, not accuracy-improvement module"
+screw,119,5,2,0.3277,0.5798,0.0058,"explanation layer, not accuracy-improvement module"
+wood,60,3,3,0.5167,0.6500,0.0138,"explanation layer, not accuracy-improvement module"
+MEAN,327,16,6,0.3398,0.5045,0.0061,"explanation layer, not accuracy-improvement module"
