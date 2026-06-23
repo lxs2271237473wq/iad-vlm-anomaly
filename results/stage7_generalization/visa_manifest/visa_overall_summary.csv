@@ -1,0 +1,2 @@
+dataset,source_split_csv,num_categories,num_images,num_train,num_test,num_normal,num_anomaly,num_pixel_masks,num_missing_records
+VisA,/root/private_data/iad-vlm-anomaly/datasets/VisA/split_csv/1cls.csv,12,10821,8659,2162,9621,1200,1200,0
