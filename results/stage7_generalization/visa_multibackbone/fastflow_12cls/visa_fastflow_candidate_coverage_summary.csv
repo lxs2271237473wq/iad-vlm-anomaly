@@ -1,0 +1,14 @@
+dataset,category,num_anomaly_images,covered_anomaly_images,coverage_ratio,num_candidate_rows,candidate_csv
+VisA,candle,100,100,1.0,153,results/stage7_generalization/visa_multibackbone/fastflow_12cls/VisA/candle/candidate_regions.csv
+VisA,capsules,100,100,1.0,230,results/stage7_generalization/visa_multibackbone/fastflow_12cls/VisA/capsules/candidate_regions.csv
+VisA,cashew,100,100,1.0,246,results/stage7_generalization/visa_multibackbone/fastflow_12cls/VisA/cashew/candidate_regions.csv
+VisA,chewinggum,100,100,1.0,143,results/stage7_generalization/visa_multibackbone/fastflow_12cls/VisA/chewinggum/candidate_regions.csv
+VisA,fryum,100,100,1.0,275,results/stage7_generalization/visa_multibackbone/fastflow_12cls/VisA/fryum/candidate_regions.csv
+VisA,macaroni1,100,100,1.0,166,results/stage7_generalization/visa_multibackbone/fastflow_12cls/VisA/macaroni1/candidate_regions.csv
+VisA,macaroni2,100,100,1.0,195,results/stage7_generalization/visa_multibackbone/fastflow_12cls/VisA/macaroni2/candidate_regions.csv
+VisA,pcb1,100,100,1.0,212,results/stage7_generalization/visa_multibackbone/fastflow_12cls/VisA/pcb1/candidate_regions.csv
+VisA,pcb2,100,100,1.0,167,results/stage7_generalization/visa_multibackbone/fastflow_12cls/VisA/pcb2/candidate_regions.csv
+VisA,pcb3,100,99,0.99,158,results/stage7_generalization/visa_multibackbone/fastflow_12cls/VisA/pcb3/candidate_regions.csv
+VisA,pcb4,100,100,1.0,226,results/stage7_generalization/visa_multibackbone/fastflow_12cls/VisA/pcb4/candidate_regions.csv
+VisA,pipe_fryum,100,100,1.0,183,results/stage7_generalization/visa_multibackbone/fastflow_12cls/VisA/pipe_fryum/candidate_regions.csv
+VisA,MEAN,1200,1199,0.9991666666666666,2354,
