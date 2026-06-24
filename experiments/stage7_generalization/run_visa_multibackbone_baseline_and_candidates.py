@@ -231,7 +231,13 @@ def collect_predictions(args, category, category_index=1, total_categories=1):
     work_dir = Path(args.work_root) / args.backbone_model / category
     work_dir.mkdir(parents=True, exist_ok=True)
 
-    progress_callback = OneLineProgressCallback(category=f"{args.backbone_model}/{category}")
+    progress_callback = OneLineProgressCallback(
+        category=f"{args.backbone_model}/{category}",
+        category_index=category_index,
+        total_categories=total_categories,
+        refresh_interval=args.progress_refresh_interval,
+        run_start_time=args.run_start_time,
+    )
 
     engine = Engine(
         default_root_dir=str(work_dir),
@@ -253,39 +259,6 @@ def collect_predictions(args, category, category_index=1, total_categories=1):
     predictions = engine.predict(model=model, datamodule=datamodule)
 
     return predictions
-    datamodule = build_datamodule(args, category)
-
-    
-
-    work_dir = Path(args.work_root) / category
-    work_dir.mkdir(parents=True, exist_ok=True)
-
-    progress_callback = OneLineProgressCallback(
-        category=f"{args.backbone_model}/{category}",
-        category_index=category_index,
-        total_categories=total_categories,
-        refresh_interval=args.progress_refresh_interval,
-        run_start_time=args.run_start_time,
-    )
-
-    engine = Engine(
-        default_root_dir=str(work_dir),
-        accelerator="gpu" if torch.cuda.is_available() else "cpu",
-        devices=1,
-        logger=False,
-        enable_progress_bar=False,
-        enable_model_summary=False,
-        callbacks=[progress_callback],
-    )
-
-    print(f"[INFO] Fitting PatchCore on VisA category: {category}")
-    engine.fit(model=model, datamodule=datamodule)
-
-    print(f"[INFO] Predicting PatchCore on VisA category: {category}")
-    predictions = engine.predict(model=model, datamodule=datamodule)
-
-    return predictions
-
 
 def evaluate_and_extract_candidates(args, category, predictions):
     image_records = []
@@ -507,8 +480,8 @@ def main():
     parser.add_argument("--progress_refresh_interval", type=float, default=1.0)
     parser.add_argument("--data_root", type=str, default="datasets/VisA_anomalib_1cls")
     parser.add_argument("--categories", nargs="+", default=VISA_CATEGORIES)
-    parser.add_argument("--output_root", type=str, default="results/stage7_generalization/visa_patchcore")
-    parser.add_argument("--work_root", type=str, default="runs/stage7_generalization/visa_patchcore")
+    parser.add_argument("--output_root", type=str, default="results/stage7_generalization/visa_multibackbone")
+    parser.add_argument("--work_root", type=str, default="runs/stage7_generalization/visa_multibackbone")
     parser.add_argument("--backbone", type=str, default="wide_resnet50_2")
     parser.add_argument("--coreset_sampling_ratio", type=float, default=0.1)
     parser.add_argument("--num_neighbors", type=int, default=9)
