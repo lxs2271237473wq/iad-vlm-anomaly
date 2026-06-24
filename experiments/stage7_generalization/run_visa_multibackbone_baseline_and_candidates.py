@@ -465,7 +465,7 @@ def save_category_outputs(args, category, metric_row, image_records, candidate_r
     category_root = out_root / "VisA" / category
     category_root.mkdir(parents=True, exist_ok=True)
 
-    image_csv = category_root / "patchcore_image_predictions.csv"
+    image_csv = category_root / f"{args.backbone_model}_image_predictions.csv"
     candidates_csv = category_root / "candidate_regions.csv"
 
     pd.DataFrame(image_records).to_csv(image_csv, index=False)
@@ -585,16 +585,16 @@ def main():
     metrics_df = pd.concat([metrics_df, pd.DataFrame([mean_metrics])], ignore_index=True)
     coverage_df = pd.concat([coverage_df, pd.DataFrame([mean_coverage])], ignore_index=True)
 
-    metrics_csv = out_root / "visa_patchcore_baseline_summary.csv"
-    coverage_csv = out_root / "visa_patchcore_candidate_coverage_summary.csv"
+    metrics_csv = out_root / f"visa_{args.backbone_model}_baseline_summary.csv"
+    coverage_csv = out_root / f"visa_{args.backbone_model}_candidate_coverage_summary.csv"
 
     metrics_df.to_csv(metrics_csv, index=False)
     coverage_df.to_csv(coverage_csv, index=False)
 
-    print("\n========== VisA PatchCore Baseline Summary ==========")
+    print("\n========== VisA Multi-backbone Baseline Summary ==========")
     print(metrics_df.to_string(index=False))
 
-    print("\n========== VisA PatchCore Candidate Coverage ==========")
+    print("\n========== VisA Multi-backbone Candidate Coverage ==========")
     print(coverage_df.to_string(index=False))
 
     print(f"\n[DONE] Saved baseline summary to: {metrics_csv}")
