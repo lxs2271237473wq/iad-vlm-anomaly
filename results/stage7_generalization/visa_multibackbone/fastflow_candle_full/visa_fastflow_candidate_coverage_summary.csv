@@ -1,0 +1,3 @@
+dataset,category,num_anomaly_images,covered_anomaly_images,coverage_ratio,num_candidate_rows,candidate_csv
+VisA,candle,100,99,0.99,156,results/stage7_generalization/visa_multibackbone/fastflow_candle_full/VisA/candle/candidate_regions.csv
+VisA,MEAN,100,99,0.99,156,
