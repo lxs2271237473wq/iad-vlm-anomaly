@@ -1,0 +1,4 @@
+category,strategy,normal_prompts,anomaly_prompts
+candle,generic_binary,a normal industrial product || a defect-free industrial object || a clean normal object,a defective industrial product || an anomalous industrial object || a damaged or contaminated object
+candle,category_binary,a normal candle || a defect-free candle || a clean undamaged candle,a defective candle || an anomalous candle || a damaged or contaminated candle
+candle,inspection_binary,a quality inspection image of a normal candle || an industrial inspection photo of a defect-free candle || a close-up inspection image showing a normal candle,"a quality inspection image of a defective candle || an industrial inspection photo showing an anomaly on a candle || a close-up inspection image showing damage, contamination, or abnormal texture on a candle"
