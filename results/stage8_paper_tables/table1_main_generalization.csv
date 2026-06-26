@@ -1,0 +1,4 @@
+dataset,backbone,task,setting,full_image,crop,improvement,main_claim
+MVTec AD,PatchCore,Defect-type reasoning,"weak categories, fair full-test",0.2850 Top-1,0.3388 Top-1,+0.0538,PatchCore-guided crops improve defect-type reasoning.
+VisA,PatchCore,Binary normal/anomaly reasoning,"12 categories, 2162 test images",0.5950 AUROC,0.8844 AUROC,+0.2894,PatchCore candidates generalize crop reasoning to VisA.
+VisA,FastFlow,Binary normal/anomaly reasoning,"12 categories, 2162 test images",0.5950 AUROC,0.9222 AUROC,+0.3272,Crop reasoning also works with a non-PatchCore backbone.
