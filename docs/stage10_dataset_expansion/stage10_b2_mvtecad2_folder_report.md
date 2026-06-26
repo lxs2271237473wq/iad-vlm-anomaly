@@ -38,10 +38,9 @@ ground_truth/bad/
 ## 6. Optional Anomalib Folder Validation
 
 - Attempted: `True`
-- Success: `False`
-- Train batch keys: ``
-- Test batch keys: ``
-- Error: `TypeError("Folder.__init__() got an unexpected keyword argument 'task'")`
+- Success: `True`
+- Train batch keys: `<class 'anomalib.data.dataclasses.torch.image.ImageBatch'>`
+- Test batch keys: `<class 'anomalib.data.dataclasses.torch.image.ImageBatch'>`
 
 ## 7. Next Step
 

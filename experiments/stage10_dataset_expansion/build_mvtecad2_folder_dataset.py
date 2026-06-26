@@ -230,7 +230,6 @@ def optional_anomalib_validation() -> Dict[str, object]:
             abnormal_dir="test/bad",
             normal_test_dir="test/good",
             mask_dir="ground_truth/bad",
-            task="segmentation",
             train_batch_size=1,
             eval_batch_size=1,
             num_workers=0,
