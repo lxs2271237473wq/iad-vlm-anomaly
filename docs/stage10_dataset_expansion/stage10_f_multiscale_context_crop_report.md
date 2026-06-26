@@ -62,3 +62,5 @@ This stage tests whether adding spatial context around PatchCore candidate boxes
 - If any context-crop method exceeds full_image, keep MVTec AD 2 as positive evidence for context-aware localization-guided VLM reasoning.
 - If context crops remain below full_image, treat vial as a negative case and move to either another AD2 category or logical-anomaly data such as MVTec LOCO AD.
 - PatchCore score is a detector reference, not VLM reasoning evidence.
+
+<!-- stage10_f1_summary_refreshed_20260626_181042_202497 -->
