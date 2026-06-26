@@ -2,37 +2,15 @@
 
 ## 1. Purpose
 
-Stage 10-E showed that direct candidate crops underperform full-image VLM prompting.
-This stage tests whether adding spatial context around PatchCore candidate boxes improves VLM reasoning.
+Stage 10-F2 refreshes the multiscale context summary from existing image-level prediction files.
+It does not rerun CLIP, regenerate crops, train models, or modify datasets.
 
-## 2. Inputs
+## 2. Output Files
 
-- Candidate regions: `results/stage10_dataset_expansion/stage10_d_patchcore_candidate_regions.csv`
-- Stage 10-E image predictions: `results/stage10_dataset_expansion/stage10_e_vlm_image_predictions.csv`
-
-## 3. Context Configurations
-
-| Context | Scale | Square |
-|---|---:|---:|
-| context_0.20 | 0.2 | False |
-| context_0.50 | 0.5 | False |
-| context_1.00 | 1.0 | False |
-| context_1.50 | 1.5 | False |
-| square_context_1.00 | 1.0 | True |
-
-## 4. VLM Backend
-
-- Backend: `open_clip:ViT-B-32/openai`
-
-## 5. Output Files
-
-- Crop scores: `results/stage10_dataset_expansion/stage10_f_multiscale_context_crop_scores.csv`
-- Image predictions: `results/stage10_dataset_expansion/stage10_f_multiscale_context_image_predictions.csv`
 - Summary: `results/stage10_dataset_expansion/stage10_f_multiscale_context_summary.csv`
 - Report: `docs/stage10_dataset_expansion/stage10_f_multiscale_context_crop_report.md`
-- Generated crops: `results/stage10_dataset_expansion/stage10_f_multiscale_context_crops`
 
-## 6. Summary
+## 3. Summary
 
 | Method | Images | AUROC | AP | Best F1 | Best Acc | ΔAUROC vs full |
 |---|---:|---:|---:|---:|---:|---:|
@@ -57,10 +35,10 @@ This stage tests whether adding spatial context around PatchCore candidate boxes
 | context_0.20_top1 | 71 | 0.3899 | 0.7195 | 0.8618 | 0.7606 | -0.2589 |
 | stage10e_crop_top1 | 71 | 0.3753 | 0.7080 | 0.8689 | 0.7746 | -0.2736 |
 
-## 7. Decision Rule
+## 4. Decision Rule
 
-- If any context-crop method exceeds full_image, keep MVTec AD 2 as positive evidence for context-aware localization-guided VLM reasoning.
-- If context crops remain below full_image, treat vial as a negative case and move to either another AD2 category or logical-anomaly data such as MVTec LOCO AD.
+- If any context-crop method exceeds full_image, keep MVTec AD 2 vial as positive evidence for context-aware localization-guided VLM reasoning.
+- If all context-crop methods remain below full_image, treat AD2/vial as a negative case and test another AD2 category or MVTec LOCO AD.
 - PatchCore score is a detector reference, not VLM reasoning evidence.
 
-<!-- stage10_f1_summary_refreshed_20260626_181042_202497 -->
+<!-- stage10_f2_refreshed_20260626_181214_217737 -->
