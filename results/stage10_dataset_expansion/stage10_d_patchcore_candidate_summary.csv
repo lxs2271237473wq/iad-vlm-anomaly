@@ -1,0 +1,2 @@
+dataset,category,num_images,num_candidate_rows,num_images_with_candidates,candidate_coverage,mean_candidates_per_image,mean_pred_score
+MVTec AD 2,vial,71,123,71,1.0,1.732394366197183,0.7241884486776002
