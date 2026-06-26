@@ -464,16 +464,20 @@ def summarize(pred: pd.DataFrame) -> pd.DataFrame:
     y = y_base["gt_binary"].astype(int).to_numpy()
 
     for method, score_col in score_specs:
-        if method.startswith(("context_", "square_context_")):
-            continue
-
         if score_col not in pred.columns:
             continue
 
         if method in {"full_image", "stage10e_crop_top1", "stage10e_crop_topk_max", "stage10e_crop_topk_mean", "patchcore_score"}:
             part = pred.drop_duplicates("image_path")
         else:
-            context_name = method.rsplit("_", 2)[0]
+            if method.endswith("_topk_max"):
+                context_name = method[: -len("_topk_max")]
+            elif method.endswith("_topk_mean"):
+                context_name = method[: -len("_topk_mean")]
+            elif method.endswith("_top1"):
+                context_name = method[: -len("_top1")]
+            else:
+                context_name = method
             part = pred[pred["context_name"] == context_name].drop_duplicates("image_path")
 
         if part.empty or score_col not in part.columns:
