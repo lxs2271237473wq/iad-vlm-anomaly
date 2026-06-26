@@ -1,0 +1,7 @@
+step,name,input,operation,output,purpose
+Step 1,Anomaly map generation,Industrial test image,Use an anomaly detector such as PatchCore or FastFlow to generate image-level anomaly score and pixel-level anomaly map.,Anomaly map,Provide spatial localization cues for later VLM reasoning.
+Step 2,Candidate region extraction,Anomaly map,Threshold the anomaly map and extract connected components. Keep the top-k candidate regions according to anomaly response.,Top-k anomaly candidate boxes,Convert dense anomaly localization into explicit visual regions.
+Step 3,Anomaly crop construction,Original image and candidate boxes,Crop local image regions around candidate boxes with padding and minimum crop-size constraints.,Anomaly crops,Remove irrelevant background and focus the VLM on suspicious local regions.
+Step 4,Prompt-based VLM reasoning,Full image or anomaly crops plus text prompts,Compute image-text similarity between visual inputs and prompt sets.,Reasoning scores,Use VLM semantic ability for defect-type or normal/anomaly reasoning.
+Step 5,Top-k crop ensemble,Scores from multiple anomaly crops,Aggregate candidate crop scores using max or top-k ensemble over anomaly margins.,Final reasoning score,Improve robustness when the top-1 candidate is not the best semantic crop.
+Step 6,Fallback rule,Candidate availability,"If no candidate crop is available, use the full image as fallback.",Complete evaluation over all test images,Avoid selective evaluation and preserve fair full-test comparison.
