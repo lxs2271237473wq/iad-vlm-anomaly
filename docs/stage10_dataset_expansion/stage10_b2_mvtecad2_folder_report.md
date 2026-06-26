@@ -46,3 +46,5 @@ ground_truth/bad/
 
 If `Success=True`, Stage 10-C should run the first PatchCore pilot on this Folder dataset.
 If Anomalib validation fails, Stage 10-C should first patch the datamodule arguments instead of training.
+
+<!-- stage10_b2_anomalib_folder_validation_success_refreshed -->
