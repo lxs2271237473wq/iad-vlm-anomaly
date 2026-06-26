@@ -1,0 +1,4 @@
+contribution_id,title,description,evidence
+Contribution 1,Localization-to-reasoning framework,Propose a framework that uses classical anomaly localization as a visual bridge between industrial anomaly detectors and visual-language reasoning models.,Full-image prompting is consistently weaker than anomaly-crop prompting on MVTec AD and VisA.
+Contribution 2,Dataset-level generalization,"Show that localization-guided crops improve reasoning on both MVTec AD and VisA, under different reasoning tasks.",MVTec AD Top-1 improves from 0.2850 to 0.3388; VisA PatchCore AUROC improves from 0.5950 to 0.8844.
+Contribution 3,Backbone-level generalization,Show that the crop-reasoning gain is not tied to PatchCore by validating the same reasoning protocol with FastFlow candidates.,"On VisA, PatchCore crop AUROC is 0.8844; FastFlow crop AUROC is 0.9222; both improve substantially over full-image AUROC 0.5950."
