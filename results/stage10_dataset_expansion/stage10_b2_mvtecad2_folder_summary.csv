@@ -1,0 +1,4 @@
+dataset,category,target_subset,target_label,is_anomaly,anomaly_type,num_images,num_masks
+MVTec AD 2,vial,test,bad,1,bad,105,105
+MVTec AD 2,vial,test,good,0,good,35,0
+MVTec AD 2,vial,train,good,0,good,332,0
