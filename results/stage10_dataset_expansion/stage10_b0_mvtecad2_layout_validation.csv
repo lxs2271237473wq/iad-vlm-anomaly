@@ -1,0 +1,8 @@
+level,path,exists,dir_count,file_count,image_count
+dataset_root,datasets/MVTec_AD_2,True,12,1131,1129
+top_level_dir,datasets/MVTec_AD_2/vial,True,11,1129,1129
+second_level_dir,datasets/MVTec_AD_2/vial/test_private,True,0,276,276
+second_level_dir,datasets/MVTec_AD_2/vial/test_private_mixed,True,0,276,276
+second_level_dir,datasets/MVTec_AD_2/vial/test_public,True,4,245,245
+second_level_dir,datasets/MVTec_AD_2/vial/train,True,1,291,291
+second_level_dir,datasets/MVTec_AD_2/vial/validation,True,1,41,41
