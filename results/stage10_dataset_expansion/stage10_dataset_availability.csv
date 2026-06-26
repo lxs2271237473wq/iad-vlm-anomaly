@@ -1,0 +1,5 @@
+priority,dataset,status,found_paths,image_count,file_count,recommended_role,reason,risk
+1,MVTec AD 2,not_found,,0,0,main_next_dataset,"Official newer 2D industrial anomaly benchmark with advanced scenarios, lighting shifts, transparent/overlapping objects, high normal variance, and tiny defects.",Dataset structure differs from MVTec AD. Need adapter before PatchCore/FastFlow/crop reasoning.
+2,Real-IAD,not_found,datasets/RealIAD,0,0,large_scale_generalization,Large-scale real-world multi-view IAD dataset; useful when MVTec AD and VisA are saturated.,Large download and storage cost. Multi-view structure needs careful subset selection.
+3,MVTec LOCO AD,not_found,,0,0,logical_anomaly_reasoning_supplement,Contains both structural and logical anomalies; useful for VLM reasoning discussion.,Logical anomalies may not align with detector-localization crop assumption.
+4,MPDD,not_found,,0,0,small_real_metal_part_sanity_check,Small real metal-part defect benchmark with pixel-level masks.,Too small to become the main paper dataset.
