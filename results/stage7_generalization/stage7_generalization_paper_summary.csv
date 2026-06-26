@@ -1,0 +1,4 @@
+dataset,backbone,task,full_metric_name,full_metric,crop_metric_name,crop_metric,delta,note
+MVTec AD,PatchCore,Defect-type reasoning,Top-1,0.285,Top-1,0.3388,0.053800000000000014,Weak-category full-test setting; crop_topk_ensemble improves defect-type reasoning.
+VisA,PatchCore,Binary normal/anomaly reasoning,AUROC,0.5949971397139714,AUROC,0.8844370187018701,0.2894398789878987,Cross-dataset validation using PatchCore candidate crops.
+VisA,FastFlow,Binary normal/anomaly reasoning,AUROC,0.5949971397139714,AUROC,0.9221857260726072,0.3271885863586358,Backbone-level validation using FastFlow candidate crops.
