@@ -1,0 +1,7 @@
+dataset,category,split,label_available,is_anomaly,anomaly_type,evaluation_scope,num_images,num_masks
+MVTec AD 2,vial,test_private,False,-1,unknown_private,official_server_only,276,0
+MVTec AD 2,vial,test_private_mixed,False,-1,unknown_private,official_server_only,276,0
+MVTec AD 2,vial,test_public,True,0,good,local_labeled_test,35,0
+MVTec AD 2,vial,test_public,True,1,bad,local_labeled_test,105,105
+MVTec AD 2,vial,train,True,0,good,normal_only,291,0
+MVTec AD 2,vial,validation,True,0,good,normal_only,41,0
