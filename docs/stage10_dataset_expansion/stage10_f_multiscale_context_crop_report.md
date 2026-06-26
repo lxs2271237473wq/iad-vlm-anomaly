@@ -42,3 +42,5 @@ It does not rerun CLIP, regenerate crops, train models, or modify datasets.
 - PatchCore score is a detector reference, not VLM reasoning evidence.
 
 <!-- stage10_f2_refreshed_20260626_181214_217737 -->
+
+<!-- force_sync_stage10_f_context_results_20260626_182429_649346 -->
