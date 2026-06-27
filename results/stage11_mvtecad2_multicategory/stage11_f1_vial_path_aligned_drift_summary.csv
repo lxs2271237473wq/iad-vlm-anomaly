@@ -1,0 +1,3 @@
+match_key,stage10_unique_images,stage11_unique_images,matched_images,stage10_candidate_rows,stage11_candidate_rows,stage10_mean_candidates_per_image,stage11_mean_candidates_per_image,mean_top1_bbox_iou,median_top1_bbox_iou,mean_abs_bbox_area_ratio_diff
+key_label_stem,71,71,38,123,117,1.732394366197183,1.647887323943662,,,
+key_stem,60,66,39,123,117,2.05,1.7727272727272727,,,
