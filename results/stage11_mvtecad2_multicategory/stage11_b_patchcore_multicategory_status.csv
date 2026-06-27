@@ -1,0 +1,9 @@
+dataset,category,data_root,run_dir,success,fit_success,test_success,predict_success,num_prediction_rows,elapsed_sec,error
+MVTec AD 2,can,datasets/MVTec_AD_2_anomalib_all/can_folder,runs/stage11_mvtecad2_multicategory/patchcore_baseline/can,True,True,True,True,81,922.054,
+MVTec AD 2,fabric,datasets/MVTec_AD_2_anomalib_all/fabric_folder,runs/stage11_mvtecad2_multicategory/patchcore_baseline/fabric,True,True,True,True,78,944.345,
+MVTec AD 2,fruit_jelly,datasets/MVTec_AD_2_anomalib_all/fruit_jelly_folder,runs/stage11_mvtecad2_multicategory/patchcore_baseline/fruit_jelly,True,True,True,True,40,501.036,
+MVTec AD 2,rice,datasets/MVTec_AD_2_anomalib_all/rice_folder,runs/stage11_mvtecad2_multicategory/patchcore_baseline/rice,True,True,True,True,66,730.172,
+MVTec AD 2,sheet_metal,datasets/MVTec_AD_2_anomalib_all/sheet_metal_folder,runs/stage11_mvtecad2_multicategory/patchcore_baseline/sheet_metal,True,True,True,True,57,382.245,
+MVTec AD 2,vial,datasets/MVTec_AD_2_anomalib_all/vial_folder,runs/stage11_mvtecad2_multicategory/patchcore_baseline/vial,True,True,True,True,71,618.359,
+MVTec AD 2,wallplugs,datasets/MVTec_AD_2_anomalib_all/wallplugs_folder,runs/stage11_mvtecad2_multicategory/patchcore_baseline/wallplugs,True,True,True,True,75,668.577,
+MVTec AD 2,walnuts,datasets/MVTec_AD_2_anomalib_all/walnuts_folder,runs/stage11_mvtecad2_multicategory/patchcore_baseline/walnuts,True,True,True,True,75,963.318,
