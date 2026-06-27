@@ -1,0 +1,25 @@
+dataset,category,folder_root,target_subset,target_label,is_anomaly,anomaly_type,num_images,num_masks
+MVTec AD 2,can,datasets/MVTec_AD_2_anomalib_all/can_folder,test,bad,1,bad,90,90
+MVTec AD 2,can,datasets/MVTec_AD_2_anomalib_all/can_folder,test,good,0,good,72,0
+MVTec AD 2,can,datasets/MVTec_AD_2_anomalib_all/can_folder,train,good,0,good,458,0
+MVTec AD 2,fabric,datasets/MVTec_AD_2_anomalib_all/fabric_folder,test,bad,1,bad,90,90
+MVTec AD 2,fabric,datasets/MVTec_AD_2_anomalib_all/fabric_folder,test,good,0,good,66,0
+MVTec AD 2,fabric,datasets/MVTec_AD_2_anomalib_all/fabric_folder,train,good,0,good,430,0
+MVTec AD 2,fruit_jelly,datasets/MVTec_AD_2_anomalib_all/fruit_jelly_folder,test,bad,1,bad,60,60
+MVTec AD 2,fruit_jelly,datasets/MVTec_AD_2_anomalib_all/fruit_jelly_folder,test,good,0,good,20,0
+MVTec AD 2,fruit_jelly,datasets/MVTec_AD_2_anomalib_all/fruit_jelly_folder,train,good,0,good,300,0
+MVTec AD 2,rice,datasets/MVTec_AD_2_anomalib_all/rice_folder,test,bad,1,bad,90,90
+MVTec AD 2,rice,datasets/MVTec_AD_2_anomalib_all/rice_folder,test,good,0,good,42,0
+MVTec AD 2,rice,datasets/MVTec_AD_2_anomalib_all/rice_folder,train,good,0,good,348,0
+MVTec AD 2,sheet_metal,datasets/MVTec_AD_2_anomalib_all/sheet_metal_folder,test,bad,1,bad,90,90
+MVTec AD 2,sheet_metal,datasets/MVTec_AD_2_anomalib_all/sheet_metal_folder,test,good,0,good,24,0
+MVTec AD 2,sheet_metal,datasets/MVTec_AD_2_anomalib_all/sheet_metal_folder,train,good,0,good,156,0
+MVTec AD 2,vial,datasets/MVTec_AD_2_anomalib_all/vial_folder,test,bad,1,bad,105,105
+MVTec AD 2,vial,datasets/MVTec_AD_2_anomalib_all/vial_folder,test,good,0,good,35,0
+MVTec AD 2,vial,datasets/MVTec_AD_2_anomalib_all/vial_folder,train,good,0,good,332,0
+MVTec AD 2,wallplugs,datasets/MVTec_AD_2_anomalib_all/wallplugs_folder,test,bad,1,bad,90,90
+MVTec AD 2,wallplugs,datasets/MVTec_AD_2_anomalib_all/wallplugs_folder,test,good,0,good,60,0
+MVTec AD 2,wallplugs,datasets/MVTec_AD_2_anomalib_all/wallplugs_folder,train,good,0,good,326,0
+MVTec AD 2,walnuts,datasets/MVTec_AD_2_anomalib_all/walnuts_folder,test,bad,1,bad,90,90
+MVTec AD 2,walnuts,datasets/MVTec_AD_2_anomalib_all/walnuts_folder,test,good,0,good,60,0
+MVTec AD 2,walnuts,datasets/MVTec_AD_2_anomalib_all/walnuts_folder,train,good,0,good,480,0

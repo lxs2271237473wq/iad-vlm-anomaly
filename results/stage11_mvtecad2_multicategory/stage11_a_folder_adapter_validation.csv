@@ -1,0 +1,9 @@
+category,folder_root,target_rows,missing_images,missing_masks,anomalib_success,train_batch_type,test_batch_type,error
+can,datasets/MVTec_AD_2_anomalib_all/can_folder,620,0,0,True,ImageBatch,ImageBatch,
+fabric,datasets/MVTec_AD_2_anomalib_all/fabric_folder,586,0,0,True,ImageBatch,ImageBatch,
+fruit_jelly,datasets/MVTec_AD_2_anomalib_all/fruit_jelly_folder,380,0,0,True,ImageBatch,ImageBatch,
+rice,datasets/MVTec_AD_2_anomalib_all/rice_folder,480,0,0,True,ImageBatch,ImageBatch,
+sheet_metal,datasets/MVTec_AD_2_anomalib_all/sheet_metal_folder,270,0,0,True,ImageBatch,ImageBatch,
+vial,datasets/MVTec_AD_2_anomalib_all/vial_folder,472,0,0,True,ImageBatch,ImageBatch,
+wallplugs,datasets/MVTec_AD_2_anomalib_all/wallplugs_folder,476,0,0,True,ImageBatch,ImageBatch,
+walnuts,datasets/MVTec_AD_2_anomalib_all/walnuts_folder,630,0,0,True,ImageBatch,ImageBatch,
