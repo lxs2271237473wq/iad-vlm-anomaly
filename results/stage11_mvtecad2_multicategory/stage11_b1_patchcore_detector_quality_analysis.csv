@@ -1,0 +1,9 @@
+dataset,category,image_AUROC,image_F1Score,pixel_AUROC,pixel_F1Score,success,num_prediction_rows,elapsed_sec,error,stage11_c_priority_group,stage11_c_interpretation
+MVTec AD 2,rice,0.5629629492759705,0.8108108043670654,0.7636728286743164,0.0552441291511058,True,66,730.172,,detector_risk,PatchCore image-level detection is weak; VLM crop results may mainly reflect detector failure.
+MVTec AD 2,wallplugs,0.4625926613807678,0.7457627058029175,0.8674933910369873,0.0390747748315334,True,75,668.577,,detector_risk,PatchCore image-level detection is weak; VLM crop results may mainly reflect detector failure.
+MVTec AD 2,can,0.3901234865188598,0.6440678238868713,0.7118551135063171,0.000216285494389,True,81,922.054,,detector_risk,PatchCore image-level detection is weak; VLM crop results may mainly reflect detector failure.
+MVTec AD 2,sheet_metal,0.8314815163612366,0.8999999761581421,0.859477162361145,0.3764839768409729,True,57,382.245,,primary,Detector quality is sufficient for localization-guided crop/VLM reasoning.
+MVTec AD 2,vial,0.7987421751022339,0.8598130941390991,0.9483762979507446,0.3366170227527618,True,71,618.359,,primary,Detector quality is sufficient for localization-guided crop/VLM reasoning.
+MVTec AD 2,fruit_jelly,0.7899999618530273,0.8787878751754761,0.9475947022438048,0.496270090341568,True,40,501.036,,primary,Detector quality is sufficient for localization-guided crop/VLM reasoning.
+MVTec AD 2,walnuts,0.7822222709655762,0.6470588445663452,0.9193103313446044,0.3918117880821228,True,75,963.318,,primary,Detector quality is sufficient for localization-guided crop/VLM reasoning.
+MVTec AD 2,fabric,0.7582491636276245,0.7789473533630371,0.7871216535568237,0.0765248388051986,True,78,944.345,,secondary,"Image-level detection is acceptable, but localization quality should be treated cautiously."
