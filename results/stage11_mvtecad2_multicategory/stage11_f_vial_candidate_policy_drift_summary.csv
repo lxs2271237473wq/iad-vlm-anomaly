@@ -1,0 +1,4 @@
+scope,num_candidate_rows,num_images,mean_candidates_per_image,mean_top1_bbox_area_ratio,mean_top1_context_area_ratio,mean_top1_tight_gt_coverage,mean_top1_context_gt_coverage,mean_top1_bbox_iou,median_top1_bbox_iou,mean_abs_bbox_area_ratio_diff,mean_abs_tight_coverage_diff
+stage10,123,60,2.05,0.03808926065162906,,,,,,,
+stage11,117,66,1.7727272727272727,0.027341461608566875,0.3940281100478469,0.4275314493406981,0.801626064661202,,,,
+matched_stage10_vs_stage11,,39,,,,,,0.6003047848350708,0.6802175780131692,0.013281337960285328,
