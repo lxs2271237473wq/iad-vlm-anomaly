@@ -93,3 +93,5 @@ train + validation for normal reference
 test_public for local evaluation
 test_private/test_private_mixed excluded from local metric computation
 ```
+
+<!-- stage10_full_ad2_manifest_sync_20260627_140302_089820 categories=can,fabric,fruit_jelly,rice,sheet_metal,vial,wallplugs,walnuts -->
