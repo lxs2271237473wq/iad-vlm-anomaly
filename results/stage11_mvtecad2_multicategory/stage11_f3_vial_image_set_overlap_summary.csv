@@ -1,0 +1,2 @@
+best_comparison,best_intersection,stage10_unique,stage11_unique,stage10_only,stage11_only,jaccard,directly_comparable
+stage10_stem_vs_stage11_source_stem,39,60,66,21,27,0.4482758620689655,False

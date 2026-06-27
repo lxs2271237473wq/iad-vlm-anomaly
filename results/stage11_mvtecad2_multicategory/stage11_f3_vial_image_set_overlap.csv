@@ -1,0 +1,5 @@
+comparison,stage10_key_col,stage11_key_col,stage10_unique,stage11_unique,intersection,stage10_only,stage11_only,jaccard
+stage10_labeled_key_vs_stage11_source_labeled_key,labeled_key,source_labeled_key,71,71,38,33,33,0.36538461538461536
+stage10_stem_vs_stage11_source_stem,stem,source_stem,60,66,39,21,27,0.4482758620689655
+stage10_labeled_key_vs_stage11_labeled_key,labeled_key,labeled_key,71,71,38,33,33,0.36538461538461536
+stage10_stem_vs_stage11_stem,stem,stem,60,66,39,21,27,0.4482758620689655
