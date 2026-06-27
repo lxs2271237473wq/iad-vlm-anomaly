@@ -1,0 +1,2 @@
+dataset,category,success,fit_success,predict_success,num_images,num_candidate_rows,elapsed_sec,error
+MVTec AD 2,fabric,True,True,True,78,200,992.802,

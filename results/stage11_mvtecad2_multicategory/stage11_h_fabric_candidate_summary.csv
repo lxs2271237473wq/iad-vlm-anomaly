@@ -1,0 +1,2 @@
+dataset,category,num_images,num_candidate_rows,images_with_candidates,candidate_coverage,mean_candidates_per_image,num_anomaly_images,num_normal_images,top1_tight_mean_gt_coverage_anomaly,top1_context_mean_gt_coverage_anomaly,top1_tight_mean_mask_density_anomaly,top1_context_mean_mask_density_anomaly
+MVTec AD 2,fabric,78,200,78,1.0,2.5641025641025643,45,33,0.0684252209038376,0.17390538551817877,0.04152673486220559,0.024871176883307096
