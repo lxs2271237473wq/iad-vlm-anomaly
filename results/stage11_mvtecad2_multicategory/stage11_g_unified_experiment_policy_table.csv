@@ -1,0 +1,6 @@
+item,decision,reason
+main_experiment_source,Use Stage 11-D/E unified multi-category pipeline as the paper-level main evidence.,"Stage 11 uses one unified data adapter, candidate construction script, and VLM scoring script across primary AD2 categories."
+stage10_vial_status,"Keep Stage 10-G vial as historical single-category observation, not as a directly comparable main-table result.",Stage 11-F3 shows Stage 10-G and Stage 11-D vial image sets are not sufficiently aligned.
+vial_cross_stage_comparison,Do not claim Stage 10-G and Stage 11-D vial numbers contradict or reproduce each other.,"Best image-set overlap intersection is 39, directly_comparable=False."
+main_claim,"Claim category-dependent benefit of localization-guided context-aware crops, strongest on aggregate primary set, fruit_jelly, and walnuts.",ALL_PRIMARY best VLM method is context_1.50_topk_mean with AUROC gain 0.0835.
+limitation_cases,"Use sheet_metal and Stage 11 vial as limitation/failure-analysis cases, not as evidence against the whole method.",Candidate quality and image-set/pipeline sensitivity affect crop-based VLM reasoning.
