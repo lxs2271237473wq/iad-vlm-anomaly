@@ -17,21 +17,63 @@ It does not train models, run anomaly detectors, run VLM reasoning, or modify pr
 
 ## 4. Overall Statistics
 
-- Total manifest images: `1024`
-- Labeled images: `472`
-- Unlabeled private images: `552`
-- Public anomalous images with masks detected: `105` / `105`
+- Total manifest images: `8004`
+- Labeled images: `3914`
+- Unlabeled private images: `4090`
+- Public anomalous images with masks detected: `705` / `705`
 
 ## 5. Split Summary
 
 | Category | Split | Label available | is_anomaly | Anomaly type | Images | Masks | Evaluation scope |
 |---|---|---:|---:|---|---:|---:|---|
+| can | test_private | False | -1 | unknown_private | 321 | 0 | official_server_only |
+| can | test_private_mixed | False | -1 | unknown_private | 321 | 0 | official_server_only |
+| can | test_public | True | 0 | good | 72 | 0 | local_labeled_test |
+| can | test_public | True | 1 | bad | 90 | 90 | local_labeled_test |
+| can | train | True | 0 | good | 412 | 0 | normal_only |
+| can | validation | True | 0 | good | 46 | 0 | normal_only |
+| fabric | test_private | False | -1 | unknown_private | 314 | 0 | official_server_only |
+| fabric | test_private_mixed | False | -1 | unknown_private | 314 | 0 | official_server_only |
+| fabric | test_public | True | 0 | good | 66 | 0 | local_labeled_test |
+| fabric | test_public | True | 1 | bad | 90 | 90 | local_labeled_test |
+| fabric | train | True | 0 | good | 387 | 0 | normal_only |
+| fabric | validation | True | 0 | good | 43 | 0 | normal_only |
+| fruit_jelly | test_private | False | -1 | unknown_private | 255 | 0 | official_server_only |
+| fruit_jelly | test_private_mixed | False | -1 | unknown_private | 255 | 0 | official_server_only |
+| fruit_jelly | test_public | True | 0 | good | 20 | 0 | local_labeled_test |
+| fruit_jelly | test_public | True | 1 | bad | 60 | 60 | local_labeled_test |
+| fruit_jelly | train | True | 0 | good | 263 | 0 | normal_only |
+| fruit_jelly | validation | True | 0 | good | 37 | 0 | normal_only |
+| rice | test_private | False | -1 | unknown_private | 277 | 0 | official_server_only |
+| rice | test_private_mixed | False | -1 | unknown_private | 277 | 0 | official_server_only |
+| rice | test_public | True | 0 | good | 42 | 0 | local_labeled_test |
+| rice | test_public | True | 1 | bad | 90 | 90 | local_labeled_test |
+| rice | train | True | 0 | good | 313 | 0 | normal_only |
+| rice | validation | True | 0 | good | 35 | 0 | normal_only |
+| sheet_metal | test_private | False | -1 | unknown_private | 142 | 0 | official_server_only |
+| sheet_metal | test_private_mixed | False | -1 | unknown_private | 142 | 0 | official_server_only |
+| sheet_metal | test_public | True | 0 | good | 24 | 0 | local_labeled_test |
+| sheet_metal | test_public | True | 1 | bad | 90 | 90 | local_labeled_test |
+| sheet_metal | train | True | 0 | good | 137 | 0 | normal_only |
+| sheet_metal | validation | True | 0 | good | 19 | 0 | normal_only |
 | vial | test_private | False | -1 | unknown_private | 276 | 0 | official_server_only |
 | vial | test_private_mixed | False | -1 | unknown_private | 276 | 0 | official_server_only |
 | vial | test_public | True | 0 | good | 35 | 0 | local_labeled_test |
 | vial | test_public | True | 1 | bad | 105 | 105 | local_labeled_test |
 | vial | train | True | 0 | good | 291 | 0 | normal_only |
 | vial | validation | True | 0 | good | 41 | 0 | normal_only |
+| wallplugs | test_private | False | -1 | unknown_private | 232 | 0 | official_server_only |
+| wallplugs | test_private_mixed | False | -1 | unknown_private | 232 | 0 | official_server_only |
+| wallplugs | test_public | True | 0 | good | 60 | 0 | local_labeled_test |
+| wallplugs | test_public | True | 1 | bad | 90 | 90 | local_labeled_test |
+| wallplugs | train | True | 0 | good | 293 | 0 | normal_only |
+| wallplugs | validation | True | 0 | good | 33 | 0 | normal_only |
+| walnuts | test_private | False | -1 | unknown_private | 228 | 0 | official_server_only |
+| walnuts | test_private_mixed | False | -1 | unknown_private | 228 | 0 | official_server_only |
+| walnuts | test_public | True | 0 | good | 60 | 0 | local_labeled_test |
+| walnuts | test_public | True | 1 | bad | 90 | 90 | local_labeled_test |
+| walnuts | train | True | 0 | good | 432 | 0 | normal_only |
+| walnuts | validation | True | 0 | good | 48 | 0 | normal_only |
 
 ## 6. Important Notes
 
