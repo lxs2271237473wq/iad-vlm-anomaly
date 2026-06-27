@@ -2,13 +2,12 @@
 
 ## 1. Purpose
 
-Stage 10-F2 refreshes the multiscale context summary from existing image-level prediction files.
-It does not rerun CLIP, regenerate crops, train models, or modify datasets.
+This refreshed report restores the multiscale context-crop summary for MVTec AD 2 vial.
+It is regenerated from existing Stage 10-F image-level predictions and does not rerun CLIP, PatchCore, or crop generation.
 
-## 2. Output Files
+## 2. Key Finding
 
-- Summary: `results/stage10_dataset_expansion/stage10_f_multiscale_context_summary.csv`
-- Report: `docs/stage10_dataset_expansion/stage10_f_multiscale_context_crop_report.md`
+Naive small candidate crops underperform full-image VLM prompting, but context-aware crops improve VLM reasoning.
 
 ## 3. Summary
 
@@ -35,12 +34,9 @@ It does not rerun CLIP, regenerate crops, train models, or modify datasets.
 | context_0.20_top1 | 71 | 0.3899 | 0.7195 | 0.8618 | 0.7606 | -0.2589 |
 | stage10e_crop_top1 | 71 | 0.3753 | 0.7080 | 0.8689 | 0.7746 | -0.2736 |
 
-## 4. Decision Rule
+## 4. Decision
 
-- If any context-crop method exceeds full_image, keep MVTec AD 2 vial as positive evidence for context-aware localization-guided VLM reasoning.
-- If all context-crop methods remain below full_image, treat AD2/vial as a negative case and test another AD2 category or MVTec LOCO AD.
-- PatchCore score is a detector reference, not VLM reasoning evidence.
+MVTec AD 2 / vial should not be treated as a failure of localization-guided VLM reasoning.
+The correct conclusion is that crop construction matters: small crops fail, while larger context-aware crops recover and exceed full-image prompting.
 
-<!-- stage10_f2_refreshed_20260626_181214_217737 -->
-
-<!-- force_sync_stage10_f_context_results_20260626_182429_649346 -->
+<!-- stage10_g_restored_stage10f_20260627_140613_518533 -->

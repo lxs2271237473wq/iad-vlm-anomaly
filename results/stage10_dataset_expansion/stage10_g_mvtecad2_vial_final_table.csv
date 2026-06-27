@@ -1,0 +1,18 @@
+section,method,metric,value,interpretation,delta_vs_full,ap,best_f1,best_accuracy
+detector_baseline,PatchCore image_AUROC,image_AUROC,0.8375262022018433,PatchCore detector reference on MVTec AD 2 vial.,,,,
+detector_baseline,PatchCore image_F1Score,image_F1Score,0.8807339668273926,PatchCore detector reference on MVTec AD 2 vial.,,,,
+detector_baseline,PatchCore pixel_AUROC,pixel_AUROC,0.9298676252365112,PatchCore detector reference on MVTec AD 2 vial.,,,,
+detector_baseline,PatchCore pixel_F1Score,pixel_F1Score,0.2231076657772064,PatchCore detector reference on MVTec AD 2 vial.,,,,
+candidate_extraction,PatchCore candidate extraction,num_images,71.0,Candidate availability and coverage for later VLM reasoning.,,,,
+candidate_extraction,PatchCore candidate extraction,num_candidate_rows,123.0,Candidate availability and coverage for later VLM reasoning.,,,,
+candidate_extraction,PatchCore candidate extraction,num_images_with_candidates,71.0,Candidate availability and coverage for later VLM reasoning.,,,,
+candidate_extraction,PatchCore candidate extraction,candidate_coverage,1.0,Candidate availability and coverage for later VLM reasoning.,,,,
+candidate_extraction,PatchCore candidate extraction,mean_candidates_per_image,1.732394366197183,Candidate availability and coverage for later VLM reasoning.,,,,
+vlm_reasoning,full_image,AUROC,0.6488469601677149,Reference VLM/detector result.,0.0,0.8721846081752151,0.8548387096774194,0.7464788732394366
+vlm_reasoning,stage10e_crop_top1,AUROC,0.3752620545073375,Reference VLM/detector result.,-0.2735849056603774,0.7080189762937539,0.8688524590163934,0.7746478873239436
+vlm_reasoning,stage10e_crop_topk_max,AUROC,0.46750524109014674,Reference VLM/detector result.,-0.1813417190775682,0.777748736765373,0.8617886178861789,0.7605633802816901
+vlm_reasoning,stage10e_crop_topk_mean,AUROC,0.4811320754716981,Reference VLM/detector result.,-0.1677148846960168,0.7514416645238545,0.8688524590163934,0.7746478873239436
+vlm_reasoning,context_1.50_top1,AUROC,0.7746331236897275,Context-aware crop improves over full image.,0.12578616352201255,0.9080592689759077,0.8666666666666667,0.7746478873239436
+vlm_reasoning,context_1.50_topk_mean,AUROC,0.6981132075471698,Reference VLM/detector result.,0.04926624737945484,0.8345120635735901,0.8666666666666667,0.7746478873239436
+vlm_reasoning,square_context_1.00_top1,AUROC,0.6519916142557652,Reference VLM/detector result.,0.0031446540880503138,0.8323762772145871,0.8617886178861789,0.7605633802816901
+vlm_reasoning,patchcore_score,AUROC,0.889937106918239,Reference VLM/detector result.,0.2410901467505241,0.960453025278707,0.9203539823008849,0.8732394366197183
