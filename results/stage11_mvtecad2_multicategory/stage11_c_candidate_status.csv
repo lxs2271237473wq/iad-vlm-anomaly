@@ -1,0 +1,5 @@
+dataset,category,success,fit_success,predict_success,num_images,num_candidate_rows,elapsed_sec,error
+MVTec AD 2,sheet_metal,True,True,True,57,153,328.835,
+MVTec AD 2,vial,True,True,True,71,117,538.605,
+MVTec AD 2,fruit_jelly,True,True,True,40,61,458.43,
+MVTec AD 2,walnuts,True,True,True,75,171,923.37,
