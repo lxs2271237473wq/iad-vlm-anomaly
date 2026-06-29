@@ -1,0 +1,9 @@
+category,detector_group,image_AUROC_patchcore,pixel_AUROC_patchcore,pixel_F1_patchcore,best_context_delta_vs_full,paper_usage,reason
+fruit_jelly,primary,0.7899999618530273,0.9475947022438048,0.496270090341568,0.10333333333333339,main_positive_or_supportive,Primary detector quality is acceptable and best context crop improves over full-image prompting.
+sheet_metal,primary,0.8314815163612366,0.859477162361145,0.3764839768409729,-0.05555555555555547,main_limitation,"Primary detector quality is acceptable, but context crop does not improve under the unified Stage 11 pipeline."
+vial,primary,0.7987421751022339,0.9483762979507446,0.3366170227527618,-0.004192872117400381,main_limitation,"Primary detector quality is acceptable, but context crop does not improve under the unified Stage 11 pipeline."
+walnuts,primary,0.7822222709655762,0.9193103313446044,0.3918117880821228,0.21333333333333337,main_positive_or_supportive,Primary detector quality is acceptable and best context crop improves over full-image prompting.
+fabric,secondary,0.7582491636276245,0.7871216535568237,0.0765248388051986,-0.0188552188552188,secondary_boundary_case,Image-level detector is acceptable but pixel localization is weak; context crop is not positive.
+can,detector_risk,0.3901234865188598,0.7118551135063171,0.000216285494389,,excluded_from_main_vlm_evidence,Detector quality is too weak for fair crop-based VLM reasoning.
+rice,detector_risk,0.5629629492759705,0.7636728286743164,0.0552441291511058,,excluded_from_main_vlm_evidence,Detector quality is too weak for fair crop-based VLM reasoning.
+wallplugs,detector_risk,0.4625926613807678,0.8674933910369873,0.0390747748315334,,excluded_from_main_vlm_evidence,Detector quality is too weak for fair crop-based VLM reasoning.

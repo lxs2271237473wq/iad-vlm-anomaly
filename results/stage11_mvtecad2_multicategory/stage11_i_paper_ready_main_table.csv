@@ -1,0 +1,7 @@
+table_section,category_or_scope,role,full_image_auroc,reported_method,reported_method_auroc,delta_auroc_vs_full,patchcore_reference_auroc,paper_usage
+main_claim,ALL_PRIMARY,main_aggregate_evidence,0.520148637489678,context_1.50_topk_mean,0.6036333608587944,0.08348472336911639,0.8086705202312139,Main positive evidence: context-aware crop aggregation improves over full-image VLM prompting on the unified primary set.
+primary_category,fruit_jelly,primary_category,0.7533333333333333,context_1.50_topk_mean,0.8566666666666667,0.10333333333333339,0.7166666666666667,Positive category-level context evidence.
+primary_category,sheet_metal,primary_category,0.7129629629629629,context_1.50_topk_max,0.6574074074074074,-0.05555555555555547,0.7462962962962963,Limitation/failure-analysis category under the unified pipeline.
+primary_category,vial,primary_category,0.6876310272536688,context_1.50_top1,0.6834381551362684,-0.004192872117400381,0.8731656184486373,Limitation/failure-analysis category under the unified pipeline.
+primary_category,walnuts,primary_category,0.4296296296296296,context_1.50_topk_mean,0.642962962962963,0.21333333333333337,0.8051851851851852,Positive category-level context evidence.
+secondary_category,fabric,secondary_boundary_case,0.4168350168350168,context_1.50_top1,0.397979797979798,-0.0188552188552188,0.7232323232323232,Secondary boundary case: localization is weak and context crop does not improve.
