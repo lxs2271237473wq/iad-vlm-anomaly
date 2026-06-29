@@ -1,0 +1,5 @@
+claim_id,claim,evidence,status,paper_usage
+C1,Localization-guided context-aware crops improve VLM anomaly reasoning on the unified MVTec AD 2 primary-category evaluation.,ALL_PRIMARY full-image AUROC=0.5201; context_1.50_topk_mean AUROC=0.6036; delta=0.0835.,main_claim_supported,Main result table and abstract-level claim.
+C2,The benefit is category-dependent rather than universal.,fruit_jelly and walnuts are positive; sheet_metal and vial are limitation cases under the unified pipeline.,supported_with_limitations,Discussion and limitations.
+C3,Detector/candidate quality must be reported alongside VLM crop reasoning.,"fabric is a secondary boundary case; can, rice, and wallplugs are excluded from main VLM evidence due to weak detector quality.",supported,Experiment protocol and fairness discussion.
+C4,The method should not be described as merely cropping anomaly regions for a VLM.,"The final pipeline requires detector localization, candidate construction, context-aware crop generation, and VLM scoring/aggregation.",method_framing,Method section.
