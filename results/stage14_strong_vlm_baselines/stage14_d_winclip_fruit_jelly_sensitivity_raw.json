@@ -1,0 +1,290 @@
+[
+  {
+    "run_id": "fruit_jelly_k0_scales2_3",
+    "class_name": "fruit jelly",
+    "k_shot": 0,
+    "scales": "(2, 3)",
+    "metrics": {
+      "image_AUROC": 0.3916666805744171,
+      "image_F1Score": 0.8571428656578064,
+      "pixel_AUROC": 0.5301684141159058,
+      "pixel_F1Score": 0.005654261913150549
+    }
+  },
+  {
+    "run_id": "fruit_jelly_k0_scales1_2_3",
+    "class_name": "fruit jelly",
+    "k_shot": 0,
+    "scales": "(1, 2, 3)",
+    "metrics": {
+      "image_AUROC": 0.37166669964790344,
+      "image_F1Score": 0.8405796885490417,
+      "pixel_AUROC": 0.5839732885360718,
+      "pixel_F1Score": 0.0
+    }
+  },
+  {
+    "run_id": "fruit_jelly_k1_scales2_3",
+    "class_name": "fruit jelly",
+    "k_shot": 1,
+    "scales": "(2, 3)",
+    "metrics": {
+      "image_AUROC": 0.54666668176651,
+      "image_F1Score": 0.7118644118309021,
+      "pixel_AUROC": 0.7338498830795288,
+      "pixel_F1Score": 0.19920524954795837
+    }
+  },
+  {
+    "run_id": "fruit_jelly_k1_scales1_2_3",
+    "class_name": "fruit jelly",
+    "k_shot": 1,
+    "scales": "(1, 2, 3)",
+    "metrics": {
+      "image_AUROC": 0.4233333468437195,
+      "image_F1Score": 0.7878788113594055,
+      "pixel_AUROC": 0.8418320417404175,
+      "pixel_F1Score": 0.2709087133407593
+    }
+  },
+  {
+    "run_id": "fruit_jelly_k2_scales2_3",
+    "class_name": "fruit jelly",
+    "k_shot": 2,
+    "scales": "(2, 3)",
+    "metrics": {
+      "image_AUROC": 0.43666669726371765,
+      "image_F1Score": 0.8235294222831726,
+      "pixel_AUROC": 0.798405110836029,
+      "pixel_F1Score": 0.3135559856891632
+    }
+  },
+  {
+    "run_id": "fruit_jelly_k2_scales1_2_3",
+    "class_name": "fruit jelly",
+    "k_shot": 2,
+    "scales": "(1, 2, 3)",
+    "metrics": {
+      "image_AUROC": 0.49166667461395264,
+      "image_F1Score": 0.8181818127632141,
+      "pixel_AUROC": 0.7472521066665649,
+      "pixel_F1Score": 0.14469346404075623
+    }
+  },
+  {
+    "run_id": "fruit_jelly_k4_scales2_3",
+    "class_name": "fruit jelly",
+    "k_shot": 4,
+    "scales": "(2, 3)",
+    "metrics": {
+      "image_AUROC": 0.4633333086967468,
+      "image_F1Score": 0.8059701323509216,
+      "pixel_AUROC": 0.752017617225647,
+      "pixel_F1Score": 0.17650432884693146
+    }
+  },
+  {
+    "run_id": "fruit_jelly_k4_scales1_2_3",
+    "class_name": "fruit jelly",
+    "k_shot": 4,
+    "scales": "(1, 2, 3)",
+    "metrics": {
+      "image_AUROC": 0.5333333611488342,
+      "image_F1Score": 0.8571428656578064,
+      "pixel_AUROC": 0.8953883051872253,
+      "pixel_F1Score": 0.3110957145690918
+    }
+  },
+  {
+    "run_id": "fruit_jelly_k0_scales2_3",
+    "class_name": "fruit_jelly",
+    "k_shot": 0,
+    "scales": "(2, 3)",
+    "metrics": {
+      "image_AUROC": 0.4166666567325592,
+      "image_F1Score": 0.8571428656578064,
+      "pixel_AUROC": 0.5802099108695984,
+      "pixel_F1Score": 0.005458303261548281
+    }
+  },
+  {
+    "run_id": "fruit_jelly_k0_scales1_2_3",
+    "class_name": "fruit_jelly",
+    "k_shot": 0,
+    "scales": "(1, 2, 3)",
+    "metrics": {
+      "image_AUROC": 0.4949999749660492,
+      "image_F1Score": 0.8571428656578064,
+      "pixel_AUROC": 0.5757458209991455,
+      "pixel_F1Score": 0.04547584801912308
+    }
+  },
+  {
+    "run_id": "fruit_jelly_k1_scales2_3",
+    "class_name": "fruit_jelly",
+    "k_shot": 1,
+    "scales": "(2, 3)",
+    "metrics": {
+      "image_AUROC": 0.44999998807907104,
+      "image_F1Score": 0.7878788113594055,
+      "pixel_AUROC": 0.8226684331893921,
+      "pixel_F1Score": 0.21457210183143616
+    }
+  },
+  {
+    "run_id": "fruit_jelly_k1_scales1_2_3",
+    "class_name": "fruit_jelly",
+    "k_shot": 1,
+    "scales": "(1, 2, 3)",
+    "metrics": {
+      "image_AUROC": 0.4500000476837158,
+      "image_F1Score": 0.8571428656578064,
+      "pixel_AUROC": 0.8452456593513489,
+      "pixel_F1Score": 0.26657894253730774
+    }
+  },
+  {
+    "run_id": "fruit_jelly_k2_scales2_3",
+    "class_name": "fruit_jelly",
+    "k_shot": 2,
+    "scales": "(2, 3)",
+    "metrics": {
+      "image_AUROC": 0.28333336114883423,
+      "image_F1Score": 0.8405796885490417,
+      "pixel_AUROC": 0.7575918436050415,
+      "pixel_F1Score": 0.17738942801952362
+    }
+  },
+  {
+    "run_id": "fruit_jelly_k2_scales1_2_3",
+    "class_name": "fruit_jelly",
+    "k_shot": 2,
+    "scales": "(1, 2, 3)",
+    "metrics": {
+      "image_AUROC": 0.4466666877269745,
+      "image_F1Score": 0.8571428656578064,
+      "pixel_AUROC": 0.7788420915603638,
+      "pixel_F1Score": 0.15068092942237854
+    }
+  },
+  {
+    "run_id": "fruit_jelly_k4_scales2_3",
+    "class_name": "fruit_jelly",
+    "k_shot": 4,
+    "scales": "(2, 3)",
+    "metrics": {
+      "image_AUROC": 0.5666666030883789,
+      "image_F1Score": 0.8235294222831726,
+      "pixel_AUROC": 0.8051287531852722,
+      "pixel_F1Score": 0.1898236721754074
+    }
+  },
+  {
+    "run_id": "fruit_jelly_k4_scales1_2_3",
+    "class_name": "fruit_jelly",
+    "k_shot": 4,
+    "scales": "(1, 2, 3)",
+    "metrics": {
+      "image_AUROC": 0.4116666913032532,
+      "image_F1Score": 0.8235294222831726,
+      "pixel_AUROC": 0.7813382148742676,
+      "pixel_F1Score": 0.16400888562202454
+    }
+  },
+  {
+    "run_id": "jelly_k0_scales2_3",
+    "class_name": "jelly",
+    "k_shot": 0,
+    "scales": "(2, 3)",
+    "metrics": {
+      "image_AUROC": 0.47833332419395447,
+      "image_F1Score": 0.8571428656578064,
+      "pixel_AUROC": 0.6535260677337646,
+      "pixel_F1Score": 0.10050692409276962
+    }
+  },
+  {
+    "run_id": "jelly_k0_scales1_2_3",
+    "class_name": "jelly",
+    "k_shot": 0,
+    "scales": "(1, 2, 3)",
+    "metrics": {
+      "image_AUROC": 0.27000001072883606,
+      "image_F1Score": 0.8571428656578064,
+      "pixel_AUROC": 0.5149669647216797,
+      "pixel_F1Score": 0.07960401475429535
+    }
+  },
+  {
+    "run_id": "jelly_k1_scales2_3",
+    "class_name": "jelly",
+    "k_shot": 1,
+    "scales": "(2, 3)",
+    "metrics": {
+      "image_AUROC": 0.5566666722297668,
+      "image_F1Score": 0.8571428656578064,
+      "pixel_AUROC": 0.7799729108810425,
+      "pixel_F1Score": 0.15264856815338135
+    }
+  },
+  {
+    "run_id": "jelly_k1_scales1_2_3",
+    "class_name": "jelly",
+    "k_shot": 1,
+    "scales": "(1, 2, 3)",
+    "metrics": {
+      "image_AUROC": 0.6299999952316284,
+      "image_F1Score": 0.8571428656578064,
+      "pixel_AUROC": 0.8510887622833252,
+      "pixel_F1Score": 0.2399475872516632
+    }
+  },
+  {
+    "run_id": "jelly_k2_scales2_3",
+    "class_name": "jelly",
+    "k_shot": 2,
+    "scales": "(2, 3)",
+    "metrics": {
+      "image_AUROC": 0.5383333563804626,
+      "image_F1Score": 0.8571428656578064,
+      "pixel_AUROC": 0.8332715034484863,
+      "pixel_F1Score": 0.21167679131031036
+    }
+  },
+  {
+    "run_id": "jelly_k2_scales1_2_3",
+    "class_name": "jelly",
+    "k_shot": 2,
+    "scales": "(1, 2, 3)",
+    "metrics": {
+      "image_AUROC": 0.4116666913032532,
+      "image_F1Score": 0.8571428656578064,
+      "pixel_AUROC": 0.8301432728767395,
+      "pixel_F1Score": 0.23912321031093597
+    }
+  },
+  {
+    "run_id": "jelly_k4_scales2_3",
+    "class_name": "jelly",
+    "k_shot": 4,
+    "scales": "(2, 3)",
+    "metrics": {
+      "image_AUROC": 0.5299999713897705,
+      "image_F1Score": 0.8235294222831726,
+      "pixel_AUROC": 0.7931835055351257,
+      "pixel_F1Score": 0.238167867064476
+    }
+  },
+  {
+    "run_id": "jelly_k4_scales1_2_3",
+    "class_name": "jelly",
+    "k_shot": 4,
+    "scales": "(1, 2, 3)",
+    "metrics": {
+      "image_AUROC": 0.44333329796791077,
+      "image_F1Score": 0.8571428656578064,
+      "pixel_AUROC": 0.8581566214561462,
+      "pixel_F1Score": 0.2592792212963104
+    }
+  }
+]
