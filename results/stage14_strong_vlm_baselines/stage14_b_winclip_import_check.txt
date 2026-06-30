@@ -1,0 +1,5 @@
+{'module': 'anomalib.models', 'attribute': 'WinClip', 'import_success': True, 'instantiate_success': True, 'error': '', 'instance_type': "<class 'anomalib.models.image.winclip.lightning_model.WinClip'>"}
+{'module': 'anomalib.models', 'attribute': 'WinCLIP', 'import_success': False, 'instantiate_success': False, 'error': 'AttributeError("module \'anomalib.models\' has no attribute \'WinCLIP\'")'}
+{'module': 'anomalib.models.image.winclip', 'attribute': 'WinClip', 'import_success': True, 'instantiate_success': True, 'error': '', 'instance_type': "<class 'anomalib.models.image.winclip.lightning_model.WinClip'>"}
+{'module': 'anomalib.models.image.winclip', 'attribute': 'WinCLIP', 'import_success': False, 'instantiate_success': False, 'error': 'AttributeError("module \'anomalib.models.image.winclip\' has no attribute \'WinCLIP\'")'}
+{'module': 'anomalib.models.image.winclip.torch_model', 'attribute': 'WinClipModel', 'import_success': True, 'instantiate_success': 'not_attempted', 'error': '', 'instance_type': "<class 'anomalib.models.image.winclip.torch_model.WinClipModel'>"}
