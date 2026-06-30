@@ -1,0 +1,6 @@
+category,num_images,patchcore_full_spearman,patchcore_context_spearman,interpretation
+ALL_PRIMARY,243,-0.1516200176306003,-0.10767815909200784,lower correlation suggests more complementarity; high correlation suggests repeated detector ranking
+fruit_jelly,40,0.5648876650422063,0.1876595386064511,lower correlation suggests more complementarity; high correlation suggests repeated detector ranking
+sheet_metal,57,-0.3357323654349773,-0.30830579328762403,lower correlation suggests more complementarity; high correlation suggests repeated detector ranking
+vial,71,0.24003149030712614,-0.2550990616411184,lower correlation suggests more complementarity; high correlation suggests repeated detector ranking
+walnuts,75,0.21949068368377048,0.3114810104078604,lower correlation suggests more complementarity; high correlation suggests repeated detector ranking

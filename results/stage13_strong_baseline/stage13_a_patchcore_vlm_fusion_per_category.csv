@@ -1,0 +1,9 @@
+protocol,scope,category,method,fusion_pair,alpha_patchcore,num_images,num_normal,num_anomaly,auroc,ap,best_f1,best_accuracy,best_threshold
+same_set_grid,category,fruit_jelly,patchcore_plus_full_image_best_same_set,patchcore_plus_full_image,0.27,40,10,30,0.8,0.9345400828661656,0.8923076923076922,0.825,-0.9491763448906567
+same_set_grid,category,fruit_jelly,patchcore_plus_context_best_same_set,patchcore_plus_context,0.34,40,10,30,0.8933333333333334,0.9710965140241457,0.9285714285714286,0.9,-0.44925284250294817
+same_set_grid,category,sheet_metal,patchcore_plus_full_image_best_same_set,patchcore_plus_full_image,0.55,57,12,45,0.9185185185185185,0.9790875794927948,0.9278350515463918,0.8771929824561403,-0.664769995540688
+same_set_grid,category,sheet_metal,patchcore_plus_context_best_same_set,patchcore_plus_context,0.64,57,12,45,0.7555555555555555,0.926475339347547,0.9,0.8245614035087719,-0.8388719324364374
+same_set_grid,category,vial,patchcore_plus_full_image_best_same_set,patchcore_plus_full_image,0.89,71,18,53,0.8815513626834381,0.9564964709664909,0.9298245614035088,0.8873239436619719,-1.1955381125132936
+same_set_grid,category,vial,patchcore_plus_context_best_same_set,patchcore_plus_context,0.66,71,18,53,0.9255765199161425,0.973437150696619,0.9298245614035088,0.8873239436619719,-0.6356010835386129
+same_set_grid,category,walnuts,patchcore_plus_full_image_best_same_set,patchcore_plus_full_image,1.0,75,30,45,0.8051851851851852,0.8852999224044822,0.7962962962962964,0.7466666666666667,-0.44488122337584796
+same_set_grid,category,walnuts,patchcore_plus_context_best_same_set,patchcore_plus_context,0.91,75,30,45,0.8066666666666666,0.8883462747083113,0.7872340425531914,0.7466666666666667,-0.38317335402622227
