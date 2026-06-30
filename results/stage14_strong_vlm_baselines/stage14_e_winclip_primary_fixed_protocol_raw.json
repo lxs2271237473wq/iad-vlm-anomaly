@@ -1,0 +1,50 @@
+[
+  {
+    "category": "fruit_jelly",
+    "class_name": "jelly",
+    "k_shot": 1,
+    "scales": "(1, 2, 3)",
+    "metrics": {
+      "image_AUROC": 0.46666666865348816,
+      "image_F1Score": 0.8571428656578064,
+      "pixel_AUROC": 0.832697868347168,
+      "pixel_F1Score": 0.2824292480945587
+    }
+  },
+  {
+    "category": "sheet_metal",
+    "class_name": "sheet metal",
+    "k_shot": 1,
+    "scales": "(1, 2, 3)",
+    "metrics": {
+      "image_AUROC": 0.7074074745178223,
+      "image_F1Score": 0.8823529481887817,
+      "pixel_AUROC": 0.8140121698379517,
+      "pixel_F1Score": 0.22741828858852386
+    }
+  },
+  {
+    "category": "vial",
+    "class_name": "vial",
+    "k_shot": 1,
+    "scales": "(1, 2, 3)",
+    "metrics": {
+      "image_AUROC": 0.8794549107551575,
+      "image_F1Score": 0.8620689511299133,
+      "pixel_AUROC": 0.8187899589538574,
+      "pixel_F1Score": 0.20757317543029785
+    }
+  },
+  {
+    "category": "walnuts",
+    "class_name": "walnut",
+    "k_shot": 1,
+    "scales": "(1, 2, 3)",
+    "metrics": {
+      "image_AUROC": 0.4014814496040344,
+      "image_F1Score": 0.6725663542747498,
+      "pixel_AUROC": 0.8155226707458496,
+      "pixel_F1Score": 0.3742561340332031
+    }
+  }
+]
