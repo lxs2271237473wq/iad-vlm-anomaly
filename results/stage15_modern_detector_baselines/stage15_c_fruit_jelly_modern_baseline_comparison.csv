@@ -1,0 +1,9 @@
+category,method_group,method,image_auroc,image_f1,pixel_auroc,pixel_f1,protocol,interpretation
+fruit_jelly,fusion_same_set,"PatchCore + context VLM, same-set",0.8933333333333334,0.9285714285714286,,,Stage 13 same-set fusion upper-bound,Upper-bound diagnostic; should not be overclaimed as fair final protocol.
+fruit_jelly,vlm_branch,context-aware VLM,0.8566666666666667,,,,Stage 11 context-aware VLM,Our context-aware VLM branch.
+fruit_jelly,fusion_loco,"PatchCore + context VLM, LOCO",0.8333333333333333,0.8695652173913044,,,Stage 13 leave-one-category-out fusion,Conservative fusion result with alpha selected on other categories.
+fruit_jelly,vlm_branch,full-image VLM,0.7533333333333333,,,,Stage 11 full-image baseline,Direct full-image VLM scoring.
+fruit_jelly,classical_detector,PatchCore,0.7166666666666667,,,,Stage 11 reference,Classic anomaly detector reference.
+fruit_jelly,modern_detector_baseline,EfficientAD pilot,0.6566667556762695,0.774193525314331,0.7702546119689941,0.4649085104465484,"model_size=small, max_epochs=20, train_batch_size=1",Modern non-VLM detector pilot; fit and test succeeded.
+fruit_jelly,external_vlm_baseline,WinCLIP sensitivity best,0.6299999952316284,0.8571428656578064,0.8510887622833252,0.2399475872516632,"class_name=jelly, k_shot=1, scales=(1, 2, 3)",Best fruit_jelly WinCLIP setting from sensitivity search.
+fruit_jelly,external_vlm_baseline,WinCLIP zero-shot,0.4266666769981384,,0.530823826789856,0.0062595759518444,Stage 14-C2 zero-shot pilot,External VLM anomaly detection baseline under default zero-shot setting.
