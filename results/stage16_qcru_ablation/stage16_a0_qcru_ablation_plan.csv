@@ -1,0 +1,8 @@
+variant_id,variant,uses_detector_score,uses_full_image_vlm,uses_crop_vlm,uses_quality,uses_consistency,uses_unknown,purpose
+V0,detector_only,True,False,False,False,False,False,Anchor baseline; proves whether QCR-U beats the detector alone.
+V1,full_image_vlm,False,True,False,False,False,False,Weak VLM sanity baseline; should not be the main comparison target.
+V2,crop_topk_vlm,False,False,True,False,False,False,Tests whether localization-guided crops improve VLM scoring.
+V3,naive_detector_crop_fusion,True,False,True,False,False,False,Naive fusion baseline; QCR-U must beat this or the method is not justified.
+V4,quality_weighted_crop,True,False,True,True,False,False,Tests whether candidate quality contributes beyond crop scoring.
+V5,quality_consistency_fusion,True,False,True,True,True,False,Core QCR-U binary anomaly recognition variant.
+V6,qcr_u_full_optional_unknown,True,False,True,True,True,True,Only valid if a strict known/unknown protocol is available.
