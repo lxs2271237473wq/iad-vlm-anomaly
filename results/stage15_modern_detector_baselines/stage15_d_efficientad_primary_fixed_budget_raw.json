@@ -1,0 +1,70 @@
+[
+  {
+    "category": "fruit_jelly",
+    "metrics": {
+      "image_AUROC": 0.8433333039283752,
+      "image_F1Score": 0.8571428656578064,
+      "pixel_AUROC": 0.7893707156181335,
+      "pixel_F1Score": 0.5394811034202576
+    },
+    "raw": [
+      {
+        "image_AUROC": 0.8433333039283752,
+        "image_F1Score": 0.8571428656578064,
+        "pixel_AUROC": 0.7893707156181335,
+        "pixel_F1Score": 0.5394811034202576
+      }
+    ]
+  },
+  {
+    "category": "sheet_metal",
+    "metrics": {
+      "image_AUROC": 0.7333333492279053,
+      "image_F1Score": 0.8842105269432068,
+      "pixel_AUROC": 0.7509881854057312,
+      "pixel_F1Score": 0.29947036504745483
+    },
+    "raw": [
+      {
+        "image_AUROC": 0.7333333492279053,
+        "image_F1Score": 0.8842105269432068,
+        "pixel_AUROC": 0.7509881854057312,
+        "pixel_F1Score": 0.29947036504745483
+      }
+    ]
+  },
+  {
+    "category": "vial",
+    "metrics": {
+      "image_AUROC": 0.9098532199859619,
+      "image_F1Score": 0.8990825414657593,
+      "pixel_AUROC": 0.9281267523765564,
+      "pixel_F1Score": 0.3604857921600342
+    },
+    "raw": [
+      {
+        "image_AUROC": 0.9098532199859619,
+        "image_F1Score": 0.8990825414657593,
+        "pixel_AUROC": 0.9281267523765564,
+        "pixel_F1Score": 0.3604857921600342
+      }
+    ]
+  },
+  {
+    "category": "walnuts",
+    "metrics": {
+      "image_AUROC": 0.5551851987838745,
+      "image_F1Score": 0.7288135886192322,
+      "pixel_AUROC": 0.7686794996261597,
+      "pixel_F1Score": 0.04223956540226936
+    },
+    "raw": [
+      {
+        "image_AUROC": 0.5551851987838745,
+        "image_F1Score": 0.7288135886192322,
+        "pixel_AUROC": 0.7686794996261597,
+        "pixel_F1Score": 0.04223956540226936
+      }
+    ]
+  }
+]
