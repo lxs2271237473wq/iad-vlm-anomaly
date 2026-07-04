@@ -1,0 +1,7 @@
+decision_id,decision,evidence,status
+D1,Use LOCO fusion as the primary fair result,"PatchCore + context VLM, LOCO mean image AUROC is 0.8210.",locked
+D2,Keep same-set fusion only as an upper-bound diagnostic,"Same-set fusion mean image AUROC is 0.8453, but it is not the fair deployment protocol.",locked
+D3,Keep EfficientAD-30 as a fixed-budget modern detector baseline,EfficientAD-30 mean image AUROC is 0.7604.,locked
+D4,Do not immediately run four-category EfficientAD-100,EfficientAD-30 does not overturn the LOCO fusion conclusion; full four-category 100-epoch training is not the next bottleneck.,locked
+D5,Add only a fruit_jelly EfficientAD-100 sensitivity check later,This is sufficient to test whether 30 epochs severely underestimates EfficientAD before spending time on four-category 100-epoch training.,planned
+D6,Move the main line to QCR-U ablation,"The current crop/fusion pipeline needs to become a method with quality, consistency, and optional unknown-aware reasoning.",next
