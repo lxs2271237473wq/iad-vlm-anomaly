@@ -1,36 +1,33 @@
 # Stage 15-D EfficientAD Fixed-Budget Baseline
 
-## Purpose
+## 1. Purpose
 
-This script runs a robust fixed-budget EfficientAD baseline and writes status to CSV before and after each major phase.
+This stage runs EfficientAD as a modern non-VLM detector baseline under a fixed 30-epoch budget on the four primary MVTec AD 2 categories.
 
-EfficientAD is only a modern non-VLM detector baseline. It is not the proposed method.
+This is not the proposed method. It is used only as a detector baseline for later strong-baseline comparison.
 
-## Config
+## 2. Fixed Protocol
 
-- categories: `['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']`
+- method: `EfficientAD-30 fixed-budget`
+- categories: `fruit_jelly`, `sheet_metal`, `vial`, `walnuts`
 - max_epochs: `30`
+- train_batch_size: `1`
 - eval_batch_size: `64`
 - num_workers: `16`
-- check_val_every_n_epoch: `10`
 - precision: `16-mixed`
+- check_val_every_n_epoch: `10`
 - model_size: `small`
-- lr: `0.0001`
-- weight_decay: `1e-05`
-- enable_progress_bar: `False`
-- reset_outputs: `True`
-- train_batch_size: `1`
 
-## Results
+## 3. Results
 
-| Category | Status | Fit sec | Test sec | Image AUROC | Image F1 | Pixel AUROC | Pixel F1 | Error |
-|---|---|---:|---:|---:|---:|---:|---:|---|
-| fruit_jelly | success | 4870.582 | 17.338 | 0.8433333039283752 | 0.8571428656578064 | 0.7893707156181335 | 0.5394811034202576 | `` |
-| sheet_metal | success | 2557.149 | 29.355 | 0.7333333492279053 | 0.8842105269432068 | 0.7509881854057312 | 0.29947036504745483 | `` |
-| vial | success | 5116.335 | 23.059 | 0.9098532199859619 | 0.8990825414657593 | 0.9281267523765564 | 0.3604857921600342 | `` |
-| walnuts | success | 8219.74 | 57.985 | 0.5551851987838745 | 0.7288135886192322 | 0.7686794996261597 | 0.04223956540226936 | `` |
+| Category | Status | Fit sec | Test sec | Image AUROC | Image F1 | Pixel AUROC | Pixel F1 |
+|---|---|---:|---:|---:|---:|---:|---:|
+| fruit_jelly | success | 4870.582 | 17.338 | 0.8433 | 0.8571 | 0.7894 | 0.5395 |
+| sheet_metal | success | 2557.149 | 29.355 | 0.7333 | 0.8842 | 0.7510 | 0.2995 |
+| vial | success | 5116.335 | 23.059 | 0.9099 | 0.8991 | 0.9281 | 0.3605 |
+| walnuts | success | 8219.740 | 57.985 | 0.5552 | 0.7288 | 0.7687 | 0.0422 |
 
-## Aggregate
+## 4. Aggregate
 
 - successful_categories: `4`
 - mean_image_AUROC: `0.7604`
@@ -38,6 +35,14 @@ EfficientAD is only a modern non-VLM detector baseline. It is not the proposed m
 - mean_pixel_AUROC: `0.8093`
 - mean_pixel_F1Score: `0.3104`
 
-## Note
+## 5. Interpretation
 
-Anomalib EfficientAD forces train_batch_size=1 and performs validation quantile/metric computation. RTX 4090 utilization can therefore remain low for this baseline.
+EfficientAD-30 provides a stronger modern non-VLM detector baseline than the earlier fruit_jelly-only 20-epoch pilot.
+
+However, this result should not be described as an official or full-budget EfficientAD baseline. It should be reported as `EfficientAD-30 fixed-budget`.
+
+A 100-epoch sensitivity check on `fruit_jelly` is still needed to determine whether the 30-epoch budget substantially underestimates EfficientAD.
+
+## 6. Runtime Note
+
+Anomalib EfficientAD forces `train_batch_size=1` and performs validation quantile/metric computation. RTX 4090 utilization can therefore remain low for this baseline.
