@@ -1,0 +1,6 @@
+decision_id,topic,decision,evidence,paper_action
+E1,quality_calibration,Keep candidate quality calibration as the main method core.,Per-category mean V4-V3 AUROC delta=+0.0119; wins=13/24.,Use as main contribution.
+E2,adaptive_consistency,Keep adaptive consistency only as a refinement.,Per-category mean V6-V4 AUROC delta=+0.0003; wins=14/24.,Use with caution; do not call it the main source of improvement.
+E3,fixed_consistency,Do not use fixed Q+C as the final method even if it peaks on some categories.,Per-category mean V5-V4 AUROC delta=+0.0027; positive cases=18/24.,Mention as diagnostic only.
+E4,case_inventory,Use selected cases for qualitative boundary analysis.,quality_helps_anomaly_boost=10; quality_boundary_anomaly_suppression=10; fixed_consistency_boundary_anomaly_suppression=10; quality_helps_normal_suppression=10; quality_boundary_normal_boost=10; fixed_consistency_boundary_normal_boost=10; adaptive_refinement_high_gate=10; detector_vlm_disagreement_boundary=10,Inspect representative cases manually before paper figures.
+E5,paper_boundary,"The method should be claimed as reliability calibration, not full anomaly understanding.",The case taxonomy explicitly includes detector-VLM disagreement and candidate-quality boundary cases.,Use boundary-aware wording in paper.
