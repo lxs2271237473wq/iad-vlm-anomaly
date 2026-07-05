@@ -1,0 +1,20 @@
+delta_type,scope,comparison,left_score,right_score,delta,paper_interpretation
+system_level_main_delta,system_panel,LOCO fusion vs PatchCore,0.8209783368273935,0.7853284416491964,0.035649895178197166,Localization-guided VLM evidence complements the detector baseline.
+system_level_main_delta,system_panel,LOCO fusion vs EfficientAD-30 fixed-budget,0.8209783368273935,0.7604262679815292,0.06055206884586428,LOCO fusion remains above the fixed-budget modern detector baseline; do not claim full EfficientAD defeat.
+system_level_main_delta,system_panel,LOCO fusion vs WinCLIP fixed protocol,0.8209783368273935,0.6137526258826256,0.20722571094476794,The proposed localization-guided route is stronger than this fixed WinCLIP protocol.
+system_level_main_delta,system_panel,LOCO fusion vs context-aware VLM,0.8209783368273935,0.7101187980433263,0.11085953878406718,Claim-supporting delta.
+vlm_localization_delta,system_panel,context-aware VLM vs full-image VLM,0.7101187980433263,0.6458892382948986,0.0642295597484277,Localization/context improves over full-image VLM.
+upper_bound_gap,system_panel,same-set upper bound vs LOCO fair result,0.8452830188679246,0.8209783368273935,0.024304682040531045,Same-set is diagnostic upper bound only; LOCO is the fair result.
+qcr_core_delta,qcr_primary_protocol,Quality-Calibrated QCR vs naive fusion,0.9748198198198198,0.965234753984754,0.009585065835065798,Candidate quality calibration is the main method gain.
+adaptive_refinement_delta,qcr_primary_protocol,Adaptive refinement vs Quality-Calibrated QCR,0.9752100658350658,0.9748198198198198,0.00039024601524600966,"Adaptive consistency is only a small refinement, not a main contribution."
+qcr_final_delta,qcr_primary_protocol,Adaptive refinement vs naive fusion,0.9752100658350658,0.965234753984754,0.009975311850311808,Final refinement variant improves over naive fusion.
+diagnostic_fixed_consistency_delta,qcr_primary_protocol,Fixed Q+C vs Quality-Calibrated QCR,0.9790839397089398,0.9748198198198198,0.0042641198891200105,Fixed consistency is diagnostic only because robustness is not stable across protocols.
+robustness_tradeoff_delta,qcr_primary_protocol,Adaptive refinement vs fixed Q+C,0.9752100658350658,0.9790839397089398,-0.003873873873874001,Adaptive refinement trades peak primary-protocol AUROC for robustness.
+stage16b_decision_summary,primary_protocol,adaptive_qcru_minus_naive,,,0.0099753118503118,"wins=2/2, win_rate=1.0"
+stage16b_decision_summary,primary_protocol,adaptive_qcru_minus_quality,,,0.000390246015246,"wins=2/2, win_rate=1.0"
+stage16b_decision_summary,primary_protocol,adaptive_qcru_minus_fixed_qc,,,-0.0038738738738738,"wins=0/2, win_rate=0.0"
+stage16b_decision_summary,primary_protocol,quality_minus_naive,,,0.0095850658350657,"wins=2/2, win_rate=1.0"
+stage16b_decision_summary,all_protocols,adaptive_qcru_minus_naive,,,0.0370668023793023,"wins=12/12, win_rate=1.0"
+stage16b_decision_summary,all_protocols,adaptive_qcru_minus_quality,,,0.0005820483945483,"wins=12/12, win_rate=1.0"
+stage16b_decision_summary,all_protocols,adaptive_qcru_minus_fixed_qc,,,0.0099456427581427,"wins=6/12, win_rate=0.5"
+stage16b_decision_summary,all_protocols,quality_minus_naive,,,0.036484753984754,"wins=12/12, win_rate=1.0"
