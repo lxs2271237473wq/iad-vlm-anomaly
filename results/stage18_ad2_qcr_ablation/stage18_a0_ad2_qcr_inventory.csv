@@ -1,0 +1,5 @@
+file,exists_and_readable,num_rows,num_cols,has_dataset_col,datasets,has_category_col,categories_found,ad2_categories_found,ad2_coverage_count,can_directly_run_ad2_qcr_ablation,notes
+results/stage9_qcr_u/stage9_a1_qcr_u_fusion_predictions.csv,True,155664,23,True,VisA,True,candle;capsules;cashew;chewinggum;fryum;macaroni1;macaroni2;pcb1;pcb2;pcb3;pcb4;pipe_fryum,,0,False,does not contain full AD2 QCR-ready prediction columns/categories
+results/stage16_qcru_ablation/stage16_b_adaptive_qcru_all_variants_per_config.csv,True,72,14,True,VisA,False,,,0,False,does not contain full AD2 QCR-ready prediction columns/categories
+results/stage16_qcru_ablation/stage16_b_adaptive_qcru_all_variants_per_category.csv,True,864,15,True,VisA,True,candle;capsules;cashew;chewinggum;fryum;macaroni1;macaroni2;pcb1;pcb2;pcb3;pcb4;pipe_fryum,,0,False,does not contain full AD2 QCR-ready prediction columns/categories
+results/stage16_qcru_ablation/stage16_d_paper_facing_qcr_ablation_table.csv,True,12,16,True,VisA,False,,,0,False,does not contain full AD2 QCR-ready prediction columns/categories
