@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\caption{QCR primary-protocol ablation.}
+\label{tab:qcr_ablation}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}llllll@{}}
+\toprule
+ID & Method & FastFlow & PatchCore & Mean AUROC & Role \\
+\midrule
+V0 & Detector only & 0.8955 & 0.9131 & 0.9043 & anchor\_baseline \\
+V2 & Crop VLM only & 0.9269 & 0.8846 & 0.9057 & vlm\_crop\_baseline \\
+V3 & Naive detector-crop fusion & 0.9688 & 0.9616 & 0.9652 & naive\_fusion\_baseline \\
+V4 & Quality-Calibrated QCR & 0.9778 & 0.9718 & 0.9748 & main\_effective\_method\_core \\
+V5 & Fixed Q+C fusion & 0.9842 & 0.9740 & 0.9791 & diagnostic\_not\_final \\
+V6 & Quality-Calibrated QCR + adaptive consistency refinement & 0.9783 & 0.9722 & 0.9752 & final\_refinement\_variant \\
+\bottomrule
+\end{tabular}%
+}
+\vspace{2pt}
+\footnotesize{\emph{Note.} Quality-Calibrated QCR is the main method core. Fixed Q+C is diagnostic only.}
+\end{table}

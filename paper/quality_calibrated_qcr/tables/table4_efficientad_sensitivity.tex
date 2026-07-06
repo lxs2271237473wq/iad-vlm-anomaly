@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\caption{EfficientAD-100 fruit\_jelly sensitivity.}
+\label{tab:efficientad_sensitivity}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}llll@{}}
+\toprule
+Metric & EfficientAD-30 & EfficientAD-100 & Delta \\
+\midrule
+image\_AUROC & 0.8433 & 0.8267 & -0.0167 \\
+image\_F1Score & 0.8571 & 0.8438 & -0.0134 \\
+pixel\_AUROC & 0.7894 & 0.8424 & +0.0531 \\
+pixel\_F1Score & 0.5395 & 0.5561 & +0.0166 \\
+\bottomrule
+\end{tabular}%
+}
+\vspace{2pt}
+\footnotesize{\emph{Note.} This is a defensive fixed-budget sensitivity check, not a full EfficientAD sweep.}
+\end{table}

@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\caption{Boundary and robustness summary.}
+\label{tab:boundary_summary}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}llllll@{}}
+\toprule
+Comparison & Mean delta & Wins & Min & Max & Interpretation \\
+\midrule
+Quality-Calibrated QCR - Naive & +0.0119 & 13/24 & -0.0132 & +0.0908 & quality calibration \\
+Adaptive - Quality-Calibrated QCR & +0.0003 & 14/24 & +0.0000 & +0.0014 & adaptive refinement \\
+Fixed Q+C - Quality-Calibrated QCR & +0.0027 & 18/24 & -0.0506 & +0.0202 & diagnostic fixed consistency \\
+Adaptive - Fixed Q+C & -0.0024 & 3/24 & -0.0189 & +0.0508 & robustness tradeoff \\
+\bottomrule
+\end{tabular}%
+}
+\vspace{2pt}
+\footnotesize{\emph{Note.} Per-category deltas show quality calibration is useful but not universal; adaptive consistency is only a refinement.}
+\end{table}

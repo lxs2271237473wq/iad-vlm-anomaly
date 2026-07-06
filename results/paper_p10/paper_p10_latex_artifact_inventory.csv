@@ -1,0 +1,8 @@
+artifact_id,artifact,path,purpose,status
+P10-A1,main.tex,paper/quality_calibrated_qcr/main.tex,Main LaTeX manuscript scaffold.,generated
+P10-A2,references.bib,paper/quality_calibrated_qcr/references.bib,Normalized BibTeX file copied from P9 references.,generated
+P10-A3,Table 1,paper/quality_calibrated_qcr/tables/table1_system_baselines.tex,System-level baseline comparison.,generated
+P10-A4,Table 2,paper/quality_calibrated_qcr/tables/table2_qcr_ablation.tex,QCR ablation table.,generated
+P10-A5,Table 3,paper/quality_calibrated_qcr/tables/table3_boundary_summary.tex,Boundary and robustness summary.,generated
+P10-A6,Table 4,paper/quality_calibrated_qcr/tables/table4_efficientad_sensitivity.tex,EfficientAD-100 sensitivity table.,generated
+P10-A7,Figure 1 SVG copy,paper/quality_calibrated_qcr/figures/figure1_framework_schematic.svg,Framework figure source copied from P8; main.tex uses placeholder for compile safety.,generated

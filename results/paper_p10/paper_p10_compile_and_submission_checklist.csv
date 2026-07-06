@@ -1,0 +1,8 @@
+check_id,check,status,next_action
+P10-C1,LaTeX scaffold generated,done,Open paper/quality_calibrated_qcr/main.tex and inspect section order.
+P10-C2,Booktabs tables generated,done,Manually compress table text if venue page budget is tight.
+P10-C3,References normalized,done,Later replace with official BibTeX if venue requires exact pages/proceedings fields.
+P10-C4,Figure 1 placeholder in main.tex,done,Convert SVG to PDF/PNG and replace placeholder before final submission.
+P10-C5,Figure 2 still missing,open,Manually inspect P8 selected cases before creating boundary montage.
+P10-C6,AnomalyCLIP not experimentally included,open,Keep as limitation unless later run under matched protocol.
+P10-C7,Compile test,not_run,Run pdflatex/bibtex locally if TeX is installed.
