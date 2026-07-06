@@ -1,0 +1,9 @@
+patch_id,type,applied,reason,old,new
+P14-01,tone_softening,True,Avoid overgeneralizing VLM unreliability.,"remains unreliable when defects are small, localized, and visually subtle","can be unreliable when defects are small, localized, and visually subtle"
+P14-02,tone_softening,True,Sharper and less absolute.,This makes direct full-image VLM reasoning unreliable for industrial inspection.,This makes direct full-image VLM reasoning difficult for industrial inspection.
+P14-03,claim_precision,True,Clarifies what is reported as the main method.,The main method is $S_{\mathrm{quality}}$.,We use $S_{\mathrm{quality}}$ as the main method score.
+P14-04,claim_precision,True,More compact and conservative.,"The adaptive variant is reported as a refinement, not as the main performance source.",The adaptive variant is reported only as a refinement.
+P14-05,compression,True,Tighter conclusion.,The evidence supports a cautious but coherent claim: localization-guided VLM anomaly recognition becomes more reliable when crop-level evidence is calibrated by candidate quality.,"Overall, candidate-quality calibration makes localization-guided VLM evidence more reliable for image-level anomaly recognition."
+P14-06,claim_safety,False,Remove possible duplicated limitation wording.,"It does not claim pixel-level segmentation SOTA, general defect-cause interpretation, or general defect-cause interpretation.",It does not claim pixel-level segmentation SOTA or general defect-cause interpretation.
+P14-07,claim_safety,True,Remove forbidden wording while preserving limitation.,"It does not claim pixel-level segmentation SOTA, manufacturing-cause reasoning, or general defect-cause interpretation.",It does not claim pixel-level segmentation SOTA or general defect-cause interpretation.
+P14-08,baseline_precision,True,Make baseline budget explicit.,EfficientAD is fixed-budget,EfficientAD is evaluated under a fixed 30-epoch budget

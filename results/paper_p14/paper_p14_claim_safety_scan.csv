@@ -1,0 +1,17 @@
+scan_item,status,note
+state-of-the-art segmentation,ok,
+SOTA segmentation,ok,
+manufacturing cause,ok,
+manufacturing-cause reasoning,flag,Review and remove/soften this phrase.
+full anomaly understanding,ok,
+universally beneficial,ok,
+defeat EfficientAD,ok,
+beats EfficientAD,ok,
+outperforms AnomalyCLIP,ok,
+SOTA,flag,Review and remove/soften this phrase.
+Quality-Calibrated QCR,ok,main method name
+EfficientAD-30 fixed-budget,ok,fixed-budget baseline wording
+diagnostic,ok,fixed Q+C diagnostic wording
+AnomalyCLIP,ok,missing external VLM baseline limitation
+candidate quality,ok,main method mechanism
+adaptive,ok,adaptive refinement wording
