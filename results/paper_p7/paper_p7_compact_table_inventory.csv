@@ -1,0 +1,5 @@
+table_id,title,path,paper_location,status
+Table 1,System-level strong baseline comparison,docs/paper_p7/tables/table1_system_baselines.md,Main Results,generated
+Table 2,QCR primary-protocol ablation,docs/paper_p7/tables/table2_qcr_ablation.md,Ablation Study,generated
+Table 3,Boundary and robustness summary,docs/paper_p7/tables/table3_boundary_summary.md,Failure / Boundary Analysis,generated
+Appendix Table A1,EfficientAD-100 fruit_jelly sensitivity,docs/paper_p7/tables/table4_efficientad_sensitivity.md,Appendix / Baseline Budget Sensitivity,generated

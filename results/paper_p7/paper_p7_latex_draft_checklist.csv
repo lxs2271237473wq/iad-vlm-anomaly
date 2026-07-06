@@ -1,0 +1,7 @@
+item_id,item,status,next_action
+P7-C1,Compact draft generated,done,Manual polish after figures and references are added.
+P7-C2,Paper-facing compact tables generated,done,Convert Markdown tables to LaTeX tabular/booktabs.
+P7-C3,Framework figure missing,missing,Create Figure 1 pipeline schematic.
+P7-C4,Boundary case figure missing,missing,Inspect Stage 16-E case inventory and select representative images.
+P7-C5,BibTeX missing,missing,"Prepare references for MVTec AD, VisA, PatchCore, FastFlow, EfficientAD, CLIP, WinCLIP, AnomalyCLIP."
+P7-C6,AnomalyCLIP risk unresolved,open,Either run it later or keep it explicitly as limitation.
