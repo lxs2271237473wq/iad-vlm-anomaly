@@ -1,0 +1,8 @@
+dimension,status,evidence,blocking_for_first_draft
+experimental_evidence_chain,mostly_closed,"Stage 15 strong baselines, Stage 16 method/claim map, Stage 17 EfficientAD sensitivity are complete.",False
+method_name_and_claims,closed,Quality-Calibrated QCR is locked; fixed Q+C rejected as final method.,False
+paper_text_skeleton,created_by_p6,P6 assembles P2/P3/P4/P5 into one skeleton.,False
+figures,missing,Framework and boundary-case figures are not drawn/selected.,True
+references,incomplete,"Reference inventory exists, but BibTeX is not prepared.",True
+external_vlm_baseline_risk,open,AnomalyCLIP is not included; currently handled as limitation.,False
+submission_readiness,draftable_not_submission_ready,"Evidence chain is coherent, but figures, BibTeX, table formatting, and final polishing remain.",False

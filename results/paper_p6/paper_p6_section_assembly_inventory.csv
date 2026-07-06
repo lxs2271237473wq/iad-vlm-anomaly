@@ -1,0 +1,10 @@
+paper_section,source,assembly_status,notes
+Title,P1/P2,drafted,Working title is fixed but can be shortened later.
+Abstract,P1/P2/P3,drafted,Needs final word-limit adjustment after venue selection.
+Introduction,P2,drafted,Must keep claim boundaries around VLM reasoning.
+Related Work,P4,drafted,Needs exact BibTeX entries before submission.
+Method,P5,drafted,Core formulas and algorithm are included.
+Experiments,P3,drafted,Tables are referenced by source CSV; formatting still needed.
+Failure and Boundary Analysis,P3/Stage16E,drafted_data_ready,Representative images still need manual inspection.
+Limitations,P1/P3/P6 checklist,drafted,Must mention EfficientAD fixed-budget and missing AnomalyCLIP.
+Conclusion,P6,drafted,Keep conservative wording.

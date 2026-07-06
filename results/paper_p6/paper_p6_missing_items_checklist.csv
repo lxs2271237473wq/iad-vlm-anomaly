@@ -1,0 +1,9 @@
+item_id,item,priority,reason,status
+M1,Draw Figure 1 framework overview,high,Method needs a visual pipeline: detector localization -> candidate crop -> VLM evidence -> quality calibration -> adaptive refinement.,missing
+M2,Select Figure 2 representative boundary cases,high,"Stage 16-E generated case inventory, but image examples must be visually inspected before paper use.",missing
+M3,Convert CSV tables into paper-formatted LaTeX tables,high,Paper skeleton references CSV outputs; final paper needs compact formatted tables.,missing
+M4,Prepare BibTeX references,high,P4 has reference inventory but not exact BibTeX entries.,missing
+M5,Venue template and page budget,medium,"Abstract length, table count, and appendix size depend on target venue.",missing
+M6,Decide whether to add AnomalyCLIP or explicitly list it as limitation,medium_high,AnomalyCLIP is a likely reviewer question for VLM anomaly work.,open_decision
+M7,Polish English academic writing,medium,Current text is claim-safe but still draft-like.,missing
+M8,Write exact protocol details,medium_high,"LOCO, same-set, QCR primary protocol, and EfficientAD fixed-budget must be unambiguous.",needs_detailing
