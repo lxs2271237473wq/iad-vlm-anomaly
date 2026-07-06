@@ -1,0 +1,8 @@
+paper_table_id,paper_table_title,source_file,recommended_location,paper_text_use
+Table 1,System-level strong baseline comparison,results/stage16_qcru_ablation/stage16_d_paper_facing_system_baseline_table.csv,Main Results,Main system-level evidence. Use LOCO as fair result; same-set as upper-bound diagnostic only.
+Table 2,Quality-Calibrated QCR ablation,results/stage16_qcru_ablation/stage16_d_paper_facing_qcr_ablation_table.csv,Ablation Study,"Show detector-only, crop VLM, naive fusion, quality calibration, fixed Q+C diagnostic, and adaptive refinement."
+Table 3,Claim-ready deltas,results/stage16_qcru_ablation/stage16_d_paper_facing_claim_ready_deltas.csv,Analysis or appendix,Use exact deltas in prose; may not need full table in main paper.
+Table 4,Boundary and failure summary,results/stage16_qcru_ablation/stage16_e_category_boundary_summary.csv,Failure Analysis,Show quality calibration is useful but not universal; fixed consistency remains diagnostic.
+Appendix Table A1,EfficientAD-100 sensitivity,results/stage17_defensive_sensitivity/stage17_a_efficientad100_vs_30_delta.csv,Appendix or baseline-budget note,Defensive baseline-budget sensitivity. Do not claim full EfficientAD defeat.
+Figure 1,Method overview,to_be_drawn,Method,Detector localization -> candidate crop -> VLM evidence -> quality calibration -> adaptive refinement.
+Figure 2,Boundary cases,results/stage16_qcru_ablation/stage16_e_failure_boundary_case_inventory.csv,Failure Analysis,Manual visual inspection required before choosing paper examples.

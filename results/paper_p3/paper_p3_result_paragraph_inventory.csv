@@ -1,0 +1,8 @@
+paragraph_id,section,purpose,source_files,status
+P3-1,Experimental Setup,"Define datasets, categories, metrics, and protocol split.",Stage 15/16 result tables,drafted
+P3-2,Baselines,"Describe detector, VLM, and external VLM anomaly baselines.",stage16_d_paper_facing_system_baseline_table.csv,drafted
+P3-3,Main Results,Report system-level strong baseline comparison.,stage16_d_paper_facing_system_baseline_table.csv; stage16_d_paper_facing_claim_ready_deltas.csv,drafted
+P3-4,QCR Ablation,Report Quality-Calibrated QCR and adaptive refinement ablation.,stage16_d_paper_facing_qcr_ablation_table.csv; stage16_d_paper_facing_claim_ready_deltas.csv,drafted
+P3-5,Failure and Boundary Analysis,Explain quality calibration boundaries and fixed consistency risk.,stage16_e_category_boundary_summary.csv; stage16_e_boundary_decision_summary.csv,drafted
+P3-6,EfficientAD Sensitivity,Defend EfficientAD-30 fixed-budget with fruit_jelly 100-epoch sensitivity.,stage17_a_efficientad100_vs_30_delta.csv,drafted
+P3-7,Restrictions,State result-writing constraints to prevent overclaiming.,stage16_f_final_claim_evidence_map.csv,drafted
