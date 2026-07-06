@@ -1,0 +1,6 @@
+section_id,section,purpose,status
+P2-S1,Introduction,Motivate localization-guided VLM anomaly recognition and reliability calibration.,drafted
+P2-S2,Contributions,State conservative contribution bullets aligned with Stage 16-F claim-evidence map.,drafted
+P2-S3,Method Overview,"Describe detector localization, candidate VLM evidence, quality calibration, and adaptive refinement.",drafted
+P2-S4,Notation and Scoring,"Define D, M, Q, K, S_quality, and S_adaptive.",drafted
+P2-S5,Claim Boundaries,"Explicitly prevent overclaims around consistency, segmentation, and manufacturing-cause reasoning.",drafted

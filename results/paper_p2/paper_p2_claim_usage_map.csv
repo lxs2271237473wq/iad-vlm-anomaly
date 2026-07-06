@@ -1,0 +1,10 @@
+claim_id,paper_claim,used_in_p2_section,status,support_level
+P1,Industrial anomaly VLM reasoning should be localization-guided rather than full-image only.,Introduction,use,moderate
+P2,Localization-guided VLM evidence is complementary to detector baselines.,Introduction,use,strong_but_protocol_limited
+P3,The proposed localization-guided route is stronger than the fixed WinCLIP protocol used in this study.,Introduction,use_with_caution,moderate
+P4,Candidate quality calibration is the main effective method component.,Contributions,use,strong_as_core_but_not_universal
+P5,"Adaptive consistency is a conservative refinement, not the main source of improvement.",Contributions,use_with_caution,weak_as_gain_strong_as_safety_caveat
+P6,Fixed Q+C fusion is diagnostic only and should not be the final method.,Contributions,reject_as_final_method,strong_as_rejection
+P7,"Same-set fusion is an upper-bound diagnostic, not a fair main result.",Contributions,use_as_diagnostic_only,strong_as_protocol_boundary
+P8,"The method is a reliability-calibrated recognition framework, not a complete anomaly understanding system.",Claim Boundaries,use,strong_as_boundary_claim
+P9,Do not claim pixel-level segmentation SOTA.,Claim Boundaries,reject,strong_as_restriction
