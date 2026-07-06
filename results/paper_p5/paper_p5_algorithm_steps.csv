@@ -1,0 +1,8 @@
+step,name,input,operation,output
+1,Detector inference,image x,Run anomaly detector to obtain localization evidence A and detector anomaly score D.,"A, D"
+2,Candidate generation,localization evidence A,Extract candidate regions C = {c_i} using the fixed candidate protocol.,candidate crop set C
+3,Crop-level VLM scoring,candidate crops C,Score candidate crops with VLM abnormality prompts and aggregate crop scores.,aggregated crop VLM score M
+4,Candidate quality estimation,localization/candidate evidence,Compute candidate quality Q as localization-derived reliability of the crop evidence.,candidate quality Q
+5,Quality-calibrated scoring,"D, M, Q",Compute S_quality = 0.5D + 0.5 * M * (0.5 + 0.5Q).,Quality-Calibrated QCR score
+6,Optional adaptive consistency refinement,"D, M, Q, K",Compute gated consistency bonus and add it conservatively to S_quality.,S_adaptive
+7,Image-level anomaly decision,S_quality or S_adaptive,Use the selected score for image-level anomaly recognition and evaluation.,image-level anomaly score

@@ -1,0 +1,7 @@
+component_id,component,role,main_formula_or_operation,paper_status,claim_boundary
+M1,Detector localization,Generate localization evidence and detector anomaly score.,"Detector(x) -> A, D",use,"Detector is used as localization/evidence provider, not replaced."
+M2,Candidate crop generation,Convert localization evidence into candidate regions for VLM scoring.,A -> C = {c_i},use,Do not claim cropping alone is the main novelty.
+M3,Crop-level VLM scoring,Obtain localized visual-language abnormality evidence.,"VLM(c_i, prompts) -> m_i; aggregate {m_i} -> M",use,Do not claim full VLM anomaly understanding.
+M4,Candidate quality calibration,Main effective method component; calibrates crop-level VLM evidence.,S_quality = 0.5D + 0.5 * M * (0.5 + 0.5Q),main_method_core,Quality calibration is the main contribution; not universal per category.
+M5,Fixed Q+C fusion,Diagnostic comparison only.,S_fixed = 0.4D + 0.4M + 0.1Q + 0.1K,diagnostic_only,Do not use as final method; fixed consistency is not robust.
+M6,Adaptive consistency refinement,Conservative optional refinement on top of quality-calibrated core.,"S_adaptive = S_quality + 0.05 * Q*K*(1-|D-M|)*min(D,M)",use_with_caution,Small refinement only; not the main performance source.

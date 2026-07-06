@@ -1,0 +1,12 @@
+symbol,name,definition,range_or_type,used_in
+x,input image,industrial test image,image,all steps
+A,localization evidence,detector-produced anomaly localization map or candidate evidence,map / spatial evidence,candidate generation
+D,detector anomaly score,normalized image-level anomaly score from detector evidence,"[0, 1]",naive fusion; quality-calibrated QCR; adaptive refinement
+C = {c_i},candidate crop set,candidate regions generated from localization evidence,set of image crops,crop-level VLM scoring
+m_i,candidate VLM abnormality score,VLM abnormality score for candidate crop c_i,"[0, 1]",crop aggregation
+M,aggregated crop VLM score,fixed aggregation of crop-level VLM abnormality evidence under the selected protocol,"[0, 1]",naive fusion; quality-calibrated QCR; adaptive refinement
+Q,candidate quality,localization-derived reliability of the candidate crop evidence,"[0, 1]",quality calibration
+K,detector-VLM high-high consistency,consistency signal indicating jointly high detector and VLM abnormal evidence,"[0, 1]",adaptive consistency refinement only
+S_naive,naive detector-crop fusion score,unreliability-aware baseline score,"[0, 1]",ablation baseline
+S_quality,Quality-Calibrated QCR score,main quality-calibrated anomaly score,"[0, 1] after normalization",main method core
+S_adaptive,adaptive-refinement score,quality-calibrated score plus conservative gated consistency bonus,"[0, 1] after normalization",optional final refinement

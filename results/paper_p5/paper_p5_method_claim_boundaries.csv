@@ -1,0 +1,7 @@
+boundary_id,topic,safe_statement,forbidden_statement
+B1,method name,Use Quality-Calibrated QCR as the main method family.,Use fixed Q+C QCR-U as the final method.
+B2,quality calibration,Candidate quality calibration is the main effective component.,Candidate quality improves every category and every case.
+B3,adaptive consistency,Adaptive consistency is a conservative refinement.,Adaptive consistency is the main source of improvement.
+B4,fixed consistency,Fixed Q+C is diagnostic because robustness is insufficient.,Fixed consistency is universally beneficial.
+B5,localization,Localization evidence is used for candidate generation and reliability calibration.,The method achieves pixel-level segmentation SOTA.
+B6,VLM reasoning,The method performs localization-guided VLM anomaly recognition.,The method explains manufacturing causes or full anomaly understanding.
