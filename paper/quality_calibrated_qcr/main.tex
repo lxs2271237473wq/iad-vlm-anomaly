@@ -139,6 +139,13 @@ Boundary analysis shows that quality calibration is useful but not universal.
 It can help by boosting true localized anomalies or suppressing normal false positives, but it can also fail when candidate quality is misleading or detector-VLM evidence disagrees.
 Fixed Q+C can peak in some cases but is not robust enough to be final.
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/figure2_boundary_cases_montage.png}
+\caption{Representative boundary cases for quality-calibrated localization-guided VLM reasoning. Quality calibration can boost true anomaly evidence and suppress normal false positives, but it can also fail when candidate quality is misleading. Fixed Q+C can over-boost normal evidence, and detector-VLM disagreement remains a boundary case. These examples illustrate method boundaries rather than universal behavior.}
+\label{fig:boundary_cases}
+\end{figure}
+
 \input{tables/table3_boundary_summary}
 
 \section{EfficientAD Budget Sensitivity}
