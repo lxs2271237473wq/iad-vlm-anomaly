@@ -1,0 +1,5 @@
+claim_item,decision,final_wording,evidence
+main_innovation,keep,Quality-Calibrated QCR: candidate-quality calibration for localization-guided VLM anomaly evidence.,VisA primary ablation plus AD2 four-category LOCO policy support.
+adaptive_refinement,downgrade_to_auxiliary,"Adaptive consistency refinement is an optional auxiliary refinement, not the primary source of the gain.","On AD2, quality-only QCR slightly exceeds adaptive QCR."
+ad2_qcr_support,supporting_cross_category_evidence,"With a fixed semantic candidate-quality source and LOCO-selected weights, QCR improves over naive detector-crop fusion on AD2 four-category evaluation.","Quality-Calibrated QCR: 0.8469 AUROC, +0.0183 over naive, wins 3/4."
+overclaim_to_avoid,avoid,Do not claim that all Q sources or adaptive consistency are universally beneficial.,Default transferred Q source and several robust selectors did not improve over naive on AD2.

@@ -1,0 +1,4 @@
+setting,method,mean_image_auroc,delta_vs_naive,wins_vs_naive,paper_role
+AD2 four-category LOCO policy,Naive detector-crop fusion,0.828633822501747,0.0,,baseline
+AD2 four-category LOCO policy,Quality-Calibrated QCR,0.8469357092941998,0.0183018867924527,3/4,main_qcr_support
+AD2 four-category LOCO policy,Quality-Calibrated QCR + adaptive refinement,0.8464727463312369,0.0178389238294898,3/4,auxiliary_refinement
