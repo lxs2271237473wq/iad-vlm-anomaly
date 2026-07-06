@@ -1,0 +1,2 @@
+finding_type,severity,line
+tex_not_installed,warning,pdflatex not found. Compile check skipped.
