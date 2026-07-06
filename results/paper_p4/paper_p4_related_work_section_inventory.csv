@@ -1,0 +1,6 @@
+section_id,section_title,main_refs,purpose,status
+RW-1,Industrial anomaly detection and localization,Bergmann2019MVTecAD; Zou2022VisA; Roth2022PatchCore; Yu2021FastFlow; Batzner2024EfficientAD,Establish detector/localization context and explain why detector evidence is useful but not sufficient for VLM reasoning.,drafted
+RW-2,Vision-language anomaly detection,Radford2021CLIP; Jeong2023WinCLIP; Zhou2024AnomalyCLIP,Position VLM/CLIP anomaly methods and avoid broad CLIP-family superiority claims.,drafted
+RW-3,Localization-guided VLM evidence,PatchCore; FastFlow; VLM crop reasoning,Explain the gap between detector localization and trustworthy VLM evidence.,drafted
+RW-4,Reliability calibration of candidate evidence,Quality-Calibrated QCR evidence from our ablations,"Position the main method as reliability calibration, not raw score fusion.",drafted
+RW-5,Positioning summary,All above,State exactly how this paper differs from detector-only and CLIP-only anomaly methods.,drafted
