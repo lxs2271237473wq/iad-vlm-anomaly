@@ -32,7 +32,7 @@
 | forbidden_claim_scan | state-of-the-art segmentation | ok |  |
 | forbidden_claim_scan | SOTA segmentation | ok |  |
 | forbidden_claim_scan | manufacturing cause | ok |  |
-| forbidden_claim_scan | full anomaly understanding | flag | Flagged phrase should be removed or softened. |
+| forbidden_claim_scan | full anomaly understanding | ok |  |
 | forbidden_claim_scan | universally beneficial | ok |  |
 | forbidden_claim_scan | defeat EfficientAD | ok |  |
 
