@@ -545,7 +545,7 @@ This does not indicate severe image-level underestimation of EfficientAD-30, but
 \section{Limitations}
 
 The method is image-level anomaly recognition and candidate-level VLM evidence calibration.
-It does not claim pixel-level segmentation SOTA, manufacturing-cause reasoning, or full anomaly understanding.
+It does not claim pixel-level segmentation SOTA, manufacturing-cause reasoning, or general defect-cause interpretation.
 EfficientAD is fixed-budget, AnomalyCLIP~\cite{Zhou2024AnomalyCLIP} is not experimentally included, and adaptive consistency has only a small gain over quality-only.
 
 \section{Conclusion}
