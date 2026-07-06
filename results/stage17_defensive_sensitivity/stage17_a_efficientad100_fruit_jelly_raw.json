@@ -1,0 +1,19 @@
+[
+  {
+    "category": "fruit_jelly",
+    "metrics": {
+      "image_AUROC": 0.8266666531562805,
+      "image_F1Score": 0.84375,
+      "pixel_AUROC": 0.8424254655838013,
+      "pixel_F1Score": 0.5561066269874573
+    },
+    "raw": [
+      {
+        "image_AUROC": 0.8266666531562805,
+        "image_F1Score": 0.84375,
+        "pixel_AUROC": 0.8424254655838013,
+        "pixel_F1Score": 0.5561066269874573
+      }
+    ]
+  }
+]

@@ -1,0 +1,2 @@
+timestamp,category,status,max_epochs,train_batch_size,eval_batch_size,num_workers,precision,check_val_every_n_epoch,fit_sec,test_sec,image_AUROC,image_F1Score,pixel_AUROC,pixel_F1Score,error
+2026-07-05T14:30:13,fruit_jelly,success,100,1,64,16,16-mixed,20,15268.667,16.217,0.8266666531562805,0.84375,0.8424254655838013,0.5561066269874573,
