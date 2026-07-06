@@ -1,0 +1,7 @@
+risk_id,risk,severity,mitigation,paper_handling
+R1,EfficientAD is still not a full four-category 100-epoch baseline.,medium,Stage 17-A fruit_jelly sensitivity shows EfficientAD-100 does not improve image_AUROC over EfficientAD-30 on fruit_jelly. Keep EfficientAD as fixed-budget.,Label EfficientAD as EfficientAD-30 fixed-budget. Do not claim full EfficientAD defeat.
+R2,AnomalyCLIP is not included.,medium_high,Avoid broad CLIP-family SOTA claims. Present WinCLIP as the fixed external VLM anomaly baseline used in this study.,Mention as future baseline extension or limitation.
+R3,Adaptive consistency gain over quality-only is very small.,medium,Do not present adaptive consistency as the main innovation. The main method is quality calibration.,Write adaptive consistency as conservative refinement only.
+R4,Quality calibration is not universally positive per category.,medium,"Use Stage 16-E boundary analysis. Claim reliability calibration, not universal improvement.",Include failure/boundary section.
+R5,Method may look heuristic because it uses score fusion.,medium_high,"Emphasize fixed protocol, ablations, robustness checks, and boundary analysis.",Avoid overclaiming; frame as reliability calibration for localization-guided VLM evidence.
+R6,Pixel-level claims are weak.,high_if_overclaimed,Do not claim segmentation SOTA.,"Frame localization as candidate generation evidence, not final segmentation output."
