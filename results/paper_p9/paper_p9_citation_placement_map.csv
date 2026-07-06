@@ -1,0 +1,8 @@
+placement_id,paper_section,target_text,citation,reason
+C1,Introduction,industrial anomaly recognition / industrial inspection benchmark motivation,"\cite{Bergmann2019MVTecAD,Zou2022VisA}",Ground the industrial anomaly benchmark context.
+C2,Introduction,vision-language models / CLIP background,\cite{Radford2021CLIP},Ground VLM/CLIP motivation.
+C3,Related Work: Industrial anomaly detection,"PatchCore, FastFlow, EfficientAD detector line","\cite{Roth2022PatchCore,Yu2021FastFlow,Batzner2024EfficientAD}",Ground detector baselines and localization evidence line.
+C4,Related Work: VLM anomaly detection,"CLIP, WinCLIP, AnomalyCLIP","\cite{Radford2021CLIP,Jeong2023WinCLIP,Zhou2024AnomalyCLIP}",Ground CLIP/VLM anomaly detection line.
+C5,Experimental Setup,VisA-based experimental protocol,\cite{Zou2022VisA},Dataset citation.
+C6,Baselines,"PatchCore, EfficientAD, WinCLIP baselines","\cite{Roth2022PatchCore,Batzner2024EfficientAD,Jeong2023WinCLIP}",Baseline citation.
+C7,Limitations,AnomalyCLIP missing external VLM anomaly baseline,\cite{Zhou2024AnomalyCLIP},Cite the explicitly missing baseline.

@@ -1,0 +1,7 @@
+risk_id,risk,severity,handling
+P9-R1,BibTeX page numbers are omitted.,low,Acceptable for internal draft. Add pages automatically later via venue template or official BibTeX if required.
+P9-R2,AnomalyCLIP is cited but not experimentally compared.,medium_high,Keep it in related work and limitations only. Do not include it in result tables unless later run.
+P9-R3,EfficientAD can be misread as fully optimized.,medium_high,Always write EfficientAD-30 fixed-budget in result text.
+P9-R4,WinCLIP comparison can be overgeneralized.,medium,"Always write WinCLIP fixed protocol, not broad WinCLIP defeat."
+P9-R5,Dataset citations can imply broader dataset coverage than experiments actually use.,medium,Experimental Setup must state exact categories/protocols used.
+P9-R6,Related Work may sound like method replaces detectors.,medium,Use complement language: detector localization evidence is used as input evidence.

@@ -1,0 +1,9 @@
+cite_key,work,category,citation_role,paper_sections,source_type,must_cite,risk_note
+Bergmann2019MVTecAD,MVTec AD,industrial_anomaly_dataset,dataset/background,Introduction; Related Work; Experimental Setup,CVF / CVPR,True,Use for industrial anomaly benchmark background; do not imply current paper evaluates on all MVTec categories unless true.
+Zou2022VisA,VisA / SPot-the-Difference,industrial_anomaly_dataset,dataset/background/current benchmark context,Introduction; Related Work; Experimental Setup,ECCV / arXiv / AWS dataset page,True,Use when discussing VisA protocol/categories.
+Roth2022PatchCore,PatchCore,industrial_anomaly_detector,strong detector baseline,Related Work; Baselines; Main Results,CVF / CVPR,True,Treat PatchCore as strong baseline; do not frame as weak or replaced.
+Yu2021FastFlow,FastFlow,industrial_anomaly_detector,flow-based detector/localization backbone context,Related Work; Method context,arXiv,True,Use as detector-family context; do not claim VLM replaces flow detectors.
+Batzner2024EfficientAD,EfficientAD,industrial_anomaly_detector,modern efficient detector baseline,Related Work; Baselines; EfficientAD budget sensitivity,CVF / WACV,True,"Our result is EfficientAD-30 fixed-budget, not full EfficientAD defeat."
+Radford2021CLIP,CLIP,vision_language_model,foundation VLM background,Introduction; Related Work,PMLR / ICML,True,Use for general VLM/CLIP background only.
+Jeong2023WinCLIP,WinCLIP,clip_anomaly_detection,external CLIP anomaly baseline,Related Work; Baselines; Main Results,CVF / CVPR,True,Our comparison is fixed protocol only; do not claim comprehensive WinCLIP defeat.
+Zhou2024AnomalyCLIP,AnomalyCLIP,clip_anomaly_detection,important missing external VLM anomaly baseline / limitation,Related Work; Limitations,OpenReview / ICLR,True,"Not experimentally included; cite as related work and limitation, not defeated baseline."
