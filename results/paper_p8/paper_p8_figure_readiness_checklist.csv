@@ -1,0 +1,6 @@
+item_id,item,status,next_action
+P8-C1,Figure 1 framework SVG generated,done,Review visual layout and convert to PDF/LaTeX figure if needed.
+P8-C2,Figure 2 candidate case selection generated,done,Manually inspect original images and crops before using in paper.
+P8-C3,Figure 2 actual image montage,not_done,Create after manual inspection confirms selected cases.
+P8-C4,Avoid overclaiming in figure captions,required,"Caption must say boundary examples, not proof of universal behavior."
+P8-C5,Check image paths,required,"If image_path is absent, resolve image_key to original dataset file before montage."

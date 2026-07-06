@@ -1,0 +1,9 @@
+node_id,label,description,paper_message
+N1,Input image,Industrial test image x,The method starts from image-level industrial inspection input.
+N2,Detector localization,Localization evidence A and detector score D,"Detector evidence is used, not replaced."
+N3,Candidate crops,Candidate regions C = {c_i},Localization evidence is converted into crop-level evidence.
+N4,Crop VLM scoring,Aggregated VLM anomaly score M,VLM is applied to localized evidence rather than full image only.
+N5,Candidate quality,Reliability score Q,Quality is the main method core.
+N6,Quality-Calibrated QCR,S_quality = 0.5D + 0.5M(0.5+0.5Q),Main final method core.
+N7,Adaptive refinement,S_adaptive = S_quality + 0.05g,Small conservative refinement only.
+N8,Diagnostic fixed Q+C,Not final method,Shown as diagnostic branch only.
