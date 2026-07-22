@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "source": "results/stage9_qcr_u/stage9_a1_qcr_u_fusion_predictions.csv",
+  "source_sha256": "eccf302b453c544f6a9a73846a62eb8d3a7c547f3631d3d9a52500b75a588d82",
+  "selection_source": "VisA PatchCore category-LOCO",
+  "transfer_target": "VisA FastFlow",
+  "target_labels_used_for_parameters": false,
+  "target_quality_rule": "25th percentile of unlabeled eligible target candidate-quality values",
+  "configuration": {
+    "w_max": 0.35,
+    "q_quantile": 0.25,
+    "tau_delta": 0.75
+  },
+  "target_q_threshold": 0.4883371159518991,
+  "eligible_q_samples": 1199,
+  "rows": 2162,
+  "categories": 12
+}
