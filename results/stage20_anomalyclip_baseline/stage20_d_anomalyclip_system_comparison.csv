@@ -1,0 +1,9 @@
+method,image_AUROC,delta_vs_anomalyclip,role
+"PatchCore + context VLM, same-set",0.8453,0.3063,upper-bound diagnostic only
+"PatchCore + context VLM, LOCO",0.821,0.2819999999999999,primary fair system result
+PatchCore,0.7853,0.24629999999999996,classic detector baseline
+EfficientAD-30 fixed-budget,0.7604,0.22139999999999993,modern detector fixed-budget baseline
+context-aware VLM,0.7101,0.17109999999999992,context-aware VLM baseline
+full-image VLM,0.6459,0.1069,full-image VLM baseline
+WinCLIP fixed protocol,0.6138,0.07479999999999998,existing external VLM anomaly baseline
+AnomalyCLIP fixed checkpoint,0.539,0.0,new external VLM anomaly baseline
