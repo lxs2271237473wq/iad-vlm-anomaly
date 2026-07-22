@@ -1,0 +1,31 @@
+{
+  "status": "success",
+  "seed": 20260722,
+  "iterations": 5000,
+  "bootstrap_type": "paired class-stratified bootstrap",
+  "resampling": "normal and anomaly samples are resampled separately within each backbone-category or category stratum",
+  "parameter_reselection": false,
+  "protocols": [
+    {
+      "protocol": "visa_patchcore_loco",
+      "path": "results/stage22_selective_qcr/stage22_b1_visa_patchcore_loco_predictions.csv",
+      "rows": 2162,
+      "strata": 12,
+      "aggregation": "mean_pooled_auc_over_backbones"
+    },
+    {
+      "protocol": "visa_fastflow_frozen_transfer",
+      "path": "results/stage22_selective_qcr/stage22_b2a_visa_fastflow_frozen_predictions.csv",
+      "rows": 2162,
+      "strata": 12,
+      "aggregation": "mean_pooled_auc_over_backbones"
+    },
+    {
+      "protocol": "ad2_frozen_transfer",
+      "path": "results/stage22_selective_qcr/stage22_b2b_ad2_frozen_predictions.csv",
+      "rows": 243,
+      "strata": 4,
+      "aggregation": "mean_category_auc"
+    }
+  ]
+}
