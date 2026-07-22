@@ -1,0 +1,203 @@
+{
+  "protocol_id": "stage22_a2_srb_qcr_v1",
+  "status": "frozen_before_stage22_b_results",
+  "method_name": "Selective Reliability-Bounded QCR",
+  "short_name": "SRB-QCR",
+  "source": {
+    "path": "results/stage9_qcr_u/stage9_a1_qcr_u_fusion_predictions.csv",
+    "sha256": "eccf302b453c544f6a9a73846a62eb8d3a7c547f3631d3d9a52500b75a588d82",
+    "original_rows": 155664,
+    "deduplicated_rows": 25944,
+    "required_columns": [
+      "backbone",
+      "dataset",
+      "category",
+      "strategy",
+      "eval_mode",
+      "image_key",
+      "is_anomaly_final",
+      "fallback",
+      "has_candidate",
+      "num_candidates",
+      "vlm_score_norm",
+      "detector_score_norm",
+      "candidate_quality_norm"
+    ],
+    "optional_columns_present": [
+      "high_high_consistency"
+    ]
+  },
+  "signal_mapping": {
+    "D": "detector_score_norm",
+    "M": "vlm_score_norm",
+    "Q": "candidate_quality_norm",
+    "Y": "is_anomaly_final",
+    "sample_id": "image_key",
+    "group": "category",
+    "old_K_diagnostic_only": "high_high_consistency"
+  },
+  "frozen_primary_scope": {
+    "dataset": "VisA",
+    "strategy": "inspection_binary",
+    "eval_mode": "crop_topk_ensemble"
+  },
+  "development_backbone_rule": "case-insensitive backbone name containing 'patchcore'",
+  "development_backbones_found": [
+    "PatchCore"
+  ],
+  "categories_found": [
+    "candle",
+    "capsules",
+    "cashew",
+    "chewinggum",
+    "fryum",
+    "macaroni1",
+    "macaroni2",
+    "pcb1",
+    "pcb2",
+    "pcb3",
+    "pcb4",
+    "pipe_fryum"
+  ],
+  "method": {
+    "pre_gate": "G_pre = I(has_candidate) * I(not fallback) * I(Q >= tau_q)",
+    "agreement": "A = clip(1 - abs(D-M)/tau_delta, 0, 1)",
+    "weight": "w = w_max * G_pre * Q * A",
+    "score": "S_SRB = D + w * (M-D)",
+    "missing_candidate_rule": "If no valid candidate or M is unavailable, set w=0 and S_SRB=D.",
+    "boundedness": [
+      "0 <= w <= w_max < 0.5",
+      "S_SRB lies between D and M.",
+      "abs(S_SRB-D) <= w_max * abs(M-D) <= w_max.",
+      "The fused score remains closer to D than to M whenever D != M."
+    ],
+    "old_consistency_usage": "The binary high_high_consistency signal is retained only for comparison with the old Adaptive QCR and is not used by SRB-QCR."
+  },
+  "hyperparameter_grid": {
+    "w_max": [
+      0.15,
+      0.25,
+      0.35
+    ],
+    "tau_q": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "tau_delta": [
+      0.25,
+      0.5,
+      0.75
+    ]
+  },
+  "number_of_grid_configurations": 27,
+  "selection_protocol": {
+    "type": "leave-one-category-out development on VisA PatchCore",
+    "for_each_fold": [
+      "Hold out one VisA category without using its labels for configuration selection.",
+      "Evaluate all 27 configurations on the remaining categories.",
+      "Compute macro mean image AUROC across the remaining categories.",
+      "A configuration is eligible when its development macro AUROC is no worse than detector-only by more than 0.002.",
+      "Among eligible configurations, select the highest development macro AUROC.",
+      "Treat AUROC differences <=0.001 as ties; then prefer lower potential VLM call rate.",
+      "Remaining ties use, in order: lower w_max, higher tau_q, lower tau_delta.",
+      "If no configuration is eligible, use detector-only fallback for that fold."
+    ],
+    "global_frozen_configuration": [
+      "Take the most frequently selected configuration across held-out folds.",
+      "Break frequency ties by better average development rank, then lower call rate, then the conservative tie order.",
+      "Apply the resulting single configuration unchanged to transfer and external tests."
+    ]
+  },
+  "evaluation": {
+    "primary_metric": "image AUROC",
+    "secondary_metrics": [
+      "image AP",
+      "best F1",
+      "best accuracy"
+    ],
+    "efficiency_metrics": [
+      "potential VLM invocation rate",
+      "potential VLM calls saved"
+    ],
+    "potential_call_definition": "I(has_candidate) * I(not fallback) * I(Q >= tau_q)",
+    "efficiency_caveat": "Offline cached-score evaluation estimates potential calls. Actual wall-clock savings must be verified before making a runtime claim."
+  },
+  "comparisons": [
+    "detector only",
+    "crop VLM only",
+    "naive detector-crop fusion",
+    "old Quality-Calibrated QCR",
+    "old Adaptive QCR",
+    "SRB-QCR"
+  ],
+  "transfer_and_external_validation": [
+    "VisA FastFlow under the same primary protocol",
+    "AD2 four-category fixed protocol",
+    "complete MVTec AD fixed protocol when sample-level cached signals are available"
+  ],
+  "prohibited_actions": [
+    "Do not choose parameters using the held-out category labels.",
+    "Do not reselect parameters on FastFlow, AD2, or MVTec AD.",
+    "Do not use GT mask coverage or any label-derived candidate statistic as Q.",
+    "Do not alter the grid after Stage 22-B results have been inspected.",
+    "Do not claim actual runtime reduction from offline call-rate estimates alone."
+  ],
+  "data_audit": {
+    "primary_rows": 4324,
+    "primary_categories": 12,
+    "primary_backbones": [
+      "FastFlow",
+      "PatchCore"
+    ],
+    "label_values": [
+      0,
+      1
+    ],
+    "fallback_values": [
+      "0",
+      "1"
+    ],
+    "has_candidate_values": [
+      "false",
+      "true"
+    ],
+    "signals": {
+      "detector_score_norm": {
+        "non_null": 4324,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "mean": 0.46880798143924873,
+        "unique": 3783
+      },
+      "vlm_score_norm": {
+        "non_null": 4324,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "mean": 0.4401641901886499,
+        "unique": 4272
+      },
+      "candidate_quality_norm": {
+        "non_null": 4324,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "mean": 0.276694759813782,
+        "unique": 2354
+      },
+      "num_candidates": {
+        "non_null": 4324,
+        "minimum": 0.0,
+        "maximum": 3.0,
+        "mean": 0.9014801110083256,
+        "unique": 4
+      },
+      "high_high_consistency": {
+        "non_null": 4324,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "mean": 0.3304686225740753,
+        "unique": 4317
+      }
+    }
+  }
+}
