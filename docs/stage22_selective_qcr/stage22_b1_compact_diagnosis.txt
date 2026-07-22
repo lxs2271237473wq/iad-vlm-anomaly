@@ -1,0 +1,80 @@
+===== OVERALL METRICS =====
+variant_id                     method    auroc       ap  best_f1  potential_call_rate  active_weight_rate
+        D0              Detector only 0.913110 0.924232 0.860577                  NaN                 NaN
+        V3 Naive detector-crop fusion 0.961645 0.968079 0.913043                  NaN                 NaN
+        V4 Old Quality-Calibrated QCR 0.971843 0.975201 0.931903                  NaN                 NaN
+        V6           Old Adaptive QCR 0.972160 0.975551 0.931959                  NaN                 NaN
+        S1                    SRB-QCR 0.918941 0.922717 0.868061             0.411656            0.401943
+
+===== RECONSTRUCTED DELTAS =====
+S1-D0: +0.005831
+S1-V3: -0.042704
+S1-V4: -0.052902
+S1-V6: -0.053220
+V4-V3: +0.010198
+V6-V4: +0.000318
+
+===== HELD-OUT CATEGORY DELTAS =====
+heldout_category       D0       V3       V4       V6       S1    S1-D0     S1-V3     S1-V4
+       macaroni1 0.866100 0.975500 0.979300 0.979500 0.886700 0.020600 -0.088800 -0.092600
+        capsules 0.699500 0.992000 0.978833 0.978833 0.719667 0.020167 -0.272333 -0.259167
+           fryum 0.954400 0.997800 0.998400 0.998400 0.964000 0.009600 -0.033800 -0.034400
+            pcb3 0.933069 0.967624 0.982079 0.982376 0.940099 0.007030 -0.027525 -0.041980
+       macaroni2 0.711900 0.807600 0.862200 0.863600 0.717250 0.005350 -0.090350 -0.144950
+      chewinggum 0.991800 1.000000 1.000000 1.000000 0.995200 0.003400 -0.004800 -0.004800
+            pcb1 0.943600 0.850800 0.941600 0.941800 0.946800 0.003200  0.096000  0.005200
+          cashew 0.966000 1.000000 0.999800 0.999800 0.969200 0.003200 -0.030800 -0.030600
+          candle 0.984000 0.995200 0.997900 0.997900 0.986500 0.002500 -0.008700 -0.011400
+            pcb4 0.990594 0.985446 0.995248 0.995347 0.991980 0.001386  0.006535 -0.003267
+            pcb2 0.930450 0.984700 0.980300 0.980500 0.931550 0.001100 -0.053150 -0.048750
+      pipe_fryum 0.993600 1.000000 1.000000 1.000000 0.993800 0.000200 -0.006200 -0.006200
+
+===== CATEGORY WIN COUNTS =====
+S1-D0: wins=12/12, ties=0, mean=+0.006478, median=+0.003300, min=+0.000200, max=+0.020600
+S1-V3: wins=2/12, ties=0, mean=-0.042827, median=-0.029162, min=-0.272333, max=+0.096000
+S1-V4: wins=1/12, ties=0, mean=-0.056076, median=-0.032500, min=-0.259167, max=+0.005200
+
+===== SELECTED CONFIGURATIONS =====
+heldout_category  detector_only_fallback  selected_w_max  selected_q_quantile  selected_q_threshold  selected_tau_delta  selected_dev_delta_vs_detector  selected_dev_potential_call_rate
+          candle                   False            0.35                 0.25              0.244346                0.75                        0.006930                          0.420489
+        capsules                   False            0.35                 0.25              0.241402                0.75                        0.005411                          0.412088
+          cashew                   False            0.35                 0.25              0.262542                0.75                        0.006570                          0.410040
+      chewinggum                   False            0.35                 0.25              0.236111                0.75                        0.007092                          0.410040
+           fryum                   False            0.35                 0.25              0.240846                0.75                        0.006371                          0.410040
+       macaroni1                   False            0.35                 0.25              0.238282                0.75                        0.005438                          0.420489
+       macaroni2                   False            0.35                 0.25              0.237656                0.75                        0.006824                          0.420489
+            pcb1                   False            0.35                 0.25              0.243300                0.75                        0.006889                          0.420489
+            pcb2                   False            0.35                 0.25              0.267707                0.75                        0.006700                          0.420489
+            pcb3                   False            0.35                 0.25              0.242090                0.75                        0.006605                          0.420704
+            pcb4                   False            0.35                 0.25              0.253305                0.75                        0.006865                          0.420704
+      pipe_fryum                   False            0.35                 0.25              0.238641                0.75                        0.007292                          0.410040
+
+===== GLOBAL FROZEN CONFIGURATION =====
+{
+  "protocol_id": "stage22_a2_srb_qcr_v1",
+  "source_sha256": "eccf302b453c544f6a9a73846a62eb8d3a7c547f3631d3d9a52500b75a588d82",
+  "selection_source": "VisA PatchCore category-LOCO",
+  "num_categories": 12,
+  "global_configuration": {
+    "method": "SRB-QCR",
+    "selection_rule": "frequency, mean development rank, call rate, conservative tie order",
+    "selected": {
+      "w_max": 0.35,
+      "q_quantile": 0.25,
+      "tau_delta": 0.75,
+      "selection_count": 12,
+      "mean_dev_rank": 1.0,
+      "mean_dev_call_rate": 0.41634174051458467
+    },
+    "all_candidates": [
+      {
+        "w_max": 0.35,
+        "q_quantile": 0.25,
+        "tau_delta": 0.75,
+        "selection_count": 12,
+        "mean_dev_rank": 1.0,
+        "mean_dev_call_rate": 0.41634174051458467
+      }
+    ]
+  }
+}

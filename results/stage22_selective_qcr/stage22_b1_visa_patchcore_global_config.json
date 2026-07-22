@@ -1,0 +1,28 @@
+{
+  "protocol_id": "stage22_a2_srb_qcr_v1",
+  "source_sha256": "eccf302b453c544f6a9a73846a62eb8d3a7c547f3631d3d9a52500b75a588d82",
+  "selection_source": "VisA PatchCore category-LOCO",
+  "num_categories": 12,
+  "global_configuration": {
+    "method": "SRB-QCR",
+    "selection_rule": "frequency, mean development rank, call rate, conservative tie order",
+    "selected": {
+      "w_max": 0.35,
+      "q_quantile": 0.25,
+      "tau_delta": 0.75,
+      "selection_count": 12,
+      "mean_dev_rank": 1.0,
+      "mean_dev_call_rate": 0.41634174051458467
+    },
+    "all_candidates": [
+      {
+        "w_max": 0.35,
+        "q_quantile": 0.25,
+        "tau_delta": 0.75,
+        "selection_count": 12,
+        "mean_dev_rank": 1.0,
+        "mean_dev_call_rate": 0.41634174051458467
+      }
+    ]
+  }
+}
