@@ -1,0 +1,30 @@
+{
+  "status": "success",
+  "selection_source": "VisA PatchCore category-LOCO",
+  "transfer_target": "AD2 four categories",
+  "target_labels_used_for_parameters": false,
+  "configuration": {
+    "w_max": 0.35,
+    "q_quantile": 0.25,
+    "tau_delta": 0.75
+  },
+  "target_quality_rule": "25th percentile of unlabeled eligible AD2 Q values",
+  "target_q_threshold": 0.4660236651046249,
+  "eligible_q_samples": 243,
+  "rows": 243,
+  "categories": [
+    "fruit_jelly",
+    "sheet_metal",
+    "vial",
+    "walnuts"
+  ],
+  "adapter": {
+    "has_candidate": "num_candidates > 0, or finite M if unavailable",
+    "fallback": false
+  },
+  "frozen_decision_rule": {
+    "strong_retain": "mean delta >= 0, wins >= 3/4, worst category delta >= -0.005",
+    "noninferior_only": "mean delta >= -0.005 and worst category delta >= -0.010"
+  },
+  "decision": "retain_as_cross_dataset_deployment_mode"
+}
