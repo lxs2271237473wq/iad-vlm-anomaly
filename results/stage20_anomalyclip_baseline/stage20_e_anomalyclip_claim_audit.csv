@@ -1,0 +1,5 @@
+claim_id,status,claim,reason
+C20-1,allowed,AnomalyCLIP was evaluated as a fixed-checkpoint external VLM anomaly baseline on the adapted AD2-four protocol.,The official implementation and checkpoint were used without AD2-specific training.
+C20-2,allowed_with_protocol_qualifier,Numerical comparison between AnomalyCLIP and the proposed LOCO fusion.,"The LOCO fusion is stronger than the fixed AnomalyCLIP baseline on this adapted AD2-four protocol. The claim must remain protocol-specific. AnomalyCLIP=0.5390, LOCO=0.8210, delta_LOCO_minus_AnomalyCLIP=+0.2820. delta_AnomalyCLIP_minus_PatchCore=-0.2463. delta_AnomalyCLIP_minus_EfficientAD30=-0.2214. delta_AnomalyCLIP_minus_WinCLIP=-0.0748."
+C20-3,forbidden,The proposed method universally outperforms AnomalyCLIP.,Only one adapted four-category protocol was evaluated.
+C20-4,forbidden,The Stage20 score is an exact reproduction of the official AnomalyCLIP benchmark.,"AD2-four is a custom adapted dataset view, not an official reported benchmark configuration."

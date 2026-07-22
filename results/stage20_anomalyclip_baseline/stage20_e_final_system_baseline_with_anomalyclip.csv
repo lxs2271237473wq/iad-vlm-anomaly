@@ -1,0 +1,9 @@
+rank,method,image_AUROC,paper_role,protocol,source_stage
+1,"PatchCore + context VLM, same-set",0.8452830188679246,upper_bound_diagnostic_only,"mean over fruit_jelly, sheet_metal, vial, walnuts",Stage16
+2,"PatchCore + context VLM, LOCO",0.8209783368273935,primary_fair_system_result,"mean over fruit_jelly, sheet_metal, vial, walnuts",Stage16
+3,PatchCore,0.7853284416491964,classic_detector_baseline,"mean over fruit_jelly, sheet_metal, vial, walnuts",Stage16
+4,EfficientAD-30 fixed-budget,0.7604262679815292,modern_detector_fixed_budget_baseline,"mean over fruit_jelly, sheet_metal, vial, walnuts",Stage16
+5,context-aware VLM,0.7101187980433263,vlm_baseline,"mean over fruit_jelly, sheet_metal, vial, walnuts",Stage16
+6,full-image VLM,0.6458892382948986,vlm_baseline,"mean over fruit_jelly, sheet_metal, vial, walnuts",Stage16
+7,WinCLIP fixed protocol,0.6137526258826256,external_vlm_anomaly_baseline,"mean over fruit_jelly, sheet_metal, vial, walnuts",Stage16
+8,AnomalyCLIP fixed checkpoint,0.539,external VLM anomaly baseline,"official implementation, fixed checkpoint, AD2-four adapted metadata, no AD2 training",Stage20
