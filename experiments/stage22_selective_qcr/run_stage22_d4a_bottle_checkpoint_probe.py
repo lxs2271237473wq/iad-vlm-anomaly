@@ -15,6 +15,11 @@ import torch
 import yaml
 from sklearn.metrics import roc_auc_score
 
+try:
+    from lightning.pytorch.callbacks import Callback
+except ImportError:
+    from pytorch_lightning.callbacks import Callback
+
 
 ROOT = Path("/root/private_data/iad-vlm-anomaly").resolve()
 
@@ -286,7 +291,57 @@ def collect_labels_scores(
     )
 
 
-def build_engine(Engine, output_path: Path):
+
+class PredictionCollector(Callback):
+    """Collect prediction outputs even when Engine.predict returns None."""
+
+    def __init__(self):
+        super().__init__()
+        self.outputs = []
+
+    def on_predict_batch_end(
+        self,
+        trainer,
+        pl_module,
+        outputs,
+        batch,
+        batch_idx,
+        dataloader_idx=0,
+    ):
+        if outputs is None:
+            return
+
+        # 尽量移至 CPU，避免多个 batch 一直占用 GPU 显存。
+        if hasattr(outputs, "cpu"):
+            try:
+                outputs = outputs.cpu()
+            except Exception:
+                pass
+
+        self.outputs.append(outputs)
+
+
+def resolve_prediction_outputs(
+    outputs,
+    collector: PredictionCollector,
+):
+    if outputs is not None:
+        return outputs, "direct_return"
+
+    if collector.outputs:
+        return collector.outputs, "callback_capture"
+
+    raise RuntimeError(
+        "Engine.predict returned None and the prediction "
+        "callback captured no batch outputs."
+    )
+
+
+def build_engine(
+    Engine,
+    output_path: Path,
+    collector: PredictionCollector,
+):
     kwargs = {
         "default_root_dir": str(output_path),
         "accelerator": (
@@ -296,6 +351,7 @@ def build_engine(Engine, output_path: Path):
         ),
         "devices": 1,
         "logger": False,
+        "callbacks": [collector],
     }
 
     return Engine(
@@ -393,9 +449,12 @@ def predict_from_checkpoint(
         CATEGORY,
     )
 
+    collector = PredictionCollector()
+
     engine = build_engine(
         Engine,
         output_path,
+        collector,
     )
 
     predict_signature = inspect.signature(
@@ -421,7 +480,18 @@ def predict_from_checkpoint(
             return_predictions=True,
         )
 
-        return outputs, "engine_predict_ckpt_path"
+        outputs, output_source = (
+            resolve_prediction_outputs(
+                outputs,
+                collector,
+            )
+        )
+
+        return (
+            outputs,
+            "engine_predict_ckpt_path+"
+            + output_source,
+        )
 
     model_class = model_map["patchcore"]
 
@@ -447,7 +517,18 @@ def predict_from_checkpoint(
         return_predictions=True,
     )
 
-    return outputs, "load_from_checkpoint"
+    outputs, output_source = (
+        resolve_prediction_outputs(
+            outputs,
+            collector,
+        )
+    )
+
+    return (
+        outputs,
+        "load_from_checkpoint+"
+        + output_source,
+    )
 
 
 def main() -> None:
