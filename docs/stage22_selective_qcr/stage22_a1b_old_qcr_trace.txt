@@ -1,0 +1,726 @@
+===== QCR IMPLEMENTATION FILES =====
+experiments/stage16_qcru_ablation/build_stage16_a0_qcru_inventory_and_ablation_plan.py
+experiments/stage16_qcru_ablation/build_stage16_a2_qcru_robustness_check.py
+experiments/stage16_qcru_ablation/build_stage16_b_adaptive_qcru_paper_facing_comparison.py
+experiments/stage16_qcru_ablation/build_stage16_c_final_method_claims.py
+experiments/stage16_qcru_ablation/build_stage16_d_paper_facing_final_comparison.py
+experiments/stage16_qcru_ablation/build_stage16_e_failure_boundary_analysis.py
+experiments/stage16_qcru_ablation/build_stage16_f_final_claim_evidence_map.py
+experiments/stage16_qcru_ablation/run_stage16_a1_qcru_fixed_protocol_ablation.py
+experiments/stage16_qcru_ablation/run_stage16_a3_adaptive_qcru.py
+experiments/stage18_ad2_qcr_ablation/build_stage18_a0_ad2_qcr_inventory.py
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py
+experiments/stage9_qcr_u/run_stage9_a2_qcr_u_sanity_check.py
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py
+
+===== QUALITY / CONSISTENCY FORMULAS =====
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:17:OUT_DIR = ROOT / "results/stage18_ad2_qcr_ablation"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:18:DOC_DIR = ROOT / "docs/stage18_ad2_qcr_ablation"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:20:OUT_PRED = OUT_DIR / "stage18_b2_ad2_qcr_assembled_predictions.csv"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:21:OUT_PER_CATEGORY = OUT_DIR / "stage18_b2_ad2_qcr_ablation_per_category.csv"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:22:OUT_SUMMARY = OUT_DIR / "stage18_b2_ad2_qcr_ablation_summary.csv"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:23:OUT_DELTAS = OUT_DIR / "stage18_b2_ad2_qcr_claim_ready_deltas.csv"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:24:OUT_REPORT = DOC_DIR / "stage18_b2_ad2_qcr_ablation_report.md"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:105:    required_img = ["category", "image_path", "gt_binary", "patchcore_score"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:110:    # Aggregate candidate quality per image. Do not use GT coverage columns as quality.
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:123:        raise RuntimeError("No candidate quality/source columns found in candidate score file.")
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:143:    df["D_raw_patchcore"] = pd.to_numeric(df["patchcore_score"], errors="coerce")
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:168:        df["Q_raw_candidate_quality"] = pd.to_numeric(df["candidate_score_mean_max"], errors="coerce")
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:171:        df["Q_raw_candidate_quality"] = pd.to_numeric(df["candidate_score_max_max"], errors="coerce")
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:174:        raise RuntimeError("No usable non-GT candidate quality column found after aggregation.")
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:179:    df = norm_by_category(df, "Q_raw_candidate_quality", "Q")
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:189:    df["adaptive_gate"] = df["Q"] * df["K"] * df["agreement"] * df["mutual_anomaly_evidence"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:195:    df["V3_naive_detector_crop_fusion"] = 0.5 * df["D"] + 0.5 * df["M"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:196:    df["V4_quality_calibrated_qcr"] = 0.5 * df["D"] + 0.5 * df["M"] * (0.5 + 0.5 * df["Q"])
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:197:    df["V5_fixed_qc_diagnostic"] = 0.4 * df["D"] + 0.4 * df["M"] + 0.1 * df["Q"] + 0.1 * df["K"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:198:    df["V6_adaptive_qcr_refinement"] = df["V4_quality_calibrated_qcr"] + 0.05 * df["adaptive_gate"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:205:        "candidate-level non-GT quality evidence."
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:214:        "Q_raw_candidate_quality",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:223:        "adaptive_gate",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:227:        "V3_naive_detector_crop_fusion",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:228:        "V4_quality_calibrated_qcr",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:229:        "V5_fixed_qc_diagnostic",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:230:        "V6_adaptive_qcr_refinement",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:247:        ("V3", "Naive detector-crop fusion", "V3_naive_detector_crop_fusion", "fusion_baseline"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:248:        ("V4", "Quality-Calibrated QCR", "V4_quality_calibrated_qcr", "main_method_core"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:249:        ("V5", "Fixed Q+C fusion", "V5_fixed_qc_diagnostic", "diagnostic_not_final"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:250:        ("V6", "Quality-Calibrated QCR + adaptive refinement", "V6_adaptive_qcr_refinement", "final_refinement"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:319:        ("V4", "V3", "Quality-Calibrated QCR vs naive fusion"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:320:        ("V6", "V4", "Adaptive refinement vs Quality-Calibrated QCR"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:321:        ("V6", "V3", "Adaptive refinement vs naive fusion"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:322:        ("V5", "V4", "Fixed Q+C diagnostic vs Quality-Calibrated QCR"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:323:        ("V4", "V0", "Quality-Calibrated QCR vs detector only"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:324:        ("V4", "V2", "Quality-Calibrated QCR vs crop top-k VLM"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:368:        "Assemble AD2 four-category QCR ablation from existing Stage11 image-level VLM predictions and candidate-level quality evidence.",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:378:        "- detector evidence `D`: normalized `patchcore_score`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:380:        "- candidate quality `Q`: normalized non-GT candidate score evidence",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:381:        "- consistency `K`: soft high-high consistency `D*M`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:427:        "- If V4 improves over V3, AD2 supports candidate quality calibration.",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:428:        "- If V6 only slightly improves over V4, keep adaptive consistency as refinement.",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:429:        "- If V5 is strong but unstable or not selected, keep fixed Q+C as diagnostic.",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:16:OUT_DIR = ROOT / "results/stage18_ad2_qcr_ablation"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:17:DOC_DIR = ROOT / "docs/stage18_ad2_qcr_ablation"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:97:    for c in ["category", "image_path", "gt_binary", "patchcore_score"]:
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:114:    df["D_raw"] = pd.to_numeric(df["patchcore_score"], errors="coerce")
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:120:    df["V3_naive"] = 0.5 * df["D"] + 0.5 * df["M"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:130:        "patchcore_score",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:135:        "V3_naive",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:168:    work["adaptive_gate"] = work["Q"] * work["K"] * work["agreement"] * work["mutual_anomaly_evidence"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:171:    work["V4_quality"] = 0.5 * work["D"] + 0.5 * work["M"] * (0.5 + 0.5 * work["Q"])
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:172:    work["V5_fixed_qc"] = 0.4 * work["D"] + 0.4 * work["M"] + 0.1 * work["Q"] + 0.1 * work["K"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:173:    work["V6_adaptive"] = work["V4_quality"] + 0.05 * work["adaptive_gate"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:180:        au_v3 = safe_auroc(y, sub["V3_naive"])
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:181:        au_v4 = safe_auroc(y, sub["V4_quality"])
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:182:        au_v5 = safe_auroc(y, sub["V5_fixed_qc"])
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:183:        au_v6 = safe_auroc(y, sub["V6_adaptive"])
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:197:                "auroc_quality_Q_alone": au_q,
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:198:                "auroc_V3_naive": au_v3,
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:199:                "auroc_V4_quality": au_v4,
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:200:                "auroc_V5_fixed_qc": au_v5,
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:201:                "auroc_V6_adaptive": au_v6,
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:202:                "delta_V4_minus_V3": au_v4 - au_v3,
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:203:                "delta_V6_minus_V4": au_v6 - au_v4,
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:204:                "delta_V6_minus_V3": au_v6 - au_v3,
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:217:        "mean_auroc_quality_Q_alone": float(per_cat["auroc_quality_Q_alone"].mean()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:218:        "mean_auroc_V3_naive": float(per_cat["auroc_V3_naive"].mean()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:219:        "mean_auroc_V4_quality": float(per_cat["auroc_V4_quality"].mean()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:220:        "mean_auroc_V5_fixed_qc": float(per_cat["auroc_V5_fixed_qc"].mean()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:221:        "mean_auroc_V6_adaptive": float(per_cat["auroc_V6_adaptive"].mean()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:222:        "mean_delta_V4_minus_V3": float(per_cat["delta_V4_minus_V3"].mean()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:223:        "mean_delta_V6_minus_V4": float(per_cat["delta_V6_minus_V4"].mean()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:224:        "mean_delta_V6_minus_V3": float(per_cat["delta_V6_minus_V3"].mean()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:225:        "wins_V4_over_V3": int((per_cat["delta_V4_minus_V3"] > 0).sum()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:226:        "wins_V6_over_V4": int((per_cat["delta_V6_minus_V4"] > 0).sum()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:227:        "wins_V6_over_V3": int((per_cat["delta_V6_minus_V3"] > 0).sum()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:228:        "worst_category_delta_V4_minus_V3": float(per_cat["delta_V4_minus_V3"].min()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:229:        "worst_category": str(per_cat.sort_values("delta_V4_minus_V3").iloc[0]["category"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:243:        "Diagnose whether the Stage 18-B2 AD2 QCR drop against naive fusion is caused by the selected candidate quality source.",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:245:        "The sweep keeps the same QCR formulas as the current paper method and only changes the non-GT candidate quality source.",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:251:        f"- mean V3 AUROC: `{best['mean_auroc_V3_naive']:.4f}`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:252:        f"- mean V4 AUROC: `{best['mean_auroc_V4_quality']:.4f}`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:253:        f"- mean V6 AUROC: `{best['mean_auroc_V6_adaptive']:.4f}`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:254:        f"- V4 minus V3: `{best['mean_delta_V4_minus_V3']:+.4f}`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:255:        f"- V6 minus V3: `{best['mean_delta_V6_minus_V3']:+.4f}`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:256:        f"- V4 wins over V3: `{int(best['wins_V4_over_V3'])}/4`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:258:        f"- worst category delta V4-V3: `{best['worst_category_delta_V4_minus_V3']:+.4f}`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:262:        "| Rank | Q source | Direction | V3 | V4 | V6 | V4-V3 | V6-V3 | Wins V4/V3 | Worst category |",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:269:            f"{r['mean_auroc_V3_naive']:.4f} | {r['mean_auroc_V4_quality']:.4f} | "
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:270:            f"{r['mean_auroc_V6_adaptive']:.4f} | {r['mean_delta_V4_minus_V3']:+.4f} | "
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:271:            f"{r['mean_delta_V6_minus_V3']:+.4f} | {int(r['wins_V4_over_V3'])}/4 | "
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:279:        "- If a non-GT Q source gives V4 > V3 on mean AUROC and wins at least 3/4 categories, AD2 QCR can be promoted to a stronger supporting ablation.",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:281:        "- Do not select a Q source using ground-truth overlap, ground-truth mask quality, or label-derived information.",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:318:            "mean_delta_V4_minus_V3",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:319:            "wins_V4_over_V3",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:320:            "mean_auroc_V4_quality",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:321:            "worst_category_delta_V4_minus_V3",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:341:        "mean_auroc_V3_naive",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:342:        "mean_auroc_V4_quality",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:343:        "mean_auroc_V6_adaptive",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:344:        "mean_delta_V4_minus_V3",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:345:        "mean_delta_V6_minus_V3",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:346:        "wins_V4_over_V3",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:348:        "worst_category_delta_V4_minus_V3",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:10:IN_B2_SUMMARY = ROOT / "results/stage18_ad2_qcr_ablation/stage18_b2_ad2_qcr_ablation_summary.csv"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:11:IN_B2_DELTAS = ROOT / "results/stage18_ad2_qcr_ablation/stage18_b2_ad2_qcr_claim_ready_deltas.csv"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:12:IN_B3_RANKED = ROOT / "results/stage18_ad2_qcr_ablation/stage18_b3_ad2_q_source_sweep_ranked.csv"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:14:OUT_DIR = ROOT / "results/stage18_ad2_qcr_ablation"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:15:DOC_DIR = ROOT / "docs/stage18_ad2_qcr_ablation"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:17:OUT_VALID = OUT_DIR / "stage18_b4_ad2_qcr_valid_q_sources_ranked.csv"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:18:OUT_DECISION = OUT_DIR / "stage18_b4_ad2_qcr_claim_safe_decision.csv"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:19:OUT_TABLE = OUT_DIR / "stage18_b4_ad2_qcr_paper_facing_table.csv"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:20:OUT_REPORT = DOC_DIR / "stage18_b4_ad2_qcr_claim_safe_decision_report.md"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:48:def quality_family(q_source: str) -> str:
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:87:    b3["quality_family"] = b3["q_source"].map(quality_family)
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:88:    b3["invalid_as_candidate_quality"] = b3["q_source"].map(is_invalid_q_source)
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:89:    b3["passes_mean_positive"] = b3["mean_delta_V4_minus_V3"] > 0
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:90:    b3["passes_3_of_4_wins"] = b3["wins_V4_over_V3"] >= 3
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:92:        (~b3["invalid_as_candidate_quality"])
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:93:        & (b3["quality_family"] != "unsupported_or_vlm_evidence")
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:101:        ["mean_delta_V4_minus_V3", "wins_V4_over_V3", "mean_auroc_V4_quality"],
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:106:        ["worst_category_delta_V4_minus_V3", "wins_V4_over_V3", "mean_delta_V4_minus_V3"],
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:112:            "wins_V4_over_V3",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:113:            "mean_delta_V4_minus_V3",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:114:            "worst_category_delta_V4_minus_V3",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:115:            "mean_auroc_V4_quality",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:122:    b2_v3 = b2_summary[b2_summary["variant_id"] == "V3"].iloc[0]
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:123:    b2_v4 = b2_summary[b2_summary["variant_id"] == "V4"].iloc[0]
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:124:    b2_v6 = b2_summary[b2_summary["variant_id"] == "V6"].iloc[0]
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:127:        b2_deltas["comparison"] == "Quality-Calibrated QCR vs naive fusion"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:131:        b2_deltas["comparison"] == "Adaptive refinement vs naive fusion"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:143:            "quality_family": "candidate_region_score",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:144:            "mean_auroc_V3_naive": float(b2_v3["mean_image_auroc"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:145:            "mean_auroc_V4_quality": float(b2_v4["mean_image_auroc"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:146:            "mean_auroc_V6_adaptive": float(b2_v6["mean_image_auroc"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:147:            "delta_V4_minus_V3": float(b2_v4_delta),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:148:            "delta_V6_minus_V3": float(b2_v6_delta),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:149:            "wins_V4_over_V3": np.nan,
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:151:            "worst_category_delta_V4_minus_V3": np.nan,
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:152:            "decision": "Do not use as main AD2 QCR evidence because V4 is below V3.",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:161:            "paper_status": "exclude_from_qcr_claim",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:164:            "quality_family": invalid_best["quality_family"],
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:165:            "mean_auroc_V3_naive": float(invalid_best["mean_auroc_V3_naive"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:166:            "mean_auroc_V4_quality": float(invalid_best["mean_auroc_V4_quality"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:167:            "mean_auroc_V6_adaptive": float(invalid_best["mean_auroc_V6_adaptive"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:168:            "delta_V4_minus_V3": float(invalid_best["mean_delta_V4_minus_V3"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:169:            "delta_V6_minus_V3": float(invalid_best["mean_delta_V6_minus_V3"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:170:            "wins_V4_over_V3": int(invalid_best["wins_V4_over_V3"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:172:            "worst_category_delta_V4_minus_V3": float(invalid_best["worst_category_delta_V4_minus_V3"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:173:            "decision": "Exclude because this is VLM evidence, not candidate quality.",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:186:                "quality_family": r["quality_family"],
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:187:                "mean_auroc_V3_naive": float(r["mean_auroc_V3_naive"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:188:                "mean_auroc_V4_quality": float(r["mean_auroc_V4_quality"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:189:                "mean_auroc_V6_adaptive": float(r["mean_auroc_V6_adaptive"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:190:                "delta_V4_minus_V3": float(r["mean_delta_V4_minus_V3"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:191:                "delta_V6_minus_V3": float(r["mean_delta_V6_minus_V3"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:192:                "wins_V4_over_V3": int(r["wins_V4_over_V3"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:194:                "worst_category_delta_V4_minus_V3": float(r["worst_category_delta_V4_minus_V3"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:195:                "decision": "Valid non-GT candidate-quality source; use as sensitivity, not final main claim unless Q definition is locked and rerun consistently.",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:208:                "quality_family": r["quality_family"],
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:209:                "mean_auroc_V3_naive": float(r["mean_auroc_V3_naive"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:210:                "mean_auroc_V4_quality": float(r["mean_auroc_V4_quality"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:211:                "mean_auroc_V6_adaptive": float(r["mean_auroc_V6_adaptive"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:212:                "delta_V4_minus_V3": float(r["mean_delta_V4_minus_V3"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:213:                "delta_V6_minus_V3": float(r["mean_delta_V6_minus_V3"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:214:                "wins_V4_over_V3": int(r["wins_V4_over_V3"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:216:                "worst_category_delta_V4_minus_V3": float(r["worst_category_delta_V4_minus_V3"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:217:                "decision": "Best conservative valid candidate-quality source by worst-category stability.",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:230:            "mean_auroc_V3_naive",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:231:            "mean_auroc_V4_quality",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:232:            "mean_auroc_V6_adaptive",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:233:            "delta_V4_minus_V3",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:234:            "wins_V4_over_V3",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:243:        final_status = "ad2_qcr_boundary_only_no_valid_q_source_passed"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:247:        final_status = "ad2_qcr_supporting_sensitivity_not_main_claim_yet"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:264:        "The top overall source in B3 is `full_image_score/direct`, but this is full-image VLM evidence, not candidate quality. It must not be used as Q in a candidate-quality calibration claim.",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:268:        "| Case | Status | Q source | Direction | V3 | V4 | V6 | V4-V3 | Wins | Worst category |",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:273:        wins = "NA" if pd.isna(r["wins_V4_over_V3"]) else str(int(r["wins_V4_over_V3"]))
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:276:            f"{fmt(r['mean_auroc_V3_naive'])} | {fmt(r['mean_auroc_V4_quality'])} | "
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:277:            f"{fmt(r['mean_auroc_V6_adaptive'])} | {signed(r['delta_V4_minus_V3'])} | "
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:290:        "On the AD2 four-category setting, the default transferred Q source is not uniformly beneficial. A non-GT candidate-region score source recovers a positive mean gain over naive detector-crop fusion, but we report this as a candidate-quality source sensitivity rather than as the primary QCR claim.",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:16:OUT_DIR = ROOT / "results/stage18_ad2_qcr_ablation"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:17:DOC_DIR = ROOT / "docs/stage18_ad2_qcr_ablation"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:19:OUT_ALL_CONFIGS = OUT_DIR / "stage18_b5_ad2_loco_qcr_all_configs_per_category.csv"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:20:OUT_SELECTED = OUT_DIR / "stage18_b5_ad2_loco_qcr_selected_folds.csv"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:21:OUT_SUMMARY = OUT_DIR / "stage18_b5_ad2_loco_qcr_summary.csv"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:22:OUT_REPORT = DOC_DIR / "stage18_b5_ad2_loco_qcr_policy_optimization_report.md"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:65:def aggregate_candidate_quality_sources(cand: pd.DataFrame) -> pd.DataFrame:
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:91:        raise RuntimeError("No valid candidate-quality source columns found.")
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:103:    for c in ["category", "image_path", "gt_binary", "patchcore_score"]:
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:116:    q = aggregate_candidate_quality_sources(cand)
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:119:    df["D_raw"] = pd.to_numeric(df["patchcore_score"], errors="coerce")
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:125:    df["V3_naive"] = 0.5 * df["D"] + 0.5 * df["M"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:131:        "patchcore_score",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:137:        "V3_naive",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:171:    work["adaptive_gate"] = work["Q"] * work["K"] * work["agreement"] * work["mutual_anomaly_evidence"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:174:    work["S_quality"] = work["V3_naive"] - eta * work["M"] * (1.0 - work["Q"])
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:175:    work["S_adaptive"] = work["S_quality"] + gamma * work["adaptive_gate"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:180:        au_v3 = safe_auroc(sub["gt_binary"], sub["V3_naive"])
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:181:        au_q = safe_auroc(sub["gt_binary"], sub["S_quality"])
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:182:        au_a = safe_auroc(sub["gt_binary"], sub["S_adaptive"])
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:192:                "auroc_V3_naive": au_v3,
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:193:                "auroc_quality_qcr": au_q,
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:194:                "auroc_adaptive_qcr": au_a,
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:196:                "delta_quality_minus_V3": au_q - au_v3,
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:197:                "delta_adaptive_minus_V3": au_a - au_v3,
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:198:                "delta_adaptive_minus_quality": au_a - au_q,
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:231:                train_mean_V3=("auroc_V3_naive", "mean"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:232:                train_mean_quality=("auroc_quality_qcr", "mean"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:233:                train_mean_adaptive=("auroc_adaptive_qcr", "mean"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:234:                train_mean_delta_quality=("delta_quality_minus_V3", "mean"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:235:                train_mean_delta_adaptive=("delta_adaptive_minus_V3", "mean"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:236:                train_wins_quality=("delta_quality_minus_V3", lambda x: int((x > 0).sum())),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:237:                train_wins_adaptive=("delta_adaptive_minus_V3", lambda x: int((x > 0).sum())),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:238:                train_worst_delta_adaptive=("delta_adaptive_minus_V3", "min"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:242:        # Select by adaptive mean AUROC first, then positive delta/wins/stability.
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:245:                "train_mean_adaptive",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:246:                "train_mean_delta_adaptive",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:247:                "train_wins_adaptive",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:248:                "train_worst_delta_adaptive",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:272:                "train_mean_V3": float(best["train_mean_V3"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:273:                "train_mean_quality": float(best["train_mean_quality"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:274:                "train_mean_adaptive": float(best["train_mean_adaptive"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:275:                "train_mean_delta_quality": float(best["train_mean_delta_quality"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:276:                "train_mean_delta_adaptive": float(best["train_mean_delta_adaptive"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:277:                "train_wins_quality": int(best["train_wins_quality"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:278:                "train_wins_adaptive": int(best["train_wins_adaptive"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:279:                "test_V3": float(test_row["auroc_V3_naive"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:280:                "test_quality_qcr": float(test_row["auroc_quality_qcr"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:281:                "test_adaptive_qcr": float(test_row["auroc_adaptive_qcr"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:282:                "test_delta_quality_minus_V3": float(test_row["delta_quality_minus_V3"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:283:                "test_delta_adaptive_minus_V3": float(test_row["delta_adaptive_minus_V3"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:284:                "test_delta_adaptive_minus_quality": float(test_row["delta_adaptive_minus_quality"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:296:                "protocol": "AD2_leave_one_category_out_qcr_policy_selection",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:298:                "mean_test_V3": float(selected["test_V3"].mean()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:299:                "mean_test_quality_qcr": float(selected["test_quality_qcr"].mean()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:300:                "mean_test_adaptive_qcr": float(selected["test_adaptive_qcr"].mean()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:301:                "mean_delta_quality_minus_V3": float(selected["test_delta_quality_minus_V3"].mean()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:302:                "mean_delta_adaptive_minus_V3": float(selected["test_delta_adaptive_minus_V3"].mean()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:303:                "wins_quality_over_V3": int((selected["test_delta_quality_minus_V3"] > 0).sum()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:304:                "wins_adaptive_over_V3": int((selected["test_delta_adaptive_minus_V3"] > 0).sum()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:305:                "wins_adaptive_over_quality": int((selected["test_delta_adaptive_minus_quality"] > 0).sum()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:306:                "worst_quality_delta": float(selected["test_delta_quality_minus_V3"].min()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:307:                "worst_adaptive_delta": float(selected["test_delta_adaptive_minus_V3"].min()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:308:                "worst_quality_category": str(
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:309:                    selected.sort_values("test_delta_quality_minus_V3").iloc[0]["heldout_category"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:311:                "worst_adaptive_category": str(
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:312:                    selected.sort_values("test_delta_adaptive_minus_V3").iloc[0]["heldout_category"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:334:    if s["mean_delta_adaptive_minus_V3"] > 0 and s["wins_adaptive_over_V3"] >= 3:
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:335:        final_status = "promote_qcr_as_cross_category_calibrated_ad2_support"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:336:    elif s["mean_delta_quality_minus_V3"] > 0 and s["wins_quality_over_V3"] >= 3:
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:337:        final_status = "promote_quality_qcr_without_adaptive_as_ad2_support"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:338:    elif s["mean_delta_adaptive_minus_V3"] > 0:
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:341:        final_status = "do_not_promote_ad2_qcr_main_claim"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:361:        f"- mean test V3 naive: `{fmt(s['mean_test_V3'])}`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:362:        f"- mean test quality QCR: `{fmt(s['mean_test_quality_qcr'])}`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:363:        f"- mean test adaptive QCR: `{fmt(s['mean_test_adaptive_qcr'])}`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:364:        f"- quality QCR minus V3: `{signed(s['mean_delta_quality_minus_V3'])}`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:365:        f"- adaptive QCR minus V3: `{signed(s['mean_delta_adaptive_minus_V3'])}`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:366:        f"- quality QCR wins over V3: `{int(s['wins_quality_over_V3'])}/4`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:367:        f"- adaptive QCR wins over V3: `{int(s['wins_adaptive_over_V3'])}/4`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:368:        f"- worst adaptive category: `{s['worst_adaptive_category']}`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:369:        f"- worst adaptive delta: `{signed(s['worst_adaptive_delta'])}`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:373:        "| Held-out | Selected Q | Direction | eta | gamma | Test V3 | Test Quality | Test Adaptive | Adaptive-V3 |",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:381:            f"{fmt(r['test_V3'])} | {fmt(r['test_quality_qcr'])} | "
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:382:            f"{fmt(r['test_adaptive_qcr'])} | {signed(r['test_delta_adaptive_minus_V3'])} |"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:389:        "- If adaptive QCR has positive mean delta and wins at least 3/4 held-out categories, QCR can be promoted as cross-category calibrated AD2 support.",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:10:IN_B6_SUMMARY = ROOT / "results/stage18_ad2_qcr_ablation/stage18_b6_ad2_loco_robust_selector_summary.csv"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:11:IN_B6_FOLDS = ROOT / "results/stage18_ad2_qcr_ablation/stage18_b6_ad2_loco_robust_selector_folds.csv"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:13:OUT_DIR = ROOT / "results/stage18_ad2_qcr_ablation"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:14:DOC_DIR = ROOT / "docs/stage18_ad2_qcr_ablation"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:16:OUT_FINAL_TABLE = OUT_DIR / "stage18_b7_ad2_qcr_final_paper_facing_table.csv"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:17:OUT_FOLD_TABLE = OUT_DIR / "stage18_b7_ad2_qcr_final_loco_folds.csv"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:18:OUT_CLAIM_UPDATE = OUT_DIR / "stage18_b7_qcr_final_claim_update.csv"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:19:OUT_REPORT = DOC_DIR / "stage18_b7_qcr_final_claim_update_report.md"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:62:    quality_mean = float(s["mean_test_quality_qcr"])
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:63:    adaptive_mean = float(s["mean_test_adaptive_qcr"])
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:65:    if quality_mean >= adaptive_mean:
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:67:        final_score = quality_mean
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:68:        final_delta = float(s["mean_delta_quality_minus_V3"])
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:69:        final_wins = int(s["wins_quality_over_V3"])
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:70:        final_worst_delta = float(s["worst_quality_delta"])
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:71:        final_note = "Quality-only calibration is selected because it is slightly stronger than adaptive refinement on AD2."
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:73:        final_variant = "Quality-Calibrated QCR + adaptive refinement"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:74:        final_score = adaptive_mean
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:75:        final_delta = float(s["mean_delta_adaptive_minus_V3"])
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:76:        final_wins = int(s["wins_adaptive_over_V3"])
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:77:        final_worst_delta = float(s["worst_adaptive_delta"])
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:78:        final_note = "Adaptive refinement is selected because it is stronger than quality-only calibration on AD2."
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:85:                "mean_image_auroc": float(s["mean_test_V3"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:86:                "delta_vs_naive": 0.0,
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:87:                "wins_vs_naive": "",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:93:                "mean_image_auroc": quality_mean,
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:94:                "delta_vs_naive": float(s["mean_delta_quality_minus_V3"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:95:                "wins_vs_naive": f"{int(s['wins_quality_over_V3'])}/4",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:96:                "paper_role": "main_qcr_support",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:100:                "method": "Quality-Calibrated QCR + adaptive refinement",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:101:                "mean_image_auroc": adaptive_mean,
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:102:                "delta_vs_naive": float(s["mean_delta_adaptive_minus_V3"]),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:103:                "wins_vs_naive": f"{int(s['wins_adaptive_over_V3'])}/4",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:118:            "test_V3",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:119:            "test_quality_qcr",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:120:            "test_adaptive_qcr",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:121:            "test_delta_quality_minus_V3",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:122:            "test_delta_adaptive_minus_V3",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:132:            "final_wording": "Quality-Calibrated QCR: candidate-quality calibration for localization-guided VLM anomaly evidence.",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:136:            "claim_item": "adaptive_refinement",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:138:            "final_wording": "Adaptive consistency refinement is an optional auxiliary refinement, not the primary source of the gain.",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:139:            "evidence": "On AD2, quality-only QCR slightly exceeds adaptive QCR.",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:142:            "claim_item": "ad2_qcr_support",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:145:                "With a fixed semantic candidate-quality source and LOCO-selected weights, "
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:146:                "QCR improves over naive detector-crop fusion on AD2 four-category evaluation."
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:148:            "evidence": f"{final_variant}: {fmt(final_score)} AUROC, {signed(final_delta)} over naive, wins {final_wins}/4.",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:153:            "final_wording": "Do not claim that all Q sources or adaptive consistency are universally beneficial.",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:154:            "evidence": "Default transferred Q source and several robust selectors did not improve over naive on AD2.",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:166:        "QCR remains viable as the main innovation, but the claim must focus on candidate-quality calibration rather than adaptive refinement.",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:177:        "| Method | Mean AUROC | Delta vs naive | Wins | Paper role |",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:184:            f"{signed(r['delta_vs_naive'])} | {r['wins_vs_naive']} | {r['paper_role']} |"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:193:        f"- selected delta vs naive: `{signed(final_delta)}`",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:194:        f"- selected wins vs naive: `{final_wins}/4`",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:203:        "The main contribution is Quality-Calibrated QCR, which calibrates localization-guided crop-level VLM evidence using candidate-region quality. On VisA, the controlled ablation shows consistent gains over naive detector-crop fusion. On the AD2 four-category setting, a fixed semantic candidate-quality source with leave-one-category-out policy selection improves over naive fusion, providing supporting cross-category evidence. Adaptive consistency refinement is retained only as an auxiliary analysis rather than the primary source of improvement.",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:209:        "Adaptive QCR is universally beneficial across all datasets and all candidate-quality sources.",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:214:        "| Held-out | Q source | Direction | eta | gamma | V3 | Quality QCR | Adaptive QCR | Quality-V3 | Adaptive-V3 |",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:222:            f"{fmt(r['test_V3'])} | {fmt(r['test_quality_qcr'])} | {fmt(r['test_adaptive_qcr'])} | "
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:223:            f"{signed(r['test_delta_quality_minus_V3'])} | {signed(r['test_delta_adaptive_minus_V3'])} |"
+experiments/stage18_ad2_qcr_ablation/build_stage18_a0_ad2_qcr_inventory.py:10:    ROOT / "results/stage9_qcr_u/stage9_a1_qcr_u_fusion_predictions.csv",
+experiments/stage18_ad2_qcr_ablation/build_stage18_a0_ad2_qcr_inventory.py:11:    ROOT / "results/stage16_qcru_ablation/stage16_b_adaptive_qcru_all_variants_per_config.csv",
+experiments/stage18_ad2_qcr_ablation/build_stage18_a0_ad2_qcr_inventory.py:12:    ROOT / "results/stage16_qcru_ablation/stage16_b_adaptive_qcru_all_variants_per_category.csv",
+experiments/stage18_ad2_qcr_ablation/build_stage18_a0_ad2_qcr_inventory.py:13:    ROOT / "results/stage16_qcru_ablation/stage16_d_paper_facing_qcr_ablation_table.csv",
+experiments/stage18_ad2_qcr_ablation/build_stage18_a0_ad2_qcr_inventory.py:18:OUT_CSV = ROOT / "results/stage18_ad2_qcr_ablation/stage18_a0_ad2_qcr_inventory.csv"
+experiments/stage18_ad2_qcr_ablation/build_stage18_a0_ad2_qcr_inventory.py:19:OUT_REPORT = ROOT / "docs/stage18_ad2_qcr_ablation/stage18_a0_ad2_qcr_inventory_report.md"
+experiments/stage18_ad2_qcr_ablation/build_stage18_a0_ad2_qcr_inventory.py:57:                    "can_directly_run_ad2_qcr_ablation": False,
+experiments/stage18_ad2_qcr_ablation/build_stage18_a0_ad2_qcr_inventory.py:82:            "candidate_quality_norm",
+experiments/stage18_ad2_qcr_ablation/build_stage18_a0_ad2_qcr_inventory.py:105:                "can_directly_run_ad2_qcr_ablation": can_direct,
+experiments/stage18_ad2_qcr_ablation/build_stage18_a0_ad2_qcr_inventory.py:117:    can_any = bool(out["can_directly_run_ad2_qcr_ablation"].any())
+experiments/stage18_ad2_qcr_ablation/build_stage18_a0_ad2_qcr_inventory.py:135:        f"- can_directly_run_ad2_qcr_ablation: `{can_any}`",
+experiments/stage18_ad2_qcr_ablation/build_stage18_a0_ad2_qcr_inventory.py:147:            f"{int(bool(r['can_directly_run_ad2_qcr_ablation']))} | {r['notes']} |"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:20:OUT_DIR = ROOT / "results/stage18_ad2_qcr_ablation"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:21:DOC_DIR = ROOT / "docs/stage18_ad2_qcr_ablation"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:23:OUT_INVENTORY = OUT_DIR / "stage18_b0_ad2_qcr_source_inventory.csv"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:24:OUT_CANDIDATES = OUT_DIR / "stage18_b0_ad2_qcr_source_candidates.csv"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:25:OUT_REPORT = DOC_DIR / "stage18_b0_ad2_qcr_source_inventory_report.md"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:61:    "patchcore_score",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:80:    "candidate_quality",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:81:    "candidate_quality_norm",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:82:    "quality",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:83:    "quality_score",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:84:    "crop_quality",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:88:    "high_high_consistency",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:89:    "consistency",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:186:        "quality_col": "",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:187:        "consistency_col": "",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:192:        "has_quality": False,
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:193:        "has_consistency": False,
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:195:        "qcr_assembly_value": "none",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:210:    quality_col = find_first_existing(cols, QUALITY_COLS)
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:211:    consistency_col = find_first_existing(cols, CONSISTENCY_COLS)
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:217:    has_quality = bool(quality_col)
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:218:    has_consistency = bool(consistency_col)
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:225:    if has_quality:
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:226:        role_parts.append("quality")
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:227:    if has_consistency:
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:228:        role_parts.append("consistency")
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:234:        qcr_value = "none"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:235:    elif has_image and has_label and has_detector and has_vlm and has_quality:
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:236:        source_role = "ad2_qcr_ready_or_near_ready"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:237:        qcr_value = "high"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:238:    elif has_image and has_label and (has_detector or has_vlm or has_quality):
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:240:        qcr_value = "medium"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:243:        qcr_value = "low"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:259:        "quality_col": quality_col,
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:260:        "consistency_col": consistency_col,
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:265:        "has_quality": has_quality,
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:266:        "has_consistency": has_consistency,
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:268:        "qcr_assembly_value": qcr_value,
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:319:            & (inv["qcr_assembly_value"].isin(["high", "medium", "low"]))
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:323:        candidates["_order"] = candidates["qcr_assembly_value"].map(order).fillna(9)
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:331:    high = int((candidates["qcr_assembly_value"] == "high").sum()) if not candidates.empty else 0
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:332:    medium = int((candidates["qcr_assembly_value"] == "medium").sum()) if not candidates.empty else 0
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:333:    low = int((candidates["qcr_assembly_value"] == "low").sum()) if not candidates.empty else 0
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:361:                f"{r['source_role']} | {r['qcr_assembly_value']} | "
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:364:                f"{r['quality_col']} | {r['notes']} |"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:372:        "- If only medium-value files exist, inspect whether detector/VLM/quality sources can be joined by image key.",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:382:        decision = "proceed_to_stage18_c_generate_ad2_qcr_predictions"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:16:    ROOT / "results/stage11_mvtecad2_multicategory/stage11_b1_patchcore_detector_quality_analysis.csv",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:25:OUT_DIR = ROOT / "results/stage18_ad2_qcr_ablation"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:26:DOC_DIR = ROOT / "docs/stage18_ad2_qcr_ablation"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:28:OUT_PROFILE = OUT_DIR / "stage18_b1_ad2_qcr_source_schema_profile.csv"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:29:OUT_COLUMNS = OUT_DIR / "stage18_b1_ad2_qcr_source_columns_long.csv"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:30:OUT_JOIN = OUT_DIR / "stage18_b1_ad2_qcr_join_feasibility.csv"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:31:OUT_REPORT = DOC_DIR / "stage18_b1_ad2_qcr_schema_profile_report.md"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:56:    "quality", "candidate_quality", "area", "bbox", "crop",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:62:    "consistency", "agreement", "high_high", "hh", "k",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:112:        return "quality_or_region_feature"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:114:        return "consistency"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:191:            "quality_like_cols": "",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:192:            "consistency_like_cols": "",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:194:            "qcr_readiness": "unreadable",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:207:    quality_cols = [c for c, t in classified.items() if t == "quality_or_region_feature"]
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:208:    consistency_cols = [c for c, t in classified.items() if t == "consistency"]
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:240:    has_quality = len(quality_cols) > 0
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:243:    if len(cats) == 4 and has_key and has_label and has_detector and has_vlm and has_quality:
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:244:        readiness = "qcr_ready"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:245:    elif len(cats) == 4 and has_key and has_label and (has_detector or has_vlm or has_quality):
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:267:        "quality_like_cols": ";".join(quality_cols),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:268:        "consistency_like_cols": ";".join(consistency_cols),
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:270:        "qcr_readiness": readiness,
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:370:    qcr_ready = profile[profile["qcr_readiness"] == "qcr_ready"]
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:371:    partial = profile[profile["qcr_readiness"] == "partial_join_source"]
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:382:        f"- qcr_ready files: `{len(qcr_ready)}`",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:394:            f"{r['qcr_readiness']} | {r['key_cols']} | {r['label_cols']} | "
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:395:            f"{r['detector_like_cols']} | {r['vlm_like_cols']} | {r['quality_like_cols']} |"
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:421:        "- If a qcr_ready file exists, proceed to Stage 18-B2 directly.",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:423:        "- If VLM or quality is missing, proceed to Stage 18-C to generate missing AD2 QCR predictions.",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:427:    if len(qcr_ready) > 0:
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:428:        decision = "proceed_to_stage18_b2_direct_qcr_assembly"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:12:IN_ALL_CONFIGS = ROOT / "results/stage18_ad2_qcr_ablation/stage18_b5_ad2_loco_qcr_all_configs_per_category.csv"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:14:OUT_DIR = ROOT / "results/stage18_ad2_qcr_ablation"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:15:DOC_DIR = ROOT / "docs/stage18_ad2_qcr_ablation"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:19:OUT_REPORT = DOC_DIR / "stage18_b6_ad2_loco_robust_qcr_selector_sweep_report.md"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:34:def is_valid_candidate_quality_source(q_source: str) -> bool:
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:37:    # Hard invalid: these are VLM/evidence scores or label-like terms, not candidate-quality proxies.
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:68:            train_mean_V3=("auroc_V3_naive", "mean"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:69:            train_mean_quality=("auroc_quality_qcr", "mean"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:70:            train_mean_adaptive=("auroc_adaptive_qcr", "mean"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:71:            train_delta_quality=("delta_quality_minus_V3", "mean"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:72:            train_delta_adaptive=("delta_adaptive_minus_V3", "mean"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:73:            train_wins_quality=("delta_quality_minus_V3", lambda x: int((x > 0).sum())),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:74:            train_wins_adaptive=("delta_adaptive_minus_V3", lambda x: int((x > 0).sum())),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:75:            train_worst_delta_quality=("delta_quality_minus_V3", "min"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:76:            train_worst_delta_adaptive=("delta_adaptive_minus_V3", "min"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:77:            train_std_delta_adaptive=("delta_adaptive_minus_V3", "std"),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:79:        .fillna({"train_std_delta_adaptive": 0.0})
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:84:        g["train_delta_adaptive"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:85:        + 0.50 * g["train_worst_delta_adaptive"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:86:        + 0.01 * g["train_wins_adaptive"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:87:        - 0.05 * g["train_std_delta_adaptive"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:90:    # Another conservative objective focused on quality-only, because gamma often does not help.
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:91:    g["robust_quality_score"] = (
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:92:        g["train_delta_quality"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:93:        + 0.50 * g["train_worst_delta_quality"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:94:        + 0.01 * g["train_wins_quality"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:103:    if selector == "B5_baseline_max_train_adaptive_auroc":
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:105:            ["train_mean_adaptive", "train_delta_adaptive", "train_wins_adaptive", "train_worst_delta_adaptive"],
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:109:    if selector == "max_train_delta_adaptive":
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:111:            ["train_delta_adaptive", "train_wins_adaptive", "train_worst_delta_adaptive", "train_mean_adaptive"],
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:115:    if selector == "wins_then_delta_adaptive":
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:117:            ["train_wins_adaptive", "train_delta_adaptive", "train_worst_delta_adaptive", "train_mean_adaptive"],
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:121:    if selector == "worst_delta_then_mean_delta_adaptive":
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:123:            ["train_worst_delta_adaptive", "train_delta_adaptive", "train_wins_adaptive", "train_mean_adaptive"],
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:129:            ["robust_delta_score", "train_wins_adaptive", "train_delta_adaptive", "train_worst_delta_adaptive"],
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:133:    if selector == "robust_quality_score":
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:135:            ["robust_quality_score", "train_wins_quality", "train_delta_quality", "train_worst_delta_quality"],
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:147:            ["robust_delta_score", "train_wins_adaptive", "train_delta_adaptive", "train_worst_delta_adaptive"],
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:159:            ["robust_delta_score", "train_wins_adaptive", "train_delta_adaptive", "train_worst_delta_adaptive"],
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:196:                "train_mean_V3": float(chosen["train_mean_V3"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:197:                "train_mean_quality": float(chosen["train_mean_quality"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:198:                "train_mean_adaptive": float(chosen["train_mean_adaptive"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:199:                "train_delta_quality": float(chosen["train_delta_quality"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:200:                "train_delta_adaptive": float(chosen["train_delta_adaptive"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:201:                "train_wins_quality": int(chosen["train_wins_quality"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:202:                "train_wins_adaptive": int(chosen["train_wins_adaptive"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:203:                "train_worst_delta_quality": float(chosen["train_worst_delta_quality"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:204:                "train_worst_delta_adaptive": float(chosen["train_worst_delta_adaptive"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:205:                "test_V3": float(tr["auroc_V3_naive"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:206:                "test_quality_qcr": float(tr["auroc_quality_qcr"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:207:                "test_adaptive_qcr": float(tr["auroc_adaptive_qcr"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:208:                "test_delta_quality_minus_V3": float(tr["delta_quality_minus_V3"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:209:                "test_delta_adaptive_minus_V3": float(tr["delta_adaptive_minus_V3"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:210:                "test_delta_adaptive_minus_quality": float(tr["delta_adaptive_minus_quality"]),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:226:                "mean_test_V3": float(sub["test_V3"].mean()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:227:                "mean_test_quality_qcr": float(sub["test_quality_qcr"].mean()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:228:                "mean_test_adaptive_qcr": float(sub["test_adaptive_qcr"].mean()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:229:                "mean_delta_quality_minus_V3": float(sub["test_delta_quality_minus_V3"].mean()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:230:                "mean_delta_adaptive_minus_V3": float(sub["test_delta_adaptive_minus_V3"].mean()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:231:                "wins_quality_over_V3": int((sub["test_delta_quality_minus_V3"] > 0).sum()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:232:                "wins_adaptive_over_V3": int((sub["test_delta_adaptive_minus_V3"] > 0).sum()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:233:                "wins_adaptive_over_quality": int((sub["test_delta_adaptive_minus_quality"] > 0).sum()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:234:                "worst_quality_delta": float(sub["test_delta_quality_minus_V3"].min()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:235:                "worst_adaptive_delta": float(sub["test_delta_adaptive_minus_V3"].min()),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:236:                "worst_adaptive_category": str(
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:237:                    sub.sort_values("test_delta_adaptive_minus_V3").iloc[0]["heldout_category"]
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:245:        (out["mean_delta_adaptive_minus_V3"] > 0) & (out["wins_adaptive_over_V3"] >= 3),
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:246:        "promote_ad2_qcr_support",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:248:            out["mean_delta_adaptive_minus_V3"] > 0,
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:255:        ["claim_status", "mean_delta_adaptive_minus_V3", "wins_adaptive_over_V3", "worst_adaptive_delta"],
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:276:        ["mean_delta_adaptive_minus_V3", "wins_adaptive_over_V3", "worst_adaptive_delta"],
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:285:        "Test whether AD2 QCR can be rescued by a more robust train-category selector rather than the B5 selector that maximizes train adaptive AUROC.",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:289:        "## Valid candidate-quality sources",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:299:        f"- mean test V3: `{fmt(best['mean_test_V3'])}`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:300:        f"- mean test adaptive QCR: `{fmt(best['mean_test_adaptive_qcr'])}`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:301:        f"- adaptive QCR minus V3: `{signed(best['mean_delta_adaptive_minus_V3'])}`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:302:        f"- adaptive wins over V3: `{int(best['wins_adaptive_over_V3'])}/4`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:303:        f"- worst adaptive category: `{best['worst_adaptive_category']}`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:304:        f"- worst adaptive delta: `{signed(best['worst_adaptive_delta'])}`",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:308:        "| Selector | Status | V3 | Adaptive | Delta | Wins | Worst category | Worst delta |",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:315:            f"{fmt(r['mean_test_V3'])} | {fmt(r['mean_test_adaptive_qcr'])} | "
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:316:            f"{signed(r['mean_delta_adaptive_minus_V3'])} | "
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:317:            f"{int(r['wins_adaptive_over_V3'])}/4 | "
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:318:            f"{r['worst_adaptive_category']} | {signed(r['worst_adaptive_delta'])} |"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:325:        "- If at least one selector has positive mean adaptive delta and wins at least 3/4 held-out categories, AD2 QCR can be used as supporting cross-category evidence.",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:344:    all_configs["valid_candidate_quality_source"] = all_configs["q_source"].map(is_valid_candidate_quality_source)
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:345:    all_configs = all_configs[all_configs["valid_candidate_quality_source"]].copy()
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:350:        "B5_baseline_max_train_adaptive_auroc",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:351:        "max_train_delta_adaptive",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:352:        "wins_then_delta_adaptive",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:353:        "worst_delta_then_mean_delta_adaptive",
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:355:        "robust_quality_score",
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:12:OUT_DIR = ROOT / "results" / "stage9_qcr_u"
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:15:OUT_PRED = OUT_DIR / "stage9_a1_qcr_u_fusion_predictions.csv"
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:16:OUT_SUMMARY = OUT_DIR / "stage9_a1_qcr_u_fusion_summary.csv"
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:17:OUT_REPORT = OUT_DIR / "stage9_a1_qcr_u_fusion_report.md"
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:39:    "candidate_quality_only": {"M": 0.00, "Q": 1.00, "K": 0.00, "D": 0.00},
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:41:    "qcr_u_fixed": {"M": 0.65, "Q": 0.20, "K": 0.15, "D": 0.00},
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:42:    "qcr_u_detector_aware": {"M": 0.55, "Q": 0.20, "K": 0.15, "D": 0.10},
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:181:def read_candidate_quality(detector_root: Path) -> pd.DataFrame:
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:205:        df["candidate_quality_raw"] = (
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:215:            columns=["category", "image_key", "candidate_quality_norm", "num_candidates"]
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:223:            candidate_quality=("candidate_quality_raw", "max"),
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:231:    agg = add_group_minmax(agg, "candidate_quality", "candidate_quality_norm", ["category"])
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:316:    candidates = read_candidate_quality(detector_root)
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:353:        "candidate_quality",
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:354:        "candidate_quality_norm",
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:370:    merged["high_high_consistency"] = (
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:397:        "candidate_quality_norm",
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:398:        "high_high_consistency",
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:408:            + weights["Q"] * df["candidate_quality_norm"]
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:409:            + weights["K"] * df["high_high_consistency"]
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:415:        part["weight_K_consistency"] = weights["K"]
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:488:    qcr = summary[summary["fusion_method"].str.contains("qcr_u", regex=False)].copy()
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:490:    qcr_best = (
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:491:        qcr.sort_values(["backbone", "auroc"], ascending=[True, False])
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:509:    lines.append("Q = normalized candidate-region quality")
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:511:    lines.append("K = high-high detector/VLM consistency")
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:512:    lines.append("F_qcr = alpha * M + beta * Q + gamma * K")
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:513:    lines.append("F_qcr_detector_aware = alpha * M + beta * Q + gamma * K + delta * D")
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:539:    for _, r in qcr_best.iterrows():
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:583:        summary[summary["fusion_method"].str.contains("qcr_u", regex=False)]
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:13:IN_PRED = ROOT / "results" / "stage9_qcr_u" / "stage9_a1_qcr_u_fusion_predictions.csv"
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:15:OUT_DIR = ROOT / "results" / "stage9_qcr_u"
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:16:OUT_PRED = OUT_DIR / "stage9_a3_qcr_u_debiased_predictions.csv"
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:17:OUT_SUMMARY = OUT_DIR / "stage9_a3_qcr_u_debiased_summary.csv"
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:18:OUT_PERCAT = OUT_DIR / "stage9_a3_qcr_u_debiased_per_category.csv"
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:19:OUT_REPORT = OUT_DIR / "stage9_a3_qcr_u_debias_report.md"
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:133:        "candidate_quality_norm",
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:134:        "high_high_consistency",
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:149:        "candidate_quality_norm",
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:150:        "high_high_consistency",
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:154:    base["q_original"] = base["candidate_quality_norm"]
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:159:    base["q_neutral"] = np.where(base["has_candidate"] == 1, base["candidate_quality_norm"], 0.5)
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:173:        "candidate_quality_original": lambda d: d["q_original"],
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:174:        "candidate_quality_neutral": lambda d: d["q_neutral"],
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:177:        "qcr_u_original_fixed": lambda d: (
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:180:            + 0.15 * d["high_high_consistency"]
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:182:        "qcr_u_original_detector_aware": lambda d: (
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:185:            + 0.15 * d["high_high_consistency"]
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:190:        "qcr_u_neutral_q_fixed": lambda d: (
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:193:            + 0.15 * d["high_high_consistency"]
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:195:        "qcr_u_neutral_q_detector_aware": lambda d: (
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:198:            + 0.15 * d["high_high_consistency"]
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:203:        "qcr_u_no_q_fixed": lambda d: (
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:205:            + 0.25 * d["high_high_consistency"]
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:207:        "qcr_u_no_q_detector_aware": lambda d: (
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:209:            + 0.20 * d["high_high_consistency"]
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:225:        "candidate_quality_norm",
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:226:        "high_high_consistency",
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:364:    qcr_methods = [
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:365:        "qcr_u_original_fixed",
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:366:        "qcr_u_original_detector_aware",
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:367:        "qcr_u_neutral_q_fixed",
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:368:        "qcr_u_neutral_q_detector_aware",
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:369:        "qcr_u_no_q_fixed",
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:370:        "qcr_u_no_q_detector_aware",
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:374:        summary[summary["debiased_method"].isin(qcr_methods)]
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:382:                ["candidate_quality_original", "candidate_quality_neutral"]
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:391:            ["qcr_u_neutral_q_fixed", "qcr_u_neutral_q_detector_aware"]
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:397:            ["qcr_u_no_q_fixed", "qcr_u_no_q_detector_aware"]
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:412:    lines.append("Stage 9-A2 showed that candidate_quality_only is extremely strong.")
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:419:    lines.append("q_original = candidate_quality_norm")
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:420:    lines.append("q_neutral = candidate_quality_norm if candidate exists else 0.5")
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:466:    lines.append("| No-Q QCR-U still improves most settings | Emphasize detector-VLM consistency K rather than candidate quality Q |")
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:474:    lines.append("QCR-U is a diagnostic calibration mechanism. The paper's core contribution should remain localization-guided VLM reasoning, not candidate-quality fusion.")
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:517:                    "qcr_u_neutral_q_fixed",
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:518:                    "qcr_u_neutral_q_detector_aware",
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:519:                    "qcr_u_no_q_fixed",
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:520:                    "qcr_u_no_q_detector_aware",
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:529:    print("\nCandidate quality original vs neutral:")
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:533:                ["candidate_quality_original", "candidate_quality_neutral"]
+experiments/stage9_qcr_u/run_stage9_a2_qcr_u_sanity_check.py:12:IN_PRED = ROOT / "results" / "stage9_qcr_u" / "stage9_a1_qcr_u_fusion_predictions.csv"
+experiments/stage9_qcr_u/run_stage9_a2_qcr_u_sanity_check.py:13:IN_SUMMARY = ROOT / "results" / "stage9_qcr_u" / "stage9_a1_qcr_u_fusion_summary.csv"
+experiments/stage9_qcr_u/run_stage9_a2_qcr_u_sanity_check.py:15:OUT_DIR = ROOT / "results" / "stage9_qcr_u"
+experiments/stage9_qcr_u/run_stage9_a2_qcr_u_sanity_check.py:16:OUT_PERCAT = OUT_DIR / "stage9_a2_qcr_u_per_category.csv"
+experiments/stage9_qcr_u/run_stage9_a2_qcr_u_sanity_check.py:17:OUT_MACRO = OUT_DIR / "stage9_a2_qcr_u_macro_summary.csv"
+experiments/stage9_qcr_u/run_stage9_a2_qcr_u_sanity_check.py:18:OUT_DIAG = OUT_DIR / "stage9_a2_qcr_u_signal_diagnostics.csv"
+experiments/stage9_qcr_u/run_stage9_a2_qcr_u_sanity_check.py:19:OUT_REPORT = OUT_DIR / "stage9_a2_qcr_u_sanity_report.md"
+experiments/stage9_qcr_u/run_stage9_a2_qcr_u_sanity_check.py:25:    "candidate_quality_only",
+experiments/stage9_qcr_u/run_stage9_a2_qcr_u_sanity_check.py:27:    "qcr_u_fixed",
+experiments/stage9_qcr_u/run_stage9_a2_qcr_u_sanity_check.py:28:    "qcr_u_detector_aware",
+
+===== CSV INPUT PATHS =====
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:14:IN_IMAGE = ROOT / "results/stage11_mvtecad2_multicategory/stage11_d_vlm_image_predictions.csv"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:15:IN_CAND = ROOT / "results/stage11_mvtecad2_multicategory/stage11_d_vlm_candidate_scores.csv"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:20:OUT_PRED = OUT_DIR / "stage18_b2_ad2_qcr_assembled_predictions.csv"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:27:def read_csv_strict(path: Path) -> pd.DataFrame:
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:30:    df = pd.read_csv(path)
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:99:    img = read_csv_strict(IN_IMAGE)
+experiments/stage18_ad2_qcr_ablation/run_stage18_b2_ad2_qcr_ablation.py:100:    cand = read_csv_strict(IN_CAND)
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:13:IN_IMAGE = ROOT / "results/stage11_mvtecad2_multicategory/stage11_d_vlm_image_predictions.csv"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:14:IN_CAND = ROOT / "results/stage11_mvtecad2_multicategory/stage11_d_vlm_candidate_scores.csv"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:25:def read_csv(path: Path) -> pd.DataFrame:
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:28:    df = pd.read_csv(path)
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:91:    img = read_csv(IN_IMAGE)
+experiments/stage18_ad2_qcr_ablation/run_stage18_b3_ad2_q_source_sweep.py:92:    cand = read_csv(IN_CAND)
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:23:def read_csv(path: Path) -> pd.DataFrame:
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:26:    df = pd.read_csv(path)
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:83:    b2_summary = read_csv(IN_B2_SUMMARY)
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:84:    b2_deltas = read_csv(IN_B2_DELTAS)
+experiments/stage18_ad2_qcr_ablation/build_stage18_b4_ad2_qcr_claim_safe_decision.py:85:    b3 = read_csv(IN_B3_RANKED)
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:13:IN_IMAGE = ROOT / "results/stage11_mvtecad2_multicategory/stage11_d_vlm_image_predictions.csv"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:14:IN_CAND = ROOT / "results/stage11_mvtecad2_multicategory/stage11_d_vlm_candidate_scores.csv"
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:29:def read_csv(path: Path) -> pd.DataFrame:
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:32:    df = pd.read_csv(path)
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:97:    img = read_csv(IN_IMAGE)
+experiments/stage18_ad2_qcr_ablation/run_stage18_b5_ad2_loco_qcr_policy_optimization.py:98:    cand = read_csv(IN_CAND)
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:24:def read_csv(path: Path) -> pd.DataFrame:
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:27:    df = pd.read_csv(path)
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:49:    summary = read_csv(IN_B6_SUMMARY)
+experiments/stage18_ad2_qcr_ablation/build_stage18_b7_qcr_final_claim_update.py:50:    folds = read_csv(IN_B6_FOLDS)
+experiments/stage18_ad2_qcr_ablation/build_stage18_a0_ad2_qcr_inventory.py:10:    ROOT / "results/stage9_qcr_u/stage9_a1_qcr_u_fusion_predictions.csv",
+experiments/stage18_ad2_qcr_ablation/build_stage18_a0_ad2_qcr_inventory.py:22:def read_csv_safe(path: Path) -> pd.DataFrame | None:
+experiments/stage18_ad2_qcr_ablation/build_stage18_a0_ad2_qcr_inventory.py:27:        df = pd.read_csv(path)
+experiments/stage18_ad2_qcr_ablation/build_stage18_a0_ad2_qcr_inventory.py:42:        df = read_csv_safe(path)
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:98:            return pd.read_csv(path, nrows=5000)
+experiments/stage18_ad2_qcr_ablation/build_stage18_b0_ad2_qcr_source_inventory.py:100:            return pd.read_csv(path, sep="\t", nrows=5000)
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:15:    ROOT / "results/stage11_mvtecad2_multicategory/stage11_b_patchcore_multicategory_predictions.csv",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:18:    ROOT / "results/stage11_mvtecad2_multicategory/stage11_d_vlm_candidate_scores.csv",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:19:    ROOT / "results/stage11_mvtecad2_multicategory/stage11_d_vlm_image_predictions.csv",
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:70:def read_csv_robust(path: Path) -> pd.DataFrame | None:
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:75:        df = pd.read_csv(path)
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:88:            df = pd.read_csv(StringIO(repaired))
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:173:    df = read_csv_robust(path)
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py:296:        df = read_csv_robust(p)
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:25:def read_csv(path: Path) -> pd.DataFrame:
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:28:    df = pd.read_csv(path)
+experiments/stage18_ad2_qcr_ablation/run_stage18_b6_ad2_loco_robust_qcr_selector_sweep.py:342:    all_configs = read_csv(IN_ALL_CONFIGS)
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:15:OUT_PRED = OUT_DIR / "stage9_a1_qcr_u_fusion_predictions.csv"
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:24:        "vlm_predictions": ROOT / "results" / "stage7_generalization" / "visa_binary_prompt_reasoning" / "visa_binary_prompt_predictions.csv",
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:25:        "detector_prediction_name": "patchcore_image_predictions.csv",
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:30:        "vlm_predictions": ROOT / "results" / "stage7_generalization" / "visa_multibackbone" / "fastflow_binary_prompt_reasoning" / "visa_binary_prompt_predictions.csv",
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:31:        "detector_prediction_name": "fastflow_image_predictions.csv",
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:186:        df = pd.read_csv(path)
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:240:        df = pd.read_csv(path)
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py:286:    df = pd.read_csv(path)
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:13:IN_PRED = ROOT / "results" / "stage9_qcr_u" / "stage9_a1_qcr_u_fusion_predictions.csv"
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:16:OUT_PRED = OUT_DIR / "stage9_a3_qcr_u_debiased_predictions.csv"
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py:122:    pred = pd.read_csv(IN_PRED)
+experiments/stage9_qcr_u/run_stage9_a2_qcr_u_sanity_check.py:12:IN_PRED = ROOT / "results" / "stage9_qcr_u" / "stage9_a1_qcr_u_fusion_predictions.csv"
+experiments/stage9_qcr_u/run_stage9_a2_qcr_u_sanity_check.py:467:    pred = pd.read_csv(IN_PRED)
+experiments/stage16_qcru_ablation/build_stage16_a0_qcru_inventory_and_ablation_plan.py:18:    "results/stage9_qcr_u/stage9_a1_qcr_u_fusion_predictions.csv",
+experiments/stage16_qcru_ablation/build_stage16_a0_qcru_inventory_and_ablation_plan.py:23:    "results/stage9_qcr_u/stage9_a3_qcr_u_debiased_predictions.csv",
+experiments/stage16_qcru_ablation/build_stage16_a0_qcru_inventory_and_ablation_plan.py:50:        df = pd.read_csv(path)
+experiments/stage16_qcru_ablation/run_stage16_a1_qcru_fixed_protocol_ablation.py:12:IN_PRED = ROOT / "results/stage9_qcr_u/stage9_a1_qcr_u_fusion_predictions.csv"
+experiments/stage16_qcru_ablation/run_stage16_a1_qcru_fixed_protocol_ablation.py:37:def read_csv_strict(path: Path) -> pd.DataFrame:
+experiments/stage16_qcru_ablation/run_stage16_a1_qcru_fixed_protocol_ablation.py:38:    df = pd.read_csv(path)
+experiments/stage16_qcru_ablation/run_stage16_a1_qcru_fixed_protocol_ablation.py:456:    df = read_csv_strict(IN_PRED)
+experiments/stage16_qcru_ablation/build_stage16_b_adaptive_qcru_paper_facing_comparison.py:10:IN_PRED = ROOT / "results/stage9_qcr_u/stage9_a1_qcr_u_fusion_predictions.csv"
+experiments/stage16_qcru_ablation/build_stage16_b_adaptive_qcru_paper_facing_comparison.py:47:def read_csv_strict(path: Path) -> pd.DataFrame:
+experiments/stage16_qcru_ablation/build_stage16_b_adaptive_qcru_paper_facing_comparison.py:48:    df = pd.read_csv(path)
+experiments/stage16_qcru_ablation/build_stage16_b_adaptive_qcru_paper_facing_comparison.py:469:    df = read_csv_strict(IN_PRED)
+experiments/stage16_qcru_ablation/build_stage16_d_paper_facing_final_comparison.py:28:def read_csv_robust(path: Path, known_header: str | None = None) -> pd.DataFrame:
+experiments/stage16_qcru_ablation/build_stage16_d_paper_facing_final_comparison.py:43:    df = pd.read_csv(StringIO(raw))
+experiments/stage16_qcru_ablation/build_stage16_d_paper_facing_final_comparison.py:451:    stage15e = read_csv_robust(IN_STAGE15E, STAGE15_HEADER)
+experiments/stage16_qcru_ablation/build_stage16_d_paper_facing_final_comparison.py:452:    primary = read_csv_robust(IN_STAGE16B_PRIMARY)
+experiments/stage16_qcru_ablation/build_stage16_d_paper_facing_final_comparison.py:453:    decision = read_csv_robust(IN_STAGE16B_DECISION)
+experiments/stage16_qcru_ablation/build_stage16_d_paper_facing_final_comparison.py:454:    claims = read_csv_robust(IN_STAGE16C_CLAIMS)
+experiments/stage16_qcru_ablation/build_stage16_f_final_claim_evidence_map.py:25:def read_csv_strict(path: Path) -> pd.DataFrame:
+experiments/stage16_qcru_ablation/build_stage16_f_final_claim_evidence_map.py:28:    df = pd.read_csv(path)
+experiments/stage16_qcru_ablation/build_stage16_f_final_claim_evidence_map.py:467:    system = read_csv_strict(IN_SYSTEM)
+experiments/stage16_qcru_ablation/build_stage16_f_final_claim_evidence_map.py:468:    _ = read_csv_strict(IN_QCR)
+experiments/stage16_qcru_ablation/build_stage16_f_final_claim_evidence_map.py:469:    deltas = read_csv_strict(IN_DELTAS)
+experiments/stage16_qcru_ablation/build_stage16_f_final_claim_evidence_map.py:470:    _ = read_csv_strict(IN_CLAIMS)
+experiments/stage16_qcru_ablation/build_stage16_f_final_claim_evidence_map.py:471:    boundary = read_csv_strict(IN_BOUNDARY)
+experiments/stage16_qcru_ablation/build_stage16_f_final_claim_evidence_map.py:472:    category = read_csv_strict(IN_CATEGORY)
+experiments/stage16_qcru_ablation/build_stage16_a2_qcru_robustness_check.py:30:def read_csv_robust(path: Path) -> pd.DataFrame:
+experiments/stage16_qcru_ablation/build_stage16_a2_qcru_robustness_check.py:31:    df = pd.read_csv(path)
+experiments/stage16_qcru_ablation/build_stage16_a2_qcru_robustness_check.py:257:    per_config = read_csv_robust(IN_PER_CONFIG)
+experiments/stage16_qcru_ablation/build_stage16_a2_qcru_robustness_check.py:258:    _ = read_csv_robust(IN_PER_CATEGORY)
+experiments/stage16_qcru_ablation/run_stage16_a3_adaptive_qcru.py:10:IN_PRED = ROOT / "results/stage9_qcr_u/stage9_a1_qcr_u_fusion_predictions.csv"
+experiments/stage16_qcru_ablation/run_stage16_a3_adaptive_qcru.py:36:def read_csv_strict(path: Path) -> pd.DataFrame:
+experiments/stage16_qcru_ablation/run_stage16_a3_adaptive_qcru.py:37:    df = pd.read_csv(path)
+experiments/stage16_qcru_ablation/run_stage16_a3_adaptive_qcru.py:451:    df = read_csv_strict(IN_PRED)
+experiments/stage16_qcru_ablation/build_stage16_c_final_method_claims.py:19:def read_csv_strict(path: Path) -> pd.DataFrame:
+experiments/stage16_qcru_ablation/build_stage16_c_final_method_claims.py:22:    df = pd.read_csv(path)
+experiments/stage16_qcru_ablation/build_stage16_c_final_method_claims.py:102:    primary = read_csv_strict(IN_PRIMARY)
+experiments/stage16_qcru_ablation/build_stage16_c_final_method_claims.py:103:    decision = read_csv_strict(IN_DECISION)
+experiments/stage16_qcru_ablation/build_stage16_e_failure_boundary_analysis.py:10:IN_PRED = ROOT / "results/stage9_qcr_u/stage9_a1_qcr_u_fusion_predictions.csv"
+experiments/stage16_qcru_ablation/build_stage16_e_failure_boundary_analysis.py:44:def read_csv_strict(path: Path) -> pd.DataFrame:
+experiments/stage16_qcru_ablation/build_stage16_e_failure_boundary_analysis.py:47:    df = pd.read_csv(path)
+experiments/stage16_qcru_ablation/build_stage16_e_failure_boundary_analysis.py:587:    pred = read_csv_strict(IN_PRED)
+experiments/stage16_qcru_ablation/build_stage16_e_failure_boundary_analysis.py:588:    _ = read_csv_strict(IN_STAGE16D_DELTAS) if IN_STAGE16D_DELTAS.exists() else None

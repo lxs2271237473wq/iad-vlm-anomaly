@@ -1,0 +1,322 @@
+## 1. 旧 QCR：Quality 计算代码
+
+**函数 `main`：`experiments/stage16_qcru_ablation/build_stage16_a0_qcru_inventory_and_ablation_plan.py`，第 70–271 行**
+
+```python
+  70: def main() -> None:
+  71:     OUT_DIR.mkdir(parents=True, exist_ok=True)
+  72:     DOC_DIR.mkdir(parents=True, exist_ok=True)
+  73: 
+  74:     inventory_rows = [inspect_csv(ROOT / p) for p in SOURCE_PATHS]
+  75:     inventory = pd.DataFrame(inventory_rows)
+  76:     inventory.to_csv(OUT_INVENTORY, index=False, lineterminator="\n")
+  77: 
+  78:     plan_rows = [
+  79:         {
+  80:             "variant_id": "V0",
+  81:             "variant": "detector_only",
+  82:             "uses_detector_score": True,
+  83:             "uses_full_image_vlm": False,
+  84:             "uses_crop_vlm": False,
+  85:             "uses_quality": False,
+  86:             "uses_consistency": False,
+  87:             "uses_unknown": False,
+  88:             "purpose": "Anchor baseline; proves whether QCR-U beats the detector alone.",
+  89:         },
+  90:         {
+  91:             "variant_id": "V1",
+  92:             "variant": "full_image_vlm",
+  93:             "uses_detector_score": False,
+  94:             "uses_full_image_vlm": True,
+  95:             "uses_crop_vlm": False,
+  96:             "uses_quality": False,
+  97:             "uses_consistency": False,
+  98:             "uses_unknown": False,
+  99:             "purpose": "Weak VLM sanity baseline; should not be the main comparison target.",
+ 100:         },
+ 101:         {
+ 102:             "variant_id": "V2",
+ 103:             "variant": "crop_topk_vlm",
+ 104:             "uses_detector_score": False,
+ 105:             "uses_full_image_vlm": False,
+ 106:             "uses_crop_vlm": True,
+ 107:             "uses_quality": False,
+ 108:             "uses_consistency": False,
+ 109:             "uses_unknown": False,
+ 110:             "purpose": "Tests whether localization-guided crops improve VLM scoring.",
+ 111:         },
+ 112:         {
+ 113:             "variant_id": "V3",
+ 114:             "variant": "naive_detector_crop_fusion",
+ 115:             "uses_detector_score": True,
+ 116:             "uses_full_image_vlm": False,
+ 117:             "uses_crop_vlm": True,
+ 118:             "uses_quality": False,
+ 119:             "uses_consistency": False,
+ 120:             "uses_unknown": False,
+ 121:             "purpose": "Naive fusion baseline; QCR-U must beat this or the method is not justified.",
+ 122:         },
+ 123:         {
+ 124:             "variant_id": "V4",
+ 125:             "variant": "quality_weighted_crop",
+ 126:             "uses_detector_score": True,
+ 127:             "uses_full_image_vlm": False,
+ 128:             "uses_crop_vlm": True,
+ 129:             "uses_quality": True,
+ 130:             "uses_consistency": False,
+ 131:             "uses_unknown": False,
+ 132:             "purpose": "Tests whether candidate quality contributes beyond crop scoring.",
+ 133:         },
+ 134:         {
+ 135:             "variant_id": "V5",
+ 136:             "variant": "quality_consistency_fusion",
+ 137:             "uses_detector_score": True,
+ 138:             "uses_full_image_vlm": False,
+ 139:             "uses_crop_vlm": True,
+ 140:             "uses_quality": True,
+ 141:             "uses_consistency": True,
+ 142:             "uses_unknown": False,
+ 143:             "purpose": "Core QCR-U binary anomaly recognition variant.",
+ 144:         },
+ 145:         {
+ 146:             "variant_id": "V6",
+ 147:             "variant": "qcr_u_full_optional_unknown",
+ 148:             "uses_detector_score": True,
+ 149:             "uses_full_image_vlm": False,
+... 函数剩余 122 行已省略 ...
+```
+
+**函数 `make_summary`：`experiments/stage16_qcru_ablation/build_stage16_a2_qcru_robustness_check.py`，第 75–131 行**
+
+```python
+  75: def make_summary(delta: pd.DataFrame) -> pd.DataFrame:
+  76:     rows = []
+  77: 
+  78:     checks = [
+  79:         ("V5 > V3 naive fusion", "v5_beats_naive", "delta_v5_minus_v3_naive"),
+  80:         ("V5 > V4 quality-only", "v5_beats_quality_only", "delta_v5_minus_v4_quality"),
+  81:         ("V5 > V0 detector-only", "v5_beats_detector", "delta_v5_minus_v0_detector"),
+  82:         ("V5 > V2 crop-VLM-only", "v5_beats_crop", "delta_v5_minus_v2_crop"),
+  83:         ("V4 > V3 naive fusion", "quality_beats_naive", "delta_v4_minus_v3_naive"),
+  84:     ]
+  85: 
+  86:     for name, bool_col, delta_col in checks:
+  87:         wins, total, rate = summarize_boolean(delta, bool_col)
+  88:         rows.append(
+  89:             {
+  90:                 "check": name,
+  91:                 "wins": wins,
+  92:                 "total_protocols": total,
+  93:                 "win_rate": rate,
+  94:                 "mean_delta": delta[delta_col].mean(),
+  95:                 "median_delta": delta[delta_col].median(),
+  96:                 "min_delta": delta[delta_col].min(),
+  97:                 "max_delta": delta[delta_col].max(),
+  98:             }
+  99:         )
+ 100: 
+ 101:     # By eval mode, because full_all may behave differently from crop protocols.
+ 102:     for eval_mode, g in delta.groupby("eval_mode"):
+ 103:         wins, total, rate = summarize_boolean(g, "v5_beats_naive")
+ 104:         rows.append(
+ 105:             {
+ 106:                 "check": f"V5 > V3 naive fusion by eval_mode={eval_mode}",
+ 107:                 "wins": wins,
+ 108:                 "total_protocols": total,
+ 109:                 "win_rate": rate,
+ 110:                 "mean_delta": g["delta_v5_minus_v3_naive"].mean(),
+ 111:                 "median_delta": g["delta_v5_minus_v3_naive"].median(),
+ 112:                 "min_delta": g["delta_v5_minus_v3_naive"].min(),
+ 113:                 "max_delta": g["delta_v5_minus_v3_naive"].max(),
+ 114:             }
+ 115:         )
+ 116: 
+ 117:         wins, total, rate = summarize_boolean(g, "v5_beats_quality_only")
+ 118:         rows.append(
+ 119:             {
+ 120:                 "check": f"V5 > V4 quality-only by eval_mode={eval_mode}",
+ 121:                 "wins": wins,
+ 122:                 "total_protocols": total,
+ 123:                 "win_rate": rate,
+ 124:                 "mean_delta": g["delta_v5_minus_v4_quality"].mean(),
+ 125:                 "median_delta": g["delta_v5_minus_v4_quality"].median(),
+ 126:                 "min_delta": g["delta_v5_minus_v4_quality"].min(),
+ 127:                 "max_delta": g["delta_v5_minus_v4_quality"].max(),
+ 128:             }
+ 129:         )
+ 130: 
+ 131:     return pd.DataFrame(rows)
+```
+
+**函数 `write_report`：`experiments/stage16_qcru_ablation/build_stage16_a2_qcru_robustness_check.py`，第 164–250 行**
+
+```python
+ 164: def write_report(delta: pd.DataFrame, summary: pd.DataFrame, failures: pd.DataFrame) -> None:
+ 165:     lines = []
+ 166:     lines += [
+ 167:         "# Stage 16-A2 QCR-U Robustness Check",
+ 168:         "",
+ 169:         "## 1. Purpose",
+ 170:         "",
+ 171:         "Stage 16-A1 showed that fixed quality-consistency fusion can improve the best protocol.",
+ 172:         "",
+ 173:         "Stage 16-A2 checks whether that gain is robust across all protocols, instead of only appearing in the best protocol.",
+ 174:         "",
+ 175:         "## 2. Overall Robustness Summary",
+ 176:         "",
+ 177:         "| Check | Wins | Total | Win Rate | Mean Delta | Median Delta | Min Delta | Max Delta |",
+ 178:         "|---|---:|---:|---:|---:|---:|---:|---:|",
+ 179:     ]
+ 180: 
+ 181:     for _, r in summary.iterrows():
+ 182:         lines.append(
+ 183:             f"| {r['check']} | {int(r['wins'])} | {int(r['total_protocols'])} | "
+ 184:             f"{r['win_rate']:.4f} | {r['mean_delta']:.4f} | {r['median_delta']:.4f} | "
+ 185:             f"{r['min_delta']:.4f} | {r['max_delta']:.4f} |"
+ 186:         )
+ 187: 
+ 188:     lines += [
+ 189:         "",
+ 190:         "## 3. Protocol-level Deltas",
+ 191:         "",
+ 192:         "| Backbone | Strategy | Eval Mode | V5 AUROC | V3 AUROC | V4 AUROC | V5-V3 | V5-V4 |",
+ 193:         "|---|---|---|---:|---:|---:|---:|---:|",
+ 194:     ]
+ 195: 
+ 196:     display = delta.sort_values("delta_v5_minus_v3_naive", ascending=False)
+ 197:     for _, r in display.iterrows():
+ 198:         lines.append(
+ 199:             f"| {r['backbone']} | {r['strategy']} | {r['eval_mode']} | "
+ 200:             f"{r['V5']:.4f} | {r['V3']:.4f} | {r['V4']:.4f} | "
+ 201:             f"{r['delta_v5_minus_v3_naive']:+.4f} | {r['delta_v5_minus_v4_quality']:+.4f} |"
+ 202:         )
+ 203: 
+ 204:     lines += [
+ 205:         "",
+ 206:         "## 4. Failure / Weakness Cases",
+ 207:         "",
+ 208:     ]
+ 209: 
+ 210:     if failures.empty:
+ 211:         lines.append("No failure case found under the current checks.")
+ 212:     else:
+ 213:         lines += [
+ 214:             "| Backbone | Strategy | Eval Mode | V5-V3 | V5-V4 | V5-V0 | V5-V2 | Reason |",
+ 215:             "|---|---|---|---:|---:|---:|---:|---|",
+ 216:         ]
+ 217:         for _, r in failures.iterrows():
+ 218:             lines.append(
+ 219:                 f"| {r['backbone']} | {r['strategy']} | {r['eval_mode']} | "
+ 220:                 f"{r['delta_v5_minus_v3_naive']:+.4f} | "
+ 221:                 f"{r['delta_v5_minus_v4_quality']:+.4f} | "
+ 222:                 f"{r['delta_v5_minus_v0_detector']:+.4f} | "
+ 223:                 f"{r['delta_v5_minus_v2_crop']:+.4f} | "
+ 224:                 f"{r['failure_reason']} |"
+ 225:             )
+ 226: 
+ 227:     lines += [
+ 228:         "",
+ 229:         "## 5. Decision Rule",
+ 230:         "",
+ 231:         "If V5 is consistently better than V3 naive fusion but often worse than V4 quality-only, the consistency term should not be claimed as universally beneficial.",
+ 232:         "",
+ 233:         "In that case, the next method should be revised from fixed Q+C fusion to adaptive QCR-U:",
+ 234:         "",
+ 235:         "```text",
+ 236:         "use quality-weighted crop as the stable core;",
+ 237:         "apply consistency only when detector and VLM evidence are both reliable;",
+ 238:         "avoid adding consistency under weak/full-image protocols where it hurts.",
+ 239:         "```",
+ 240:         "",
+ 241:         "## 6. Outputs",
+ 242:         "",
+ 243:         f"- `{OUT_DELTA.relative_to(ROOT)}`",
+... 函数剩余 7 行已省略 ...
+```
+
+**函数 `build_base_table`：`experiments/stage16_qcru_ablation/build_stage16_b_adaptive_qcru_paper_facing_comparison.py`，第 166–241 行**
+
+```python
+ 166: def build_base_table(df: pd.DataFrame) -> pd.DataFrame:
+ 167:     missing = [c for c in REQUIRED_COLUMNS if c not in df.columns]
+ 168:     if missing:
+ 169:         raise RuntimeError(f"Missing required columns: {missing}")
+ 170: 
+ 171:     base_cols = [
+ 172:         "backbone",
+ 173:         "dataset",
+ 174:         "category",
+ 175:         "strategy",
+ 176:         "eval_mode",
+ 177:         "image_key",
+ 178:         "is_anomaly_final",
+ 179:         "fallback",
+ 180:         "has_candidate",
+ 181:         "num_candidates",
+ 182:         "vlm_score_norm",
+ 183:         "detector_score_norm",
+ 184:         "candidate_quality_norm",
+ 185:         "high_high_consistency",
+ 186:     ]
+ 187:     base_cols = [c for c in base_cols if c in df.columns]
+ 188: 
+ 189:     base = df[base_cols].copy()
+ 190:     base = base.drop_duplicates(
+ 191:         subset=["backbone", "dataset", "category", "strategy", "eval_mode", "image_key"]
+ 192:     ).reset_index(drop=True)
+ 193: 
+ 194:     for c in [
+ 195:         "is_anomaly_final",
+ 196:         "vlm_score_norm",
+ 197:         "detector_score_norm",
+ 198:         "candidate_quality_norm",
+ 199:         "high_high_consistency",
+ 200:         "num_candidates",
+ 201:     ]:
+ 202:         if c in base.columns:
+ 203:             base[c] = pd.to_numeric(base[c], errors="coerce")
+ 204: 
+ 205:     base["D"] = base["detector_score_norm"].fillna(0.0)
+ 206:     base["M"] = base["vlm_score_norm"].fillna(0.0)
+ 207:     base["Q"] = base["candidate_quality_norm"].fillna(0.0)
+ 208:     base["K"] = base["high_high_consistency"].fillna(0.0)
+ 209: 
+ 210:     base["score_detector_only"] = base["D"]
+ 211:     base["score_crop_vlm"] = base["M"]
+ 212:     base["score_naive"] = 0.5 * base["D"] + 0.5 * base["M"]
+ 213: 
+ 214:     base["score_quality_raw"] = (
+ 215:         0.5 * base["D"]
+ 216:         + 0.5 * (base["M"] * (0.5 + 0.5 * base["Q"]))
+ 217:     )
+ 218: 
+ 219:     base["score_fixed_qc_raw"] = (
+ 220:         0.40 * base["D"]
+ 221:         + 0.40 * base["M"]
+ 222:         + 0.10 * base["Q"]
+ 223:         + 0.10 * base["K"]
+ 224:     )
+ 225: 
+ 226:     agreement = (1.0 - (base["D"] - base["M"]).abs()).clip(lower=0.0, upper=1.0)
+ 227:     mutual_anomaly_evidence = np.minimum(base["D"], base["M"])
+ 228:     adaptive_gate = base["Q"] * base["K"] * agreement * mutual_anomaly_evidence
+ 229: 
+ 230:     base["adaptive_gate"] = adaptive_gate
+ 231:     base["score_adaptive_qcru_raw"] = base["score_quality_raw"] + 0.05 * adaptive_gate
+ 232: 
+ 233:     group_cols = ["backbone", "dataset", "strategy", "eval_mode"]
+ 234:     for raw_col, out_col in [
+ 235:         ("score_quality_raw", "score_quality"),
+ 236:         ("score_fixed_qc_raw", "score_fixed_qc"),
+ 237:         ("score_adaptive_qcru_raw", "score_adaptive_qcru"),
+ 238:     ]:
+ 239:         base[out_col] = base.groupby(group_cols, dropna=False)[raw_col].transform(minmax_safe)
+ 240: 
+ 241:     return base
+```
+
+**函数 `build_decision`：`experiments/stage16_qcru_ablation/build_stage16_b_adaptive_qcru_paper_facing_comparison.py`，第 304–370 行**
+
+```python
+
+... 后续内容已截断，请查看完整 Markdown 报告 ...

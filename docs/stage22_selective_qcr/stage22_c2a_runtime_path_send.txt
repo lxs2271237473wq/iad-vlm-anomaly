@@ -1,0 +1,56 @@
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:199: 470:     predictions_csv = output_root / "visa_binary_prompt_predictions.csv"
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:249: 479:     predictions_csv = output_root / "visa_binary_prompt_predictions.csv"
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:288:  24:         "vlm_predictions": ROOT / "results" / "stage7_generalization" / "visa_binary_prompt_reasoning" / "visa_binary_prompt_predictions.csv",
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:294:  30:         "vlm_predictions": ROOT / "results" / "stage7_generalization" / "visa_multibackbone" / "fastflow_binary_prompt_reasoning" / "visa_binary_prompt_predictions.csv",
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:869: 280:         batch_size = len(image_paths) if isinstance(image_paths, (list, tuple)) else 1
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:871: 282:         for i in range(batch_size):
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:993: 217:         batch_size = len(image_paths) if isinstance(image_paths, (list, tuple)) else 1
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:995: 219:         for i in range(batch_size):
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:1060: 104:     with torch.no_grad():
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:1078: 241: def encode_images(model, preprocess, images, device):
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:1081: 244:     with torch.no_grad():
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:1082: 245:         features = model.encode_image(batch)
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:1119: 325:         image_features = encode_images(model, preprocess, eval_images, device)
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:1153: 470:     predictions_csv = output_root / "visa_binary_prompt_predictions.csv"
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:1183: 104:     with torch.no_grad():
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:1201: 241: def encode_images(model, preprocess, images, device):
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:1204: 244:     with torch.no_grad():
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:1205: 245:         features = model.encode_image(batch)
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:1242: 325:         image_features = encode_images(model, preprocess, eval_images, device)
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:1276: 479:     predictions_csv = output_root / "visa_binary_prompt_predictions.csv"
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:1349:  24:         "vlm_predictions": ROOT / "results" / "stage7_generalization" / "visa_binary_prompt_reasoning" / "visa_binary_prompt_predictions.csv",
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:1355:  30:         "vlm_predictions": ROOT / "results" / "stage7_generalization" / "visa_multibackbone" / "fastflow_binary_prompt_reasoning" / "visa_binary_prompt_predictions.csv",
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2237: 167:         train_batch_size=args.train_batch_size,
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2238: 168:         eval_batch_size=args.eval_batch_size,
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2239: 169:         num_workers=args.num_workers,
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2256: 280:         batch_size = len(image_paths) if isinstance(image_paths, (list, tuple)) else 1
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2258: 282:         for i in range(batch_size):
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2292: 492:     parser.add_argument("--train_batch_size", type=int, default=32)
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2293: 493:     parser.add_argument("--eval_batch_size", type=int, default=32)
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2294: 494:     parser.add_argument("--num_workers", type=int, default=8)
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2328: 149:         train_batch_size=args.train_batch_size,
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2329: 150:         eval_batch_size=args.eval_batch_size,
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2330: 151:         num_workers=args.num_workers,
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2347: 217:         batch_size = len(image_paths) if isinstance(image_paths, (list, tuple)) else 1
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2349: 219:         for i in range(batch_size):
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2383: 420:     parser.add_argument("--train_batch_size", type=int, default=32)
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2384: 421:     parser.add_argument("--eval_batch_size", type=int, default=32)
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2385: 422:     parser.add_argument("--num_workers", type=int, default=8)
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2423: 241: def encode_images(model, preprocess, images, device):
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2426: 244:     with torch.no_grad():
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2427: 245:         features = model.encode_image(batch)
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2479: 241: def encode_images(model, preprocess, images, device):
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2482: 244:     with torch.no_grad():
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2483: 245:         features = model.encode_image(batch)
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2963: 493:     parser.add_argument("--eval_batch_size", type=int, default=32)
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:2964: 494:     parser.add_argument("--num_workers", type=int, default=8)
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:3025: 104:     with torch.no_grad():
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:3055: 241: def encode_images(model, preprocess, images, device):
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:3058: 244:     with torch.no_grad():
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:3059: 245:         features = model.encode_image(batch)
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:3107: 325:         image_features = encode_images(model, preprocess, eval_images, device)
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:3177: 104:     with torch.no_grad():
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:3207: 241: def encode_images(model, preprocess, images, device):
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:3210: 244:     with torch.no_grad():
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:3211: 245:         features = model.encode_image(batch)
+docs/stage22_selective_qcr/stage22_c2a_runtime_path_audit.md:3259: 325:         image_features = encode_images(model, preprocess, eval_images, device)

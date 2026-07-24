@@ -1,0 +1,493 @@
+===== LATEX FILES =====
+./docs/paper_p12/figure2_latex_snippet.tex
+./docs/paper_p9/references.bib
+./paper/quality_calibrated_qcr/main_p14_polished.tex
+./paper/quality_calibrated_qcr/main.tex
+./paper/quality_calibrated_qcr/references.bib
+./paper/quality_calibrated_qcr/tables/table1_system_baselines.tex
+./paper/quality_calibrated_qcr/tables/table2_qcr_ablation.tex
+./paper/quality_calibrated_qcr/tables/table3_boundary_summary.tex
+./paper/quality_calibrated_qcr/tables/table4_efficientad_sensitivity.tex
+
+===== WORD FILES =====
+
+===== MANUSCRIPT MARKDOWN =====
+./docs/final_paper_outline_and_experiment_narrative_zh.md
+./docs/paper_p10/paper_p10_latex_scaffold_report.md
+./docs/paper_p11b/paper_p11b_manual_replacement_decision_report.md
+./docs/paper_p11b/paper_p11b_replacement_candidate_report.md
+./docs/paper_p11/paper_p11_boundary_case_manual_review_report.md
+./docs/paper_p12/paper_p12_final_figure2_report.md
+./docs/paper_p13/paper_p13_compile_check_report.md
+./docs/paper_p14/paper_p14_language_polish_report.md
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md
+./docs/paper_p2/paper_p2_intro_contributions_method_overview.md
+./docs/paper_p3/paper_p3_experiments_and_results_draft.md
+./docs/paper_p4/paper_p4_related_work_and_positioning.md
+./docs/paper_p5/paper_p5_method_full_draft.md
+./docs/paper_p6/paper_p6_full_paper_skeleton.md
+./docs/paper_p7/paper_p7_latex_style_compact_draft.md
+./docs/paper_p8/paper_p8_figure_plan_report.md
+./docs/paper_p9/paper_p9_citation_marked_compact_draft.md
+./docs/paper_p9/paper_p9_reference_and_citation_plan.md
+./docs/paper_ready_experiment_tables.md
+./docs/stage11_mvtecad2_multicategory/stage11_i_paper_ready_evidence_report.md
+./docs/stage12_paper_writing/stage12_b_paper_outline.md
+./docs/stage16_qcru_ablation/stage16_b_adaptive_qcru_paper_facing_comparison_report.md
+./docs/stage16_qcru_ablation/stage16_d_paper_facing_final_comparison_report.md
+
+===== EXISTING RESULT REFERENCES =====
+./docs/patchcore_mvtec_baseline_analysis.md:110:   - WinCLIP or CLIP-based zero-shot anomaly baseline
+./docs/stage10_dataset_expansion/stage10_dataset_selection_plan.md:14:| 3 | MVTec LOCO AD | not_found | 0 | logical_anomaly_reasoning_supplement |
+./docs/stage10_dataset_expansion/stage10_dataset_selection_plan.md:29:### 3.3 MVTec LOCO AD 作为 reasoning supplement
+./docs/stage11_mvtecad2_multicategory/stage11_e_multicategory_evidence_report.md:46:PatchCore localization can serve as a visual bridge for VLM anomaly reasoning when candidate regions preserve sufficient object context; the benefit is category- and candidate-quality-dependent.
+./docs/stage11_mvtecad2_multicategory/stage11_b_patchcore_multicategory_report.md:84:Stage 11-C should generate PatchCore candidate regions for the successfully validated categories, then Stage 11-D should evaluate full-image versus context-aware crop VLM reasoning.
+./docs/stage11_mvtecad2_multicategory/stage11_d_vlm_full_vs_context_report.md:7:This step does not rerun PatchCore and does not regenerate candidate crops. It reads Stage 11-C candidate regions and scores full images, tight crops, and context-aware crops using a CLIP-style VLM backend.
+./docs/stage11_mvtecad2_multicategory/stage11_g_unified_experiment_policy_report.md:43:PatchCore localization can serve as a visual bridge for VLM anomaly reasoning when candidate regions preserve sufficient object context. On the unified MVTec AD 2 primary-category evaluation, context-aware crop aggregation improves over full-image VLM prompting, while category-level failures reveal sensitivity to candidate quality and object context.
+./docs/stage15_modern_detector_baselines/stage15_a_efficientad_api_inspection.md:1:# Stage 15-A EfficientAD API Inspection
+./docs/stage15_modern_detector_baselines/stage15_a_efficientad_api_inspection.md:5:This stage checks whether EfficientAD is available in the current Anomalib 2.5.0 environment.
+./docs/stage15_modern_detector_baselines/stage15_a_efficientad_api_inspection.md:14:| `anomalib.models` | `EfficientAD` | False | `AttributeError("module 'anomalib.models' has no attribute 'EfficientAD'")` |
+./docs/stage15_modern_detector_baselines/stage15_a_efficientad_api_inspection.md:16:| `anomalib.models.image.efficient_ad` | `EfficientAD` | False | `AttributeError("module 'anomalib.models.image.efficient_ad' has no attribute 'EfficientAD'")` |
+./docs/stage15_modern_detector_baselines/stage15_a_efficientad_api_inspection.md:18:| `anomalib.models.image.efficientad` | `EfficientAD` | False | `ModuleNotFoundError("No module named 'anomalib.models.image.efficientad'")` |
+./docs/stage15_modern_detector_baselines/stage15_a_efficientad_api_inspection.md:33:- EfficientAD instantiation from `anomalib.models.EfficientAd`: success, type = `<class 'anomalib.models.image.efficient_ad.lightning_model.EfficientAd'>`
+./docs/stage15_modern_detector_baselines/stage15_a_efficientad_api_inspection.md:37:If EfficientAD can be imported and instantiated, Stage 15-B should run a one-category pilot on fruit_jelly or vial.
+./docs/stage15_modern_detector_baselines/stage15_a_efficientad_api_inspection.md:39:If EfficientAD requires extra constructor parameters, Stage 15-B should use the inspected signature to create a valid pilot script.
+./docs/stage15_modern_detector_baselines/stage15_b_efficientad_fruit_jelly_pilot_report.md:1:# Stage 15-B EfficientAD fruit_jelly Pilot
+./docs/stage15_modern_detector_baselines/stage15_b_efficientad_fruit_jelly_pilot_report.md:5:This stage runs a one-category EfficientAD pilot on MVTec AD 2 fruit_jelly.
+./docs/stage15_modern_detector_baselines/stage15_b_efficientad_fruit_jelly_pilot_report.md:55:EfficientAD successfully completed fit and test on fruit_jelly. The next step is to compare it against PatchCore, WinCLIP, context-aware VLM, and PatchCore+context fusion on the same category.
+./docs/stage15_modern_detector_baselines/stage15_d_efficientad_primary_fixed_budget_report.md:1:# Stage 15-D EfficientAD Fixed-Budget Baseline
+./docs/stage15_modern_detector_baselines/stage15_d_efficientad_primary_fixed_budget_report.md:5:This stage runs EfficientAD as a modern non-VLM detector baseline under a fixed 30-epoch budget on the four primary MVTec AD 2 categories.
+./docs/stage15_modern_detector_baselines/stage15_d_efficientad_primary_fixed_budget_report.md:11:- method: `EfficientAD-30 fixed-budget`
+./docs/stage15_modern_detector_baselines/stage15_d_efficientad_primary_fixed_budget_report.md:33:- mean_image_AUROC: `0.7604`
+./docs/stage15_modern_detector_baselines/stage15_d_efficientad_primary_fixed_budget_report.md:40:EfficientAD-30 provides a stronger modern non-VLM detector baseline than the earlier fruit_jelly-only 20-epoch pilot.
+./docs/stage15_modern_detector_baselines/stage15_d_efficientad_primary_fixed_budget_report.md:42:However, this result should not be described as an official or full-budget EfficientAD baseline. It should be reported as `EfficientAD-30 fixed-budget`.
+./docs/stage15_modern_detector_baselines/stage15_d_efficientad_primary_fixed_budget_report.md:44:A 100-epoch sensitivity check on `fruit_jelly` is still needed to determine whether the 30-epoch budget substantially underestimates EfficientAD.
+./docs/stage15_modern_detector_baselines/stage15_d_efficientad_primary_fixed_budget_report.md:48:Anomalib EfficientAD forces `train_batch_size=1` and performs validation quantile/metric computation. RTX 4090 utilization can therefore remain low for this baseline.
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:5:This stage merges the four-category EfficientAD-30 fixed-budget baseline with the existing Stage 14-E primary external baseline comparison.
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:11:- WinCLIP fixed protocol
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:15:- EfficientAD-30 fixed-budget
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:16:- PatchCore + context VLM, LOCO
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:17:- PatchCore + context VLM, same-set
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:19:Important: `same-set` fusion is an upper-bound diagnostic and must not be overclaimed as the final fair protocol.
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:25:| 1 | PatchCore + context VLM, same-set | 0.8453 |  | mean_summary |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:26:| 2 | PatchCore + context VLM, LOCO | 0.8210 |  | mean_summary |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:27:| 3 | PatchCore | 0.7853 |  | mean_summary |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:28:| 4 | EfficientAD-30 fixed-budget | 0.7604 | 0.8093 | mean_summary |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:31:| 7 | WinCLIP fixed protocol | 0.6138 | 0.8203 | mean_summary |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:35:- LOCO fusion minus EfficientAD-30: `+0.0606` mean image AUROC.
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:36:- EfficientAD-30 minus PatchCore: `-0.0249` mean image AUROC.
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:37:- EfficientAD-30 minus context-aware VLM: `+0.0503` mean image AUROC.
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:38:- EfficientAD-30 minus WinCLIP fixed protocol: `+0.1467` mean image AUROC.
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:44:| fruit_jelly | WinCLIP fixed protocol | 0.4667 | 0.8327 | primary_or_reference |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:48:| fruit_jelly | EfficientAD-30 fixed-budget | 0.8433 | 0.7894 | fixed_budget_detector_baseline |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:49:| fruit_jelly | PatchCore + context VLM, LOCO | 0.8333 |  | primary_or_reference |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:50:| fruit_jelly | PatchCore + context VLM, same-set | 0.8933 |  | upper_bound_diagnostic |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:51:| sheet_metal | WinCLIP fixed protocol | 0.7074 | 0.8140 | primary_or_reference |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:55:| sheet_metal | EfficientAD-30 fixed-budget | 0.7333 | 0.7510 | fixed_budget_detector_baseline |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:56:| sheet_metal | PatchCore + context VLM, LOCO | 0.7481 |  | primary_or_reference |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:57:| sheet_metal | PatchCore + context VLM, same-set | 0.7556 |  | upper_bound_diagnostic |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:58:| vial | WinCLIP fixed protocol | 0.8795 | 0.8188 | primary_or_reference |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:62:| vial | EfficientAD-30 fixed-budget | 0.9099 | 0.9281 | fixed_budget_detector_baseline |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:63:| vial | PatchCore + context VLM, LOCO | 0.9224 |  | primary_or_reference |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:64:| vial | PatchCore + context VLM, same-set | 0.9256 |  | upper_bound_diagnostic |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:65:| walnuts | WinCLIP fixed protocol | 0.4015 | 0.8155 | primary_or_reference |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:69:| walnuts | EfficientAD-30 fixed-budget | 0.5552 | 0.7687 | fixed_budget_detector_baseline |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:70:| walnuts | PatchCore + context VLM, LOCO | 0.7800 |  | primary_or_reference |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:71:| walnuts | PatchCore + context VLM, same-set | 0.8067 |  | upper_bound_diagnostic |
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:75:EfficientAD-30 is a useful modern non-VLM detector baseline, but it does not invalidate the current localization-guided VLM fusion direction.
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:77:The fairer fusion result, `PatchCore + context VLM, LOCO`, should be compared against EfficientAD-30. The same-set fusion result should remain an upper-bound diagnostic.
+./docs/stage15_modern_detector_baselines/stage15_e_primary_unified_baseline_comparison_report.md:79:If EfficientAD-30 is close to or below the LOCO fusion mean, the next priority is not immediately a full four-category EfficientAD-100 run. A single-category 100-epoch sensitivity check is enough to test whether the 30-epoch budget severely underestimates EfficientAD.
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:5:Stage 15-E 已经把 WinCLIP、full-image VLM、context-aware VLM、PatchCore、EfficientAD-30、PatchCore+context VLM fusion 放进统一四类别对比表。
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:13:| 1 | PatchCore + context VLM, same-set | 0.8453 | mean_summary |
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:14:| 2 | PatchCore + context VLM, LOCO | 0.8210 | mean_summary |
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:15:| 3 | PatchCore | 0.7853 | mean_summary |
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:16:| 4 | EfficientAD-30 fixed-budget | 0.7604 | mean_summary |
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:19:| 7 | WinCLIP fixed protocol | 0.6138 | mean_summary |
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:23:- LOCO fusion minus EfficientAD-30: `0.0606` mean image AUROC.
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:24:- EfficientAD-30 minus PatchCore: `-0.0249` mean image AUROC.
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:25:- EfficientAD-30 minus context-aware VLM: `0.0503` mean image AUROC.
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:26:- LOCO fusion minus PatchCore: `0.0356` mean image AUROC.
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:32:`PatchCore + context VLM, LOCO` 是当前最重要的公平 fusion 结果。
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:34:它比单独 PatchCore 和 EfficientAD-30 fixed-budget 都更高，因此当前 localization-guided VLM fusion 路线仍然站得住。
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:38:`PatchCore + context VLM, same-set` 不能作为最终公平结论。它可以展示同类别调参或同集合融合的上界，但不能过度声称为真实泛化性能。
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:40:### 4.3 EfficientAD 的定位
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:42:`EfficientAD-30 fixed-budget` 是现代非 VLM detector baseline。它比 WinCLIP 和普通 VLM 分支更强，但没有超过 LOCO fusion。
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:44:它不能被写成 EfficientAD official/full-budget baseline。正式论文中必须标注为 fixed-budget 结果。
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:46:## 5. 是否现在跑 EfficientAD-100
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:48:当前决策：**不立即跑四类别 EfficientAD-100**。
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:52:1. EfficientAD-30 没有推翻当前 LOCO fusion 结论。
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:53:2. EfficientAD 在 Anomalib 下 `train_batch_size=1`，验证阶段还有 quantile/metric 开销，四类别 100 epoch 成本较高。
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:54:3. 100 epoch 的价值主要是防守性质，即回答“30 epoch 是否低估 EfficientAD”。
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:59:fruit_jelly EfficientAD-100 sensitivity
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:91:| 2 | fruit_jelly EfficientAD-100 sensitivity | 防守 30 epoch 是否低估 EfficientAD 的质疑 |
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:92:| 3 | AnomalyCLIP feasibility check | 补更强 VLM anomaly baseline，但复现成本可能高 |
+./docs/stage15_modern_detector_baselines/stage15_f_baseline_decision_and_next_plan.md:102:- EfficientAD 已经被 full-budget 完整击败。
+./docs/stage15_modern_detector_baselines/stage15_c_fruit_jelly_modern_baseline_comparison.md:5:This report compares EfficientAD, WinCLIP, PatchCore, context-aware VLM, and PatchCore+context fusion on AD2 fruit_jelly.
+./docs/stage15_modern_detector_baselines/stage15_c_fruit_jelly_modern_baseline_comparison.md:7:EfficientAD is included as a modern non-VLM detector baseline, while WinCLIP is included as an external VLM anomaly detection baseline.
+./docs/stage15_modern_detector_baselines/stage15_c_fruit_jelly_modern_baseline_comparison.md:13:| 1 | PatchCore + context VLM, same-set | fusion_same_set | 0.8933 | 0.9286 |  |  | Stage 13 same-set fusion upper-bound |
+./docs/stage15_modern_detector_baselines/stage15_c_fruit_jelly_modern_baseline_comparison.md:15:| 3 | PatchCore + context VLM, LOCO | fusion_loco | 0.8333 | 0.8696 |  |  | Stage 13 leave-one-category-out fusion |
+./docs/stage15_modern_detector_baselines/stage15_c_fruit_jelly_modern_baseline_comparison.md:18:| 6 | EfficientAD pilot | modern_detector_baseline | 0.6567 | 0.7742 | 0.7703 | 0.4649 | model_size=small, max_epochs=20, train_batch_size=1 |
+./docs/stage15_modern_detector_baselines/stage15_c_fruit_jelly_modern_baseline_comparison.md:19:| 7 | WinCLIP sensitivity best | external_vlm_baseline | 0.6300 | 0.8571 | 0.8511 | 0.2399 | class_name=jelly, k_shot=1, scales=(1, 2, 3) |
+./docs/stage15_modern_detector_baselines/stage15_c_fruit_jelly_modern_baseline_comparison.md:20:| 8 | WinCLIP zero-shot | external_vlm_baseline | 0.4267 |  | 0.5308 | 0.0063 | Stage 14-C2 zero-shot pilot |
+./docs/stage15_modern_detector_baselines/stage15_c_fruit_jelly_modern_baseline_comparison.md:24:1. EfficientAD pilot reaches image AUROC `0.6567` on fruit_jelly.
+./docs/stage15_modern_detector_baselines/stage15_c_fruit_jelly_modern_baseline_comparison.md:25:2. EfficientAD is higher than the best tested WinCLIP fruit_jelly setting `0.6300`.
+./docs/stage15_modern_detector_baselines/stage15_c_fruit_jelly_modern_baseline_comparison.md:26:3. EfficientAD is lower than PatchCore `0.7167`.
+./docs/stage15_modern_detector_baselines/stage15_c_fruit_jelly_modern_baseline_comparison.md:27:4. EfficientAD is lower than context-aware VLM `0.8567` and PatchCore+context LOCO fusion `0.8333`.
+./docs/stage15_modern_detector_baselines/stage15_c_fruit_jelly_modern_baseline_comparison.md:28:5. EfficientAD has pixel F1 `0.4649`, which is useful for localization discussion but not directly comparable to image-only VLM scores.
+./docs/stage15_modern_detector_baselines/stage15_c_fruit_jelly_modern_baseline_comparison.md:32:The EfficientAD fruit_jelly pilot verifies that the modern detector baseline can run in the current environment.
+./docs/stage15_modern_detector_baselines/stage15_c_fruit_jelly_modern_baseline_comparison.md:34:However, because this is a 20-epoch one-category pilot, it should not yet be used as the final EfficientAD baseline.
+./docs/stage15_modern_detector_baselines/stage15_c_fruit_jelly_modern_baseline_comparison.md:36:The next stage should run a fixed EfficientAD protocol on the four AD2 primary categories, or first increase the fruit_jelly training budget if the goal is to obtain a stronger formal detector baseline.
+./docs/stage16_qcru_ablation/stage16_d_paper_facing_final_comparison_report.md:28:| 1 | PatchCore + context VLM, same-set | 0.8453 | upper_bound_diagnostic_only | mean_summary |
+./docs/stage16_qcru_ablation/stage16_d_paper_facing_final_comparison_report.md:29:| 2 | PatchCore + context VLM, LOCO | 0.8210 | primary_fair_system_result | mean_summary |
+./docs/stage16_qcru_ablation/stage16_d_paper_facing_final_comparison_report.md:30:| 3 | PatchCore | 0.7853 | classic_detector_baseline | mean_summary |
+./docs/stage16_qcru_ablation/stage16_d_paper_facing_final_comparison_report.md:31:| 4 | EfficientAD-30 fixed-budget | 0.7604 | modern_detector_fixed_budget_baseline | mean_summary |
+./docs/stage16_qcru_ablation/stage16_d_paper_facing_final_comparison_report.md:34:| 7 | WinCLIP fixed protocol | 0.6138 | external_vlm_anomaly_baseline | mean_summary |
+./docs/stage16_qcru_ablation/stage16_d_paper_facing_final_comparison_report.md:38:- Use `PatchCore + context VLM, LOCO` as the fair system-level result.
+./docs/stage16_qcru_ablation/stage16_d_paper_facing_final_comparison_report.md:39:- Use `same-set` only as an upper-bound diagnostic.
+./docs/stage16_qcru_ablation/stage16_d_paper_facing_final_comparison_report.md:40:- Keep `EfficientAD-30` explicitly labeled as fixed-budget.
+./docs/stage16_qcru_ablation/stage16_d_paper_facing_final_comparison_report.md:69:| system_panel | LOCO fusion vs PatchCore | 0.8210 | 0.7853 | +0.0356 | Localization-guided VLM evidence complements the detector baseline. |
+./docs/stage16_qcru_ablation/stage16_d_paper_facing_final_comparison_report.md:70:| system_panel | LOCO fusion vs EfficientAD-30 fixed-budget | 0.8210 | 0.7604 | +0.0606 | LOCO fusion remains above the fixed-budget modern detector baseline; do not claim full EfficientAD defeat. |
+./docs/stage16_qcru_ablation/stage16_d_paper_facing_final_comparison_report.md:71:| system_panel | LOCO fusion vs WinCLIP fixed protocol | 0.8210 | 0.6138 | +0.2072 | The proposed localization-guided route is stronger than this fixed WinCLIP protocol. |
+./docs/stage16_qcru_ablation/stage16_d_paper_facing_final_comparison_report.md:72:| system_panel | LOCO fusion vs context-aware VLM | 0.8210 | 0.7101 | +0.1109 | Claim-supporting delta. |
+./docs/stage16_qcru_ablation/stage16_d_paper_facing_final_comparison_report.md:74:| system_panel | same-set upper bound vs LOCO fair result | 0.8453 | 0.8210 | +0.0243 | Same-set is diagnostic upper bound only; LOCO is the fair result. |
+./docs/stage16_qcru_ablation/stage16_f_final_claim_evidence_map_report.md:37:| P3 | external_baseline | The proposed localization-guided route is stronger than the fixed WinCLIP protocol used in this study. | moderate | use_with_caution | Baselines |
+./docs/stage16_qcru_ablation/stage16_f_final_claim_evidence_map_report.md:50:| P2 | LOCO AUROC=0.8209783368273935; PatchCore AUROC=0.7853284416491964; EfficientAD-30 AUROC=0.7604262679815292; LOCO-PatchCore=+0.0356; LOCO-EfficientAD30=+0.0606. | EfficientAD is fixed-budget; same-set fusion is upper-bound only. |
+./docs/stage16_qcru_ablation/stage16_f_final_claim_evidence_map_report.md:51:| P3 | LOCO AUROC=0.8209783368273935; WinCLIP AUROC=0.6137526258826256; delta=+0.2072. | AnomalyCLIP is not yet included; avoid broad CLIP-family claims. |
+./docs/stage16_qcru_ablation/stage16_f_final_claim_evidence_map_report.md:55:| P7 | same-set AUROC=0.8452830188679246; LOCO AUROC=0.8209783368273935. | Use LOCO as the fair system-level claim. |
+./docs/stage16_qcru_ablation/stage16_f_final_claim_evidence_map_report.md:71:| main_claims_ready | P1;P2;P3;P4;P5;P8 | Industrial anomaly VLM reasoning should be localization-guided rather than full-image only.; Localization-guided VLM evidence is complementary to detector baselines.; The proposed localization-guided route is stronger than the fixed WinCLIP protocol used in this study.; Candidate quality calibration is the main effective method component.; Adaptive consistency is a conservative refinement, not the main source of improvement.; The method is a reliability-calibrated recognition framework, not a complete anomaly understanding system. |
+./docs/stage16_qcru_ablation/stage16_f_final_claim_evidence_map_report.md:74:| remaining_experiment_risks | R1;R2;R3 | EfficientAD remains fixed-budget; AnomalyCLIP is absent; representative failure figures still need manual visual inspection. |
+./docs/stage16_qcru_ablation/stage16_f_final_claim_evidence_map_report.md:75:| next_actions | N1;N2 | Run defensive EfficientAD-100 fruit_jelly sensitivity later; start paper outline/table-to-text drafting after claim map. |
+./docs/stage16_qcru_ablation/stage16_f_final_claim_evidence_map_report.md:87:1. EfficientAD is still fixed-budget. Do not claim full EfficientAD defeat.
+./docs/stage16_qcru_ablation/stage16_f_final_claim_evidence_map_report.md:88:2. AnomalyCLIP is not yet included. Avoid broad CLIP-family SOTA claims.
+./docs/stage16_qcru_ablation/stage16_f_final_claim_evidence_map_report.md:98:Stage 17-A: EfficientAD-100 fruit_jelly sensitivity check
+./docs/stage16_qcru_ablation/stage16_f_final_claim_evidence_map_report.md:107:If the goal is submission defense, run EfficientAD-100 fruit_jelly first. If the goal is writing, start the paper outline.
+./docs/stage17_defensive_sensitivity/stage17_a_efficientad100_fruit_jelly_sensitivity_report.md:1:# Stage 17-A EfficientAD-100 Fruit Jelly Sensitivity
+./docs/stage17_defensive_sensitivity/stage17_a_efficientad100_fruit_jelly_sensitivity_report.md:5:This stage checks whether the Stage 15 EfficientAD-30 fixed-budget baseline severely underestimates EfficientAD.
+./docs/stage17_defensive_sensitivity/stage17_a_efficientad100_fruit_jelly_sensitivity_report.md:22:| Metric | EfficientAD-30 | EfficientAD-100 | Delta 100-30 |
+./docs/stage17_defensive_sensitivity/stage17_a_efficientad100_fruit_jelly_sensitivity_report.md:32:- interpretation: EfficientAD-100 does not substantially improve image AUROC over EfficientAD-30 on fruit_jelly.
+./docs/stage17_defensive_sensitivity/stage17_a_efficientad100_fruit_jelly_sensitivity_report.md:33:- next_action: Keep EfficientAD-30 as fixed-budget baseline and cite this sensitivity check defensively.
+./docs/stage17_defensive_sensitivity/stage17_a_efficientad100_fruit_jelly_sensitivity_report.md:39:Do not claim full EfficientAD defeat unless a full-budget multi-category EfficientAD sweep is run.
+./docs/stage17_defensive_sensitivity/stage17_a_efficientad100_fruit_jelly_sensitivity_report.md:44:We report EfficientAD under a fixed 30-epoch budget and include a 100-epoch fruit_jelly sensitivity check to assess whether the fixed budget severely underestimates EfficientAD.
+./docs/stage17_defensive_sensitivity/stage17_a_efficientad100_fruit_jelly_training_report.md:1:# Stage 15-D EfficientAD Fixed-Budget Baseline
+./docs/stage17_defensive_sensitivity/stage17_a_efficientad100_fruit_jelly_training_report.md:5:This script runs a robust fixed-budget EfficientAD baseline and writes status to CSV before and after each major phase.
+./docs/stage17_defensive_sensitivity/stage17_a_efficientad100_fruit_jelly_training_report.md:7:EfficientAD is only a modern non-VLM detector baseline. It is not the proposed method.
+./docs/stage17_defensive_sensitivity/stage17_a_efficientad100_fruit_jelly_training_report.md:40:Anomalib EfficientAD forces train_batch_size=1 and performs validation quantile/metric computation. RTX 4090 utilization can therefore remain low for this baseline.
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:49:The paper includes WinCLIP, EfficientAD-30 fixed-budget, PatchCore, VLM baselines, LOCO fusion, ablations, and failure/boundary analysis.
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:51:Evidence: LOCO fusion `0.8210` vs PatchCore `0.7853` and EfficientAD-30 `0.7604`.
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:71:- Industrial anomaly detection: PatchCore, EfficientAD, FastFlow-type detectors.
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:72:- Vision-language anomaly detection: WinCLIP and related CLIP/VLM anomaly baselines.
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:88:- Baselines: full-image VLM, context-aware VLM, WinCLIP, PatchCore, EfficientAD-30 fixed-budget.
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:89:- Protocols: LOCO vs same-set; QCR primary protocol.
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:95:- Use LOCO as fair system-level result.
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:96:- Use same-set only as diagnostic upper bound.
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:117:- No full-budget EfficientAD sweep.
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:118:- No AnomalyCLIP yet.
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:131:| Table 5 | EfficientAD-100 fruit_jelly sensitivity | `results/stage17_defensive_sensitivity/stage17_a_efficientad100_vs_30_delta.csv` | 0 | Use in appendix or footnote; do not claim full EfficientAD defeat. |
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:141:- WinCLIP fixed protocol: `0.6138`
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:142:- EfficientAD-30 fixed-budget: `0.7604`
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:143:- PatchCore: `0.7853`
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:144:- PatchCore + context VLM, LOCO: `0.8210`
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:145:- PatchCore + context VLM, same-set upper bound: `0.8453`
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:153:### EfficientAD-100 sensitivity
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:155:- EfficientAD-100 minus EfficientAD-30 image_AUROC on fruit_jelly: `-0.0167`
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:156:- EfficientAD-100 minus EfficientAD-30 pixel_AUROC on fruit_jelly: `+0.0531`
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:158:Interpretation: the image-level EfficientAD-100 check does not show severe underestimation of EfficientAD-30. Pixel improvement is auxiliary and should not become the main claim.
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:172:| R1 | EfficientAD is still not a full four-category 100-epoch baseline. | medium | Stage 17-A fruit_jelly sensitivity shows EfficientAD-100 does not improve image_AUROC over EfficientAD-30 on fruit_jelly. Keep EfficientAD as fixed-budget. | Label EfficientAD as EfficientAD-30 fixed-budget. Do not claim full EfficientAD defeat. |
+./docs/paper_p1/paper_outline_quality_calibrated_qcr.md:173:| R2 | AnomalyCLIP is not included. | medium_high | Avoid broad CLIP-family SOTA claims. Present WinCLIP as the fixed external VLM anomaly baseline used in this study. | Mention as future baseline extension or limitation. |
+./docs/paper_p3/paper_p3_experiments_and_results_draft.md:5:We evaluate industrial anomaly recognition under two complementary experimental views. First, we report a system-level strong baseline comparison over the primary categories, including full-image VLM, context-aware VLM, WinCLIP, PatchCore, EfficientAD-30 fixed-budget, and PatchCore+context fusion. Second, we evaluate the proposed Quality-Calibrated QCR family under the QCR primary protocol to isolate the effect of candidate quality calibration and adaptive consistency refinement.
+./docs/paper_p3/paper_p3_experiments_and_results_draft.md:7:Image-level AUROC is the primary metric because the paper targets image-level anomaly recognition and candidate-level reasoning. Pixel-level quantities are treated as auxiliary localization evidence and are not used to claim segmentation SOTA. For protocol fairness, LOCO fusion is used as the fair system-level result, while same-set fusion is reported only as an upper-bound diagnostic.
+./docs/paper_p3/paper_p3_experiments_and_results_draft.md:11:The system-level baselines include three groups. The first group consists of VLM-based baselines: full-image VLM, context-aware VLM, and WinCLIP under the fixed protocol used in this study. The second group consists of detector baselines: PatchCore and EfficientAD-30 fixed-budget. The third group consists of localization-guided fusion variants, including PatchCore+context VLM under LOCO and same-set settings.
+./docs/paper_p3/paper_p3_experiments_and_results_draft.md:13:EfficientAD is reported as a fixed-budget detector baseline rather than a fully optimized EfficientAD result. This distinction is important: the paper should not claim full EfficientAD defeat. Instead, EfficientAD-30 is used to test whether the proposed localization-guided VLM route remains competitive against a modern non-VLM detector under a controlled fixed budget.
+./docs/paper_p3/paper_p3_experiments_and_results_draft.md:17:Table 1 reports the system-level comparison. Full-image VLM reaches mean image AUROC `0.6459`, while context-aware VLM reaches `0.7101`, giving a localization/context gain of `+0.0642`. The external WinCLIP fixed protocol obtains `0.6138`. Among detector baselines, PatchCore obtains `0.7853` and EfficientAD-30 fixed-budget obtains `0.7604`.
+./docs/paper_p3/paper_p3_experiments_and_results_draft.md:19:The fair PatchCore+context VLM LOCO fusion reaches `0.8210`, improving over PatchCore by `+0.0356` and over EfficientAD-30 fixed-budget by `+0.0606`. The same-set fusion reaches `0.8453`, but this result is an upper-bound diagnostic and should not be used as the fair deployment claim. These results support the central system-level conclusion: localization-guided VLM evidence is complementary to detector evidence, but fair evaluation must distinguish LOCO from same-set fusion.
+./docs/paper_p3/paper_p3_experiments_and_results_draft.md:24:Under the fair LOCO protocol, localization-guided VLM fusion improves over the detector-only PatchCore baseline and the fixed-budget EfficientAD baseline. The same-set fusion result is reported only as a diagnostic upper bound.
+./docs/paper_p3/paper_p3_experiments_and_results_draft.md:64:## 6. EfficientAD-100 Sensitivity Draft
+./docs/paper_p3/paper_p3_experiments_and_results_draft.md:66:To check whether EfficientAD-30 severely underestimates EfficientAD, we ran a 100-epoch sensitivity check on fruit_jelly. The image-AUROC delta from EfficientAD-30 to EfficientAD-100 is `-0.0167`. The pixel-AUROC delta is `+0.0531`.
+./docs/paper_p3/paper_p3_experiments_and_results_draft.md:68:This result supports the use of EfficientAD-30 as a fixed-budget image-level baseline in the current paper. However, because the sensitivity check is only on fruit_jelly, the paper should still avoid claiming full EfficientAD defeat. The pixel-AUROC improvement should be mentioned only as auxiliary because the paper does not claim pixel-level segmentation SOTA.
+./docs/paper_p3/paper_p3_experiments_and_results_draft.md:73:We additionally run a 100-epoch EfficientAD sensitivity check on fruit_jelly. The image-level result does not indicate severe underestimation of EfficientAD-30, so we retain EfficientAD-30 as a fixed-budget baseline while avoiding claims of full EfficientAD superiority.
+./docs/paper_p3/paper_p3_experiments_and_results_draft.md:81:- Do not use same-set fusion as the fair system-level claim.
+./docs/paper_p3/paper_p3_experiments_and_results_draft.md:82:- Do not call EfficientAD-30 a full-budget EfficientAD result.
+./docs/paper_p3/paper_p3_experiments_and_results_draft.md:92:| Table 1 | `results/stage16_qcru_ablation/stage16_d_paper_facing_system_baseline_table.csv` | Main Results | Main system-level evidence. Use LOCO as fair result; same-set as upper-bound diagnostic only. |
+./docs/paper_p3/paper_p3_experiments_and_results_draft.md:96:| Appendix Table A1 | `results/stage17_defensive_sensitivity/stage17_a_efficientad100_vs_30_delta.csv` | Appendix or baseline-budget note | Defensive baseline-budget sensitivity. Do not claim full EfficientAD defeat. |
+./docs/paper_p3/paper_p3_experiments_and_results_draft.md:109:| P3-6 | EfficientAD Sensitivity | Defend EfficientAD-30 fixed-budget with fruit_jelly 100-epoch sensitivity. | drafted |
+./docs/paper_p3/paper_p3_experiments_and_results_draft.md:120:P4 should position the paper against PatchCore/EfficientAD-style detectors, WinCLIP/CLIP anomaly baselines, and VLM reasoning work, while avoiding broad SOTA claims.
+./docs/paper_p4/paper_p4_related_work_and_positioning.md:15:PatchCore represents a strong patch-feature memory-bank line of work. It stores representative nominal patch features and detects anomalies through deviations from normal patch-level statistics. Flow-based detectors such as FastFlow model feature distributions with normalizing flows and provide anomaly localization evidence. EfficientAD follows a different efficient student-teacher direction and is designed for accurate anomaly detection with low latency.
+./docs/paper_p4/paper_p4_related_work_and_positioning.md:21:Vision-language models such as CLIP enable zero-shot image-text matching and have motivated prompt-based anomaly detection. WinCLIP adapts CLIP to anomaly classification and segmentation by aggregating window-level visual features and text prompts. AnomalyCLIP further studies object-agnostic prompt learning for zero-shot anomaly detection.
+./docs/paper_p4/paper_p4_related_work_and_positioning.md:57:| Batzner2024EfficientAD | EfficientAD | 2024 | industrial_anomaly_detector | Report as EfficientAD-30 fixed-budget baseline and add fruit_jelly 100-epoch sensitivity. |
+./docs/paper_p4/paper_p4_related_work_and_positioning.md:59:| Jeong2023WinCLIP | WinCLIP | 2023 | clip_anomaly_detection | Use as external CLIP/VLM anomaly baseline under our fixed protocol. |
+./docs/paper_p4/paper_p4_related_work_and_positioning.md:60:| Zhou2024AnomalyCLIP | AnomalyCLIP | 2024 | clip_anomaly_detection | Mention as important related CLIP anomaly work and as a limitation if not included experimentally. |
+./docs/paper_p4/paper_p4_related_work_and_positioning.md:75:- Do not claim superiority over AnomalyCLIP unless AnomalyCLIP is run under a matched protocol.
+./docs/paper_p4/paper_p4_related_work_and_positioning.md:76:- Do not claim to replace PatchCore, FastFlow, or EfficientAD.
+./docs/paper_p4/paper_p4_related_work_and_positioning.md:84:| RW-1 | Industrial anomaly detection and localization | Bergmann2019MVTecAD; Zou2022VisA; Roth2022PatchCore; Yu2021FastFlow; Batzner2024EfficientAD | Establish detector/localization context and explain why detector evidence is useful but not sufficient for VLM reasoning. | drafted |
+./docs/paper_p4/paper_p4_related_work_and_positioning.md:85:| RW-2 | Vision-language anomaly detection | Radford2021CLIP; Jeong2023WinCLIP; Zhou2024AnomalyCLIP | Position VLM/CLIP anomaly methods and avoid broad CLIP-family superiority claims. | drafted |
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:27:Classical anomaly detectors such as PatchCore, FastFlow-style backbones, and EfficientAD provide useful localization or anomaly evidence, but their scores are not designed to express visual-language-level abnormality. Conversely, a VLM can compare localized visual evidence against textual abnormality prompts, but it is easily misled when the candidate crop is poorly localized or visually ambiguous. This creates a practical gap: detector localization and VLM reasoning are complementary, but naive score fusion does not explicitly model whether the crop-level VLM evidence should be trusted.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:31:Empirically, the system-level comparison shows that localization-guided VLM evidence complements detector baselines. The fair LOCO fusion reaches mean image AUROC `0.8210`, compared with PatchCore `0.7853` and EfficientAD-30 fixed-budget `0.7604`. In the QCR primary protocol, Quality-Calibrated QCR improves over naive detector-crop fusion by `+0.0096` AUROC, while adaptive consistency adds only `+0.0004` over the quality-calibrated core. These results support a conservative conclusion: the main effective component is candidate quality calibration, while adaptive consistency is a refinement rather than the main source of improvement.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:45:4. **Strong baseline and claim-disciplined evaluation.** We compare against full-image VLM, context-aware VLM, WinCLIP, PatchCore, EfficientAD-30 fixed-budget, LOCO fusion, and QCR ablations. We also include boundary analysis and explicitly reject unsupported claims such as pixel-level segmentation SOTA or manufacturing-cause reasoning.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:57:PatchCore represents a strong patch-feature memory-bank line of work. It stores representative nominal patch features and detects anomalies through deviations from normal patch-level statistics. Flow-based detectors such as FastFlow model feature distributions with normalizing flows and provide anomaly localization evidence. EfficientAD follows a different efficient student-teacher direction and is designed for accurate anomaly detection with low latency.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:63:Vision-language models such as CLIP enable zero-shot image-text matching and have motivated prompt-based anomaly detection. WinCLIP adapts CLIP to anomaly classification and segmentation by aggregating window-level visual features and text prompts. AnomalyCLIP further studies object-agnostic prompt learning for zero-shot anomaly detection.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:215:We evaluate industrial anomaly recognition under two complementary experimental views. First, we report a system-level strong baseline comparison over the primary categories, including full-image VLM, context-aware VLM, WinCLIP, PatchCore, EfficientAD-30 fixed-budget, and PatchCore+context fusion. Second, we evaluate the proposed Quality-Calibrated QCR family under the QCR primary protocol to isolate the effect of candidate quality calibration and adaptive consistency refinement.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:217:Image-level AUROC is the primary metric because the paper targets image-level anomaly recognition and candidate-level reasoning. Pixel-level quantities are treated as auxiliary localization evidence and are not used to claim segmentation SOTA. For protocol fairness, LOCO fusion is used as the fair system-level result, while same-set fusion is reported only as an upper-bound diagnostic.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:219:The system-level baselines include three groups. The first group consists of VLM-based baselines: full-image VLM, context-aware VLM, and WinCLIP under the fixed protocol used in this study. The second group consists of detector baselines: PatchCore and EfficientAD-30 fixed-budget. The third group consists of localization-guided fusion variants, including PatchCore+context VLM under LOCO and same-set settings.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:221:EfficientAD is reported as a fixed-budget detector baseline rather than a fully optimized EfficientAD result. This distinction is important: the paper should not claim full EfficientAD defeat. Instead, EfficientAD-30 is used to test whether the proposed localization-guided VLM route remains competitive against a modern non-VLM detector under a controlled fixed budget.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:227:Table 1 reports the system-level comparison. Full-image VLM reaches mean image AUROC `0.6459`, while context-aware VLM reaches `0.7101`, giving a localization/context gain of `+0.0642`. The external WinCLIP fixed protocol obtains `0.6138`. Among detector baselines, PatchCore obtains `0.7853` and EfficientAD-30 fixed-budget obtains `0.7604`.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:229:The fair PatchCore+context VLM LOCO fusion reaches `0.8210`, improving over PatchCore by `+0.0356` and over EfficientAD-30 fixed-budget by `+0.0606`. The same-set fusion reaches `0.8453`, but this result is an upper-bound diagnostic and should not be used as the fair deployment claim. These results support the central system-level conclusion: localization-guided VLM evidence is complementary to detector evidence, but fair evaluation must distinguish LOCO from same-set fusion.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:234:Under the fair LOCO protocol, localization-guided VLM fusion improves over the detector-only PatchCore baseline and the fixed-budget EfficientAD baseline. The same-set fusion result is reported only as a diagnostic upper bound.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:282:To check whether EfficientAD-30 severely underestimates EfficientAD, we ran a 100-epoch sensitivity check on fruit_jelly. The image-AUROC delta from EfficientAD-30 to EfficientAD-100 is `-0.0167`. The pixel-AUROC delta is `+0.0531`.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:284:This result supports the use of EfficientAD-30 as a fixed-budget image-level baseline in the current paper. However, because the sensitivity check is only on fruit_jelly, the paper should still avoid claiming full EfficientAD defeat. The pixel-AUROC improvement should be mentioned only as auxiliary because the paper does not claim pixel-level segmentation SOTA.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:289:We additionally run a 100-epoch EfficientAD sensitivity check on fruit_jelly. The image-level result does not indicate severe underestimation of EfficientAD-30, so we retain EfficientAD-30 as a fixed-budget baseline while avoiding claims of full EfficientAD superiority.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:296:The method should be interpreted as image-level anomaly recognition and candidate-level VLM evidence calibration, not as pixel-level segmentation SOTA or manufacturing-cause reasoning. EfficientAD is reported as a fixed-budget baseline, with a fruit_jelly 100-epoch sensitivity check used only as defensive evidence. AnomalyCLIP is not included in the current experiments and should be listed as a remaining external VLM anomaly baseline risk. Adaptive consistency provides only a small refinement over the quality-calibrated core, so the main method claim must remain centered on candidate quality calibration.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:300:- `R1` **EfficientAD is still not a full four-category 100-epoch baseline.** Mitigation: Stage 17-A fruit_jelly sensitivity shows EfficientAD-100 does not improve image_AUROC over EfficientAD-30 on fruit_jelly. Keep EfficientAD as fixed-budget.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:301:- `R2` **AnomalyCLIP is not included.** Mitigation: Avoid broad CLIP-family SOTA claims. Present WinCLIP as the fixed external VLM anomaly baseline used in this study.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:322:- Do not use same-set fusion as the fair system-level claim.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:323:- Do not call EfficientAD-30 a full-budget EfficientAD result.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:344:- `Table 5` **EfficientAD-100 fruit_jelly sensitivity** (optional). Source: `results/stage17_defensive_sensitivity/stage17_a_efficientad100_vs_30_delta.csv`. Notes: Use in appendix or footnote; do not claim full EfficientAD defeat.
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:357:| M6 | Decide whether to add AnomalyCLIP or explicitly list it as limitation | medium_high | AnomalyCLIP is a likely reviewer question for VLM anomaly work. | open_decision |
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:359:| M8 | Write exact protocol details | medium_high | LOCO, same-set, QCR primary protocol, and EfficientAD fixed-budget must be unambiguous. | needs_detailing |
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:365:| experimental_evidence_chain | mostly_closed | Stage 15 strong baselines, Stage 16 method/claim map, Stage 17 EfficientAD sensitivity are complete. | 0 |
+./docs/paper_p6/paper_p6_full_paper_skeleton.md:370:| external_vlm_baseline_risk | open | AnomalyCLIP is not included; currently handled as limitation. | 0 |
+./docs/paper_p13/paper_p13_compile_check_report.md:27:| tex_content | table4_input | ok | EfficientAD sensitivity table should be included. |
+./docs/paper_p13/paper_p13_compile_check_report.md:29:| tex_content | anomalyclip_limitation | ok | AnomalyCLIP should remain limitation/related work, not result claim. |
+./docs/paper_p13/paper_p13_compile_check_report.md:30:| tex_content | efficientad_fixed_budget | ok | EfficientAD should be marked fixed-budget. |
+./docs/paper_p13/paper_p13_compile_check_report.md:37:| forbidden_claim_scan | defeat EfficientAD | ok |  |
+./docs/paper_p14/paper_p14_language_polish_report.md:36:| defeat EfficientAD | ok |  |
+./docs/paper_p14/paper_p14_language_polish_report.md:37:| beats EfficientAD | ok |  |
+./docs/paper_p14/paper_p14_language_polish_report.md:38:| outperforms AnomalyCLIP | ok |  |
+./docs/paper_p14/paper_p14_language_polish_report.md:41:| EfficientAD-30 fixed-budget | ok | fixed-budget baseline wording |
+./docs/paper_p14/paper_p14_language_polish_report.md:43:| AnomalyCLIP | ok | missing external VLM baseline limitation |
+./docs/paper_p14/paper_p14_language_polish_report.md:53:| EfficientAD Budget Sensitivity | 40 | 40 | +0 |
+./docs/stage19_efficientad100_sensitivity/stage19_a_efficientad100_full_four_categories_report.md:1:# Stage 19-A EfficientAD-100 Full Four-category Sensitivity
+./docs/stage19_efficientad100_sensitivity/stage19_a_efficientad100_full_four_categories_report.md:5:Run EfficientAD with a 100-epoch budget on the AD2 four-category setting and compare against the existing EfficientAD-30 fixed-budget baseline.
+./docs/stage19_efficientad100_sensitivity/stage19_a_efficientad100_full_four_categories_report.md:23:`EfficientAD-100 improves image AUROC over EfficientAD-30 on average.`
+./docs/stage19_efficientad100_sensitivity/stage19_a_efficientad100_full_four_categories_report.md:25:## EfficientAD-100 vs EfficientAD-30 summary
+./docs/stage19_efficientad100_sensitivity/stage19_a_efficientad100_full_four_categories_report.md:27:| Metric | Categories | EfficientAD-30 mean | EfficientAD-100 mean | Delta | 100 better | 100 worse |
+./docs/stage19_efficientad100_sensitivity/stage19_a_efficientad100_full_four_categories_report.md:29:| image_AUROC | 4 | 0.7604 | 0.7657 | +0.0052 | 1 | 3 |
+./docs/stage19_efficientad100_sensitivity/stage19_a_efficientad100_full_four_categories_report.md:57:- If EfficientAD-100 does not improve image AUROC on average, keep EfficientAD-30 as a fixed-budget baseline and cite Stage19 as sensitivity analysis.
+./docs/stage19_efficientad100_sensitivity/stage19_a_efficientad100_full_four_categories_report.md:58:- If EfficientAD-100 improves strongly, update the system baseline table and weaken any comparison against EfficientAD.
+./docs/stage20_anomalyclip_baseline/stage20_c3_single_image_smoke_report.md:1:# Stage 20-C3: AnomalyCLIP Single-image Smoke Test
+./docs/stage20_anomalyclip_baseline/stage20_c3_single_image_smoke_report.md:9:- checkpoint: `/root/private_data/third_party/AnomalyCLIP/checkpoints/9_12_4_multiscale/epoch_10.pth`
+./docs/stage20_anomalyclip_baseline/stage20_c3_single_image_smoke_report.md:31:map can run together. It is not a final AnomalyCLIP benchmark result.
+./docs/stage20_anomalyclip_baseline/stage20_d_anomalyclip_ad2four_report.md:1:# Stage 20-D: AnomalyCLIP AD2-four Full Evaluation
+./docs/stage20_anomalyclip_baseline/stage20_d_anomalyclip_ad2four_report.md:5:- implementation: official `zqhang/AnomalyCLIP`
+./docs/stage20_anomalyclip_baseline/stage20_d_anomalyclip_ad2four_report.md:11:- checkpoint path: `/root/private_data/third_party/AnomalyCLIP/checkpoints/9_12_4_multiscale/epoch_10.pth`
+./docs/stage20_anomalyclip_baseline/stage20_d_anomalyclip_ad2four_report.md:32:| Method | Image AUROC | Difference relative to AnomalyCLIP | Role |
+./docs/stage20_anomalyclip_baseline/stage20_d_anomalyclip_ad2four_report.md:34:| PatchCore + context VLM, same-set | 0.8453 | +0.3063 | upper-bound diagnostic only |
+./docs/stage20_anomalyclip_baseline/stage20_d_anomalyclip_ad2four_report.md:35:| PatchCore + context VLM, LOCO | 0.8210 | +0.2820 | primary fair system result |
+./docs/stage20_anomalyclip_baseline/stage20_d_anomalyclip_ad2four_report.md:36:| PatchCore | 0.7853 | +0.2463 | classic detector baseline |
+./docs/stage20_anomalyclip_baseline/stage20_d_anomalyclip_ad2four_report.md:37:| EfficientAD-30 fixed-budget | 0.7604 | +0.2214 | modern detector fixed-budget baseline |
+./docs/stage20_anomalyclip_baseline/stage20_d_anomalyclip_ad2four_report.md:40:| WinCLIP fixed protocol | 0.6138 | +0.0748 | existing external VLM anomaly baseline |
+./docs/stage20_anomalyclip_baseline/stage20_d_anomalyclip_ad2four_report.md:41:| AnomalyCLIP fixed checkpoint | 0.5390 | +0.0000 | new external VLM anomaly baseline |
+./docs/stage20_anomalyclip_baseline/stage20_d_anomalyclip_ad2four_report.md:52:- Do not claim universal superiority over AnomalyCLIP based on one
+./docs/stage20_anomalyclip_baseline/stage20_d_anomalyclip_ad2four_report.md:54:- The same-set fusion remains an upper-bound diagnostic only.
+./docs/stage20_anomalyclip_baseline/stage20_d_anomalyclip_ad2four_report.md:58:- AnomalyCLIP mean image AUROC: `0.5390`
+./docs/stage20_anomalyclip_baseline/stage20_d_anomalyclip_ad2four_report.md:59:- AnomalyCLIP mean image AP: `0.7710`
+./docs/stage20_anomalyclip_baseline/stage20_d_anomalyclip_ad2four_report.md:60:- AnomalyCLIP mean pixel AUROC: `0.7010`
+./docs/stage20_anomalyclip_baseline/stage20_d_anomalyclip_ad2four_report.md:61:- AnomalyCLIP mean pixel AUPRO: `0.4020`
+./docs/stage20_anomalyclip_baseline/stage20_a_official_repository_audit.md:1:# Stage 20-A: Official AnomalyCLIP Repository Audit
+./docs/stage20_anomalyclip_baseline/stage20_a_official_repository_audit.md:5:- implementation: `zqhang/AnomalyCLIP`
+./docs/stage20_anomalyclip_baseline/stage20_a_official_repository_audit.md:6:- local external path: `/root/private_data/third_party/AnomalyCLIP`
+./docs/stage20_anomalyclip_baseline/stage20_a_official_repository_audit.md:19:Do not install AnomalyCLIP dependencies into the existing project environment.
+./docs/stage20_anomalyclip_baseline/stage20_a_official_repository_audit.md:85:Create an isolated AnomalyCLIP environment, verify model loading, and
+./docs/stage20_anomalyclip_baseline/stage20_c2_ad2four_meta_report.md:1:# Stage 20-C2: AD2-four AnomalyCLIP Metadata
+./docs/stage20_anomalyclip_baseline/stage20_c2_ad2four_meta_report.md:15:- original backup: `/root/private_data/third_party/AnomalyCLIP/dataset.py.stage20_original_backup`
+./docs/stage20_anomalyclip_baseline/stage20_e_anomalyclip_final_integration_report.md:1:# Stage 20-E: Final AnomalyCLIP Integration
+./docs/stage20_anomalyclip_baseline/stage20_e_anomalyclip_final_integration_report.md:9:- AD2-specific AnomalyCLIP training: `none`
+./docs/stage20_anomalyclip_baseline/stage20_e_anomalyclip_final_integration_report.md:12:## 2. Locked AnomalyCLIP result
+./docs/stage20_anomalyclip_baseline/stage20_e_anomalyclip_final_integration_report.md:21:- LOCO fusion image AUROC: `0.8210`
+./docs/stage20_anomalyclip_baseline/stage20_e_anomalyclip_final_integration_report.md:22:- AnomalyCLIP image AUROC: `0.5390`
+./docs/stage20_anomalyclip_baseline/stage20_e_anomalyclip_final_integration_report.md:23:- LOCO minus AnomalyCLIP: `+0.2820`
+./docs/stage20_anomalyclip_baseline/stage20_e_anomalyclip_final_integration_report.md:26:The LOCO fusion is stronger than the fixed AnomalyCLIP baseline on this adapted AD2-four protocol. The claim must remain protocol-specific. AnomalyCLIP=0.5390, LOCO=0.8210, delta_LOCO_minus_AnomalyCLIP=+0.2820. delta_AnomalyCLIP_minus_PatchCore=-0.2463. delta_AnomalyCLIP_minus_EfficientAD30=-0.2214. delta_AnomalyCLIP_minus_WinCLIP=-0.0748.
+./docs/stage20_anomalyclip_baseline/stage20_e_anomalyclip_final_integration_report.md:32:| 1 | PatchCore + context VLM, same-set | 0.8453 | upper_bound_diagnostic_only |
+./docs/stage20_anomalyclip_baseline/stage20_e_anomalyclip_final_integration_report.md:33:| 2 | PatchCore + context VLM, LOCO | 0.8210 | primary_fair_system_result |
+./docs/stage20_anomalyclip_baseline/stage20_e_anomalyclip_final_integration_report.md:34:| 3 | PatchCore | 0.7853 | classic_detector_baseline |
+./docs/stage20_anomalyclip_baseline/stage20_e_anomalyclip_final_integration_report.md:35:| 4 | EfficientAD-30 fixed-budget | 0.7604 | modern_detector_fixed_budget_baseline |
+./docs/stage20_anomalyclip_baseline/stage20_e_anomalyclip_final_integration_report.md:38:| 7 | WinCLIP fixed protocol | 0.6138 | external_vlm_anomaly_baseline |
+./docs/stage20_anomalyclip_baseline/stage20_e_anomalyclip_final_integration_report.md:39:| 8 | AnomalyCLIP fixed checkpoint | 0.5390 | external VLM anomaly baseline |
+./docs/DATASETS.md:48:- MVTec LOCO AD: logical and structural anomalies.
+./docs/BASELINE_PLAN.md:25:| WinCLIP zero-shot | VLM | Text-semantic baseline without target normal references |
+./docs/BASELINE_PLAN.md:26:| WinCLIP 4-shot | VLM few-shot | Text + few normal samples baseline |
+./docs/stage7_generalization/stage7_4_multibackbone_plan.md:25:1. EfficientAD
+./docs/stage7_generalization/stage7_4_multibackbone_plan.md:30:The first priority is EfficientAD because it is a common teacher-student industrial anomaly detection baseline and is usually faster than large reconstruction-style models.
+./docs/stage7_generalization/stage7_generalization_plan.md:34:| MVTec LOCO AD | Structural and logical anomaly validation | 2 | To do |
+./docs/stage7_generalization/stage7_generalization_plan.md:46:| EfficientAD | Fast teacher-student anomaly detection baseline | 2 |
+./docs/stage7_generalization/stage7_generalization_plan.md:56:| VisA | EfficientAD |
+./docs/stage13_strong_baseline/stage13_a_patchcore_vlm_fusion_report.md:70:| Category | PatchCore vs full-image correlation | PatchCore vs context correlation |
+./docs/stage13_strong_baseline/stage13_a_patchcore_vlm_fusion_report.md:80:Same-set PatchCore+context fusion improves over PatchCore by 0.0297 AUROC.
+./docs/stage13_strong_baseline/stage13_a_patchcore_vlm_fusion_report.md:81:Leave-one-category-out PatchCore+context fusion improves over PatchCore by 0.0214 AUROC.
+./docs/stage14_strong_vlm_baselines/stage14_b_winclip_availability_report.md:1:# Stage 14-B WinCLIP Availability Report
+./docs/stage14_strong_vlm_baselines/stage14_b_winclip_availability_report.md:5:This report checks whether the current environment can directly import and instantiate WinCLIP from Anomalib.
+./docs/stage14_strong_vlm_baselines/stage14_b_winclip_availability_report.md:12:| `anomalib.models` | `WinCLIP` | False | False | `AttributeError("module 'anomalib.models' has no attribute 'WinCLIP'")` |
+./docs/stage14_strong_vlm_baselines/stage14_b_winclip_availability_report.md:14:| `anomalib.models.image.winclip` | `WinCLIP` | False | False | `AttributeError("module 'anomalib.models.image.winclip' has no attribute 'WinCLIP'")` |
+./docs/stage14_strong_vlm_baselines/stage14_b_winclip_availability_report.md:19:WinCLIP-related classes are available in the current environment.
+./docs/stage14_strong_vlm_baselines/stage14_c1_winclip_api_inspection.md:1:# Stage 14-C1 WinCLIP API Inspection
+./docs/stage14_strong_vlm_baselines/stage14_c1_winclip_api_inspection.md:5:This report inspects the current Anomalib WinClip, Engine, and Folder APIs before running a WinCLIP pilot.
+./docs/stage14_strong_vlm_baselines/stage14_c1_winclip_api_inspection.md:34:If Folder API is available and AD2 folder roots are valid, Stage 14-C2 should create a one-category WinCLIP pilot on fruit_jelly.
+./docs/stage14_strong_vlm_baselines/stage14_c3_fruit_jelly_external_baseline_comparison.md:5:This report compares the WinCLIP fruit_jelly pilot with PatchCore, the context-aware VLM branch, and PatchCore+context fusion.
+./docs/stage14_strong_vlm_baselines/stage14_c3_fruit_jelly_external_baseline_comparison.md:11:| WinCLIP zero-shot | external_vlm_baseline | 0.4267 |  | 0.5308 | 0.0063 | External VLM anomaly detection baseline under default zero-shot setting. |
+./docs/stage14_strong_vlm_baselines/stage14_c3_fruit_jelly_external_baseline_comparison.md:15:| PatchCore + context VLM, same-set | fusion_same_set | 0.8933 | 0.9711 |  |  | Upper-bound same-set fusion diagnostic. |
+./docs/stage14_strong_vlm_baselines/stage14_c3_fruit_jelly_external_baseline_comparison.md:16:| PatchCore + context VLM, leave-one-category-out | fusion_loco | 0.8333 | 0.9476 |  |  | More conservative fusion result using weights selected on other categories. |
+./docs/stage14_strong_vlm_baselines/stage14_c3_fruit_jelly_external_baseline_comparison.md:20:The default zero-shot WinCLIP pilot is weak on AD2 fruit_jelly, with image-level AUROC below 0.5.
+./docs/stage14_strong_vlm_baselines/stage14_c3_fruit_jelly_external_baseline_comparison.md:22:This result should not yet be used to claim that our method generally outperforms WinCLIP, because only one category and one zero-shot configuration have been tested.
+./docs/stage14_strong_vlm_baselines/stage14_c3_fruit_jelly_external_baseline_comparison.md:28:Before expanding to all primary categories, the next step should test whether WinCLIP few-shot settings or class-name variants improve the fruit_jelly result.
+./docs/stage14_strong_vlm_baselines/stage14_c3_fruit_jelly_external_baseline_comparison.md:30:Recommended next step: Stage 14-D should run WinCLIP k-shot/class-name sensitivity on fruit_jelly.
+./docs/stage14_strong_vlm_baselines/stage14_d_winclip_fruit_jelly_sensitivity_report.md:1:# Stage 14-D WinCLIP fruit_jelly Sensitivity
+./docs/stage14_strong_vlm_baselines/stage14_d_winclip_fruit_jelly_sensitivity_report.md:5:This stage tests whether the weak WinCLIP zero-shot result on AD2 fruit_jelly is caused by default configuration choices.
+./docs/stage14_strong_vlm_baselines/stage14_d_winclip_fruit_jelly_sensitivity_report.md:7:It varies class name, k-shot value, and WinCLIP scales.
+./docs/stage14_strong_vlm_baselines/stage14_d_winclip_fruit_jelly_sensitivity_report.md:58:WinCLIP improves over the default zero-shot pilot, but still does not exceed the PatchCore fruit_jelly reference.
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:1:# Stage 14-E WinCLIP Primary Fixed Protocol
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:5:This stage evaluates WinCLIP on all AD2 primary categories using one fixed protocol.
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:7:This avoids claiming a per-category over-tuned WinCLIP result.
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:21:## 3. WinCLIP Results
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:34:| fruit_jelly | WinCLIP fixed protocol | external_vlm_baseline | 0.4667 |  | 0.8327 | 0.2824 |
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:38:| fruit_jelly | PatchCore + context VLM, LOCO | fusion_loco | 0.8333 | 0.9476 |  |  |
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:39:| fruit_jelly | PatchCore + context VLM, same-set | fusion_same_set | 0.8933 | 0.9711 |  |  |
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:40:| sheet_metal | WinCLIP fixed protocol | external_vlm_baseline | 0.7074 |  | 0.8140 | 0.2274 |
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:44:| sheet_metal | PatchCore + context VLM, LOCO | fusion_loco | 0.7481 | 0.9261 |  |  |
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:45:| sheet_metal | PatchCore + context VLM, same-set | fusion_same_set | 0.7556 | 0.9265 |  |  |
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:46:| vial | WinCLIP fixed protocol | external_vlm_baseline | 0.8795 |  | 0.8188 | 0.2076 |
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:50:| vial | PatchCore + context VLM, LOCO | fusion_loco | 0.9224 | 0.9725 |  |  |
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:51:| vial | PatchCore + context VLM, same-set | fusion_same_set | 0.9256 | 0.9734 |  |  |
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:52:| walnuts | WinCLIP fixed protocol | external_vlm_baseline | 0.4015 |  | 0.8155 | 0.3743 |
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:56:| walnuts | PatchCore + context VLM, LOCO | fusion_loco | 0.7800 | 0.8751 |  |  |
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:57:| walnuts | PatchCore + context VLM, same-set | fusion_same_set | 0.8067 | 0.8883 |  |  |
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:61:- Mean WinCLIP image AUROC over successful categories: `0.6138`
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:62:- Best WinCLIP category AUROC: `0.8795`
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:63:- Worst WinCLIP category AUROC: `0.4015`
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:67:If WinCLIP remains below PatchCore or PatchCore+context fusion on most categories, it should be reported as an external VLM anomaly detection baseline that is not directly robust under this AD2 fixed protocol.
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:69:If WinCLIP outperforms our method on some categories, those categories should become failure-analysis cases rather than being ignored.
+./docs/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol_report.md:77:- WinCLIP CSV: `results/stage14_strong_vlm_baselines/stage14_e_winclip_primary_fixed_protocol.csv`
+./docs/stage14_strong_vlm_baselines/stage14_a_strong_baseline_landscape.md:10:Does our context-aware VLM branch remain useful when compared with successful anomaly detection directions, especially WinCLIP-style VLM anomaly detection and modern strong detectors?
+./docs/stage14_strong_vlm_baselines/stage14_a_strong_baseline_landscape.md:15:Stage 13-A showed that PatchCore + context-aware VLM fusion improves over PatchCore alone on ALL_PRIMARY.
+./docs/stage14_strong_vlm_baselines/stage14_a_strong_baseline_landscape.md:22:4. our own PatchCore + context VLM fusion result.
+./docs/stage14_strong_vlm_baselines/stage14_a_strong_baseline_landscape.md:29:| PatchCore + context VLM fusion | Our current fusion method | main_current | Current strongest internal result | Use as current method to compare against WinCLIP and later VLM baselines. |
+./docs/stage14_strong_vlm_baselines/stage14_a_strong_baseline_landscape.md:30:| WinCLIP | Vision-language anomaly detection | first_external_vlm_baseline | First strong VLM anomaly detection baseline | Check Anomalib WinCLIP API, then run on AD2 primary categories if compatible. |
+./docs/stage14_strong_vlm_baselines/stage14_a_strong_baseline_landscape.md:31:| AnomalyCLIP | Vision-language anomaly detection | second_external_vlm_baseline | Stronger CLIP-adaptation baseline | Add literature discussion first; reproduce if WinCLIP stage succeeds. |
+./docs/stage14_strong_vlm_baselines/stage14_a_strong_baseline_landscape.md:32:| EfficientAD | Modern classical anomaly detector | modern_detector_baseline | Modern non-VLM detector baseline | Check Anomalib EfficientAD support after WinCLIP baseline. |
+./docs/stage14_strong_vlm_baselines/stage14_a_strong_baseline_landscape.md:33:| FastFlow | Flow-based anomaly detector | optional_detector_baseline | Alternative front-end detector | Use after WinCLIP or EfficientAD depending on time. |
+./docs/stage14_strong_vlm_baselines/stage14_a_strong_baseline_landscape.md:38:The first external VLM anomaly detection baseline should be WinCLIP.
+./docs/stage14_strong_vlm_baselines/stage14_a_strong_baseline_landscape.md:45:4. If our PatchCore + context VLM fusion is competitive against WinCLIP, the paper becomes much stronger.
+./docs/stage14_strong_vlm_baselines/stage14_a_strong_baseline_landscape.md:49:Stage 14-B should check whether the current environment can import and instantiate WinCLIP from Anomalib.
+./docs/stage14_strong_vlm_baselines/stage14_a_strong_baseline_landscape.md:51:If WinCLIP is available, Stage 14-C should run a small pilot on one AD2 primary category, preferably fruit_jelly or vial.
+./docs/stage14_strong_vlm_baselines/stage14_a_strong_baseline_landscape.md:53:If WinCLIP is not available in the installed Anomalib version, Stage 14-B should document the missing dependency/API issue and decide whether to upgrade Anomalib or use an external WinCLIP implementation.
+./docs/stage14_strong_vlm_baselines/stage14_c2_winclip_fruit_jelly_pilot_report.md:1:# Stage 14-C2 WinCLIP fruit_jelly Pilot
+./docs/stage14_strong_vlm_baselines/stage14_c2_winclip_fruit_jelly_pilot_report.md:5:This stage runs a one-category WinCLIP pilot on MVTec AD 2 fruit_jelly.
+./docs/stage14_strong_vlm_baselines/stage14_c2_winclip_fruit_jelly_pilot_report.md:12:- Class name for WinCLIP: `fruit jelly`
+./docs/stage14_strong_vlm_baselines/stage14_c2_winclip_fruit_jelly_pilot_report.md:49:The WinCLIP pilot ran successfully on fruit_jelly. Next step is to parse the reported metrics and compare them with PatchCore, our context VLM score, and PatchCore+context fusion on the same category.
+./docs/paper_p2/paper_p2_intro_contributions_method_overview.md:27:Classical anomaly detectors such as PatchCore, FastFlow-style backbones, and EfficientAD provide useful localization or anomaly evidence, but their scores are not designed to express visual-language-level abnormality. Conversely, a VLM can compare localized visual evidence against textual abnormality prompts, but it is easily misled when the candidate crop is poorly localized or visually ambiguous. This creates a practical gap: detector localization and VLM reasoning are complementary, but naive score fusion does not explicitly model whether the crop-level VLM evidence should be trusted.
+./docs/paper_p2/paper_p2_intro_contributions_method_overview.md:31:Empirically, the system-level comparison shows that localization-guided VLM evidence complements detector baselines. The fair LOCO fusion reaches mean image AUROC `0.8210`, compared with PatchCore `0.7853` and EfficientAD-30 fixed-budget `0.7604`. In the QCR primary protocol, Quality-Calibrated QCR improves over naive detector-crop fusion by `+0.0096` AUROC, while adaptive consistency adds only `+0.0004` over the quality-calibrated core. These results support a conservative conclusion: the main effective component is candidate quality calibration, while adaptive consistency is a refinement rather than the main source of improvement.
+./docs/paper_p2/paper_p2_intro_contributions_method_overview.md:45:4. **Strong baseline and claim-disciplined evaluation.** We compare against full-image VLM, context-aware VLM, WinCLIP, PatchCore, EfficientAD-30 fixed-budget, LOCO fusion, and QCR ablations. We also include boundary analysis and explicitly reject unsupported claims such as pixel-level segmentation SOTA or manufacturing-cause reasoning.
+./docs/paper_p2/paper_p2_intro_contributions_method_overview.md:102:- WinCLIP fixed protocol mean AUROC: `0.6138`
+./docs/paper_p2/paper_p2_intro_contributions_method_overview.md:103:- EfficientAD-30 fixed-budget mean AUROC: `0.7604`
+./docs/paper_p2/paper_p2_intro_contributions_method_overview.md:104:- PatchCore mean AUROC: `0.7853`
+./docs/paper_p2/paper_p2_intro_contributions_method_overview.md:105:- PatchCore + context VLM, LOCO mean AUROC: `0.8210`
+./docs/paper_p2/paper_p2_intro_contributions_method_overview.md:106:- PatchCore + context VLM, same-set upper bound: `0.8453`
+./docs/paper_p2/paper_p2_intro_contributions_method_overview.md:107:- LOCO minus PatchCore: `+0.0356`
+./docs/paper_p2/paper_p2_intro_contributions_method_overview.md:108:- LOCO minus EfficientAD-30 fixed-budget: `+0.0606`
+./docs/paper_p2/paper_p2_intro_contributions_method_overview.md:130:- Do not claim full EfficientAD defeat; EfficientAD is reported as a 30-epoch fixed-budget baseline.
+./docs/paper_p2/paper_p2_intro_contributions_method_overview.md:131:- Do not merge same-set upper bound with LOCO fair deployment results.
+./docs/paper_p2/paper_p2_intro_contributions_method_overview.md:137:- `R1`: EfficientAD is still not a full four-category 100-epoch baseline. Mitigation: Stage 17-A fruit_jelly sensitivity shows EfficientAD-100 does not improve image_AUROC over EfficientAD-30 on fruit_jelly. Keep EfficientAD as fixed-budget.
+./docs/paper_p2/paper_p2_intro_contributions_method_overview.md:138:- `R2`: AnomalyCLIP is not included. Mitigation: Avoid broad CLIP-family SOTA claims. Present WinCLIP as the fixed external VLM anomaly baseline used in this study.
+./docs/paper_p7/tables/table1_system_baselines.md:5:| 1 | PatchCore + context VLM, same-set | 0.8453 | upper_bound_diagnostic_only | mean_summary |
+./docs/paper_p7/tables/table1_system_baselines.md:6:| 2 | PatchCore + context VLM, LOCO | 0.8210 | primary_fair_system_result | mean_summary |
+./docs/paper_p7/tables/table1_system_baselines.md:7:| 3 | PatchCore | 0.7853 | classic_detector_baseline | mean_summary |
+./docs/paper_p7/tables/table1_system_baselines.md:8:| 4 | EfficientAD-30 fixed-budget | 0.7604 | modern_detector_fixed_budget_baseline | mean_summary |
+./docs/paper_p7/tables/table1_system_baselines.md:11:| 7 | WinCLIP fixed protocol | 0.6138 | external_vlm_anomaly_baseline | mean_summary |
+./docs/paper_p7/tables/table1_system_baselines.md:13:**Note.** LOCO is the fair system-level result. Same-set is an upper-bound diagnostic only.
+./docs/paper_p7/tables/table4_efficientad_sensitivity.md:1:# Appendix Table A1. EfficientAD-100 fruit_jelly sensitivity
+./docs/paper_p7/tables/table4_efficientad_sensitivity.md:3:| Metric | EfficientAD-30 | EfficientAD-100 | Delta 100-30 |
+./docs/paper_p7/tables/table4_efficientad_sensitivity.md:10:**Note.** This is a defensive fixed-budget sensitivity check, not a full EfficientAD sweep.
+./docs/paper_p7/paper_p7_latex_style_compact_draft.md:26:**Industrial anomaly detection.** PatchCore, FastFlow-style detectors, and EfficientAD provide strong anomaly detection and localization evidence. Our method does not replace them; it uses localization evidence to produce candidate-level VLM evidence.
+./docs/paper_p7/paper_p7_latex_style_compact_draft.md:28:**Vision-language anomaly detection.** CLIP-based anomaly methods such as WinCLIP and AnomalyCLIP show the value of language-supervised representations. Our work is narrower: it studies how detector-guided crop evidence should be calibrated before being trusted by a VLM-based anomaly scorer.
+./docs/paper_p7/paper_p7_latex_style_compact_draft.md:64:Full-image VLM obtains mean AUROC `0.6459`, while context-aware VLM obtains `0.7101`. PatchCore obtains `0.7853` and EfficientAD-30 fixed-budget obtains `0.7604`. The fair LOCO fusion reaches `0.8210`, improving over PatchCore by `+0.0356` and over EfficientAD-30 by `+0.0606`. The same-set result `0.8453` is reported only as an upper-bound diagnostic.
+./docs/paper_p7/paper_p7_latex_style_compact_draft.md:70:| 1 | PatchCore + context VLM, same-set | 0.8453 | upper_bound_diagnostic_only | mean_summary |
+./docs/paper_p7/paper_p7_latex_style_compact_draft.md:71:| 2 | PatchCore + context VLM, LOCO | 0.8210 | primary_fair_system_result | mean_summary |
+./docs/paper_p7/paper_p7_latex_style_compact_draft.md:72:| 3 | PatchCore | 0.7853 | classic_detector_baseline | mean_summary |
+./docs/paper_p7/paper_p7_latex_style_compact_draft.md:73:| 4 | EfficientAD-30 fixed-budget | 0.7604 | modern_detector_fixed_budget_baseline | mean_summary |
+./docs/paper_p7/paper_p7_latex_style_compact_draft.md:76:| 7 | WinCLIP fixed protocol | 0.6138 | external_vlm_anomaly_baseline | mean_summary |
+./docs/paper_p7/paper_p7_latex_style_compact_draft.md:78:**Note.** LOCO is the fair system-level result. Same-set is an upper-bound diagnostic only.
+./docs/paper_p7/paper_p7_latex_style_compact_draft.md:115:## 8. EfficientAD Budget Sensitivity
+./docs/paper_p7/paper_p7_latex_style_compact_draft.md:117:A 100-epoch EfficientAD sensitivity check on fruit_jelly gives image-AUROC delta `-0.0167` relative to EfficientAD-30. This does not indicate severe image-level underestimation of EfficientAD-30, but it remains a fixed-budget baseline and should not be described as full EfficientAD defeat.
+./docs/paper_p7/paper_p7_latex_style_compact_draft.md:119:# Appendix Table A1. EfficientAD-100 fruit_jelly sensitivity
+./docs/paper_p7/paper_p7_latex_style_compact_draft.md:121:| Metric | EfficientAD-30 | EfficientAD-100 | Delta 100-30 |
+./docs/paper_p7/paper_p7_latex_style_compact_draft.md:128:**Note.** This is a defensive fixed-budget sensitivity check, not a full EfficientAD sweep.
+./docs/paper_p7/paper_p7_latex_style_compact_draft.md:133:The method is image-level anomaly recognition and candidate-level VLM evidence calibration. It does not claim pixel-level segmentation SOTA, manufacturing-cause reasoning, or full anomaly understanding. EfficientAD is fixed-budget, AnomalyCLIP is not included, and adaptive consistency has only a small gain over quality-only.
+./docs/paper_p7/paper_p7_latex_style_compact_draft.md:146:| Appendix Table A1 | EfficientAD-100 fruit_jelly sensitivity | docs/paper_p7/tables/table4_efficientad_sensitivity.md | Appendix / Baseline Budget Sensitivity | generated |
+./docs/paper_p7/paper_p7_latex_style_compact_draft.md:156:| P7-C5 | BibTeX missing | missing | Prepare references for MVTec AD, VisA, PatchCore, FastFlow, EfficientAD, CLIP, WinCLIP, AnomalyCLIP. |
+./docs/paper_p7/paper_p7_latex_style_compact_draft.md:157:| P7-C6 | AnomalyCLIP risk unresolved | open | Either run it later or keep it explicitly as limitation. |
+./docs/paper_p9/paper_p9_reference_and_citation_plan.md:19:| `Batzner2024EfficientAD` | EfficientAD | industrial_anomaly_detector | Related Work; Baselines; EfficientAD budget sensitivity | Our result is EfficientAD-30 fixed-budget, not full EfficientAD defeat. |
+./docs/paper_p9/paper_p9_reference_and_citation_plan.md:21:| `Jeong2023WinCLIP` | WinCLIP | clip_anomaly_detection | Related Work; Baselines; Main Results | Our comparison is fixed protocol only; do not claim comprehensive WinCLIP defeat. |
+./docs/paper_p9/paper_p9_reference_and_citation_plan.md:22:| `Zhou2024AnomalyCLIP` | AnomalyCLIP | clip_anomaly_detection | Related Work; Limitations | Not experimentally included; cite as related work and limitation, not defeated baseline. |
+./docs/paper_p9/paper_p9_reference_and_citation_plan.md:30:| C3 | Related Work: Industrial anomaly detection | PatchCore, FastFlow, EfficientAD detector line | `\cite{Roth2022PatchCore,Yu2021FastFlow,Batzner2024EfficientAD}` | Ground detector baselines and localization evidence line. |
+./docs/paper_p9/paper_p9_reference_and_citation_plan.md:31:| C4 | Related Work: VLM anomaly detection | CLIP, WinCLIP, AnomalyCLIP | `\cite{Radford2021CLIP,Jeong2023WinCLIP,Zhou2024AnomalyCLIP}` | Ground CLIP/VLM anomaly detection line. |
+./docs/paper_p9/paper_p9_reference_and_citation_plan.md:33:| C6 | Baselines | PatchCore, EfficientAD, WinCLIP baselines | `\cite{Roth2022PatchCore,Batzner2024EfficientAD,Jeong2023WinCLIP}` | Baseline citation. |
+./docs/paper_p9/paper_p9_reference_and_citation_plan.md:34:| C7 | Limitations | AnomalyCLIP missing external VLM anomaly baseline | `\cite{Zhou2024AnomalyCLIP}` | Cite the explicitly missing baseline. |
+./docs/paper_p9/paper_p9_reference_and_citation_plan.md:41:| P9-R2 | AnomalyCLIP is cited but not experimentally compared. | medium_high | Keep it in related work and limitations only. Do not include it in result tables unless later run. |
+./docs/paper_p9/paper_p9_reference_and_citation_plan.md:42:| P9-R3 | EfficientAD can be misread as fully optimized. | medium_high | Always write EfficientAD-30 fixed-budget in result text. |
+./docs/paper_p9/paper_p9_reference_and_citation_plan.md:43:| P9-R4 | WinCLIP comparison can be overgeneralized. | medium | Always write WinCLIP fixed protocol, not broad WinCLIP defeat. |
+./docs/paper_p9/paper_p9_reference_and_citation_plan.md:50:- Cite PatchCore / FastFlow / EfficientAD for detector and localization baselines.
+./docs/paper_p9/paper_p9_reference_and_citation_plan.md:51:- Cite CLIP / WinCLIP / AnomalyCLIP for VLM anomaly context.
+./docs/paper_p9/paper_p9_reference_and_citation_plan.md:52:- Cite AnomalyCLIP only as related work or limitation unless it is later run.
+./docs/paper_p9/paper_p9_reference_and_citation_plan.md:53:- Do not cite EfficientAD in a way that implies full-budget comparison.
+./docs/paper_p9/paper_p9_reference_and_citation_plan.md:54:- Do not cite WinCLIP in a way that implies broad CLIP-family SOTA.
+./docs/paper_p9/references.bib:29:@inproceedings{Batzner2024EfficientAD,
+./docs/paper_p9/references.bib:30:  title     = {{EfficientAD}: Accurate Visual Anomaly Detection at Millisecond-Level Latencies},
+./docs/paper_p9/references.bib:43:@inproceedings{Jeong2023WinCLIP,
+./docs/paper_p9/references.bib:44:  title     = {{WinCLIP}: Zero-/Few-Shot Anomaly Classification and Segmentation},
+./docs/paper_p9/references.bib:50:@inproceedings{Zhou2024AnomalyCLIP,
+./docs/paper_p9/references.bib:51:  title     = {{AnomalyCLIP}: Object-agnostic Prompt Learning for Zero-shot Anomaly Detection},
+./docs/paper_p9/paper_p9_citation_marked_compact_draft.md:32:**Industrial anomaly detection.** PatchCore~\cite{Roth2022PatchCore}, FastFlow-style detectors~\cite{Yu2021FastFlow}, and EfficientAD~\cite{Batzner2024EfficientAD} provide strong anomaly detection and localization evidence. Our method does not replace them; it uses localization evidence to produce candidate-level VLM evidence.
+./docs/paper_p9/paper_p9_citation_marked_compact_draft.md:34:**Vision-language anomaly detection.** CLIP~\cite{Radford2021CLIP}-based anomaly methods such as WinCLIP~\cite{Jeong2023WinCLIP} and AnomalyCLIP~\cite{Zhou2024AnomalyCLIP} show the value of language-supervised representations. Our work is narrower: it studies how detector-guided crop evidence should be calibrated before being trusted by a VLM-based anomaly scorer.
+./docs/paper_p9/paper_p9_citation_marked_compact_draft.md:70:Full-image VLM obtains mean AUROC `0.6459`, while context-aware VLM obtains `0.7101`. PatchCore~\cite{Roth2022PatchCore} obtains `0.7853` and EfficientAD-30 fixed-budget~\cite{Batzner2024EfficientAD} obtains `0.7604`. The fair LOCO fusion reaches `0.8210`, improving over PatchCore by `+0.0356` and over EfficientAD-30 by `+0.0606`. The same-set result `0.8453` is reported only as an upper-bound diagnostic.
+./docs/paper_p9/paper_p9_citation_marked_compact_draft.md:76:| 1 | PatchCore + context VLM, same-set | 0.8453 | upper_bound_diagnostic_only | mean_summary |
+./docs/paper_p9/paper_p9_citation_marked_compact_draft.md:77:| 2 | PatchCore + context VLM, LOCO | 0.8210 | primary_fair_system_result | mean_summary |
+./docs/paper_p9/paper_p9_citation_marked_compact_draft.md:78:| 3 | PatchCore | 0.7853 | classic_detector_baseline | mean_summary |
+./docs/paper_p9/paper_p9_citation_marked_compact_draft.md:79:| 4 | EfficientAD-30 fixed-budget | 0.7604 | modern_detector_fixed_budget_baseline | mean_summary |
+./docs/paper_p9/paper_p9_citation_marked_compact_draft.md:82:| 7 | WinCLIP fixed protocol | 0.6138 | external_vlm_anomaly_baseline | mean_summary |
+./docs/paper_p9/paper_p9_citation_marked_compact_draft.md:84:**Note.** LOCO is the fair system-level result. Same-set is an upper-bound diagnostic only.
+./docs/paper_p9/paper_p9_citation_marked_compact_draft.md:121:## 8. EfficientAD Budget Sensitivity
+./docs/paper_p9/paper_p9_citation_marked_compact_draft.md:123:A 100-epoch EfficientAD sensitivity check on fruit_jelly gives image-AUROC delta `-0.0167` relative to EfficientAD-30. This does not indicate severe image-level underestimation of EfficientAD-30, but it remains a fixed-budget baseline and should not be described as full EfficientAD defeat.
+./docs/paper_p9/paper_p9_citation_marked_compact_draft.md:125:# Appendix Table A1. EfficientAD-100 fruit_jelly sensitivity
+./docs/paper_p9/paper_p9_citation_marked_compact_draft.md:127:| Metric | EfficientAD-30 | EfficientAD-100 | Delta 100-30 |
+./docs/paper_p9/paper_p9_citation_marked_compact_draft.md:134:**Note.** This is a defensive fixed-budget sensitivity check, not a full EfficientAD sweep.
+./docs/paper_p9/paper_p9_citation_marked_compact_draft.md:139:The method is image-level anomaly recognition and candidate-level VLM evidence calibration. It does not claim pixel-level segmentation SOTA, manufacturing-cause reasoning, or full anomaly understanding. EfficientAD is fixed-budget, AnomalyCLIP~\cite{Zhou2024AnomalyCLIP} is not included, and adaptive consistency has only a small gain over quality-only.
+./docs/paper_p9/paper_p9_citation_marked_compact_draft.md:152:| Appendix Table A1 | EfficientAD-100 fruit_jelly sensitivity | docs/paper_p7/tables/table4_efficientad_sensitivity.md | Appendix / Baseline Budget Sensitivity | generated |
+./docs/paper_p9/paper_p9_citation_marked_compact_draft.md:162:| P7-C5 | BibTeX missing | missing | Prepare references for MVTec AD, VisA, PatchCore, FastFlow, EfficientAD, CLIP, WinCLIP, AnomalyCLIP. |
+./docs/paper_p9/paper_p9_citation_marked_compact_draft.md:163:| P7-C6 | AnomalyCLIP risk unresolved | open | Either run it later or keep it explicitly as limitation. |
+./docs/paper_p10/paper_p10_latex_scaffold_report.md:19:| P10-A6 | Table 4 | `paper/quality_calibrated_qcr/tables/table4_efficientad_sensitivity.tex` | EfficientAD-100 sensitivity table. | generated |
+./docs/paper_p10/paper_p10_latex_scaffold_report.md:31:| P10-C6 | AnomalyCLIP not experimentally included | open | Keep as limitation unless later run under matched protocol. |
+./docs/stage18_ad2_qcr_ablation/stage18_b2_ad2_qcr_ablation_report.md:24:| V0 | Detector only | baseline_detector | 0.7853 | 0.8717 |
+./docs/stage18_ad2_qcr_ablation/stage18_b2_ad2_qcr_ablation_report.md:40:| Quality-Calibrated QCR vs detector only | +0.0338 | 0.8191 | 0.7853 |
+./docs/stage18_ad2_qcr_ablation/stage18_b5_ad2_loco_qcr_policy_optimization_report.md:1:# Stage 18-B5 AD2 LOCO QCR Policy Optimization
+./docs/stage18_ad2_qcr_ablation/stage18_b6_ad2_loco_robust_qcr_selector_sweep_report.md:1:# Stage 18-B6 AD2 LOCO Robust QCR Selector Sweep
+./paper/quality_calibrated_qcr/references.bib:29:@inproceedings{Batzner2024EfficientAD,
+./paper/quality_calibrated_qcr/references.bib:30:  title = {{EfficientAD}: Accurate Visual Anomaly Detection at Millisecond-Level Latencies},
+./paper/quality_calibrated_qcr/references.bib:43:@inproceedings{Jeong2023WinCLIP,
+./paper/quality_calibrated_qcr/references.bib:44:  title = {{WinCLIP}: Zero-/Few-Shot Anomaly Classification and Segmentation},
+./paper/quality_calibrated_qcr/references.bib:50:@inproceedings{Zhou2024AnomalyCLIP,
+./paper/quality_calibrated_qcr/references.bib:51:  title = {{AnomalyCLIP}: Object-agnostic Prompt Learning for Zero-shot Anomaly Detection},
+./paper/quality_calibrated_qcr/tables/table1_system_baselines.tex:10:PatchCore + context VLM, same-set & 0.8453 & upper\_bound\_diagnostic\_only & mean\_summary \\
+./paper/quality_calibrated_qcr/tables/table1_system_baselines.tex:11:PatchCore + context VLM, LOCO & 0.8210 & primary\_fair\_system\_result & mean\_summary \\
+./paper/quality_calibrated_qcr/tables/table1_system_baselines.tex:12:PatchCore & 0.7853 & classic\_detector\_baseline & mean\_summary \\
+./paper/quality_calibrated_qcr/tables/table1_system_baselines.tex:13:EfficientAD-30 fixed-budget & 0.7604 & modern\_detector\_fixed\_budget\_baseline & mean\_summary \\
+./paper/quality_calibrated_qcr/tables/table1_system_baselines.tex:16:WinCLIP fixed protocol & 0.6138 & external\_vlm\_anomaly\_baseline & mean\_summary \\
+./paper/quality_calibrated_qcr/tables/table1_system_baselines.tex:21:\footnotesize{\emph{Note.} LOCO is the fair system-level result. Same-set is an upper-bound diagnostic only.}
+./paper/quality_calibrated_qcr/tables/table4_efficientad_sensitivity.tex:3:\caption{EfficientAD-100 fruit\_jelly sensitivity.}
+./paper/quality_calibrated_qcr/tables/table4_efficientad_sensitivity.tex:8:Metric & EfficientAD-30 & EfficientAD-100 & Delta \\
+./paper/quality_calibrated_qcr/tables/table4_efficientad_sensitivity.tex:18:\footnotesize{\emph{Note.} This is a defensive fixed-budget sensitivity check, not a full EfficientAD sweep.}
+./paper/quality_calibrated_qcr/main.tex:49:PatchCore~\cite{Roth2022PatchCore}, FastFlow-style detectors~\cite{Yu2021FastFlow}, and EfficientAD~\cite{Batzner2024EfficientAD} provide strong anomaly detection and localization evidence.
+./paper/quality_calibrated_qcr/main.tex:53:CLIP~\cite{Radford2021CLIP}-based anomaly methods such as WinCLIP~\cite{Jeong2023WinCLIP} and AnomalyCLIP~\cite{Zhou2024AnomalyCLIP} show the value of language-supervised representations.
+./paper/quality_calibrated_qcr/main.tex:121:PatchCore~\cite{Roth2022PatchCore} obtains 0.7853 and EfficientAD-30 fixed-budget~\cite{Batzner2024EfficientAD} obtains 0.7604.
+./paper/quality_calibrated_qcr/main.tex:122:The fair LOCO fusion reaches 0.8210, improving over PatchCore by +0.0356 and over EfficientAD-30 by +0.0606.
+./paper/quality_calibrated_qcr/main.tex:123:The same-set result 0.8453 is reported only as an upper-bound diagnostic.
+./paper/quality_calibrated_qcr/main.tex:151:\section{EfficientAD Budget Sensitivity}
+./paper/quality_calibrated_qcr/main.tex:153:A 100-epoch EfficientAD sensitivity check on fruit_jelly gives image-AUROC delta -0.0167 relative to EfficientAD-30.
+./paper/quality_calibrated_qcr/main.tex:154:This does not indicate severe image-level underestimation of EfficientAD-30, but EfficientAD remains a fixed-budget baseline and should not be described as full EfficientAD defeat.
+./paper/quality_calibrated_qcr/main.tex:162:EfficientAD is fixed-budget, AnomalyCLIP~\cite{Zhou2024AnomalyCLIP} is not experimentally included, and adaptive consistency has only a small gain over quality-only.
+./paper/quality_calibrated_qcr/main_p14_polished.tex:49:PatchCore~\cite{Roth2022PatchCore}, FastFlow-style detectors~\cite{Yu2021FastFlow}, and EfficientAD~\cite{Batzner2024EfficientAD} provide strong anomaly detection and localization evidence.
+./paper/quality_calibrated_qcr/main_p14_polished.tex:53:CLIP~\cite{Radford2021CLIP}-based anomaly methods such as WinCLIP~\cite{Jeong2023WinCLIP} and AnomalyCLIP~\cite{Zhou2024AnomalyCLIP} show the value of language-supervised representations.
+./paper/quality_calibrated_qcr/main_p14_polished.tex:121:PatchCore~\cite{Roth2022PatchCore} obtains 0.7853 and EfficientAD-30 fixed-budget~\cite{Batzner2024EfficientAD} obtains 0.7604.
+./paper/quality_calibrated_qcr/main_p14_polished.tex:122:The fair LOCO fusion reaches 0.8210, improving over PatchCore by +0.0356 and over EfficientAD-30 by +0.0606.
+./paper/quality_calibrated_qcr/main_p14_polished.tex:123:The same-set result 0.8453 is reported only as an upper-bound diagnostic.
+./paper/quality_calibrated_qcr/main_p14_polished.tex:151:\section{EfficientAD Budget Sensitivity}
+./paper/quality_calibrated_qcr/main_p14_polished.tex:153:A 100-epoch EfficientAD sensitivity check on fruit_jelly gives image-AUROC delta -0.0167 relative to EfficientAD-30.
+./paper/quality_calibrated_qcr/main_p14_polished.tex:154:This does not indicate severe image-level underestimation of EfficientAD-30, but EfficientAD remains a fixed-budget baseline and should not be described as full EfficientAD defeat.
+./paper/quality_calibrated_qcr/main_p14_polished.tex:162:EfficientAD is evaluated under a fixed 30-epoch budget, AnomalyCLIP~\cite{Zhou2024AnomalyCLIP} is not experimentally included, and adaptive consistency has only a small gain over quality-only.
