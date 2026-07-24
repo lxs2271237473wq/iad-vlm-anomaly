@@ -296,13 +296,79 @@ def build_engine(Engine, output_path: Path):
         ),
         "devices": 1,
         "logger": False,
-        "enable_checkpointing": False,
     }
 
     return Engine(
         **supported_kwargs(Engine, kwargs)
     )
 
+
+
+def make_compatible_mvtec_datamodule(
+    module,
+    MVTecAD,
+    data_config: dict,
+    category: str,
+):
+    """
+    Preserve the legacy datamodule construction logic while
+    filtering arguments unsupported by the installed anomalib.
+    """
+
+    captured = {}
+
+    def constructor_adapter(*args, **kwargs):
+        filtered = supported_kwargs(
+            MVTecAD,
+            kwargs,
+        )
+
+        removed = sorted(
+            set(kwargs) - set(filtered)
+        )
+
+        captured["received"] = sorted(
+            kwargs.keys()
+        )
+        captured["accepted"] = sorted(
+            filtered.keys()
+        )
+        captured["removed"] = removed
+
+        print(
+            "[MVTecAD compatibility] received:",
+            captured["received"],
+        )
+        print(
+            "[MVTecAD compatibility] accepted:",
+            captured["accepted"],
+        )
+        print(
+            "[MVTecAD compatibility] removed:",
+            captured["removed"],
+        )
+
+        return MVTecAD(
+            *args,
+            **filtered,
+        )
+
+    datamodule = module.make_mvtec_datamodule(
+        constructor_adapter,
+        data_config,
+        category,
+    )
+
+    if "image_size" not in captured.get(
+        "removed",
+        [],
+    ):
+        print(
+            "[MVTecAD compatibility] note: "
+            "image_size was not present or was accepted."
+        )
+
+    return datamodule
 
 def predict_from_checkpoint(
     module,
@@ -314,10 +380,11 @@ def predict_from_checkpoint(
         module.import_anomalib()
     )
 
-    datamodule = module.make_mvtec_datamodule(
-        MVTecAD,
-        config["data"],
-        CATEGORY,
+    datamodule = make_compatible_mvtec_datamodule(
+        module=module,
+        MVTecAD=MVTecAD,
+        data_config=config["data"],
+        category=CATEGORY,
     )
 
     model = module.make_model(
