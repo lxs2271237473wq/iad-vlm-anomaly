@@ -1,0 +1,16 @@
+{
+  "category": "bottle",
+  "num_test_images": 83,
+  "num_normal": 20,
+  "num_anomaly": 63,
+  "image_auroc": 1.0,
+  "image_ap": 0.9999999999999997,
+  "num_candidate_rows": 140,
+  "num_images_with_candidates": 83,
+  "candidate_coverage_rate": 1.0,
+  "threshold_quantile": 0.97,
+  "top_components": 3,
+  "min_area": 20,
+  "image_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/bottle/patchcore_image_predictions.csv",
+  "candidate_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/bottle/candidate_regions.csv"
+}
