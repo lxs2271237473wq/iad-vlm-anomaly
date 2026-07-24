@@ -418,6 +418,7 @@ def predict_from_checkpoint(
             model=model,
             datamodule=datamodule,
             ckpt_path=str(checkpoint),
+            return_predictions=True,
         )
 
         return outputs, "engine_predict_ckpt_path"
@@ -443,6 +444,7 @@ def predict_from_checkpoint(
     outputs = engine.predict(
         model=loaded_model,
         datamodule=datamodule,
+        return_predictions=True,
     )
 
     return outputs, "load_from_checkpoint"
