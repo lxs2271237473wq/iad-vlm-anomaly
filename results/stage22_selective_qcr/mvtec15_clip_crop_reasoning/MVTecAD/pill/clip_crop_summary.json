@@ -1,0 +1,19 @@
+{
+  "category": "pill",
+  "num_images": 167,
+  "num_normal": 26,
+  "num_anomaly": 141,
+  "vlm_image_auroc": 0.2321331151118385,
+  "vlm_image_ap": 0.7329138336621854,
+  "fallback_count": 0,
+  "fallback_rate": 0.0,
+  "mean_eval_images": 1.9520958083832336,
+  "elapsed_sec": 135.92753041512333,
+  "sec_per_image": 0.81393730787499,
+  "strategy": "inspection_binary",
+  "eval_mode": "crop_topk_ensemble",
+  "clip_model": "ViT-B-32",
+  "clip_pretrained": "openai",
+  "normal_prompts": "a quality inspection image of a normal pill || an industrial inspection photo of a defect-free pill || a close-up inspection image showing a normal pill",
+  "anomaly_prompts": "a quality inspection image of a defective pill || an industrial inspection photo showing an anomaly on a pill || a close-up inspection image showing damage, contamination, or abnormal texture on a pill"
+}

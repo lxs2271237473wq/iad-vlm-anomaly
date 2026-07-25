@@ -1,0 +1,19 @@
+{
+  "category": "screw",
+  "num_images": 160,
+  "num_normal": 41,
+  "num_anomaly": 119,
+  "vlm_image_auroc": 0.5354580856732937,
+  "vlm_image_ap": 0.8254770482980578,
+  "fallback_count": 0,
+  "fallback_rate": 0.0,
+  "mean_eval_images": 2.18125,
+  "elapsed_sec": 145.53608491597697,
+  "sec_per_image": 0.909600530724856,
+  "strategy": "inspection_binary",
+  "eval_mode": "crop_topk_ensemble",
+  "clip_model": "ViT-B-32",
+  "clip_pretrained": "openai",
+  "normal_prompts": "a quality inspection image of a normal screw || an industrial inspection photo of a defect-free screw || a close-up inspection image showing a normal screw",
+  "anomaly_prompts": "a quality inspection image of a defective screw || an industrial inspection photo showing an anomaly on a screw || a close-up inspection image showing damage, contamination, or abnormal texture on a screw"
+}

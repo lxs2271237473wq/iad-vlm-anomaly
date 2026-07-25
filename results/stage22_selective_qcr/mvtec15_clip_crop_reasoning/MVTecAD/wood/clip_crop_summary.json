@@ -1,0 +1,19 @@
+{
+  "category": "wood",
+  "num_images": 79,
+  "num_normal": 19,
+  "num_anomaly": 60,
+  "vlm_image_auroc": 0.9254385964912281,
+  "vlm_image_ap": 0.9745540757221226,
+  "fallback_count": 0,
+  "fallback_rate": 0.0,
+  "mean_eval_images": 1.9620253164556962,
+  "elapsed_sec": 64.59383491100743,
+  "sec_per_image": 0.81764347988617,
+  "strategy": "inspection_binary",
+  "eval_mode": "crop_topk_ensemble",
+  "clip_model": "ViT-B-32",
+  "clip_pretrained": "openai",
+  "normal_prompts": "a quality inspection image of a normal wood || an industrial inspection photo of a defect-free wood || a close-up inspection image showing a normal wood",
+  "anomaly_prompts": "a quality inspection image of a defective wood || an industrial inspection photo showing an anomaly on a wood || a close-up inspection image showing damage, contamination, or abnormal texture on a wood"
+}

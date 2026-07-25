@@ -1,0 +1,19 @@
+{
+  "category": "metal_nut",
+  "num_images": 115,
+  "num_normal": 22,
+  "num_anomaly": 93,
+  "vlm_image_auroc": 0.2781036168132942,
+  "vlm_image_ap": 0.7308194990522984,
+  "fallback_count": 0,
+  "fallback_rate": 0.0,
+  "mean_eval_images": 1.9652173913043478,
+  "elapsed_sec": 105.98720737593248,
+  "sec_per_image": 0.9216278902254998,
+  "strategy": "inspection_binary",
+  "eval_mode": "crop_topk_ensemble",
+  "clip_model": "ViT-B-32",
+  "clip_pretrained": "openai",
+  "normal_prompts": "a quality inspection image of a normal metal_nut || an industrial inspection photo of a defect-free metal_nut || a close-up inspection image showing a normal metal_nut",
+  "anomaly_prompts": "a quality inspection image of a defective metal_nut || an industrial inspection photo showing an anomaly on a metal_nut || a close-up inspection image showing damage, contamination, or abnormal texture on a metal_nut"
+}

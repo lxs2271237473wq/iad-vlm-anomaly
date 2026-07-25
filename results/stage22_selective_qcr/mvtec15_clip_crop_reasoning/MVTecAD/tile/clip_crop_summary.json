@@ -1,0 +1,19 @@
+{
+  "category": "tile",
+  "num_images": 117,
+  "num_normal": 33,
+  "num_anomaly": 84,
+  "vlm_image_auroc": 0.4188311688311688,
+  "vlm_image_ap": 0.7017211881752388,
+  "fallback_count": 0,
+  "fallback_rate": 0.0,
+  "mean_eval_images": 1.7521367521367521,
+  "elapsed_sec": 90.76887520519085,
+  "sec_per_image": 0.7758023521811184,
+  "strategy": "inspection_binary",
+  "eval_mode": "crop_topk_ensemble",
+  "clip_model": "ViT-B-32",
+  "clip_pretrained": "openai",
+  "normal_prompts": "a quality inspection image of a normal tile || an industrial inspection photo of a defect-free tile || a close-up inspection image showing a normal tile",
+  "anomaly_prompts": "a quality inspection image of a defective tile || an industrial inspection photo showing an anomaly on a tile || a close-up inspection image showing damage, contamination, or abnormal texture on a tile"
+}

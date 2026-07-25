@@ -1,0 +1,19 @@
+{
+  "category": "hazelnut",
+  "num_images": 110,
+  "num_normal": 40,
+  "num_anomaly": 70,
+  "vlm_image_auroc": 0.5378571428571428,
+  "vlm_image_ap": 0.7364019260139367,
+  "fallback_count": 0,
+  "fallback_rate": 0.0,
+  "mean_eval_images": 1.5272727272727273,
+  "elapsed_sec": 79.88327320688404,
+  "sec_per_image": 0.7262115746080368,
+  "strategy": "inspection_binary",
+  "eval_mode": "crop_topk_ensemble",
+  "clip_model": "ViT-B-32",
+  "clip_pretrained": "openai",
+  "normal_prompts": "a quality inspection image of a normal hazelnut || an industrial inspection photo of a defect-free hazelnut || a close-up inspection image showing a normal hazelnut",
+  "anomaly_prompts": "a quality inspection image of a defective hazelnut || an industrial inspection photo showing an anomaly on a hazelnut || a close-up inspection image showing damage, contamination, or abnormal texture on a hazelnut"
+}
