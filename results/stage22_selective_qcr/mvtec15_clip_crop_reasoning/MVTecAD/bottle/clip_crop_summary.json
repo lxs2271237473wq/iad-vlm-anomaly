@@ -1,0 +1,19 @@
+{
+  "category": "bottle",
+  "num_images": 83,
+  "num_normal": 20,
+  "num_anomaly": 63,
+  "vlm_image_auroc": 0.7777777777777778,
+  "vlm_image_ap": 0.9251123392086609,
+  "fallback_count": 0,
+  "fallback_rate": 0.0,
+  "mean_eval_images": 1.6867469879518073,
+  "elapsed_sec": 55.49622158915736,
+  "sec_per_image": 0.6686291757729802,
+  "strategy": "inspection_binary",
+  "eval_mode": "crop_topk_ensemble",
+  "clip_model": "ViT-B-32",
+  "clip_pretrained": "openai",
+  "normal_prompts": "a quality inspection image of a normal bottle || an industrial inspection photo of a defect-free bottle || a close-up inspection image showing a normal bottle",
+  "anomaly_prompts": "a quality inspection image of a defective bottle || an industrial inspection photo showing an anomaly on a bottle || a close-up inspection image showing damage, contamination, or abnormal texture on a bottle"
+}
