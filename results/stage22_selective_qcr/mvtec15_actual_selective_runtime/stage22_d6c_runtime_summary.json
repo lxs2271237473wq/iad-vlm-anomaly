@@ -1,0 +1,70 @@
+{
+  "protocol_id": "stage22_d6c_mvtec15_actual_selective_runtime_v1",
+  "categories": [
+    "bottle",
+    "cable",
+    "capsule",
+    "carpet",
+    "grid",
+    "hazelnut",
+    "leather",
+    "metal_nut",
+    "pill",
+    "screw",
+    "tile",
+    "toothbrush",
+    "transistor",
+    "wood",
+    "zipper"
+  ],
+  "num_categories": 15,
+  "num_images": 1725,
+  "full_vlm_calls": 1725,
+  "selective_vlm_calls": 1294,
+  "actual_calls_saved": 431,
+  "actual_call_saving_rate": 0.24985507246376815,
+  "repeats": 3,
+  "full_median_sec": 1781.434620434884,
+  "selective_median_sec": 1405.5953709199093,
+  "median_wall_time_saving_rate": 0.21207778921673137,
+  "median_speedup": 1.2691608210992125,
+  "mean_wall_time_saving_rate": 0.2015432808878631,
+  "mean_speedup": 1.2529103604305258,
+  "full_peak_gpu_allocated_mib_max": 603.08984375,
+  "selective_peak_gpu_allocated_mib_max": 603.08984375,
+  "score_tolerance": 0.0001,
+  "audit": {
+    "full": {
+      "mode": "full",
+      "runtime_rows": 1725,
+      "max_m_raw_abs_diff": 9.974659986866641e-17,
+      "mean_m_raw_abs_diff": 4.9010254381623853e-17,
+      "max_m_norm_abs_diff": 1.0436096431476471e-14,
+      "max_score_s1_abs_diff": 2.275957200481571e-15,
+      "mean_score_s1_abs_diff": 2.5102102361302885e-16
+    },
+    "selective": {
+      "mode": "selective",
+      "runtime_rows": 1294,
+      "max_m_raw_abs_diff": 9.974659986866641e-17,
+      "mean_m_raw_abs_diff": 4.9275933548499424e-17,
+      "max_m_norm_abs_diff": 1.0436096431476471e-14,
+      "max_score_s1_abs_diff": 2.275957200481571e-15,
+      "mean_score_s1_abs_diff": 2.5102102361302885e-16
+    }
+  },
+  "timing_scope": {
+    "clip_model_load_included": false,
+    "text_encoding_included": false,
+    "candidate_box_loading_included": false,
+    "image_loading_included": true,
+    "crop_construction_included": true,
+    "image_preprocessing_included": true,
+    "clip_image_inference_included": true
+  },
+  "frozen_configuration": {
+    "w_max": 0.35,
+    "q_quantile": 0.25,
+    "tau_delta": 0.75
+  }
+}
