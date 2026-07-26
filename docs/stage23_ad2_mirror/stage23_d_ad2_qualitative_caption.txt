@@ -1,0 +1,1 @@
+Four label-aware reliability-boundary cases on the AD2 four-category frozen-transfer protocol. Gate-off M values are retrospective audit values and are not computed during actual selective deployment.

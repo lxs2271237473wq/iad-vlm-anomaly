@@ -1,0 +1,33 @@
+{
+  "repository": "https://github.com/lxs2271237473wq/iad-vlm-anomaly",
+  "anchor_commit": "bf049d750898c793211fdda3bf6aff30bf483f07",
+  "frozen_parameters": {
+    "w_max": 0.35,
+    "q_quantile": 0.25,
+    "tau_delta": 0.75
+  },
+  "ad2_accuracy": {
+    "srb_minus_detector_macro_auroc": 0.0086,
+    "category_wins_vs_detector": "3/4",
+    "worst_category_delta_vs_detector": -0.0037
+  },
+  "ad2_runtime": {
+    "images": 243,
+    "full_calls": 243,
+    "selective_calls": 182,
+    "call_saving_rate": 0.251,
+    "full_crops": 502,
+    "selective_crops": 397,
+    "crop_saving_rate": 0.2092,
+    "median_full_sec": 287.431,
+    "median_selective_sec": 240.746,
+    "median_wall_time_saving_rate": 0.18947,
+    "median_speedup": 1.233761,
+    "peak_gpu_allocated_mib_approx": 602.2
+  },
+  "provenance_boundary": {
+    "accuracy_source": "Stage 23-B1 locked prediction cache",
+    "runtime_source": "Stage 23-C2 re-executed CLIP path",
+    "exact_historical_margin_replay_claimed": false
+  }
+}

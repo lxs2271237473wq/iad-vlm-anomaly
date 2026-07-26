@@ -1,0 +1,4 @@
+repeat,full_calls,selective_calls,full_crops,selective_crops,full_sec,selective_sec,saved_sec,saving_rate,speedup
+1,243,182,502,397,297.023,240.746,56.277,0.18947,1.233761
+2,243,182,502,397,287.022,232.422,54.6,0.190229,1.234918
+3,243,182,502,397,287.431,243.133,44.298,0.154117,1.182197
