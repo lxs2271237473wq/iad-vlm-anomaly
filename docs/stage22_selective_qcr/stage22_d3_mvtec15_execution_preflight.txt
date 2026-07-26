@@ -1,0 +1,1503 @@
+===== STAGE 22-D3 MVTec15 EXECUTION PREFLIGHT =====
+
+1. ENVIRONMENT
+
+torch: installed
+torchvision: installed
+anomalib: installed
+open_clip: installed
+sklearn: installed
+cv2: installed
+PIL: installed
+pandas: installed
+numpy: installed
+
+2. DATASET INVENTORY
+
+category | train/good | test/good | test/anomaly | ground_truth
+bottle | 209 | 20 | 63 | 63
+cable | 224 | 58 | 92 | 92
+capsule | 219 | 23 | 109 | 109
+carpet | 280 | 28 | 89 | 89
+grid | 264 | 21 | 57 | 57
+hazelnut | 391 | 40 | 70 | 70
+leather | 245 | 32 | 92 | 92
+metal_nut | 220 | 22 | 93 | 93
+pill | 267 | 26 | 141 | 141
+screw | 320 | 41 | 119 | 119
+tile | 230 | 33 | 84 | 84
+toothbrush | 60 | 12 | 30 | 30
+transistor | 213 | 60 | 40 | 40
+wood | 247 | 19 | 60 | 60
+zipper | 240 | 32 | 119 | 119
+
+total test images: 1725
+
+3. EXISTING PATCHCORE SUMMARY
+
+path: results/baselines/patchcore_mvtec_summary.csv
+rows: 15
+columns: ['category', 'image_AUROC', 'image_F1Score', 'pixel_AUROC', 'pixel_F1Score', 'model', 'dataset', 'datamodule', 'backbone', 'layers', 'coreset_sampling_ratio', 'num_neighbors', 'image_size', 'center_crop_size']
+categories: bottle, cable, capsule, carpet, grid, hazelnut, leather, metal_nut, pill, screw, tile, toothbrush, transistor, wood, zipper
+
+4. CHECKPOINT INVENTORY
+
+runs/analysis/anomaly_map_calibration/MVTecAD/grid/Patchcore/MVTecAD_grid/v0/weights/lightning/model.ckpt
+runs/analysis/anomaly_map_calibration/MVTecAD/grid/Patchcore/MVTecAD_grid/v1/weights/lightning/model.ckpt
+runs/analysis/anomaly_map_calibration/MVTecAD/leather/Patchcore/MVTecAD_leather/v0/weights/lightning/model.ckpt
+runs/analysis/anomaly_map_calibration/MVTecAD/screw/Patchcore/MVTecAD_screw/v0/weights/lightning/model.ckpt
+runs/analysis/anomaly_map_calibration/MVTecAD/wood/Patchcore/MVTecAD_wood/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_anomaly_calibration/MVTecAD/grid/Patchcore/MVTecAD_grid/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_anomaly_calibration/MVTecAD/grid/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_anomaly_calibration/MVTecAD/leather/Patchcore/MVTecAD_leather/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_anomaly_calibration/MVTecAD/leather/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_anomaly_calibration/MVTecAD/screw/Patchcore/MVTecAD_screw/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_anomaly_calibration/MVTecAD/screw/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_anomaly_calibration/MVTecAD/wood/Patchcore/MVTecAD_wood/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_anomaly_calibration/MVTecAD/wood/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg01_baseline/MVTecAD/grid/Patchcore/MVTecAD_grid/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg01_baseline/MVTecAD/grid/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg01_baseline/MVTecAD/leather/Patchcore/MVTecAD_leather/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg01_baseline/MVTecAD/leather/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg01_baseline/MVTecAD/screw/Patchcore/MVTecAD_screw/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg01_baseline/MVTecAD/screw/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg01_baseline/MVTecAD/wood/Patchcore/MVTecAD_wood/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg01_baseline/MVTecAD/wood/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg02_smaller_delta/MVTecAD/grid/Patchcore/MVTecAD_grid/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg02_smaller_delta/MVTecAD/grid/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg02_smaller_delta/MVTecAD/leather/Patchcore/MVTecAD_leather/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg02_smaller_delta/MVTecAD/leather/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg02_smaller_delta/MVTecAD/screw/Patchcore/MVTecAD_screw/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg02_smaller_delta/MVTecAD/screw/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg02_smaller_delta/MVTecAD/wood/Patchcore/MVTecAD_wood/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg02_smaller_delta/MVTecAD/wood/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg03_larger_delta/MVTecAD/grid/Patchcore/MVTecAD_grid/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg03_larger_delta/MVTecAD/grid/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg03_larger_delta/MVTecAD/leather/Patchcore/MVTecAD_leather/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg03_larger_delta/MVTecAD/leather/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg03_larger_delta/MVTecAD/screw/Patchcore/MVTecAD_screw/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg03_larger_delta/MVTecAD/screw/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg03_larger_delta/MVTecAD/wood/Patchcore/MVTecAD_wood/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg03_larger_delta/MVTecAD/wood/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg04_stronger_identity/MVTecAD/grid/Patchcore/MVTecAD_grid/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg04_stronger_identity/MVTecAD/grid/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg04_stronger_identity/MVTecAD/leather/Patchcore/MVTecAD_leather/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg04_stronger_identity/MVTecAD/leather/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg04_stronger_identity/MVTecAD/screw/Patchcore/MVTecAD_screw/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg04_stronger_identity/MVTecAD/screw/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg04_stronger_identity/MVTecAD/wood/Patchcore/MVTecAD_wood/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg04_stronger_identity/MVTecAD/wood/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg05_weaker_identity/MVTecAD/grid/Patchcore/MVTecAD_grid/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg05_weaker_identity/MVTecAD/grid/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg05_weaker_identity/MVTecAD/leather/Patchcore/MVTecAD_leather/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg05_weaker_identity/MVTecAD/leather/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg05_weaker_identity/MVTecAD/screw/Patchcore/MVTecAD_screw/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg05_weaker_identity/MVTecAD/screw/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg05_weaker_identity/MVTecAD/wood/Patchcore/MVTecAD_wood/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg05_weaker_identity/MVTecAD/wood/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg06_stronger_normal_fp/MVTecAD/grid/Patchcore/MVTecAD_grid/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg06_stronger_normal_fp/MVTecAD/grid/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg06_stronger_normal_fp/MVTecAD/leather/Patchcore/MVTecAD_leather/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg06_stronger_normal_fp/MVTecAD/leather/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg06_stronger_normal_fp/MVTecAD/screw/Patchcore/MVTecAD_screw/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg06_stronger_normal_fp/MVTecAD/screw/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg06_stronger_normal_fp/MVTecAD/wood/Patchcore/MVTecAD_wood/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg06_stronger_normal_fp/MVTecAD/wood/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg07_lower_lr/MVTecAD/grid/Patchcore/MVTecAD_grid/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg07_lower_lr/MVTecAD/grid/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg07_lower_lr/MVTecAD/leather/Patchcore/MVTecAD_leather/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg07_lower_lr/MVTecAD/leather/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg07_lower_lr/MVTecAD/screw/Patchcore/MVTecAD_screw/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg07_lower_lr/MVTecAD/screw/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg07_lower_lr/MVTecAD/wood/Patchcore/MVTecAD_wood/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg07_lower_lr/MVTecAD/wood/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg08_weaker_dice/MVTecAD/grid/Patchcore/MVTecAD_grid/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg08_weaker_dice/MVTecAD/grid/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg08_weaker_dice/MVTecAD/leather/Patchcore/MVTecAD_leather/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg08_weaker_dice/MVTecAD/leather/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg08_weaker_dice/MVTecAD/screw/Patchcore/MVTecAD_screw/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg08_weaker_dice/MVTecAD/screw/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep/cfg08_weaker_dice/MVTecAD/wood/Patchcore/MVTecAD_wood/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep/cfg08_weaker_dice/MVTecAD/wood/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep_test/cfg01_baseline/MVTecAD/grid/Patchcore/MVTecAD_grid/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep_test/cfg01_baseline/MVTecAD/grid/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep_test/cfg01_baseline/MVTecAD/screw/Patchcore/MVTecAD_screw/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep_test/cfg01_baseline/MVTecAD/screw/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep_test/cfg02_smaller_delta/MVTecAD/grid/Patchcore/MVTecAD_grid/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep_test/cfg02_smaller_delta/MVTecAD/grid/conservative_residual_calibrator.pth
+runs/analysis/conservative_residual_calibration_sweep_test/cfg02_smaller_delta/MVTecAD/screw/Patchcore/MVTecAD_screw/v0/weights/lightning/model.ckpt
+runs/analysis/conservative_residual_calibration_sweep_test/cfg02_smaller_delta/MVTecAD/screw/conservative_residual_calibrator.pth
+runs/analysis/enhanced_anomaly_region_scoring/MVTecAD/grid/Patchcore/MVTecAD_grid/v0/weights/lightning/model.ckpt
+runs/analysis/enhanced_anomaly_region_scoring/MVTecAD/grid/Patchcore/MVTecAD_grid/v1/weights/lightning/model.ckpt
+runs/analysis/enhanced_anomaly_region_scoring/MVTecAD/leather/Patchcore/MVTecAD_leather/v0/weights/lightning/model.ckpt
+runs/analysis/enhanced_anomaly_region_scoring/MVTecAD/screw/Patchcore/MVTecAD_screw/v0/weights/lightning/model.ckpt
+runs/analysis/enhanced_anomaly_region_scoring/MVTecAD/wood/Patchcore/MVTecAD_wood/v0/weights/lightning/model.ckpt
+runs/analysis/full_test_patchcore_candidate_regions/MVTecAD/grid/Patchcore/MVTecAD_grid_full_test/v0/weights/lightning/model.ckpt
+runs/analysis/full_test_patchcore_candidate_regions/MVTecAD/grid/Patchcore/MVTecAD_grid_full_test/v1/weights/lightning/model.ckpt
+runs/analysis/full_test_patchcore_candidate_regions/MVTecAD/leather/Patchcore/MVTecAD_leather_full_test/v0/weights/lightning/model.ckpt
+runs/analysis/full_test_patchcore_candidate_regions/MVTecAD/screw/Patchcore/MVTecAD_screw_full_test/v0/weights/lightning/model.ckpt
+runs/analysis/full_test_patchcore_candidate_regions/MVTecAD/wood/Patchcore/MVTecAD_wood_full_test/v0/weights/lightning/model.ckpt
+runs/analysis/patchcore_candidate_regions/MVTecAD/grid/Patchcore/MVTecAD_grid/v0/weights/lightning/model.ckpt
+runs/analysis/patchcore_candidate_regions/MVTecAD/grid/Patchcore/MVTecAD_grid/v1/weights/lightning/model.ckpt
+runs/analysis/patchcore_candidate_regions/MVTecAD/leather/Patchcore/MVTecAD_leather/v0/weights/lightning/model.ckpt
+runs/analysis/patchcore_candidate_regions/MVTecAD/screw/Patchcore/MVTecAD_screw/v0/weights/lightning/model.ckpt
+runs/analysis/patchcore_candidate_regions/MVTecAD/wood/Patchcore/MVTecAD_wood/v0/weights/lightning/model.ckpt
+runs/analysis/patchcore_failure_export/MVTecAD/grid/Patchcore/MVTecAD_grid/v0/weights/lightning/model.ckpt
+runs/analysis/patchcore_failure_export/MVTecAD/grid/Patchcore/MVTecAD_grid/v1/weights/lightning/model.ckpt
+runs/analysis/patchcore_failure_export/MVTecAD/leather/Patchcore/MVTecAD_leather/v0/weights/lightning/model.ckpt
+runs/analysis/patchcore_failure_export/MVTecAD/screw/Patchcore/MVTecAD_screw/v0/weights/lightning/model.ckpt
+runs/analysis/patchcore_failure_export/MVTecAD/wood/Patchcore/MVTecAD_wood/v0/weights/lightning/model.ckpt
+runs/analysis/patchcore_threshold_diagnosis/MVTecAD/grid/Patchcore/MVTecAD_grid/v0/weights/lightning/model.ckpt
+runs/analysis/patchcore_threshold_diagnosis/MVTecAD/grid/Patchcore/MVTecAD_grid/v1/weights/lightning/model.ckpt
+runs/analysis/patchcore_threshold_diagnosis/MVTecAD/leather/Patchcore/MVTecAD_leather/v0/weights/lightning/model.ckpt
+runs/analysis/patchcore_threshold_diagnosis/MVTecAD/screw/Patchcore/MVTecAD_screw/v0/weights/lightning/model.ckpt
+runs/analysis/patchcore_threshold_diagnosis/MVTecAD/wood/Patchcore/MVTecAD_wood/v0/weights/lightning/model.ckpt
+runs/analysis/sam2_anomaly_aware_selection/MVTecAD/grid/Patchcore/MVTecAD_grid/v0/weights/lightning/model.ckpt
+runs/analysis/sam2_anomaly_aware_selection/MVTecAD/grid/Patchcore/MVTecAD_grid/v1/weights/lightning/model.ckpt
+runs/analysis/sam2_anomaly_aware_selection/MVTecAD/leather/Patchcore/MVTecAD_leather/v0/weights/lightning/model.ckpt
+runs/analysis/sam2_anomaly_aware_selection/MVTecAD/screw/Patchcore/MVTecAD_screw/v0/weights/lightning/model.ckpt
+runs/analysis/sam2_anomaly_aware_selection/MVTecAD/wood/Patchcore/MVTecAD_wood/v0/weights/lightning/model.ckpt
+runs/analysis/trainable_anomaly_map_calibration/MVTecAD/grid/Patchcore/MVTecAD_grid/v0/weights/lightning/model.ckpt
+runs/analysis/trainable_anomaly_map_calibration/MVTecAD/grid/tiny_calibrator.pth
+runs/analysis/trainable_anomaly_map_calibration/MVTecAD/leather/Patchcore/MVTecAD_leather/v0/weights/lightning/model.ckpt
+runs/analysis/trainable_anomaly_map_calibration/MVTecAD/leather/tiny_calibrator.pth
+runs/analysis/trainable_anomaly_map_calibration/MVTecAD/screw/Patchcore/MVTecAD_screw/v0/weights/lightning/model.ckpt
+runs/analysis/trainable_anomaly_map_calibration/MVTecAD/screw/tiny_calibrator.pth
+runs/analysis/trainable_anomaly_map_calibration/MVTecAD/wood/Patchcore/MVTecAD_wood/v0/weights/lightning/model.ckpt
+runs/analysis/trainable_anomaly_map_calibration/MVTecAD/wood/tiny_calibrator.pth
+runs/baselines/patchcore/MVTecAD/bottle/Patchcore/MVTecAD_bottle/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/bottle/Patchcore/MVTecAD_bottle/v1/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/bottle/Patchcore/MVTecAD_bottle/v2/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/bottle/Patchcore/MVTecAD_bottle/v3/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/cable/Patchcore/MVTecAD_cable/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/cable/Patchcore/MVTecAD_cable/v1/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/cable/Patchcore/MVTecAD_cable/v2/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/cable/Patchcore/MVTecAD_cable/v3/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/capsule/Patchcore/MVTecAD_capsule/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/capsule/Patchcore/MVTecAD_capsule/v1/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/capsule/Patchcore/MVTecAD_capsule/v2/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/carpet/Patchcore/MVTecAD_carpet/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/grid/Patchcore/MVTecAD_grid/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/hazelnut/Patchcore/MVTecAD_hazelnut/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/leather/Patchcore/MVTecAD_leather/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/metal_nut/Patchcore/MVTecAD_metal_nut/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/metal_nut/Patchcore/MVTecAD_metal_nut/v1/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/metal_nut/Patchcore/MVTecAD_metal_nut/v2/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/pill/Patchcore/MVTecAD_pill/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/screw/Patchcore/MVTecAD_screw/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/screw/Patchcore/MVTecAD_screw/v2/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/tile/Patchcore/MVTecAD_tile/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/toothbrush/Patchcore/MVTecAD_toothbrush/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/transistor/Patchcore/MVTecAD_transistor/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/transistor/Patchcore/MVTecAD_transistor/v1/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/wood/Patchcore/MVTecAD_wood/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/MVTecAD/zipper/Patchcore/MVTecAD_zipper/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/VisA/candle/Patchcore/VisA_candle/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/VisA/capsules/Patchcore/VisA_capsules/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/VisA/pcb1/Patchcore/VisA_pcb1/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/VisA/pcb2/Patchcore/VisA_pcb2/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/VisA/pcb3/Patchcore/VisA_pcb3/v0/weights/lightning/model.ckpt
+runs/baselines/patchcore/VisA/pcb4/Patchcore/VisA_pcb4/v0/weights/lightning/model.ckpt
+runs/stage10_mvtecad2_patchcore/vial_patchcore_candidate_crops/Patchcore/mvtecad2_vial_folder/v0/weights/lightning/model.ckpt
+runs/stage10_mvtecad2_patchcore/vial_patchcore_pilot/Patchcore/mvtecad2_vial_folder/v0/weights/lightning/model.ckpt
+runs/stage11_mvtecad2_multicategory/candidate_region_patchcore/fruit_jelly/Patchcore/mvtecad2_fruit_jelly_folder/v0/weights/lightning/model.ckpt
+runs/stage11_mvtecad2_multicategory/candidate_region_patchcore/sheet_metal/Patchcore/mvtecad2_sheet_metal_folder/v0/weights/lightning/model.ckpt
+runs/stage11_mvtecad2_multicategory/candidate_region_patchcore/vial/Patchcore/mvtecad2_vial_folder/v0/weights/lightning/model.ckpt
+runs/stage11_mvtecad2_multicategory/candidate_region_patchcore/walnuts/Patchcore/mvtecad2_walnuts_folder/v0/weights/lightning/model.ckpt
+runs/stage11_mvtecad2_multicategory/fabric_secondary_candidate_patchcore/fabric/Patchcore/mvtecad2_fabric_folder/v0/weights/lightning/model.ckpt
+runs/stage11_mvtecad2_multicategory/patchcore_baseline/can/Patchcore/mvtecad2_can_folder/v0/weights/lightning/model.ckpt
+runs/stage11_mvtecad2_multicategory/patchcore_baseline/fabric/Patchcore/mvtecad2_fabric_folder/v0/weights/lightning/model.ckpt
+runs/stage11_mvtecad2_multicategory/patchcore_baseline/fruit_jelly/Patchcore/mvtecad2_fruit_jelly_folder/v0/weights/lightning/model.ckpt
+runs/stage11_mvtecad2_multicategory/patchcore_baseline/rice/Patchcore/mvtecad2_rice_folder/v0/weights/lightning/model.ckpt
+runs/stage11_mvtecad2_multicategory/patchcore_baseline/sheet_metal/Patchcore/mvtecad2_sheet_metal_folder/v0/weights/lightning/model.ckpt
+runs/stage11_mvtecad2_multicategory/patchcore_baseline/vial/Patchcore/mvtecad2_vial_folder/v0/weights/lightning/model.ckpt
+runs/stage11_mvtecad2_multicategory/patchcore_baseline/wallplugs/Patchcore/mvtecad2_wallplugs_folder/v0/weights/lightning/model.ckpt
+runs/stage11_mvtecad2_multicategory/patchcore_baseline/walnuts/Patchcore/mvtecad2_walnuts_folder/v0/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/candle/Patchcore/VisA_candle/v0/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/candle/Patchcore/VisA_candle/v1/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/candle/Patchcore/VisA_candle/v3/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/candle/Patchcore/VisA_candle/v4/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/capsules/Patchcore/VisA_capsules/v0/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/capsules/Patchcore/VisA_capsules/v1/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/capsules/Patchcore/VisA_capsules/v2/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/cashew/Patchcore/VisA_cashew/v0/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/cashew/Patchcore/VisA_cashew/v1/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/cashew/Patchcore/VisA_cashew/v2/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/chewinggum/Patchcore/VisA_chewinggum/v0/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/chewinggum/Patchcore/VisA_chewinggum/v1/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/chewinggum/Patchcore/VisA_chewinggum/v2/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/fryum/Patchcore/VisA_fryum/v0/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/fryum/Patchcore/VisA_fryum/v1/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/fryum/Patchcore/VisA_fryum/v2/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/macaroni1/Patchcore/VisA_macaroni1/v0/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/macaroni1/Patchcore/VisA_macaroni1/v1/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/macaroni1/Patchcore/VisA_macaroni1/v2/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/macaroni2/Patchcore/VisA_macaroni2/v0/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/macaroni2/Patchcore/VisA_macaroni2/v1/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/macaroni2/Patchcore/VisA_macaroni2/v2/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/pcb1/Patchcore/VisA_pcb1/v0/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/pcb1/Patchcore/VisA_pcb1/v1/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/pcb1/Patchcore/VisA_pcb1/v2/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/pcb2/Patchcore/VisA_pcb2/v0/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/pcb2/Patchcore/VisA_pcb2/v1/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/pcb2/Patchcore/VisA_pcb2/v2/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/pcb3/Patchcore/VisA_pcb3/v0/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/pcb3/Patchcore/VisA_pcb3/v1/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/pcb3/Patchcore/VisA_pcb3/v2/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/pcb4/Patchcore/VisA_pcb4/v0/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/pcb4/Patchcore/VisA_pcb4/v1/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/pcb4/Patchcore/VisA_pcb4/v2/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/pipe_fryum/Patchcore/VisA_pipe_fryum/v0/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/pipe_fryum/Patchcore/VisA_pipe_fryum/v1/weights/lightning/model.ckpt
+runs/stage7_generalization/visa_patchcore/pipe_fryum/Patchcore/VisA_pipe_fryum/v2/weights/lightning/model.ckpt
+
+5. CODE PATHS
+
+==========================================================================================
+scripts/legacy_starter/run_mvtec_baselines.py
+==========================================================================================
+size_bytes: 5294
+   1: """Run first-stage Anomalib baselines on selected MVTec AD categories.
+   2: 
+   3: This script intentionally uses standard Anomalib models first:
+   4: - PatchCore: strong traditional memory-bank baseline.
+----
+   5: - PaDiM: classical feature-distribution baseline.
+   6: - WinCLIP zero-shot/few-shot: first VLM baseline.
+   7: 
+----
+  10: from __future__ import annotations
+  11: 
+  12: import argparse
+  13: import csv
+  14: import json
+  15: import random
+----
+  26: 
+  27:     try:
+  28:         from anomalib.models.image import EfficientAd, Padim, Patchcore, WinClip
+  29:     except Exception:  # noqa: BLE001
+  30:         from anomalib.models import EfficientAd, Padim, Patchcore, WinClip
+  31: 
+----
+  32:     return MVTecAD, {
+  33:         "patchcore": Patchcore,
+----
+  34:         "padim": Padim,
+  35:         "efficientad": EfficientAd,
+  36:         "winclip_zero": WinClip,
+----
+  51: 
+  52: 
+  53: def make_mvtec_datamodule(MVTecAD: Any, data_cfg: dict[str, Any], category: str) -> Any:
+  54:     root = Path(data_cfg["root"])
+  55:     image_size = data_cfg.get("image_size", 256)
+  56:     kwargs = {
+----
+  57:         "root": root,
+  58:         "category": category,
+  59:         "train_batch_size": data_cfg.get("train_batch_size", 16),
+  60:         "eval_batch_size": data_cfg.get("eval_batch_size", 16),
+  61:         "num_workers": data_cfg.get("num_workers", 8),
+----
+  66:     except TypeError:
+  67:         # Fallback for older/newer Anomalib signatures.
+  68:         minimal = {"root": root, "category": category, "image_size": image_size}
+  69:         return MVTecAD(**minimal)
+  70: 
+  71: 
+----
+  72: def make_model(name: str, ModelClass: Any, category: str) -> Any:
+  73:     if name == "winclip_zero":
+  74:         return ModelClass(class_name=category, k_shot=0)
+  75:     if name == "winclip_4shot":
+----
+  76:         return ModelClass(class_name=category, k_shot=4)
+  77:     return ModelClass()
+----
+  78: 
+  79: 
+----
+  94: 
+  95: 
+  96: def main() -> None:
+  97:     parser = argparse.ArgumentParser()
+  98:     parser.add_argument("--config", default="configs/first_baselines.yaml")
+  99:     parser.add_argument("--only", nargs="*", default=None, help="Optional subset of model names to run.")
+----
+ 100:     args = parser.parse_args()
+----
+ 101: 
+----
+ 102:     cfg = yaml.safe_load(Path(args.config).read_text(encoding="utf-8"))
+----
+ 104: 
+ 105:     MVTecAD, model_map, Engine = import_anomalib()
+ 106:     out_root = Path(cfg["output"]["root"])
+ 107:     out_root.mkdir(parents=True, exist_ok=True)
+ 108: 
+ 109:     rows: list[dict[str, Any]] = []
+----
+ 110:     baselines = cfg["baselines"] if args.only is None else args.only
+ 111: 
+ 112:     for category in cfg["data"]["categories"]:
+ 113:         for model_name in baselines:
+ 114:             if model_name not in model_map:
+ 115:                 print(f"Skipping unknown baseline: {model_name}")
+----
+ 116:                 continue
+ 117: 
+ 118:             run_dir = out_root / model_name / category
+ 119:             run_dir.mkdir(parents=True, exist_ok=True)
+ 120:             print(f"\n=== Running {model_name} on {category} ===")
+ 121: 
+----
+ 122:             datamodule = make_mvtec_datamodule(MVTecAD, cfg["data"], category)
+ 123:             model = make_model(model_name, model_map[model_name], category)
+----
+ 124: 
+ 125:             try:
+----
+ 126:                 engine = Engine(default_root_dir=str(run_dir))
+----
+ 136: 
+ 137:             metrics = flatten_metrics(result)
+ 138:             metrics.update({"category": category, "model": model_name})
+ 139:             rows.append(metrics)
+ 140:             (run_dir / "metrics.json").write_text(json.dumps(metrics, indent=2, ensure_ascii=False), encoding="utf-8")
+ 141: 
+----
+
+==========================================================================================
+experiments/analysis/full_test_patchcore_candidate_regions.py
+==========================================================================================
+size_bytes: 13115
+   1: import argparse
+   2: import csv
+   3: from pathlib import Path
+   4: import sys
+----
+  14: from anomalib.data import Folder
+  15: from anomalib.engine import Engine
+  16: from anomalib.models import Patchcore
+  17: 
+  18: from experiments.baselines.patchcore_mvtec import MVTEC_DEFECTS
+  19: from experiments.analysis.patchcore_candidate_regions import (
+----
+  20:     get_field,
+  21:     take_item,
+----
+  22:     mask_to_2d,
+----
+  29: def load_thresholds(path):
+  30:     df = pd.read_csv(path)
+  31:     return {str(row["category"]): float(row["best_threshold"]) for _, row in df.iterrows()}
+  32: 
+  33: 
+  34: def canonical_path(path):
+----
+  40: 
+  41: 
+  42: def build_full_test_datamodule(args, category):
+  43:     dataset_root = Path(args.data_root).resolve()
+  44:     category_root = dataset_root / category
+  45: 
+----
+  46:     if category not in MVTEC_DEFECTS:
+----
+  47:         raise ValueError(f"Unknown MVTec AD category: {category}")
+----
+  48: 
+  49:     if not category_root.exists():
+----
+  50:         raise FileNotFoundError(f"Category root does not exist: {category_root}")
+----
+  51: 
+  52:     defects = MVTEC_DEFECTS[category]
+----
+  53:     abnormal_dirs = [f"test/{defect}" for defect in defects]
+----
+  54:     mask_dirs = [f"ground_truth/{defect}" for defect in defects]
+  55: 
+----
+  56:     for rel_path in ["train/good", "test/good", *abnormal_dirs, *mask_dirs]:
+  57:         path = category_root / rel_path
+  58:         if not path.exists():
+  59:             raise FileNotFoundError(f"Required MVTec path does not exist: {path}")
+  60: 
+----
+  62:     # same_as_test prevents validation splitting from removing half of the test samples.
+  63:     datamodule = Folder(
+  64:         name=f"MVTecAD_{category}_full_test",
+  65:         root=str(category_root),
+  66:         normal_dir="train/good",
+  67:         abnormal_dir=abnormal_dirs,
+----
+  68:         normal_test_dir="test/good",
+----
+  78: 
+  79: 
+  80: def collect_predictions(args, category):
+  81:     datamodule = build_full_test_datamodule(args, category)
+  82: 
+  83:     pre_processor = Patchcore.configure_pre_processor(
+----
+  84:         image_size=(256, 256),
+----
+  85:         center_crop_size=(224, 224),
+  86:     )
+----
+  87: 
+  88:     model = Patchcore(
+  89:         backbone="wide_resnet50_2",
+  90:         layers=["layer2", "layer3"],
+  91:         pre_trained=True,
+----
+  95:     )
+  96: 
+  97:     work_dir = Path(args.work_root) / "MVTecAD" / category
+  98:     work_dir.mkdir(parents=True, exist_ok=True)
+  99: 
+ 100:     engine = Engine(
+----
+ 105:     )
+ 106: 
+ 107:     print(f"[INFO] Fitting PatchCore full-test candidate model: {category}")
+ 108:     engine.fit(model=model, datamodule=datamodule)
+ 109: 
+ 110:     print(f"[INFO] Predicting full-test anomaly maps: {category}")
+----
+ 111:     return engine.predict(model=model, datamodule=datamodule)
+ 112: 
+ 113: 
+----
+ 114: def run_category(args, category, threshold):
+ 115:     predictions = collect_predictions(args, category)
+ 116: 
+ 117:     out_dir = Path(args.output_root) / "MVTecAD" / category / "candidate_regions"
+----
+ 118:     out_dir.mkdir(parents=True, exist_ok=True)
+----
+ 119: 
+ 120:     rows = []
+----
+ 169:                 rows.append(
+ 170:                     {
+ 171:                         "category": category,
+ 172:                         "image_path": image_path,
+ 173:                         "canonical_image_path": canonical_path(image_path),
+ 174:                         "component_rank": 0,
+----
+ 192:                 rows.append(
+ 193:                     {
+ 194:                         "category": category,
+ 195:                         "image_path": image_path,
+ 196:                         "canonical_image_path": canonical_path(image_path),
+ 197:                         "component_rank": rank,
+----
+ 211:                 )
+ 212: 
+ 213:     csv_path = out_dir / "candidate_regions.csv"
+ 214: 
+ 215:     fieldnames = [
+ 216:         "category",
+----
+ 217:         "image_path",
+ 218:         "canonical_image_path",
+ 219:         "component_rank",
+----
+ 238: 
+ 239:     print(
+ 240:         f"[DONE] {category}: abnormal_images={image_counter}, "
+ 241:         f"normal_skipped={normal_counter}, no_candidate={no_candidate_count}, "
+ 242:         f"candidate_rows={len(rows)}"
+ 243:     )
+----
+ 245: 
+ 246:     return {
+ 247:         "category": category,
+ 248:         "threshold": threshold,
+ 249:         "num_abnormal_images": image_counter,
+ 250:         "num_normal_skipped": normal_counter,
+----
+ 255: 
+ 256: 
+ 257: def evaluate_manifest_coverage(args):
+ 258:     manifest_path = Path(args.manifest_csv)
+ 259: 
+ 260:     if not manifest_path.exists():
+----
+ 265:     coverage_rows = []
+ 266: 
+ 267:     for category in args.categories:
+ 268:         category_manifest = manifest[manifest["category"] == category].copy()
+ 269:         manifest_paths = set(canonical_path(p) for p in category_manifest["image_path"].tolist())
+ 270: 
+----
+... output truncated ...
+
+==========================================================================================
+experiments/analysis/patchcore_candidate_regions.py
+==========================================================================================
+size_bytes: 13592
+   1: import argparse
+   2: import csv
+   3: from collections import deque
+   4: from pathlib import Path
+----
+  15: 
+  16: from anomalib.engine import Engine
+  17: from anomalib.models import Patchcore
+  18: 
+  19: from experiments.baselines.patchcore_mvtec import build_mvtec_folder_datamodule
+  20: 
+----
+  21: 
+  22: def get_field(batch, name):
+----
+ 228:     thresholds = {}
+ 229:     for _, row in df.iterrows():
+ 230:         thresholds[str(row["category"])] = float(row["best_threshold"])
+ 231:     return thresholds
+ 232: 
+ 233: 
+----
+ 234: def collect_predictions(args, category):
+ 235:     run_args = argparse.Namespace(
+ 236:         data_root=args.data_root,
+ 237:         category=category,
+----
+ 238:         train_batch_size=args.train_batch_size,
+----
+ 239:         eval_batch_size=args.eval_batch_size,
+----
+ 240:         num_workers=args.num_workers,
+----
+ 244:     datamodule = build_mvtec_folder_datamodule(run_args)
+ 245: 
+ 246:     pre_processor = Patchcore.configure_pre_processor(
+ 247:         image_size=(256, 256),
+ 248:         center_crop_size=(224, 224),
+ 249:     )
+----
+ 250: 
+ 251:     model = Patchcore(
+ 252:         backbone="wide_resnet50_2",
+ 253:         layers=["layer2", "layer3"],
+ 254:         pre_trained=True,
+----
+ 258:     )
+ 259: 
+ 260:     work_dir = Path(args.work_root) / "MVTecAD" / category
+ 261:     work_dir.mkdir(parents=True, exist_ok=True)
+ 262: 
+ 263:     engine = Engine(
+----
+ 268:     )
+ 269: 
+ 270:     print(f"[INFO] Fitting PatchCore: {category}")
+ 271:     engine.fit(model=model, datamodule=datamodule)
+ 272: 
+ 273:     print(f"[INFO] Predicting anomaly maps: {category}")
+----
+ 274:     return engine.predict(model=model, datamodule=datamodule)
+ 275: 
+ 276: 
+----
+ 277: def run_category(args, category, threshold):
+ 278:     predictions = collect_predictions(args, category)
+ 279: 
+ 280:     out_dir = Path(args.output_root) / "MVTecAD" / category / "candidate_regions"
+----
+ 281:     out_dir.mkdir(parents=True, exist_ok=True)
+----
+ 282: 
+ 283:     rows = []
+----
+ 325:                 no_candidate_count += 1
+ 326: 
+ 327:             visual_name = f"{category}_{image_counter:04d}_candidates.png"
+ 328:             visual_path = out_dir / visual_name
+ 329: 
+ 330:             title = f"{category} | threshold={threshold:.2f} | candidates={len(records)}"
+----
+ 331:             save_visual(image, gt_mask, anomaly_map, records, visual_path, title)
+ 332: 
+ 333:             if len(records) == 0:
+----
+ 334:                 rows.append(
+ 335:                     {
+ 336:                         "category": category,
+ 337:                         "image_path": image_path,
+ 338:                         "component_rank": 0,
+ 339:                         "threshold": threshold,
+----
+ 356:                 rows.append(
+ 357:                     {
+ 358:                         "category": category,
+ 359:                         "image_path": image_path,
+ 360:                         "component_rank": rank,
+ 361:                         "threshold": threshold,
+----
+ 375:                 )
+ 376: 
+ 377:     csv_path = out_dir / "candidate_regions.csv"
+ 378:     with csv_path.open("w", newline="", encoding="utf-8") as f:
+ 379:         fieldnames = [
+ 380:             "category",
+----
+ 381:             "image_path",
+ 382:             "component_rank",
+ 383:             "threshold",
+----
+ 399:         writer.writerows(rows)
+ 400: 
+ 401:     print(f"[DONE] {category}: images={image_counter}, no_candidate={no_candidate_count}")
+ 402:     print(f"[DONE] Saved candidates to: {csv_path}")
+ 403: 
+ 404:     return {
+----
+ 405:         "category": category,
+ 406:         "threshold": threshold,
+ 407:         "num_images": image_counter,
+ 408:         "no_candidate_images": no_candidate_count,
+----
+ 412: 
+ 413: 
+ 414: def main():
+ 415:     parser = argparse.ArgumentParser()
+ 416:     parser.add_argument("--data_root", type=str, default="datasets/MVTecAD")
+ 417:     parser.add_argument("--categories", nargs="+", default=["grid", "screw", "leather", "wood"])
+----
+ 418:     parser.add_argument("--threshold_csv", type=str, default="results/analysis/patchcore_threshold_diagnosis/threshold_diagnosis_summary.csv")
+----
+ 419:     parser.add_argument("--output_root", type=str, default="results/analysis/patchcore_candidate_regions")
+----
+ 420:     parser.add_argument("--work_root", type=str, default="runs/analysis/patchcore_candidate_regions")
+----
+ 421:     parser.add_argument("--top_components", type=int, default=3)
+----
+ 422:     parser.add_argument("--min_area", type=int, default=20)
+----
+ 423:     parser.add_argument("--train_batch_size", type=int, default=32)
+----
+ 424:     parser.add_argument("--eval_batch_size", type=int, default=32)
+----
+ 425:     parser.add_argument("--num_workers", type=int, default=8)
+----
+ 426:     parser.add_argument("--seed", type=int, default=42)
+----
+ 427:     args = parser.parse_args()
+----
+ 428: 
+----
+ 429:     thresholds = load_thresholds(args.threshold_csv)
+----
+ 430: 
+ 431:     summary = []
+ 432:     for category in args.categories:
+ 433:         if category not in thresholds:
+ 434:             raise KeyError(f"Category {category} not found in threshold csv: {args.threshold_csv}")
+ 435: 
+----
+... output truncated ...
+
+==========================================================================================
+experiments/stage7_generalization/run_visa_patchcore_baseline_and_candidates.py
+==========================================================================================
+size_bytes: 17012
+   1: import argparse
+   2: import csv
+   3: import sys
+   4: from pathlib import Path
+----
+  15: from anomalib.data import Folder
+  16: from anomalib.engine import Engine
+  17: from anomalib.models import Patchcore
+  18: 
+  19: from experiments.stage7_generalization.progress_utils import OneLineProgressCallback
+  20: 
+----
+  21: from experiments.analysis.patchcore_candidate_regions import (
+  22:     get_field,
+  23:     take_item,
+  24:     mask_to_2d,
+----
+  29: 
+  30: 
+  31: VISA_CATEGORIES = [
+  32:     "candle",
+  33:     "capsules",
+  34:     "cashew",
+----
+ 126: 
+ 127: 
+ 128: def build_datamodule(args, category):
+ 129:     category_root = Path(args.data_root) / category
+ 130: 
+ 131:     required = [
+----
+ 132:         category_root / "train" / "good",
+----
+ 133:         category_root / "test" / "good",
+ 134:         category_root / "test" / "anomaly",
+ 135:         category_root / "ground_truth" / "anomaly",
+----
+ 136:     ]
+----
+ 137: 
+----
+ 138:     for path in required:
+----
+ 141: 
+ 142:     datamodule = Folder(
+ 143:         name=f"VisA_{category}",
+ 144:         root=str(category_root),
+ 145:         normal_dir="train/good",
+ 146:         abnormal_dir=["test/anomaly"],
+----
+ 147:         normal_test_dir="test/good",
+----
+ 157: 
+ 158: 
+ 159: def collect_predictions(args, category):
+ 160:     datamodule = build_datamodule(args, category)
+ 161: 
+ 162:     pre_processor = Patchcore.configure_pre_processor(
+----
+ 163:         image_size=(args.image_size, args.image_size),
+----
+ 164:         center_crop_size=(args.center_crop_size, args.center_crop_size),
+ 165:     )
+----
+ 166: 
+ 167:     model = Patchcore(
+ 168:         backbone=args.backbone,
+ 169:         layers=["layer2", "layer3"],
+ 170:         pre_trained=True,
+----
+ 174:     )
+ 175: 
+ 176:     work_dir = Path(args.work_root) / category
+ 177:     work_dir.mkdir(parents=True, exist_ok=True)
+ 178: 
+ 179:     progress_callback = OneLineProgressCallback(category=category)
+----
+ 180: 
+ 181:     engine = Engine(
+ 182:         default_root_dir=str(work_dir),
+----
+ 189:     )
+ 190: 
+ 191:     print(f"[INFO] Fitting PatchCore on VisA category: {category}")
+ 192:     engine.fit(model=model, datamodule=datamodule)
+ 193: 
+ 194:     print(f"[INFO] Predicting PatchCore on VisA category: {category}")
+----
+ 195:     predictions = engine.predict(model=model, datamodule=datamodule)
+ 196: 
+ 197:     return predictions
+----
+ 198: 
+ 199: 
+ 200: def evaluate_and_extract_candidates(args, category, predictions):
+ 201:     image_records = []
+ 202:     candidate_rows = []
+ 203: 
+----
+ 242:             per_image_cache.append(
+ 243:                 {
+ 244:                     "category": category,
+ 245:                     "image_path": image_path,
+ 246:                     "canonical_image_path": canonical_path(image_path),
+ 247:                     "label": "anomaly" if y_image == 1 else "normal",
+----
+ 274:             {
+ 275:                 "dataset": "VisA",
+ 276:                 "category": category,
+ 277:                 "image_path": item["image_path"],
+ 278:                 "canonical_image_path": item["canonical_image_path"],
+ 279:                 "label": item["label"],
+----
+ 309:                 {
+ 310:                     "dataset": "VisA",
+ 311:                     "category": category,
+ 312:                     "image_path": item["image_path"],
+ 313:                     "canonical_image_path": item["canonical_image_path"],
+ 314:                     "component_rank": 0,
+----
+ 333:                 {
+ 334:                     "dataset": "VisA",
+ 335:                     "category": category,
+ 336:                     "image_path": item["image_path"],
+ 337:                     "canonical_image_path": item["canonical_image_path"],
+ 338:                     "component_rank": rank,
+----
+ 354:     metric_row = {
+ 355:         "dataset": "VisA",
+ 356:         "category": category,
+ 357:         "num_test_images": len(image_labels_np),
+ 358:         "num_test_normal": int((image_labels_np == 0).sum()),
+ 359:         "num_test_anomaly": int((image_labels_np == 1).sum()),
+----
+ 371: 
+ 372: 
+ 373: def save_category_outputs(args, category, metric_row, image_records, candidate_rows):
+ 374:     out_root = Path(args.output_root)
+ 375:     category_root = out_root / "VisA" / category
+ 376:     category_root.mkdir(parents=True, exist_ok=True)
+----
+ 377: 
+----
+ 378:     image_csv = category_root / "patchcore_image_predictions.csv"
+----
+ 379:     candidates_csv = category_root / "candidate_regions.csv"
+----
+ 380: 
+ 381:     pd.DataFrame(image_records).to_csv(image_csv, index=False)
+----
+ 382:     pd.DataFrame(candidate_rows).to_csv(candidates_csv, index=False)
+----
+ 391:     coverage_row = {
+ 392:         "dataset": "VisA",
+ 393:         "category": category,
+ 394:         "num_anomaly_images": metric_row["num_test_anomaly"],
+ 395:         "covered_anomaly_images": int(covered_images),
+ 396:         "coverage_ratio": covered_images / metric_row["num_test_anomaly"] if metric_row["num_test_anomaly"] else 0.0,
+----
+ 405: 
+ 406: 
+ 407: def main():
+ 408:     parser = argparse.ArgumentParser()
+ 409:     parser.add_argument("--data_root", type=str, default="datasets/VisA_anomalib_1cls")
+ 410:     parser.add_argument("--categories", nargs="+", default=VISA_CATEGORIES)
+----
+... output truncated ...
+
+==========================================================================================
+experiments/stage7_generalization/visa_binary_prompt_reasoning.py
+==========================================================================================
+size_bytes: 16147
+   1: import argparse
+   2: from pathlib import Path
+   3: 
+   4: import numpy as np
+----
+   8: from sklearn.metrics import average_precision_score, f1_score, roc_auc_score
+   9: 
+  10: import open_clip
+  11: 
+  12: 
+  13: VISA_CATEGORIES = [
+----
+  14:     "candle",
+  15:     "capsules",
+  16:     "cashew",
+----
+  54: 
+  55: 
+  56: def build_prompts(category, strategy):
+  57:     obj = OBJECT_NAMES.get(category, category)
+  58: 
+  59:     if strategy == "generic_binary":
+----
+  60:         normal = [
+----
+  70:         return normal, anomaly
+  71: 
+  72:     if strategy == "category_binary":
+  73:         normal = [
+  74:             f"a normal {obj}",
+  75:             f"a defect-free {obj}",
+----
+ 111: 
+ 112: 
+ 113: def build_text_features(model, tokenizer, category, strategy, device):
+ 114:     normal_prompts, anomaly_prompts = build_prompts(category, strategy)
+ 115: 
+ 116:     normal_feature = encode_prompt_set(model, tokenizer, normal_prompts, device)
+----
+ 117:     anomaly_feature = encode_prompt_set(model, tokenizer, anomaly_prompts, device)
+----
+ 120: 
+ 121:     prompt_row = {
+ 122:         "category": category,
+ 123:         "strategy": strategy,
+ 124:         "normal_prompts": " || ".join(normal_prompts),
+ 125:         "anomaly_prompts": " || ".join(anomaly_prompts),
+----
+ 129: 
+ 130: 
+ 131: def load_candidate_boxes(candidate_root, category, top_k):
+ 132:     csv_path = Path(candidate_root) / "VisA" / category / "candidate_regions.csv"
+ 133: 
+ 134:     if not csv_path.exists():
+----
+ 135:         print(f"[WARN] Missing candidate CSV: {csv_path}")
+----
+ 291: 
+ 292: 
+ 293: def evaluate_category(args, model, preprocess, tokenizer, device, category, strategy, eval_mode):
+ 294:     pred_csv = Path(args.patchcore_root) / "VisA" / category / "patchcore_image_predictions.csv"
+ 295: 
+ 296:     if not pred_csv.exists():
+----
+ 297:         raise FileNotFoundError(f"Missing PatchCore image prediction CSV: {pred_csv}")
+----
+ 298: 
+ 299:     df = pd.read_csv(pred_csv)
+ 300:     df = df[df["label"].isin(["normal", "anomaly"])].copy().reset_index(drop=True)
+----
+ 301: 
+ 302:     boxes = load_candidate_boxes(args.patchcore_root, category, args.top_k)
+ 303:     text_features, prompt_row = build_text_features(
+ 304:         model=model,
+ 305:         tokenizer=tokenizer,
+----
+ 306:         category=category,
+ 307:         strategy=strategy,
+ 308:         device=device,
+ 309:     )
+----
+ 338:             {
+ 339:                 "dataset": "VisA",
+ 340:                 "category": category,
+ 341:                 "strategy": strategy,
+ 342:                 "eval_mode": eval_mode,
+ 343:                 "used_mode": used_mode,
+----
+ 359:     summary_row = {
+ 360:         "dataset": "VisA",
+ 361:         "category": category,
+ 362:         "strategy": strategy,
+ 363:         "eval_mode": eval_mode,
+ 364:         "num_images_total": len(df),
+----
+ 379: 
+ 380: 
+ 381: def main():
+ 382:     parser = argparse.ArgumentParser()
+ 383:     parser.add_argument("--patchcore_root", type=str, default="results/stage7_generalization/visa_patchcore")
+ 384:     parser.add_argument("--output_root", type=str, default="results/stage7_generalization/visa_binary_prompt_reasoning")
+----
+ 385:     parser.add_argument("--categories", nargs="+", default=VISA_CATEGORIES)
+----
+ 386:     parser.add_argument("--strategies", nargs="+", default=["generic_binary", "category_binary", "inspection_binary"])
+----
+ 387:     parser.add_argument("--eval_modes", nargs="+", default=["full_all", "crop_or_full", "crop_topk_ensemble"])
+----
+ 388:     parser.add_argument("--clip_model", type=str, default="ViT-B-32")
+----
+ 389:     parser.add_argument("--clip_pretrained", type=str, default="openai")
+----
+ 390:     parser.add_argument("--device", type=str, default="")
+----
+ 391:     parser.add_argument("--top_k", type=int, default=3)
+----
+ 392:     parser.add_argument("--map_size", type=int, default=224)
+----
+ 393:     parser.add_argument("--crop_padding", type=int, default=12)
+----
+ 394:     parser.add_argument("--min_crop_size", type=int, default=48)
+----
+ 395:     args = parser.parse_args()
+----
+ 396: 
+----
+ 397:     output_root = Path(args.output_root)
+----
+ 398:     output_root.mkdir(parents=True, exist_ok=True)
+ 399: 
+ 400:     device = args.device or ("cuda" if torch.cuda.is_available() else "cpu")
+----
+ 401: 
+----
+ 402:     print(f"[INFO] Loading CLIP: {args.clip_model}, pretrained={args.clip_pretrained}, device={device}")
+ 403:     model, _, preprocess = open_clip.create_model_and_transforms(
+ 404:         args.clip_model,
+ 405:         pretrained=args.clip_pretrained,
+ 406:         device=device,
+----
+ 407:     )
+ 408:     tokenizer = open_clip.get_tokenizer(args.clip_model)
+ 409:     model.eval()
+ 410: 
+ 411:     summary_rows = []
+----
+ 415:     for strategy in args.strategies:
+ 416:         for eval_mode in args.eval_modes:
+ 417:             for category in args.categories:
+ 418:                 print(f"[INFO] Evaluating category={category}, strategy={strategy}, eval_mode={eval_mode}")
+ 419: 
+ 420:                 summary, details, prompt = evaluate_category(
+----
+ 421:                     args=args,
+----
+ 422:                     model=model,
+ 423:                     preprocess=preprocess,
+----
+ 424:                     tokenizer=tokenizer,
+ 425:                     device=device,
+ 426:                     category=category,
+ 427:                     strategy=strategy,
+ 428:                     eval_mode=eval_mode,
+ 429:                 )
+----
+... output truncated ...
+
+==========================================================================================
+experiments/analysis/real_anomaly_crop_visual_prompt_reasoning.py
+==========================================================================================
+size_bytes: 21889
+   1: import argparse
+   2: from pathlib import Path
+   3: 
+   4: import numpy as np
+----
+   8: from tqdm import tqdm
+   9: 
+  10: import open_clip
+  11: 
+  12: 
+  13: OBJECT_INFO = {
+----
+  88: 
+  89: 
+  90: def build_prompts(category, defect_type, strategy):
+  91:     info = OBJECT_INFO.get(
+  92:         category,
+  93:         {
+----
+  94:             "object_type": category,
+  95:             "surface": "industrial object surface",
+----
+  96:         },
+  97:     )
+----
+ 111:         ]
+ 112: 
+ 113:     if strategy == "category_visual":
+ 114:         return [
+ 115:             f"a close-up crop of a defective {object_type} showing {visual_desc}",
+ 116:         ]
+----
+ 127: 
+ 128: 
+ 129: def load_candidate_boxes(candidate_root, categories, top_k):
+ 130:     boxes = {}
+ 131:     coverage_rows = []
+ 132: 
+----
+ 133:     for category in categories:
+ 134:         csv_path = (
+ 135:             Path(candidate_root)
+ 136:             / "MVTecAD"
+----
+ 137:             / category
+ 138:             / "candidate_regions"
+ 139:             / "candidate_regions.csv"
+ 140:         )
+----
+ 141: 
+----
+ 142:         if not csv_path.exists():
+----
+ 179:                 coverage_rows.append(
+ 180:                     {
+ 181:                         "category": category,
+ 182:                         "image_path": key,
+ 183:                         "num_candidate_boxes": len(box_list),
+ 184:                     }
+----
+ 301: 
+ 302: 
+ 303: def build_text_features(model, tokenizer, category, defect_types, strategy, device):
+ 304:     features = []
+ 305:     prompt_rows = []
+ 306: 
+----
+ 307:     for defect_type in defect_types:
+ 308:         prompts = build_prompts(category, defect_type, strategy)
+ 309:         feature = encode_prompt_set(model, tokenizer, prompts, device)
+ 310:         features.append(feature)
+ 311: 
+----
+ 313:             {
+ 314:                 "strategy": strategy,
+ 315:                 "category": category,
+ 316:                 "defect_type": defect_type,
+ 317:                 "num_prompts": len(prompts),
+ 318:                 "prompts": " || ".join(prompts),
+----
+ 379: 
+ 380: 
+ 381: def evaluate_one(df, model, preprocess, tokenizer, device, strategy, eval_mode, candidate_boxes, args):
+ 382:     detail_rows = []
+ 383:     summary_rows = []
+ 384:     defect_rows = []
+----
+ 385:     prompt_rows = []
+ 386: 
+ 387:     for category in sorted(df["category"].unique()):
+ 388:         category_df = df[df["category"] == category].copy().reset_index(drop=True)
+ 389:         defect_types = sorted(category_df["defect_type"].unique().tolist())
+ 390: 
+----
+ 391:         text_features, prompt_records = build_text_features(
+----
+ 392:             model=model,
+----
+ 393:             tokenizer=tokenizer,
+ 394:             category=category,
+ 395:             defect_types=defect_types,
+ 396:             strategy=strategy,
+ 397:             device=device,
+----
+ 407: 
+ 408:         for _, row in tqdm(
+ 409:             category_df.iterrows(),
+ 410:             total=len(category_df),
+ 411:             desc=f"{strategy}:{eval_mode}:{category}",
+ 412:         ):
+----
+ 413:             eval_images, used_mode, is_fallback_or_skipped = get_eval_images(
+----
+ 414:                 row=row,
+----
+ 452:                 "eval_mode": eval_mode,
+ 453:                 "used_mode": used_mode,
+ 454:                 "category": category,
+ 455:                 "image_path": row["image_path"],
+ 456:                 "true_defect_type": true_defect,
+ 457:                 "pred_defect_type": pred_defect,
+----
+ 477:                 "strategy": strategy,
+ 478:                 "eval_mode": eval_mode,
+ 479:                 "category": category,
+ 480:                 "num_images_total": len(category_df),
+ 481:                 "num_images_used": len(y_true),
+ 482:                 "num_defect_types": len(defect_types),
+----
+ 483:                 "covered_count": covered_count,
+----
+ 484:                 "fallback_count": fallback_count,
+ 485:                 "skipped_count": skipped_count,
+ 486:                 "coverage_ratio": covered_count / len(category_df) if len(category_df) else 0.0,
+ 487:                 "top1_accuracy": accuracy,
+ 488:                 "top2_accuracy": top2_accuracy,
+ 489:                 "macro_f1": macro_f1,
+----
+ 496:                     "strategy": strategy,
+ 497:                     "eval_mode": eval_mode,
+ 498:                     "category": category,
+ 499:                 }
+ 500:             )
+ 501:             defect_rows.append(r)
+----
+ 504: 
+ 505: 
+ 506: def main():
+ 507:     parser = argparse.ArgumentParser()
+ 508:     parser.add_argument(
+ 509:         "--manifest_csv",
+----
+ 510:         type=str,
+----
+ 511:         default="results/analysis/defect_type_reasoning/mvtec_defect_type_reasoning_manifest.csv",
+----
+ 512:     )
+ 513:     parser.add_argument(
+ 514:         "--candidate_root",
+ 515:         type=str,
+ 516:         default="results/analysis/patchcore_candidate_regions",
+----
+... output truncated ...
+
+==========================================================================================
+experiments/stage10_dataset_expansion/run_stage10_d_patchcore_candidate_crops.py
+==========================================================================================
+size_bytes: 19063
+  15: ROOT = Path(".").resolve()
+  16: 
+  17: DATA_ROOT = ROOT / "datasets" / "MVTec_AD_2_anomalib" / "vial_folder"
+  18: RUN_DIR = ROOT / "runs" / "stage10_mvtecad2_patchcore" / "vial_patchcore_candidate_crops"
+  19: 
+  20: OUT_DIR = ROOT / "results" / "stage10_dataset_expansion"
+----
+  21: DOC_DIR = ROOT / "docs" / "stage10_dataset_expansion"
+----
+  22: 
+  23: CROP_DIR = OUT_DIR / "stage10_d_patchcore_candidate_crops"
+  24: 
+  25: OUT_CSV = OUT_DIR / "stage10_d_patchcore_candidate_regions.csv"
+  26: OUT_SUMMARY = OUT_DIR / "stage10_d_patchcore_candidate_summary.csv"
+----
+  27: OUT_REPORT = DOC_DIR / "stage10_d_patchcore_candidate_report.md"
+  28: 
+----
+  29: TOP_K = 3
+----
+  30: THRESHOLD_QUANTILE = 0.97
+----
+  38: 
+  39: 
+  40: def import_patchcore_class():
+  41:     try:
+  42:         from anomalib.models import Patchcore
+  43:         return Patchcore
+----
+  44:     except Exception:
+  45:         pass
+----
+  46: 
+----
+  47:     try:
+  48:         from anomalib.models import PatchCore
+  49:         return PatchCore
+  50:     except Exception:
+  51:         pass
+----
+  52: 
+----
+  53:     try:
+  54:         from anomalib.models.image.patchcore import Patchcore
+  55:         return Patchcore
+  56:     except Exception as e:
+  57:         raise ImportError(f"Cannot import PatchCore/Patchcore from anomalib: {repr(e)}")
+----
+  58: 
+----
+  59: 
+  60: def make_folder_datamodule():
+----
+  63:     kwargs = {
+  64:         "name": "mvtecad2_vial_folder",
+  65:         "root": str(DATA_ROOT),
+  66:         "normal_dir": "train/good",
+  67:         "abnormal_dir": "test/bad",
+  68:         "normal_test_dir": "test/good",
+----
+  76: 
+  77: 
+  78: def make_patchcore_model():
+  79:     PatchCoreCls = import_patchcore_class()
+  80: 
+  81:     kwargs = {
+----
+  82:         "backbone": "wide_resnet50_2",
+----
+  86:     }
+  87: 
+  88:     return PatchCoreCls(**filter_kwargs(PatchCoreCls, kwargs))
+  89: 
+  90: 
+  91: def make_engine():
+----
+  97:         "devices": 1,
+  98:         "logger": False,
+  99:         "enable_checkpointing": False,
+ 100:     }
+ 101: 
+ 102:     return Engine(**filter_kwargs(Engine, kwargs))
+----
+ 346: 
+ 347: 
+ 348: def build_records_from_predictions(outputs: Any) -> List[Dict[str, Any]]:
+ 349:     records: List[Dict[str, Any]] = []
+ 350: 
+ 351:     if outputs is None:
+----
+ 352:         return records
+ 353: 
+ 354:     for batch_idx, batch in enumerate(outputs):
+----
+ 355:         n = get_n_items(batch)
+ 356: 
+ 357:         image_path_value = get_batch_field(batch, "image_path")
+----
+ 373:             base_record = {
+ 374:                 "dataset": "MVTec AD 2",
+ 375:                 "category": "vial",
+ 376:                 "batch_idx": batch_idx,
+ 377:                 "item_idx": item_idx,
+ 378:                 "image_path": str(image_path.relative_to(ROOT)) if image_path.is_absolute() and str(image_path).startswith(str(ROOT)) else str(image_path),
+----
+ 455:         return pd.DataFrame([{
+ 456:             "dataset": "MVTec AD 2",
+ 457:             "category": "vial",
+ 458:             "num_images": 0,
+ 459:             "num_candidate_rows": 0,
+ 460:             "num_images_with_candidates": 0,
+----
+ 463: 
+ 464:     per_image = (
+ 465:         df.groupby(["dataset", "category", "image_path"], as_index=False)
+ 466:         .agg(
+ 467:             gt_label=("gt_label", "first"),
+ 468:             pred_score=("pred_score", "first"),
+----
+ 474:     rows = []
+ 475: 
+ 476:     for keys, part in per_image.groupby(["dataset", "category"], as_index=False):
+ 477:         dataset, category = keys
+ 478: 
+ 479:         rows.append({
+----
+ 480:             "dataset": dataset,
+----
+ 481:             "category": category,
+ 482:             "num_images": int(len(part)),
+ 483:             "num_candidate_rows": int(df["candidate_available"].sum()),
+ 484:             "num_images_with_candidates": int(part["has_candidate"].sum()),
+----
+ 495: 
+ 496:     lines: List[str] = []
+ 497:     lines.append("# Stage 10-D PatchCore Candidate Crop Extraction")
+ 498:     lines.append("")
+ 499:     lines.append("## 1. Purpose")
+ 500:     lines.append("")
+----
+ 501:     lines.append("This stage extracts candidate anomaly regions from PatchCore anomaly maps on MVTec AD 2 vial.")
+ 502:     lines.append("It reruns PatchCore fit/predict because Stage 10-C stored only metrics and summarized predictions.")
+ 503:     lines.append("")
+ 504:     lines.append("## 2. Input")
+----
+ 505:     lines.append("")
+----
+ 506:     lines.append(f"- Folder dataset: `{DATA_ROOT.relative_to(ROOT)}`")
+ 507:     lines.append("- Model: PatchCore / wide_resnet50_2 / layer2+layer3")
+ 508:     lines.append("")
+ 509:     lines.append("## 3. Candidate Extraction Rule")
+----
+ 510:     lines.append("")
+----
+ 514:     lines.append(f"- Padding ratio: `{PADDING_RATIO}`")
+ 515:     lines.append("")
+ 516:     lines.append("## 4. Output Files")
+ 517:     lines.append("")
+ 518:     lines.append(f"- Candidate CSV: `{OUT_CSV.relative_to(ROOT)}`")
+ 519:     lines.append(f"- Summary CSV: `{OUT_SUMMARY.relative_to(ROOT)}`")
+----
+... output truncated ...
+
+==========================================================================================
+experiments/stage10_dataset_expansion/run_stage10_e_vlm_full_vs_crop.py
+==========================================================================================
+size_bytes: 17257
+  12: ROOT = Path(".").resolve()
+  13: 
+  14: IN_REGIONS = ROOT / "results" / "stage10_dataset_expansion" / "stage10_d_patchcore_candidate_regions.csv"
+  15: 
+  16: OUT_DIR = ROOT / "results" / "stage10_dataset_expansion"
+  17: DOC_DIR = ROOT / "docs" / "stage10_dataset_expansion"
+----
+ 170: 
+ 171:         try:
+ 172:             import open_clip
+ 173: 
+ 174:             model, _, preprocess = open_clip.create_model_and_transforms(
+ 175:                 "ViT-B-32",
+----
+ 176:                 pretrained="openai",
+ 177:             )
+----
+ 178:             tokenizer = open_clip.get_tokenizer("ViT-B-32")
+ 179: 
+ 180:             self.backend = "open_clip:ViT-B-32/openai"
+ 181:             self.model = model.to(self.device).eval()
+----
+ 182:             self.preprocess = preprocess
+ 183:             self.tokenizer = tokenizer
+----
+ 184:             return
+ 185:         except Exception as open_clip_error:
+ 186:             print("[WARN] open_clip backend unavailable:", repr(open_clip_error))
+ 187: 
+ 188:         try:
+----
+ 189:             from transformers import CLIPModel, CLIPProcessor
+----
+ 196:         except Exception as transformers_error:
+ 197:             raise RuntimeError(
+ 198:                 "No usable CLIP backend found. Install/cache open_clip_torch or transformers CLIP first. "
+ 199:                 f"transformers error={repr(transformers_error)}"
+ 200:             )
+ 201: 
+----
+ 206: 
+ 207:         with torch.no_grad():
+ 208:             if self.backend.startswith("open_clip"):
+ 209:                 tokens = self.tokenizer(prompts).to(self.device)
+ 210:                 text_features = self.model.encode_text(tokens)
+ 211:             else:
+----
+ 237: 
+ 238:         with torch.no_grad():
+ 239:             if self.backend.startswith("open_clip"):
+ 240:                 image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
+ 241:                 image_feature = self.model.encode_image(image_tensor)
+ 242:             else:
+----
+ 336:         rows.append({
+ 337:             "dataset": "MVTec AD 2",
+ 338:             "category": "vial",
+ 339:             "image_path": image_path,
+ 340:             "gt_binary": int(top1["gt_binary"]),
+ 341:             "num_candidates": int(len(part)),
+----
+ 352:             "crop_topk_mean_score": float(pd.to_numeric(part["crop_vlm_margin"], errors="coerce").mean()),
+ 353: 
+ 354:             "patchcore_pred_score": float(pd.to_numeric(part["pred_score"], errors="coerce").iloc[0])
+ 355:             if "pred_score" in part.columns
+ 356:             else float("nan"),
+ 357:         })
+----
+ 366:         "crop_topk_max": "crop_topk_max_score",
+ 367:         "crop_topk_mean": "crop_topk_mean_score",
+ 368:         "patchcore_score": "patchcore_pred_score",
+ 369:     }
+ 370: 
+ 371:     rows = []
+----
+ 382:         rows.append({
+ 383:             "dataset": "MVTec AD 2",
+ 384:             "category": "vial",
+ 385:             "method": method,
+ 386:             "num_images": int(len(image_pred)),
+ 387:             "num_normal": int((y == 0).sum()),
+----
+ 416:     lines.append("## 1. Purpose")
+ 417:     lines.append("")
+ 418:     lines.append("This stage evaluates whether PatchCore candidate crops improve CLIP/VLM binary anomaly reasoning on MVTec AD 2 vial.")
+ 419:     lines.append("It compares full-image prompting with crop-based prompting using the candidate crops generated in Stage 10-D.")
+ 420:     lines.append("")
+ 421:     lines.append("## 2. Input")
+----
+ 422:     lines.append("")
+ 423:     lines.append(f"- Candidate CSV: `{IN_REGIONS.relative_to(ROOT)}`")
+ 424:     lines.append("- Candidate crop directory: `results/stage10_dataset_expansion/stage10_d_patchcore_candidate_crops/`")
+ 425:     lines.append("")
+ 426:     lines.append("## 3. VLM Backend")
+ 427:     lines.append("")
+----
+ 440:         lines.append(f"- {p}")
+ 441:     lines.append("")
+ 442:     lines.append("## 5. Output Files")
+ 443:     lines.append("")
+ 444:     lines.append(f"- Candidate scores: `{OUT_CANDIDATES.relative_to(ROOT)}`")
+ 445:     lines.append(f"- Image predictions: `{OUT_IMAGES.relative_to(ROOT)}`")
+----
+ 464:     lines.append("- If crop_topk_max > full_image, MVTec AD 2 supports the localization-guided VLM reasoning claim.")
+ 465:     lines.append("- If crop_topk_max is close to or worse than full_image, inspect whether candidate crops are too small, visually ambiguous, or dominated by background.")
+ 466:     lines.append("- PatchCore_score is included only as a detector reference, not as a VLM reasoning result.")
+ 467:     lines.append("")
+ 468:     lines.append("## 8. Next Step")
+ 469:     lines.append("")
+----
+ 473: 
+ 474: 
+ 475: def main() -> None:
+ 476:     OUT_DIR.mkdir(parents=True, exist_ok=True)
+ 477:     DOC_DIR.mkdir(parents=True, exist_ok=True)
+ 478: 
+----

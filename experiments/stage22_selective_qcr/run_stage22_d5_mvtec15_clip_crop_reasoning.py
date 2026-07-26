@@ -130,68 +130,27 @@ def category_paths(category: str):
     }
 
 
-
 def load_boxes(
     module,
     candidate_csv: Path,
     top_k: int,
-    map_size: int,
 ):
-    """
-    Convert saved anomaly-map coordinates to the coordinate
-    system expected by the Stage 7 crop implementation.
-
-    D4b stores map_x2/map_y2 as exclusive upper bounds.
-    Stage 7 crop_candidate treats x2/y2 as inclusive and calls
-    crop((x1, y1, x2 + 1, y2 + 1)).
-    """
-
     df = pd.read_csv(candidate_csv)
 
-    numeric_columns = [
-        "component_rank",
-        "candidate_available",
-        "map_x1",
-        "map_y1",
-        "map_x2",
-        "map_y2",
-        "map_width",
-        "map_height",
-    ]
+    df["component_rank"] = pd.to_numeric(
+        df["component_rank"],
+        errors="coerce",
+    )
 
-    missing = [
-        column
-        for column in numeric_columns
-        if column not in df.columns
-    ]
-
-    if missing:
-        raise RuntimeError(
-            f"Candidate CSV missing map columns: {missing}"
-        )
-
-    for column in numeric_columns:
-        df[column] = pd.to_numeric(
-            df[column],
-            errors="coerce",
-        )
+    df["candidate_available"] = pd.to_numeric(
+        df["candidate_available"],
+        errors="coerce",
+    ).fillna(0)
 
     df = df[
         (df["candidate_available"] == 1)
         & (df["component_rank"] > 0)
     ].copy()
-
-    if df[numeric_columns].isna().any().any():
-        bad = df[
-            df[numeric_columns]
-            .isna()
-            .any(axis=1)
-        ].head(10)
-
-        raise RuntimeError(
-            "Invalid numeric candidate coordinates:\n"
-            + bad.to_string(index=False)
-        )
 
     boxes = {}
 
@@ -204,96 +163,20 @@ def load_boxes(
         ).head(top_k)
 
         key = module.canonical_path(image_path)
-        converted = []
 
-        for _, row in group.iterrows():
-            source_width = int(row["map_width"])
-            source_height = int(row["map_height"])
-
-            if source_width <= 0 or source_height <= 0:
-                raise RuntimeError(
-                    f"Invalid map dimensions for {image_path}: "
-                    f"{source_width}x{source_height}"
-                )
-
-            scale_x = map_size / source_width
-            scale_y = map_size / source_height
-
-            # map_x2/map_y2 are exclusive in D4b.
-            x1 = int(
-                np.floor(
-                    float(row["map_x1"])
-                    * scale_x
-                )
-            )
-
-            y1 = int(
-                np.floor(
-                    float(row["map_y1"])
-                    * scale_y
-                )
-            )
-
-            x2 = int(
-                np.ceil(
-                    float(row["map_x2"])
-                    * scale_x
-                )
-            ) - 1
-
-            y2 = int(
-                np.ceil(
-                    float(row["map_y2"])
-                    * scale_y
-                )
-            ) - 1
-
-            x1 = max(
-                0,
-                min(x1, map_size - 1),
-            )
-
-            y1 = max(
-                0,
-                min(y1, map_size - 1),
-            )
-
-            x2 = max(
-                0,
-                min(x2, map_size - 1),
-            )
-
-            y2 = max(
-                0,
-                min(y2, map_size - 1),
-            )
-
-            if x2 < x1 or y2 < y1:
-                raise RuntimeError(
-                    "Invalid converted candidate box:\n"
-                    f"image={image_path}\n"
-                    f"rank={int(row['component_rank'])}\n"
-                    f"source="
-                    f"({row['map_x1']}, {row['map_y1']}, "
-                    f"{row['map_x2']}, {row['map_y2']})\n"
-                    f"converted=({x1}, {y1}, {x2}, {y2})"
-                )
-
-            converted.append(
-                {
-                    "x1": x1,
-                    "y1": y1,
-                    "x2": x2,
-                    "y2": y2,
-                    "rank": int(
-                        row["component_rank"]
-                    ),
-                }
-            )
-
-        boxes[key] = converted
+        boxes[key] = [
+            {
+                "x1": int(row["x1"]),
+                "y1": int(row["y1"]),
+                "x2": int(row["x2"]),
+                "y2": int(row["y2"]),
+                "rank": int(row["component_rank"]),
+            }
+            for _, row in group.iterrows()
+        ]
 
     return boxes
+
 
 def validate_category(category: str):
     paths = category_paths(category)
@@ -322,12 +205,10 @@ def validate_category(category: str):
         "image_path",
         "component_rank",
         "candidate_available",
-        "map_x1",
-        "map_y1",
-        "map_x2",
-        "map_y2",
-        "map_width",
-        "map_height",
+        "x1",
+        "y1",
+        "x2",
+        "y2",
     }
 
     missing_images = (
@@ -438,7 +319,6 @@ def run_category(
         module=module,
         candidate_csv=paths["candidate_csv"],
         top_k=args.top_k,
-        map_size=args.map_size,
     )
 
     runtime_args = SimpleNamespace(

@@ -1,0 +1,141 @@
+===== MVTec AD 15-CLASS CACHE AUDIT =====
+
+[1] results/stage9_qcr_u/stage9_a3_qcr_u_debiased_predictions.csv
+score: 38
+rows: 259440
+size_mib: 66.574
+groups: {"label": ["is_anomaly_final"], "detector": ["detector_score_norm"], "vlm": ["vlm_score_norm"], "quality": ["candidate_quality_norm"], "category": ["category"], "path": ["image_key"]}
+columns: backbone, strategy, eval_mode, used_mode, category, image_key, is_anomaly_final, has_candidate, vlm_score_norm, detector_score_norm, candidate_quality_norm, high_high_consistency, q_original, q_neutral, debiased_method, score
+
+[2] results/stage9_qcr_u/stage9_a1_qcr_u_fusion_predictions.csv
+score: 38
+rows: 155664
+size_mib: 45.779
+groups: {"label": ["is_anomaly_final"], "detector": ["detector_score_norm", "vlm_anomaly_score"], "vlm": ["vlm_anomaly_score", "vlm_score_norm"], "quality": ["candidate_quality_norm"], "category": ["category"], "path": ["image_key"]}
+columns: backbone, dataset, category, strategy, eval_mode, used_mode, image_key, is_anomaly_final, fallback, has_candidate, num_candidates, vlm_anomaly_score, vlm_score_norm, detector_image_score, detector_score_norm, candidate_quality_norm, high_high_consistency, fusion_method, fusion_score, weight_M_vlm, weight_Q_candidate, weight_K_consistency, weight_D_detector
+
+[3] results/stage22_selective_qcr/stage22_b1_visa_patchcore_loco_predictions.csv
+score: 38
+rows: 2162
+size_mib: 0.968
+groups: {"label": ["is_anomaly_final"], "detector": ["detector_score_norm"], "vlm": ["vlm_score_norm"], "quality": ["candidate_quality_norm"], "category": ["category", "heldout_category"], "path": ["image_key"]}
+columns: backbone, dataset, category, strategy, eval_mode, image_key, is_anomaly_final, fallback, has_candidate, num_candidates, vlm_score_norm, detector_score_norm, candidate_quality_norm, high_high_consistency, Y, D, M_available, M, Q, K, fallback_bool, has_candidate_bool, score_D0, score_V3, score_V4, score_V6, srb_pre_gate, srb_agreement, srb_weight, score_S1, srb_active, heldout_category, selected_w_max, selected_q_quantile, selected_q_threshold, selected_tau_delta
+
+[4] results/stage22_selective_qcr/stage22_b2a_visa_fastflow_frozen_predictions.csv
+score: 38
+rows: 2162
+size_mib: 0.876
+groups: {"label": ["is_anomaly_final"], "detector": ["detector_score_norm"], "vlm": ["vlm_score_norm"], "quality": ["candidate_quality_norm"], "category": ["category"], "path": ["image_key"]}
+columns: backbone, dataset, category, strategy, eval_mode, image_key, is_anomaly_final, fallback, has_candidate, num_candidates, vlm_score_norm, detector_score_norm, candidate_quality_norm, high_high_consistency, Y, D, M_available, M, Q, K, fallback_bool, has_candidate_bool, score_D0, score_V3, score_V4, score_V6, srb_pre_gate, srb_agreement, srb_weight, score_S1, srb_active
+
+[5] results/stage11_mvtecad2_multicategory/stage11_d_vlm_candidate_scores.csv
+score: 38
+rows: 502
+size_mib: 0.408
+groups: {"label": ["gt_binary", "gt_label", "pred_label"], "detector": ["context_anomaly_score", "patchcore_score", "tight_anomaly_score"], "vlm": ["context_anomaly_score", "context_vlm_margin"], "quality": ["candidate_score_max", "candidate_score_mean", "context_candidate_mask_density", "tight_candidate_mask_density"], "category": ["category"], "path": ["image_path"]}
+columns: dataset, category, batch_idx, item_idx, candidate_rank, image_path, mask_path, gt_label, pred_label, pred_score, image_width, image_height, anomaly_map_height, anomaly_map_width, map_x1, map_y1, map_x2, map_y2, map_area, candidate_score_max, candidate_score_mean, candidate_score_sum, bbox_x1, bbox_y1, bbox_x2, bbox_y2, context_1p50_x1, context_1p50_y1, context_1p50_x2, context_1p50_y2, tight_crop_path, context_1p50_crop_path, tight_gt_mask_pixels, tight_candidate_mask_pixels, tight_candidate_covers_gt_ratio, tight_candidate_mask_density, context_gt_mask_pixels, context_candidate_mask_pixels, context_candidate_covers_gt_ratio, context_candidate_mask_density, gt_binary, patchcore_score, clip_backend, tight_normal_score, tight_anomaly_score, tight_vlm_margin, context_normal_score, context_anomaly_score, context_vlm_margin
+
+[6] results/stage9_qcr_u/stage9_a0_input_structure.csv
+score: 38
+rows: 184
+size_mib: 0.301
+groups: {"label": ["has_label"], "detector": ["has_anomaly_score"], "vlm": ["has_vlm_score"], "quality": ["has_candidate_quality"], "category": ["has_category"], "path": ["has_image_path"]}
+columns: path, size_bytes, backbone, role, rows, cols, columns, preview_json, error, has_image_path, has_bbox, has_label, has_category, has_candidate_quality, has_vlm_score, has_normal_score, has_anomaly_score, has_crop_score, has_full_score
+
+[7] results/stage11_mvtecad2_multicategory/stage11_h_fabric_vlm_candidate_scores.csv
+score: 38
+rows: 200
+size_mib: 0.155
+groups: {"label": ["gt_binary", "gt_label", "pred_label"], "detector": ["context_anomaly_score", "patchcore_score", "tight_anomaly_score"], "vlm": ["context_anomaly_score", "context_vlm_margin"], "quality": ["candidate_score_max", "candidate_score_mean", "context_candidate_mask_density", "tight_candidate_mask_density"], "category": ["category"], "path": ["image_path"]}
+columns: dataset, category, batch_idx, item_idx, candidate_rank, image_path, mask_path, gt_label, pred_label, pred_score, image_width, image_height, anomaly_map_height, anomaly_map_width, map_x1, map_y1, map_x2, map_y2, map_area, candidate_score_max, candidate_score_mean, candidate_score_sum, bbox_x1, bbox_y1, bbox_x2, bbox_y2, context_1p50_x1, context_1p50_y1, context_1p50_x2, context_1p50_y2, tight_crop_path, context_1p50_crop_path, tight_gt_mask_pixels, tight_candidate_mask_pixels, tight_candidate_covers_gt_ratio, tight_candidate_mask_density, context_gt_mask_pixels, context_candidate_mask_pixels, context_candidate_covers_gt_ratio, context_candidate_mask_density, gt_binary, patchcore_score, clip_backend, tight_normal_score, tight_anomaly_score, tight_vlm_margin, context_normal_score, context_anomaly_score, context_vlm_margin
+
+[8] results/stage7_generalization/visa_binary_prompt_reasoning/visa_binary_prompt_predictions.csv
+score: 31
+rows: 19458
+size_mib: 5.107
+groups: {"label": ["is_anomaly", "label"], "detector": ["vlm_anomaly_score"], "vlm": ["vlm_anomaly_score"], "category": ["category"], "path": ["canonical_image_path", "image_path"]}
+columns: dataset, category, strategy, eval_mode, used_mode, image_path, canonical_image_path, label, is_anomaly, vlm_anomaly_score, fallback, num_eval_images
+
+[9] results/stage7_generalization/visa_multibackbone/fastflow_binary_prompt_reasoning/visa_binary_prompt_predictions.csv
+score: 31
+rows: 6486
+size_mib: 1.712
+groups: {"label": ["is_anomaly", "label"], "detector": ["vlm_anomaly_score"], "vlm": ["vlm_anomaly_score"], "category": ["category"], "path": ["canonical_image_path", "image_path"]}
+columns: dataset, category, strategy, eval_mode, used_mode, image_path, canonical_image_path, label, is_anomaly, vlm_anomaly_score, fallback, num_eval_images
+
+[10] results/stage18_ad2_qcr_ablation/stage18_b0_ad2_qcr_source_inventory.csv
+score: 28
+rows: 551
+size_mib: 0.106
+groups: {"label": ["has_label", "label_col"], "detector": ["detector_score_col", "has_detector_score"], "vlm": ["has_vlm_score", "vlm_score_col"], "category": ["category_col"]}
+columns: file, suffix, readable, num_sample_rows, num_cols, category_col, ad2_categories_found, ad2_coverage_count, image_id_col, label_col, detector_score_col, vlm_score_col, quality_col, consistency_col, has_image_id, has_label, has_detector_score, has_vlm_score, has_quality, has_consistency, source_role, qcr_assembly_value, notes
+
+[11] results/stage18_ad2_qcr_ablation/stage18_b0_ad2_qcr_source_candidates.csv
+score: 28
+rows: 59
+size_mib: 0.013
+groups: {"label": ["has_label", "label_col"], "detector": ["detector_score_col", "has_detector_score"], "vlm": ["has_vlm_score", "vlm_score_col"], "category": ["category_col"]}
+columns: file, suffix, readable, num_sample_rows, num_cols, category_col, ad2_categories_found, ad2_coverage_count, image_id_col, label_col, detector_score_col, vlm_score_col, quality_col, consistency_col, has_image_id, has_label, has_detector_score, has_vlm_score, has_quality, has_consistency, source_role, qcr_assembly_value, notes
+
+[12] results/stage11_mvtecad2_multicategory/stage11_d_vlm_image_predictions.csv
+score: 23
+rows: 243
+size_mib: 0.144
+groups: {"label": ["gt_binary"], "detector": ["full_image_anomaly_score", "patchcore_score"], "category": ["category"], "path": ["image_path"]}
+columns: dataset, category, image_path, gt_binary, num_candidates, clip_backend, full_image_score, full_image_normal_score, full_image_anomaly_score, tight_top1_score, tight_topk_max_score, tight_topk_mean_score, tight_best_crop_path, context_top1_score, context_topk_max_score, context_topk_mean_score, context_best_crop_path, patchcore_score
+
+[13] results/stage10_dataset_expansion/stage10_e_vlm_candidate_scores.csv
+score: 23
+rows: 123
+size_mib: 0.099
+groups: {"label": ["gt_binary", "gt_label", "pred_label"], "detector": ["crop_anomaly_score", "full_anomaly_score"], "category": ["category"], "path": ["image_path", "image_path_resolved"]}
+columns: dataset, category, batch_idx, item_idx, image_path, mask_path, gt_label, pred_label, pred_score, x1, y1, x2, y2, area, mean_score, max_score, threshold, map_min, map_max, map_mean, candidate_rank, candidate_available, crop_path, crop_x1, crop_y1, crop_x2, crop_y2, image_width, image_height, error, gt_binary, image_path_resolved, crop_path_resolved, clip_backend, full_normal_score, full_anomaly_score, full_vlm_margin, crop_normal_score, crop_anomaly_score, crop_vlm_margin
+
+[14] results/stage11_mvtecad2_multicategory/stage11_h_fabric_vlm_image_predictions.csv
+score: 23
+rows: 78
+size_mib: 0.047
+groups: {"label": ["gt_binary"], "detector": ["full_image_anomaly_score", "patchcore_score"], "category": ["category"], "path": ["image_path"]}
+columns: dataset, category, image_path, gt_binary, num_candidates, clip_backend, full_image_score, full_image_normal_score, full_image_anomaly_score, tight_top1_score, tight_topk_max_score, tight_topk_mean_score, tight_best_crop_path, context_top1_score, context_topk_max_score, context_topk_mean_score, context_best_crop_path, patchcore_score
+
+[15] results/stage11_mvtecad2_multicategory/stage11_c_candidate_regions.csv
+score: 22
+rows: 502
+size_mib: 0.330
+groups: {"label": ["gt_label", "pred_label"], "quality": ["candidate_score_max", "candidate_score_mean", "context_candidate_mask_density", "tight_candidate_mask_density"], "category": ["category"], "path": ["image_path"]}
+columns: dataset, category, batch_idx, item_idx, candidate_rank, image_path, mask_path, gt_label, pred_label, pred_score, image_width, image_height, anomaly_map_height, anomaly_map_width, map_x1, map_y1, map_x2, map_y2, map_area, candidate_score_max, candidate_score_mean, candidate_score_sum, bbox_x1, bbox_y1, bbox_x2, bbox_y2, context_1p50_x1, context_1p50_y1, context_1p50_x2, context_1p50_y2, tight_crop_path, context_1p50_crop_path, tight_gt_mask_pixels, tight_candidate_mask_pixels, tight_candidate_covers_gt_ratio, tight_candidate_mask_density, context_gt_mask_pixels, context_candidate_mask_pixels, context_candidate_covers_gt_ratio, context_candidate_mask_density
+
+[16] results/stage22_selective_qcr/stage22_b2b_ad2_frozen_predictions.csv
+score: 22
+rows: 243
+size_mib: 0.188
+groups: {"label": ["gt_binary"], "quality": ["Q_raw_candidate_quality"], "category": ["category"], "path": ["image_path"]}
+columns: category, image_path, gt_binary, D_raw_patchcore, M_raw_crop_topk, Q_raw_candidate_quality, F_raw_full_image_vlm, D, M, Q, F, K, agreement, mutual_anomaly_evidence, adaptive_gate, V0_detector_only, V1_full_image_vlm, V2_crop_topk_vlm, V3_naive_detector_crop_fusion, V4_quality_calibrated_qcr, V5_fixed_qc_diagnostic, V6_adaptive_qcr_refinement, stage18_m_score_source, stage18_q_score_source, stage18_full_image_source, stage18_note, Y, M_available, has_candidate_bool, fallback_bool, score_D0, score_V3, score_V4, score_V6, srb_pre_gate, srb_agreement, srb_weight, score_S1, srb_active
+
+[17] results/stage18_ad2_qcr_ablation/stage18_b2_ad2_qcr_assembled_predictions.csv
+score: 22
+rows: 243
+size_mib: 0.153
+groups: {"label": ["gt_binary"], "quality": ["Q_raw_candidate_quality"], "category": ["category"], "path": ["image_path"]}
+columns: category, image_path, gt_binary, D_raw_patchcore, M_raw_crop_topk, Q_raw_candidate_quality, F_raw_full_image_vlm, D, M, Q, F, K, agreement, mutual_anomaly_evidence, adaptive_gate, V0_detector_only, V1_full_image_vlm, V2_crop_topk_vlm, V3_naive_detector_crop_fusion, V4_quality_calibrated_qcr, V5_fixed_qc_diagnostic, V6_adaptive_qcr_refinement, stage18_m_score_source, stage18_q_score_source, stage18_full_image_source, stage18_note
+
+[18] results/stage11_mvtecad2_multicategory/stage11_h_fabric_candidate_regions.csv
+score: 22
+rows: 200
+size_mib: 0.124
+groups: {"label": ["gt_label", "pred_label"], "quality": ["candidate_score_max", "candidate_score_mean", "context_candidate_mask_density", "tight_candidate_mask_density"], "category": ["category"], "path": ["image_path"]}
+columns: dataset, category, batch_idx, item_idx, candidate_rank, image_path, mask_path, gt_label, pred_label, pred_score, image_width, image_height, anomaly_map_height, anomaly_map_width, map_x1, map_y1, map_x2, map_y2, map_area, candidate_score_max, candidate_score_mean, candidate_score_sum, bbox_x1, bbox_y1, bbox_x2, bbox_y2, context_1p50_x1, context_1p50_y1, context_1p50_x2, context_1p50_y2, tight_crop_path, context_1p50_crop_path, tight_gt_mask_pixels, tight_candidate_mask_pixels, tight_candidate_covers_gt_ratio, tight_candidate_mask_density, context_gt_mask_pixels, context_candidate_mask_pixels, context_candidate_covers_gt_ratio, context_candidate_mask_density
+
+[19] results/stage10_dataset_expansion/stage10_b1_mvtecad2_manifest.csv
+score: 15
+rows: 8004
+size_mib: 1.311
+groups: {"label": ["is_anomaly", "label_available"], "category": ["category"], "path": ["filename", "image_path"]}
+columns: dataset, category, split, image_path, mask_path, label_available, is_anomaly, anomaly_type, evaluation_scope, filename, relative_after_split, has_mask
+
+[20] results/stage11_mvtecad2_multicategory/stage11_a_folder_adapter_mapping.csv
+score: 15
+rows: 3914
+size_mib: 0.997
+groups: {"label": ["has_target_mask", "is_anomaly", "target_image_path", "target_label", "target_mask_path", "target_subset"], "category": ["category"], "path": ["source_image_path", "target_image_path"]}
+columns: dataset, category, folder_root, source_split, source_image_path, source_mask_path, is_anomaly, anomaly_type, target_subset, target_label, target_image_path, target_mask_path, has_target_mask

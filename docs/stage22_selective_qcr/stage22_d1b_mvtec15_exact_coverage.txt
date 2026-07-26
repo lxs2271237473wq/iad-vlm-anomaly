@@ -1,0 +1,366 @@
+===== EXACT MVTec AD 15-CLASS COVERAGE =====
+
+Required usable groups:
+label + detector + vlm + quality + path
+
+COMPLETE USABLE FILES: 0
+
+[1] results/stage11_mvtecad2_multicategory/stage11_d_vlm_candidate_scores.csv
+rows: 502
+datasets: ["MVTec AD 2"]
+MVTec15 coverage: 0/15
+covered: 
+missing: bottle, cable, capsule, carpet, grid, hazelnut, leather, metal_nut, pill, screw, tile, toothbrush, transistor, wood, zipper
+groups: {"label": ["gt_binary"], "detector": ["patchcore_score"], "vlm": ["context_anomaly_score", "context_vlm_margin"], "quality": ["candidate_score_max", "candidate_score_mean"], "path": ["image_path"]}
+complete_signals: True
+
+[2] results/stage11_mvtecad2_multicategory/stage11_h_fabric_vlm_candidate_scores.csv
+rows: 200
+datasets: ["MVTec AD 2"]
+MVTec15 coverage: 0/15
+covered: 
+missing: bottle, cable, capsule, carpet, grid, hazelnut, leather, metal_nut, pill, screw, tile, toothbrush, transistor, wood, zipper
+groups: {"label": ["gt_binary"], "detector": ["patchcore_score"], "vlm": ["context_anomaly_score", "context_vlm_margin"], "quality": ["candidate_score_max", "candidate_score_mean"], "path": ["image_path"]}
+complete_signals: True
+
+[3] results/baselines/patchcore_mvtec_summary.csv
+rows: 15
+datasets: ["MVTecAD"]
+MVTec15 coverage: 15/15
+covered: bottle, cable, capsule, carpet, grid, hazelnut, leather, metal_nut, pill, screw, tile, toothbrush, transistor, wood, zipper
+missing: 
+groups: {}
+complete_signals: False
+
+[4] results/analysis/real_anomaly_crop_visual_prompt_reasoning_full_test/real_anomaly_crop_visual_prompt_predictions.csv
+rows: 6552
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {"path": ["image_path"]}
+complete_signals: False
+
+[5] results/analysis/real_anomaly_crop_visual_prompt_reasoning/real_anomaly_crop_visual_prompt_predictions.csv
+rows: 5248
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {"path": ["image_path"]}
+complete_signals: False
+
+[6] results/analysis/defect_type_visual_prompt_refinement/defect_type_visual_prompt_refinement_predictions.csv
+rows: 2624
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {"path": ["image_path"]}
+complete_signals: False
+
+[7] results/analysis/defect_type_prompt_reasoning_crop/defect_type_prompt_reasoning_crop_predictions.csv
+rows: 1968
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {"path": ["image_path"]}
+complete_signals: False
+
+[8] results/analysis/defect_type_prompt_reasoning_gt_crop/defect_type_prompt_reasoning_gt_crop_predictions.csv
+rows: 1968
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {"path": ["image_path"]}
+complete_signals: False
+
+[9] results/analysis/real_anomaly_crop_visual_prompt_reasoning/real_anomaly_crop_visual_prompt_per_defect_metrics.csv
+rows: 400
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[10] results/analysis/real_anomaly_crop_visual_prompt_reasoning_full_test/real_anomaly_crop_visual_prompt_per_defect_metrics.csv
+rows: 400
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[11] results/analysis/defect_type_prompt_reasoning/category_aware_defect_type_predictions.csv
+rows: 328
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {"path": ["image_path"]}
+complete_signals: False
+
+[12] results/analysis/defect_type_prompt_reasoning/generic_defect_type_predictions.csv
+rows: 328
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {"path": ["image_path"]}
+complete_signals: False
+
+[13] results/analysis/defect_type_prompt_reasoning/manufacturing_aware_defect_type_predictions.csv
+rows: 328
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {"path": ["image_path"]}
+complete_signals: False
+
+[14] results/analysis/defect_type_reasoning/mvtec_defect_type_reasoning_manifest.csv
+rows: 328
+datasets: ["MVTecAD"]
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {"path": ["image_path"]}
+complete_signals: False
+
+[15] results/analysis/manufacturing_defect_explanations/manufacturing_defect_explanations.csv
+rows: 327
+datasets: ["MVTecAD"]
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {"path": ["canonical_image_path", "image_path"]}
+complete_signals: False
+
+[16] results/analysis/real_anomaly_crop_visual_prompt_reasoning_full_test/patchcore_candidate_coverage.csv
+rows: 327
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {"path": ["image_path"]}
+complete_signals: False
+
+[17] results/analysis/real_anomaly_crop_visual_prompt_reasoning/patchcore_candidate_coverage.csv
+rows: 164
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {"path": ["image_path"]}
+complete_signals: False
+
+[18] results/analysis/defect_type_visual_prompt_refinement/defect_type_visual_prompt_refinement_per_defect_metrics.csv
+rows: 160
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[19] results/analysis/defect_type_prompt_reasoning_crop/defect_type_prompt_reasoning_crop_per_defect_metrics.csv
+rows: 120
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[20] results/analysis/defect_type_prompt_reasoning_gt_crop/defect_type_prompt_reasoning_gt_crop_per_defect_metrics.csv
+rows: 120
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[21] results/analysis/clip_semantic_weight_sweep/clip_semantic_weight_sweep_detail.csv
+rows: 108
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[22] results/analysis/real_anomaly_crop_visual_prompt_reasoning/real_anomaly_crop_visual_prompt_summary.csv
+rows: 100
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[23] results/analysis/real_anomaly_crop_visual_prompt_reasoning_full_test/real_anomaly_crop_visual_prompt_summary.csv
+rows: 100
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[24] results/analysis/defect_type_visual_prompt_refinement/visual_prompt_bank.csv
+rows: 80
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[25] results/analysis/real_anomaly_crop_visual_prompt_reasoning/real_anomaly_crop_visual_prompt_bank.csv
+rows: 80
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[26] results/analysis/real_anomaly_crop_visual_prompt_reasoning_full_test/real_anomaly_crop_visual_prompt_bank.csv
+rows: 80
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[27] results/analysis/semantic_prompt_bank/mvtec_prompt_bank.csv
+rows: 56
+datasets: ["MVTec AD"]
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[28] results/analysis/defect_type_visual_prompt_refinement/defect_type_visual_prompt_refinement_summary.csv
+rows: 40
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[29] results/analysis/conservative_residual_calibration_sweep/conservative_residual_calibration_sweep_detail.csv
+rows: 32
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[30] results/analysis/defect_type_prompt_reasoning_crop/defect_type_prompt_reasoning_crop_summary.csv
+rows: 30
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[31] results/analysis/defect_type_prompt_reasoning_gt_crop/defect_type_prompt_reasoning_gt_crop_summary.csv
+rows: 30
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[32] results/analysis/defect_type_prompt_reasoning/category_aware_per_defect_metrics.csv
+rows: 20
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[33] results/analysis/defect_type_prompt_reasoning/generic_per_defect_metrics.csv
+rows: 20
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[34] results/analysis/defect_type_prompt_reasoning/manufacturing_aware_per_defect_metrics.csv
+rows: 20
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[35] results/analysis/defect_type_reasoning/mvtec_defect_type_reasoning_summary.csv
+rows: 20
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[36] results/analysis/defect_type_prompt_reasoning/defect_type_prompt_reasoning_summary.csv
+rows: 15
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[37] results/analysis/anomaly_map_calibration/anomaly_map_calibration_summary.csv
+rows: 5
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[38] results/analysis/anomaly_region_scoring_baseline/anomaly_region_scoring_baseline_summary.csv
+rows: 5
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[39] results/analysis/clip_semantic_weight_sweep/clip_semantic_weight_sweep_summary.csv
+rows: 5
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False
+
+[40] results/analysis/conservative_residual_anomaly_calibration/conservative_residual_anomaly_calibration_summary.csv
+rows: 5
+datasets: []
+MVTec15 coverage: 4/15
+covered: grid, leather, screw, wood
+missing: bottle, cable, capsule, carpet, hazelnut, metal_nut, pill, tile, toothbrush, transistor, zipper
+groups: {}
+complete_signals: False

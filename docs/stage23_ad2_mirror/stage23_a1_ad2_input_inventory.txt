@@ -1,0 +1,178 @@
+===== STAGE 23-A1 AD2 INPUT INVENTORY =====
+
+===== FROZEN PROTOCOL =====
+protocol exists: True
+protocol identity valid: True
+global config exists: True
+protocol config: {'w_max': 0.35, 'q_quantile': 0.25, 'tau_delta': 0.75}
+metadata exists: True
+metadata config: {'w_max': 0.35, 'q_quantile': 0.25, 'tau_delta': 0.75}
+B2b script exists: True
+required config: {'w_max': 0.35, 'q_quantile': 0.25, 'tau_delta': 0.75}
+
+===== AD2 DATASET =====
+fruit_jelly: root=True, train/good=300, test/good=20, test/bad=60, ground_truth/bad=60
+sheet_metal: root=True, train/good=156, test/good=24, test/bad=90, ground_truth/bad=90
+vial: root=True, train/good=332, test/good=35, test/bad=105, ground_truth/bad=105
+walnuts: root=True, train/good=480, test/good=60, test/bad=90, ground_truth/bad=90
+
+===== TOP RELEVANT CSV FILES =====
+[1] results/stage11_mvtecad2_multicategory/stage11_d_vlm_candidate_scores.csv
+  score=69 rows=502 size=427665
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=['detector', 'vlm', 'quality', 'candidate_regions']
+  columns=dataset, category, batch_idx, item_idx, candidate_rank, image_path, mask_path, gt_label, pred_label, pred_score, image_width, image_height, anomaly_map_height, anomaly_map_width, map_x1, map_y1, map_x2, map_y2, map_area, candidate_score_max, candidate_score_mean, candidate_score_sum, bbox_x1, bbox_y1, bbox_x2, bbox_y2, context_1p50_x1, context_1p50_y1, context_1p50_x2, context_1p50_y2, tight_crop_path, context_1p50_crop_path, tight_gt_mask_pixels, tight_candidate_mask_pixels, tight_candidate_covers_gt_ratio, tight_candidate_mask_density, context_gt_mask_pixels, context_candidate_mask_pixels, context_candidate_covers_gt_ratio, context_candidate_mask_density, gt_binary, patchcore_score, clip_backend, tight_normal_score, tight_anomaly_score, tight_vlm_margin, context_normal_score, context_anomaly_score, context_vlm_margin
+[2] results/stage22_selective_qcr/stage22_b2b_ad2_frozen_predictions.csv
+  score=69 rows=243 size=197084
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=['detector', 'vlm', 'quality', 'frozen_scores']
+  columns=category, image_path, gt_binary, D_raw_patchcore, M_raw_crop_topk, Q_raw_candidate_quality, F_raw_full_image_vlm, D, M, Q, F, K, agreement, mutual_anomaly_evidence, adaptive_gate, V0_detector_only, V1_full_image_vlm, V2_crop_topk_vlm, V3_naive_detector_crop_fusion, V4_quality_calibrated_qcr, V5_fixed_qc_diagnostic, V6_adaptive_qcr_refinement, stage18_m_score_source, stage18_q_score_source, stage18_full_image_source, stage18_note, Y, M_available, has_candidate_bool, fallback_bool, score_D0, score_V3, score_V4, score_V6, srb_pre_gate, srb_agreement, srb_weight, score_S1, srb_active
+[3] results/stage11_mvtecad2_multicategory/stage11_c_candidate_regions.csv
+  score=65 rows=502 size=345788
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=['detector', 'quality', 'candidate_regions']
+  columns=dataset, category, batch_idx, item_idx, candidate_rank, image_path, mask_path, gt_label, pred_label, pred_score, image_width, image_height, anomaly_map_height, anomaly_map_width, map_x1, map_y1, map_x2, map_y2, map_area, candidate_score_max, candidate_score_mean, candidate_score_sum, bbox_x1, bbox_y1, bbox_x2, bbox_y2, context_1p50_x1, context_1p50_y1, context_1p50_x2, context_1p50_y2, tight_crop_path, context_1p50_crop_path, tight_gt_mask_pixels, tight_candidate_mask_pixels, tight_candidate_covers_gt_ratio, tight_candidate_mask_density, context_gt_mask_pixels, context_candidate_mask_pixels, context_candidate_covers_gt_ratio, context_candidate_mask_density
+[4] results/stage18_ad2_qcr_ablation/stage18_b2_ad2_qcr_assembled_predictions.csv
+  score=65 rows=243 size=160920
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=['detector', 'vlm', 'quality']
+  columns=category, image_path, gt_binary, D_raw_patchcore, M_raw_crop_topk, Q_raw_candidate_quality, F_raw_full_image_vlm, D, M, Q, F, K, agreement, mutual_anomaly_evidence, adaptive_gate, V0_detector_only, V1_full_image_vlm, V2_crop_topk_vlm, V3_naive_detector_crop_fusion, V4_quality_calibrated_qcr, V5_fixed_qc_diagnostic, V6_adaptive_qcr_refinement, stage18_m_score_source, stage18_q_score_source, stage18_full_image_source, stage18_note
+[5] results/stage11_mvtecad2_multicategory/stage11_d_vlm_image_predictions.csv
+  score=61 rows=243 size=150553
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=['detector', 'vlm']
+  columns=dataset, category, image_path, gt_binary, num_candidates, clip_backend, full_image_score, full_image_normal_score, full_image_anomaly_score, tight_top1_score, tight_topk_max_score, tight_topk_mean_score, tight_best_crop_path, context_top1_score, context_topk_max_score, context_topk_mean_score, context_best_crop_path, patchcore_score
+[6] results/stage11_mvtecad2_multicategory/stage11_b_patchcore_multicategory_predictions.csv
+  score=57 rows=543 size=168652
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=['detector']
+  columns=dataset, category, batch_idx, item_idx, image_path, mask_path, gt_label, pred_label, pred_score, anomaly_map_min, anomaly_map_max, anomaly_map_mean, anomaly_map_shape
+[7] results/stage11_mvtecad2_multicategory/stage11_a_folder_adapter_mapping.csv
+  score=48 rows=3914 size=1045320
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=[]
+  columns=dataset, category, folder_root, source_split, source_image_path, source_mask_path, is_anomaly, anomaly_type, target_subset, target_label, target_image_path, target_mask_path, has_target_mask
+[8] results/stage11_mvtecad2_multicategory/stage11_a_folder_adapter_summary.csv
+  score=48 rows=24 size=2241
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=[]
+  columns=dataset, category, folder_root, target_subset, target_label, is_anomaly, anomaly_type, num_images, num_masks
+[9] results/stage11_mvtecad2_multicategory/stage11_a_folder_adapter_validation.csv
+  score=48 rows=8 size=852
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=[]
+  columns=category, folder_root, target_rows, missing_images, missing_masks, anomalib_success, train_batch_type, test_batch_type, error
+[10] results/stage11_mvtecad2_multicategory/stage11_b1_patchcore_detector_quality_analysis.csv
+  score=48 rows=8 size=1820
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=[]
+  columns=dataset, category, image_AUROC, image_F1Score, pixel_AUROC, pixel_F1Score, success, num_prediction_rows, elapsed_sec, error, stage11_c_priority_group, stage11_c_interpretation
+[11] results/stage11_mvtecad2_multicategory/stage11_b_patchcore_multicategory_metrics.csv
+  score=48 rows=8 size=835
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=[]
+  columns=dataset, category, image_AUROC, image_F1Score, pixel_AUROC, pixel_F1Score
+[12] results/stage11_mvtecad2_multicategory/stage11_b_patchcore_multicategory_status.csv
+  score=48 rows=8 size=1415
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=[]
+  columns=dataset, category, data_root, run_dir, success, fit_success, test_success, predict_success, num_prediction_rows, elapsed_sec, error
+[13] results/stage11_mvtecad2_multicategory/stage11_c_candidate_status.csv
+  score=48 rows=4 size=303
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=[]
+  columns=dataset, category, success, fit_success, predict_success, num_images, num_candidate_rows, elapsed_sec, error
+[14] results/stage11_mvtecad2_multicategory/stage11_c_candidate_summary.csv
+  score=48 rows=4 size=821
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=[]
+  columns=dataset, category, num_images, num_candidate_rows, images_with_candidates, candidate_coverage, mean_candidates_per_image, num_anomaly_images, num_normal_images, top1_tight_mean_gt_coverage_anomaly, top1_context_mean_gt_coverage_anomaly, top1_tight_mean_mask_density_anomaly, top1_context_mean_mask_density_anomaly
+[15] results/stage11_mvtecad2_multicategory/stage11_d_vlm_summary.csv
+  score=48 rows=40 size=12045
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=[]
+  columns=dataset, category, method, score_column, num_images, num_normal, num_anomaly, auroc, ap, best_f1, best_accuracy, best_threshold, full_auroc, full_ap, full_best_f1, full_best_accuracy, delta_auroc_vs_full, delta_ap_vs_full, delta_best_f1_vs_full, delta_accuracy_vs_full
+[16] results/stage11_mvtecad2_multicategory/stage11_e_multicategory_evidence_table.csv
+  score=48 rows=5 size=2912
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=[]
+  columns=dataset, category, detector_priority_group, image_AUROC_patchcore_stage11b, pixel_AUROC_patchcore_stage11b, pixel_F1_patchcore_stage11b, candidate_coverage, top1_tight_gt_coverage, top1_context_gt_coverage, full_image_auroc, best_vlm_method, best_vlm_auroc, best_vlm_delta_vs_full, best_context_method, best_context_auroc, best_context_delta_vs_full, best_tight_method, best_tight_auroc, best_tight_delta_vs_full, patchcore_score_auroc_stage11d, evidence_decision, interpretation, cross_stage_note, stage10_vial_full_auroc, stage10_vial_context_1p50_top1_auroc, stage10_vial_context_delta
+[17] results/stage11_mvtecad2_multicategory/stage11_i_category_usage_decision_table.csv
+  score=48 rows=8 size=1756
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=[]
+  columns=category, detector_group, image_AUROC_patchcore, pixel_AUROC_patchcore, pixel_F1_patchcore, best_context_delta_vs_full, paper_usage, reason
+[18] results/stage11_mvtecad2_multicategory/stage11_i_paper_ready_method_table.csv
+  score=48 rows=6 size=2346
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=[]
+  columns=dataset, category, role, num_images, num_normal, num_anomaly, full_image_auroc, tight_crop_top1_auroc, tight_crop_topk_mean_auroc, context_1p50_top1_auroc, context_1p50_topk_mean_auroc, best_tight_method, best_tight_auroc, best_tight_delta_vs_full, best_context_method, best_context_auroc, best_context_delta_vs_full, best_vlm_method, best_vlm_auroc, best_vlm_delta_vs_full, patchcore_score_auroc
+[19] results/stage18_ad2_qcr_ablation/stage18_b2_ad2_qcr_ablation_per_category.csv
+  score=48 rows=28 size=4840
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=[]
+  columns=category, variant_id, method, score_col, paper_role, num_images, num_normal, num_anomaly, image_auroc, average_precision, best_f1, best_accuracy, best_threshold
+[20] results/stage18_ad2_qcr_ablation/stage18_b3_ad2_q_source_sweep_per_category.csv
+  score=48 rows=200 size=46438
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=[]
+  columns=q_source, q_direction, q_name, category, num_images, auroc_detector_D, auroc_crop_M, auroc_quality_Q_alone, auroc_V3_naive, auroc_V4_quality, auroc_V5_fixed_qc, auroc_V6_adaptive, delta_V4_minus_V3, delta_V6_minus_V4, delta_V6_minus_V3
+[21] results/stage18_ad2_qcr_ablation/stage18_b5_ad2_loco_qcr_all_configs_per_category.csv
+  score=48 rows=4256 size=609184
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=[]
+  columns=category, q_source, q_direction, eta, gamma, auroc_V3_naive, auroc_quality_qcr, auroc_adaptive_qcr, auroc_Q_alone, delta_quality_minus_V3, delta_adaptive_minus_V3, delta_adaptive_minus_quality
+[22] results/stage20_anomalyclip_baseline/stage20_d_anomalyclip_ad2four_metrics.csv
+  score=48 rows=5 size=476
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=[]
+  columns=category, pixel_AUROC_percent, pixel_AUPRO_percent, image_AUROC_percent, image_AP_percent, pixel_AUROC, pixel_AUPRO, image_AUROC, image_AP
+[23] results/stage22_selective_qcr/stage22_b2b_ad2_per_category.csv
+  score=48 rows=4 size=2234
+  categories=['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+  roles=[]
+  columns=category, num_images, num_normal, num_anomaly, potential_call_rate, active_weight_rate, D0_auroc, D0_ap, D0_best_f1, D0_best_accuracy, V3_auroc, V3_ap, V3_best_f1, V3_best_accuracy, V4_auroc, V4_ap, V4_best_f1, V4_best_accuracy, V6_auroc, V6_ap, V6_best_f1, V6_best_accuracy, S1_auroc, S1_ap, S1_best_f1, S1_best_accuracy, S1_minus_D0, S1_minus_V3, S1_minus_V4, S1_minus_V6
+[24] results/stage11_mvtecad2_multicategory/stage11_h_fabric_vlm_candidate_scores.csv
+  score=29 rows=200 size=162992
+  categories=[]
+  roles=['detector', 'vlm', 'quality', 'candidate_regions']
+  columns=dataset, category, batch_idx, item_idx, candidate_rank, image_path, mask_path, gt_label, pred_label, pred_score, image_width, image_height, anomaly_map_height, anomaly_map_width, map_x1, map_y1, map_x2, map_y2, map_area, candidate_score_max, candidate_score_mean, candidate_score_sum, bbox_x1, bbox_y1, bbox_x2, bbox_y2, context_1p50_x1, context_1p50_y1, context_1p50_x2, context_1p50_y2, tight_crop_path, context_1p50_crop_path, tight_gt_mask_pixels, tight_candidate_mask_pixels, tight_candidate_covers_gt_ratio, tight_candidate_mask_density, context_gt_mask_pixels, context_candidate_mask_pixels, context_candidate_covers_gt_ratio, context_candidate_mask_density, gt_binary, patchcore_score, clip_backend, tight_normal_score, tight_anomaly_score, tight_vlm_margin, context_normal_score, context_anomaly_score, context_vlm_margin
+[25] results/stage11_mvtecad2_multicategory/stage11_h_fabric_candidate_regions.csv
+  score=25 rows=200 size=129749
+  categories=[]
+  roles=['detector', 'quality', 'candidate_regions']
+  columns=dataset, category, batch_idx, item_idx, candidate_rank, image_path, mask_path, gt_label, pred_label, pred_score, image_width, image_height, anomaly_map_height, anomaly_map_width, map_x1, map_y1, map_x2, map_y2, map_area, candidate_score_max, candidate_score_mean, candidate_score_sum, bbox_x1, bbox_y1, bbox_x2, bbox_y2, context_1p50_x1, context_1p50_y1, context_1p50_x2, context_1p50_y2, tight_crop_path, context_1p50_crop_path, tight_gt_mask_pixels, tight_candidate_mask_pixels, tight_candidate_covers_gt_ratio, tight_candidate_mask_density, context_gt_mask_pixels, context_candidate_mask_pixels, context_candidate_covers_gt_ratio, context_candidate_mask_density
+[26] results/stage11_mvtecad2_multicategory/stage11_h_fabric_vlm_image_predictions.csv
+  score=21 rows=78 size=49060
+  categories=[]
+  roles=['detector', 'vlm']
+  columns=dataset, category, image_path, gt_binary, num_candidates, clip_backend, full_image_score, full_image_normal_score, full_image_anomaly_score, tight_top1_score, tight_topk_max_score, tight_topk_mean_score, tight_best_crop_path, context_top1_score, context_topk_max_score, context_topk_mean_score, context_best_crop_path, patchcore_score
+[27] results/stage22_selective_qcr/mvtec15_actual_selective_runtime/stage22_d6c_full_score_audit.csv
+  score=21 rows=1725 size=532153
+  categories=[]
+  roles=['detector', 'vlm', 'quality', 'frozen_scores']
+  columns=category, image_path, path_key, Y, D, M, Q, M_raw, M_raw_runtime, M_runtime, srb_pre_gate, score_S1, score_S1_runtime, score_S1_abs_diff, num_eval_images, fallback, used_mode
+[28] results/stage22_selective_qcr/mvtec15_actual_selective_runtime/stage22_d6c_selective_score_audit.csv
+  score=21 rows=1725 size=512159
+  categories=[]
+  roles=['detector', 'vlm', 'quality', 'frozen_scores']
+  columns=category, image_path, path_key, Y, D, M, Q, M_raw, M_raw_runtime, M_runtime, srb_pre_gate, score_S1, score_S1_runtime, score_S1_abs_diff, num_eval_images, fallback, used_mode
+[29] results/stage22_selective_qcr/mvtec15_case_analysis/figures/stage22_d7c_figure_manifest.csv
+  score=21 rows=8 size=2007
+  categories=[]
+  roles=['detector', 'vlm', 'quality', 'frozen_scores']
+  columns=figure_row, figure_column, case_type, case_rank, category, image_path, Y, D, M, Q, score_S1, srb_pre_gate, srb_weight, srb_benefit_vs_detector, naive_harm_vs_detector, candidate_boxes
+[30] results/stage22_selective_qcr/mvtec15_case_analysis/figures/stage22_d7d_main_figure_manifest.csv
+  score=21 rows=4 size=1301
+  categories=[]
+  roles=['detector', 'vlm', 'quality', 'frozen_scores']
+  columns=panel, headline, case_type, case_rank, category, image_path, Y, D, M, Q, score_S1, srb_pre_gate, srb_weight, srb_benefit_vs_detector, naive_harm_vs_detector, vlm_directional_advantage, candidate_boxes
+
+===== DECISION =====
+protocol_config_locked: True
+metadata_config_locked: True
+all_dataset_roots_ready: True
+next_stage_ready: True
+
+[DONE] /root/private_data/iad-vlm-anomaly/results/stage23_ad2_mirror/stage23_a1_ad2_input_inventory.json
+[DONE] /root/private_data/iad-vlm-anomaly/docs/stage23_ad2_mirror/stage23_a1_ad2_input_inventory.txt

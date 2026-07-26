@@ -1,0 +1,42 @@
+===== STAGE 23-C1d FILESYSTEM ASSET RECOVERY =====
+
+===== COUNTS =====
+rows: 243
+full VLM calls: 243
+selective VLM calls: 182
+calls saved: 61
+call saving rate: 0.251029
+context rows: 243
+full-image fallback rows: 0
+
+===== CONSISTENCY =====
+gate-on rows without context assets: 0
+context rows missing expected crop files: 0
+max fallback context-vs-full score diff: 0.0
+
+===== ASSET MODE VS GATE =====
+gate_on                 False  True  All
+asset_mode                              
+context_1p50_topk_mean     61   182  243
+All                        61   182  243
+
+===== PER-CATEGORY =====
+             images  gate_on  context_rows  fallback_rows  eval_images  missing_assets
+category                                                                              
+fruit_jelly      40       32            40              0           61               0
+sheet_metal      57       35            57              0          153               0
+vial             71       54            71              0          117               0
+walnuts          75       61            75              0          171               0
+
+===== MISSING EXAMPLES =====
+NONE
+
+===== DECISION =====
+all_243_assets_ready: True
+all_182_gate_on_rows_use_context: True
+fallback_semantics_exact: True
+runtime_runner_ready: True
+
+[DONE] /root/private_data/iad-vlm-anomaly/results/stage23_ad2_mirror/ad2_actual_selective_runtime/stage23_c1d_ad2_runtime_asset_mapping.csv
+[DONE] /root/private_data/iad-vlm-anomaly/results/stage23_ad2_mirror/stage23_c1d_ad2_filesystem_asset_recovery.json
+[DONE] /root/private_data/iad-vlm-anomaly/docs/stage23_ad2_mirror/stage23_c1d_ad2_filesystem_asset_recovery.txt

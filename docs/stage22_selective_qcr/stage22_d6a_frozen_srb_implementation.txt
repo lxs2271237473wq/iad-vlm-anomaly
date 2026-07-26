@@ -1,0 +1,1834 @@
+====================================================================================================
+experiments/stage22_selective_qcr/run_stage22_a1_cached_score_audit.py
+====================================================================================================
+top-level functions: normalized, path_score, detect_field_groups, inspect_csv, first_json_record, inspect_json, inspect_numpy, inspect_parquet, inspect_file, collect_candidates, format_groups, write_report, main
+
+   71:         "crop_vlm_score",
+   72:         "semantic_score",
+   73:     ],
+   74:     "quality": [
+   75:         "q",
+   76:         "quality",
+   77:         "quality_score",
+   78:         "candidate_quality",
+   79:         "crop_quality",
+   80:     ],
+   81:     "consistency": [
+   82:         "c",
+  451:         "",
+  452:         "- detector evidence `D`",
+  453:         "- crop/VLM evidence `M`",
+  454:         "- candidate quality `Q`",
+  455:         "- optional consistency `C`",
+  456:         "- binary anomaly label",
+  457:         "- category and image identifier",
+  479:         "## Interpretation rule",
+  480:         "",
+  481:         "A file is immediately usable only if sample-level detector",
+  482:         "evidence, VLM evidence, quality, labels, and sample/category",
+  483:         "identifiers can be aligned without reconstructing values",
+  484:         "from aggregate metrics.",
+  485:         "",
+  486:     ]
+  487: 
+
+====================================================================================================
+experiments/stage22_selective_qcr/run_stage22_a1c_compact_trace.py
+====================================================================================================
+top-level functions: rel, read_lines, merge_ranges, matching_context, format_code_blocks, ast_function_ranges, format_functions, code_files, collect_csv_references, count_csv_rows, detect_groups, visa_candidates, main
+
+   19:     / "stage22_a1c_compact_qcr_trace.md"
+   20: )
+   21: 
+   22: QUALITY_PATTERN = re.compile(
+   23:     r"\bquality\b|quality_score|candidate_quality|"
+   24:     r"quality_weight|quality_gate|\bq_score\b",
+   25:     re.IGNORECASE,
+   26: )
+   27: 
+   32: )
+   33: 
+   34: QCR_PATTERN = re.compile(
+   35:     r"\bqcr\b|naive_fusion|quality_calibrated|"
+   36:     r"adaptive_refinement|\bV3\b|\bV4\b|\bV5\b|\bV6\b",
+   37:     re.IGNORECASE,
+   38: )
+   61:         "context_anomaly_score",
+   62:         "tight_anomaly_score",
+   63:     ],
+   64:     "quality": [
+   65:         "quality",
+   66:         "quality_score",
+   67:         "candidate_quality",
+   68:         "candidate_score_max",
+   69:         "candidate_score_mean",
+   70:         "candidate_mask_density",
+  396:         score = (
+  397:             8 * int("detector" in groups)
+  398:             + 8 * int("vlm" in groups)
+  399:             + 7 * int("quality" in groups)
+  400:             + 8 * int("label" in groups)
+  401:             + 4 * int("path" in groups)
+  402:             + 3 * int("category" in groups)
+  439:     ]
+  440: 
+  441:     report += [
+  442:         "## 1. 旧 QCR：Quality 计算代码",
+  443:         "",
+  444:     ]
+  445: 
+  446:     quality_found = False
+  447: 
+  448:     for path in paths:
+  449:         functions = ast_function_ranges(
+  450:             path,
+  451:             QUALITY_PATTERN,
+  452:         )
+  453: 
+  454:         if functions:
+  455:             quality_found = True
+  456:             report.extend(
+  457:                 format_functions(path, functions)
+  458:             )
+  459: 
+  460:     if not quality_found:
+  461:         report.append(
+  462:             "未发现独立的 Quality 函数，下面给出关键词上下文。"
+  463:         )
+  464:         report.append("")
+  465: 
+  466:         for path in paths:
+  467:             ranges = matching_context(
+  468:                 read_lines(path),
+  469:                 QUALITY_PATTERN,
+  470:             )
+  471: 
+  472:             if ranges:
+
+====================================================================================================
+experiments/stage22_selective_qcr/run_stage22_a2_freeze_srb_qcr_protocol.py
+====================================================================================================
+top-level functions: sha256, read_bool_summary, numeric_summary, main
+
+   18: OUT_JSON = (
+   19:     ROOT
+   20:     / "results/stage22_selective_qcr"
+   21:     / "stage22_a2_srb_qcr_frozen_protocol.json"
+   22: )
+   23: 
+   24: OUT_REPORT = (
+   25:     ROOT
+   26:     / "docs/stage22_selective_qcr"
+   27:     / "stage22_a2_srb_qcr_frozen_protocol.md"
+   28: )
+   29: 
+   30: REQUIRED_COLUMNS = [
+   40:     "num_candidates",
+   41:     "vlm_score_norm",
+   42:     "detector_score_norm",
+   43:     "candidate_quality_norm",
+   44: ]
+   45: 
+   46: OPTIONAL_COLUMNS = [
+   66: }
+   67: 
+   68: GRID = {
+   69:     "w_max": [0.15, 0.25, 0.35],
+   70:     "tau_q": [0.25, 0.50, 0.75],
+   71:     "tau_delta": [0.25, 0.50, 0.75],
+   72: }
+   73: 
+   74: 
+  234:         for column in [
+  235:             "detector_score_norm",
+  236:             "vlm_score_norm",
+  237:             "candidate_quality_norm",
+  238:             "num_candidates",
+  239:         ]
+  240:     }
+  248:         )
+  249: 
+  250:     protocol = {
+  251:         "protocol_id": "stage22_a2_srb_qcr_v1",
+  252:         "status": "frozen_before_stage22_b_results",
+  253:         "method_name": (
+  254:             "Selective Reliability-Bounded QCR"
+  255:         ),
+  256:         "short_name": "SRB-QCR",
+  257:         "source": {
+  258:             "path": str(INPUT.relative_to(ROOT)),
+  259:             "sha256": sha256(INPUT),
+  269:         "signal_mapping": {
+  270:             "D": "detector_score_norm",
+  271:             "M": "vlm_score_norm",
+  272:             "Q": "candidate_quality_norm",
+  273:             "Y": "is_anomaly_final",
+  274:             "sample_id": "image_key",
+  275:             "group": "category",
+  290:         ),
+  291:         "categories_found": categories,
+  292:         "method": {
+  293:             "pre_gate": (
+  294:                 "G_pre = I(has_candidate) * "
+  295:                 "I(not fallback) * I(Q >= tau_q)"
+  296:             ),
+  297:             "agreement": (
+  298:                 "A = clip(1 - abs(D-M)/tau_delta, 0, 1)"
+  299:             ),
+  300:             "weight": (
+  301:                 "w = w_max * G_pre * Q * A"
+  302:             ),
+  303:             "score": (
+  304:                 "S_SRB = D + w * (M-D)"
+  305:             ),
+  306:             "missing_candidate_rule": (
+  307:                 "If no valid candidate or M is unavailable, "
+  308:                 "set w=0 and S_SRB=D."
+  309:             ),
+  310:             "boundedness": [
+  311:                 "0 <= w <= w_max < 0.5",
+  312:                 "S_SRB lies between D and M.",
+  313:                 (
+  314:                     "abs(S_SRB-D) <= "
+  315:                     "w_max * abs(M-D) <= w_max."
+  316:                 ),
+  317:                 (
+  318:                     "The fused score remains closer to D "
+  322:             "old_consistency_usage": (
+  323:                 "The binary high_high_consistency signal "
+  324:                 "is retained only for comparison with the "
+  325:                 "old Adaptive QCR and is not used by SRB-QCR."
+  326:             ),
+  327:         },
+  328:         "hyperparameter_grid": GRID,
+  329:         "number_of_grid_configurations": (
+  330:             len(GRID["w_max"])
+  331:             * len(GRID["tau_q"])
+  332:             * len(GRID["tau_delta"])
+  333:         ),
+  334:         "selection_protocol": {
+  335:             "type": (
+  363:                     "then prefer lower potential VLM call rate."
+  364:                 ),
+  365:                 (
+  366:                     "Remaining ties use, in order: lower w_max, "
+  367:                     "higher tau_q, lower tau_delta."
+  368:                 ),
+  369:                 (
+  370:                     "If no configuration is eligible, use "
+  412:             "detector only",
+  413:             "crop VLM only",
+  414:             "naive detector-crop fusion",
+  415:             "old Quality-Calibrated QCR",
+  416:             "old Adaptive QCR",
+  417:             "SRB-QCR",
+  418:         ],
+  419:         "transfer_and_external_validation": [
+  420:             (
+  481:     )
+  482: 
+  483:     lines = [
+  484:         "# Stage 22-A2: Frozen SRB-QCR Protocol",
+  485:         "",
+  486:         "## Status",
+  487:         "",
+  488:         "- status: `frozen_before_stage22_b_results`",
+  489:         "- method: `Selective Reliability-Bounded QCR`",
+  490:         "- short name: `SRB-QCR`",
+  491:         f"- source: `{INPUT.relative_to(ROOT)}`",
+  492:         f"- source SHA-256: `{protocol['source']['sha256']}`",
+  493:         "",
+  495:         "",
+  496:         "- `D = detector_score_norm`",
+  497:         "- `M = vlm_score_norm`",
+  498:         "- `Q = candidate_quality_norm`",
+  499:         "- `Y = is_anomaly_final`",
+  500:         "- sample ID: `image_key`",
+  501:         "- group: `category`",
+  504:         "",
+  505:         "```text",
+  506:         "G_pre = I(has_candidate) · I(not fallback) · I(Q >= tau_q)",
+  507:         "A     = clip(1 - |D-M| / tau_delta, 0, 1)",
+  508:         "w     = w_max · G_pre · Q · A",
+  509:         "S_SRB = D + w(M-D)",
+  510:         "```",
+  511:         "",
+  512:         "with:",
+  513:         "",
+  514:         "```text",
+  515:         "0 <= w <= w_max < 0.5",
+  516:         "|S_SRB-D| <= w_max |M-D| <= w_max",
+  517:         "```",
+  518:         "",
+  519:         "A missing or invalid candidate forces `w=0` and",
+  520:         "`S_SRB=D`.",
+  521:         "",
+  522:         "## Frozen grid",
+  523:         "",
+  524:         f"- `w_max`: `{GRID['w_max']}`",
+  525:         f"- `tau_q`: `{GRID['tau_q']}`",
+  526:         f"- `tau_delta`: `{GRID['tau_delta']}`",
+  527:         "- total configurations: `27`",
+  528:         "",
+  529:         "## Selection",
+  533:         "- primary criterion: development macro image AUROC",
+  534:         "- detector non-inferiority tolerance: `0.002`",
+  535:         "- AUROC tie tolerance: `0.001`",
+  536:         "- tie priority: lower call rate, lower `w_max`,",
+  537:         "  higher `tau_q`, lower `tau_delta`",
+  538:         "- no eligible configuration: detector-only fallback",
+  539:         "",
+  540:         "## Frozen transfer tests",
+
+====================================================================================================
+experiments/stage22_selective_qcr/run_stage22_b1_visa_patchcore_loco_selection.py
+====================================================================================================
+top-level functions: sha256, as_bool, safe_auroc, safe_ap, best_threshold_metrics, evaluate_binary, macro_auroc, quality_threshold, add_old_scores, apply_srb, prepare_base, select_fold_configuration, evaluate_fold_variant, global_config_from_folds, main
+
+   22: PROTOCOL_PATH = (
+   23:     ROOT
+   24:     / "results/stage22_selective_qcr"
+   25:     / "stage22_a2_srb_qcr_frozen_protocol.json"
+   26: )
+   27: 
+   28: OUT_DIR = ROOT / "results/stage22_selective_qcr"
+   70: VARIANTS = {
+   71:     "D0": "Detector only",
+   72:     "V3": "Naive detector-crop fusion",
+   73:     "V4": "Old Quality-Calibrated QCR",
+   74:     "V6": "Old Adaptive QCR",
+   75:     "S1": "SRB-QCR",
+   76: }
+   77: 
+   78: 
+  229:     return float(np.mean(values)), len(values)
+  230: 
+  231: 
+  232: def quality_threshold(
+  233:     df: pd.DataFrame,
+  234:     quantile_level: float,
+  235: ) -> float:
+  276:         result["M"],
+  277:     )
+  278: 
+  279:     adaptive_gate = (
+  280:         result["Q"]
+  281:         * result["K"]
+  282:         * agreement
+  285: 
+  286:     result["score_V6"] = (
+  287:         result["score_V4"]
+  288:         + 0.05 * adaptive_gate
+  289:     )
+  290: 
+  291:     return result
+  292: 
+  293: 
+  294: def apply_srb(
+  295:     df: pd.DataFrame,
+  296:     w_max: float,
+  297:     q_threshold: float,
+  298:     tau_delta: float,
+  299: ) -> pd.DataFrame:
+  300:     result = df.copy()
+  301: 
+  302:     pre_gate = (
+  303:         result["has_candidate_bool"]
+  304:         & ~result["fallback_bool"]
+  305:         & result["M_available"]
+  306:         & (result["Q"] >= q_threshold)
+  307:     )
+  308: 
+  309:     agreement = (
+  310:         1.0
+  311:         - (
+  312:             (result["D"] - result["M"]).abs()
+  313:             / tau_delta
+  314:         )
+  315:     ).clip(lower=0.0, upper=1.0)
+  316: 
+  317:     weight = (
+  318:         w_max
+  319:         * pre_gate.astype(float)
+  320:         * result["Q"]
+  321:         * agreement
+  322:     )
+  323: 
+  324:     weight = weight.clip(
+  325:         lower=0.0,
+  326:         upper=w_max,
+  327:     )
+  328: 
+  329:     result["srb_pre_gate"] = pre_gate.astype(int)
+  330:     result["srb_agreement"] = agreement
+  331:     result["srb_weight"] = weight
+  332: 
+  333:     result["score_S1"] = (
+  334:         result["D"]
+  335:         + weight * (result["M"] - result["D"])
+  336:     )
+  337: 
+  338:     result["srb_active"] = (
+  339:         weight > 0
+  340:     ).astype(int)
+  341: 
+  441:     base["M"] = m_numeric.fillna(0.0)
+  442: 
+  443:     base["Q"] = pd.to_numeric(
+  444:         base["candidate_quality_norm"],
+  445:         errors="coerce",
+  446:     ).fillna(0.0)
+  447: 
+  501: 
+  502:     tied = tied.sort_values(
+  503:         [
+  504:             "dev_potential_call_rate",
+  505:             "w_max",
+  506:             "q_quantile",
+  507:             "tau_delta",
+  508:         ],
+  509:         ascending=[
+  510:             True,
+  567:     selected_folds: pd.DataFrame,
+  568: ) -> dict:
+  569:     valid = selected_folds[
+  570:         ~selected_folds["detector_only_fallback"]
+  571:     ].copy()
+  572: 
+  573:     if valid.empty:
+  574:         return {
+  575:             "method": "detector_only",
+  576:             "reason": (
+  577:                 "No fold selected an eligible SRB-QCR "
+  578:                 "configuration."
+  579:             ),
+  580:         }
+  581: 
+  582:     key_cols = [
+  583:         "selected_w_max",
+  584:         "selected_q_quantile",
+  585:         "selected_tau_delta",
+  586:     ]
+  587: 
+  588:     keys = [
+  610: 
+  611:         candidates.append(
+  612:             {
+  613:                 "w_max": float(key[0]),
+  614:                 "q_quantile": float(key[1]),
+  615:                 "tau_delta": float(key[2]),
+  616:                 "selection_count": int(count),
+  617:                 "mean_dev_rank": float(
+  618:                     subset[
+  621:                 ),
+  622:                 "mean_dev_call_rate": float(
+  623:                     subset[
+  624:                         "selected_dev_potential_call_rate"
+  625:                     ].mean()
+  626:                 ),
+  627:             }
+  632:             -row["selection_count"],
+  633:             row["mean_dev_rank"],
+  634:             row["mean_dev_call_rate"],
+  635:             row["w_max"],
+  636:             -row["q_quantile"],
+  637:             row["tau_delta"],
+  638:         )
+  639:     )
+  640: 
+  641:     return {
+  642:         "method": "SRB-QCR",
+  643:         "selection_rule": (
+  644:             "frequency, mean development rank, "
+  645:             "call rate, conservative tie order"
+  708: 
+  709:     configs = list(
+  710:         itertools.product(
+  711:             grid["w_max"],
+  712:             grid["tau_q"],
+  713:             grid["tau_delta"],
+  714:         )
+  715:     )
+  716: 
+  745: 
+  746:         fold_grid_rows = []
+  747: 
+  748:         q_thresholds = {
+  749:             float(q_level): quality_threshold(
+  750:                 dev,
+  751:                 float(q_level),
+  752:             )
+  753:             for q_level in grid["tau_q"]
+  754:         }
+  755: 
+  756:         for w_max, q_level, tau_delta in configs:
+  757:             q_level = float(q_level)
+  758: 
+  759:             candidate = apply_srb(
+  760:                 dev,
+  761:                 w_max=float(w_max),
+  762:                 q_threshold=q_thresholds[q_level],
+  763:                 tau_delta=float(tau_delta),
+  764:             )
+  765: 
+  766:             dev_macro, valid_groups = macro_auroc(
+  770: 
+  771:             call_rate = float(
+  772:                 candidate[
+  773:                     "srb_pre_gate"
+  774:                 ].mean()
+  775:             )
+  776: 
+  777:             active_rate = float(
+  778:                 candidate["srb_active"].mean()
+  779:             )
+  780: 
+  781:             row = {
+  782:                 "heldout_category": (
+  783:                     heldout_category
+  784:                 ),
+  785:                 "w_max": float(w_max),
+  786:                 "q_quantile": q_level,
+  787:                 "q_threshold_from_dev": (
+  788:                     q_thresholds[q_level]
+  789:                 ),
+  790:                 "tau_delta": float(tau_delta),
+  791:                 "dev_macro_auroc": dev_macro,
+  792:                 "dev_detector_macro_auroc": (
+  793:                     detector_macro
+  804:                     >= detector_macro
+  805:                     - noninferiority
+  806:                 ),
+  807:                 "dev_potential_call_rate": (
+  808:                     call_rate
+  809:                 ),
+  810:                 "dev_active_weight_rate": (
+  811:                     active_rate
+  812:                 ),
+  813:                 "valid_dev_groups": valid_groups,
+  842:             test_scored["score_S1"] = (
+  843:                 test_scored["score_D0"]
+  844:             )
+  845:             test_scored["srb_pre_gate"] = 0
+  846:             test_scored["srb_agreement"] = 0.0
+  847:             test_scored["srb_weight"] = 0.0
+  848:             test_scored["srb_active"] = 0
+  849: 
+  850:             selected_row = {
+  851:                 "heldout_category": (
+  852:                     heldout_category
+  853:                 ),
+  854:                 "detector_only_fallback": True,
+  855:                 "selected_w_max": np.nan,
+  856:                 "selected_q_quantile": np.nan,
+  857:                 "selected_q_threshold": np.nan,
+  858:                 "selected_tau_delta": np.nan,
+  859:                 "selected_dev_macro_auroc": (
+  860:                     detector_macro
+  861:                 ),
+  865:                 "selected_dev_delta_vs_detector": (
+  866:                     0.0
+  867:                 ),
+  868:                 "selected_dev_potential_call_rate": (
+  869:                     0.0
+  870:                 ),
+  871:                 "selected_dev_rank": np.nan,
+  872:             }
+  873: 
+  874:         else:
+  875:             q_threshold = float(
+  876:                 selected[
+  877:                     "q_threshold_from_dev"
+  878:                 ]
+  879:             )
+  880: 
+  881:             test_scored = apply_srb(
+  882:                 test,
+  883:                 w_max=float(
+  884:                     selected["w_max"]
+  885:                 ),
+  886:                 q_threshold=q_threshold,
+  887:                 tau_delta=float(
+  888:                     selected["tau_delta"]
+  889:                 ),
+  890:             )
+  891: 
+  893:                 "heldout_category": (
+  894:                     heldout_category
+  895:                 ),
+  896:                 "detector_only_fallback": False,
+  897:                 "selected_w_max": float(
+  898:                     selected["w_max"]
+  899:                 ),
+  900:                 "selected_q_quantile": float(
+  901:                     selected["q_quantile"]
+  902:                 ),
+  903:                 "selected_q_threshold": (
+  904:                     q_threshold
+  905:                 ),
+  906:                 "selected_tau_delta": float(
+  907:                     selected["tau_delta"]
+  908:                 ),
+  909:                 "selected_dev_macro_auroc": (
+  910:                     float(
+  923:                         ]
+  924:                     )
+  925:                 ),
+  926:                 "selected_dev_potential_call_rate": (
+  927:                     float(
+  928:                         selected[
+  929:                             "dev_potential_call_rate"
+  930:                         ]
+  931:                     )
+  932:                 ),
+  941:             heldout_category
+  942:         )
+  943: 
+  944:         test_scored["selected_w_max"] = (
+  945:             selected_row["selected_w_max"]
+  946:         )
+  947:         test_scored[
+  948:             "selected_q_quantile"
+  949:         ] = selected_row[
+  950:             "selected_q_quantile"
+  951:         ]
+  952:         test_scored[
+  953:             "selected_q_threshold"
+  954:         ] = selected_row[
+  955:             "selected_q_threshold"
+  956:         ]
+  957:         test_scored[
+  958:             "selected_tau_delta"
+  959:         ] = selected_row[
+  960:             "selected_tau_delta"
+  961:         ]
+  962: 
+  963:         prediction_frames.append(test_scored)
+  979:                     "variant_id": variant_id,
+  980:                     "method": method,
+  981:                     **metrics,
+  982:                     "potential_call_rate": (
+  983:                         float(
+  984:                             test_scored[
+  985:                                 "srb_pre_gate"
+  986:                             ].mean()
+  987:                         )
+  988:                         if variant_id == "S1"
+  989:                         else np.nan
+  990:                     ),
+  991:                     "active_weight_rate": (
+  992:                         float(
+  993:                             test_scored[
+  994:                                 "srb_active"
+  995:                             ].mean()
+  996:                         )
+  997:                         if variant_id == "S1"
+ 1041:                     "variant_id": variant_id,
+ 1042:                     "method": method,
+ 1043:                     **metrics,
+ 1044:                     "potential_call_rate": (
+ 1045:                         float(
+ 1046:                             group[
+ 1047:                                 "srb_pre_gate"
+ 1048:                             ].mean()
+ 1049:                         )
+ 1050:                         if variant_id == "S1"
+ 1051:                         else np.nan
+ 1052:                     ),
+ 1053:                     "active_weight_rate": (
+ 1054:                         float(
+ 1055:                             group[
+ 1056:                                 "srb_active"
+ 1057:                             ].mean()
+ 1058:                         )
+ 1059:                         if variant_id == "S1"
+ 1090:                 "num_backbones": len(
+ 1091:                     backbone_df
+ 1092:                 ),
+ 1093:                 "potential_call_rate": (
+ 1094:                     float(
+ 1095:                         predictions[
+ 1096:                             "srb_pre_gate"
+ 1097:                         ].mean()
+ 1098:                     )
+ 1099:                     if variant_id == "S1"
+ 1100:                     else np.nan
+ 1101:                 ),
+ 1102:                 "active_weight_rate": (
+ 1103:                     float(
+ 1104:                         predictions[
+ 1105:                             "srb_active"
+ 1106:                         ].mean()
+ 1107:                     )
+ 1108:                     if variant_id == "S1"
+ 1126:             "VisA PatchCore category-LOCO"
+ 1127:         ),
+ 1128:         "num_categories": len(categories),
+ 1129:         "global_configuration": (
+ 1130:             global_config
+ 1131:         ),
+ 1132:     }
+ 1179:         == "loco_mean_over_backbones"
+ 1180:     ].copy()
+ 1181: 
+ 1182:     srb = main_metrics[
+ 1183:         main_metrics["variant_id"] == "S1"
+ 1184:     ].iloc[0]
+ 1185: 
+ 1191:         main_metrics["variant_id"] == "V3"
+ 1192:     ].iloc[0]
+ 1193: 
+ 1194:     old_quality = main_metrics[
+ 1195:         main_metrics["variant_id"] == "V4"
+ 1196:     ].iloc[0]
+ 1197: 
+ 1200:     ].iloc[0]
+ 1201: 
+ 1202:     lines = [
+ 1203:         "# Stage 22-B1: VisA PatchCore Category-LOCO SRB-QCR",
+ 1204:         "",
+ 1205:         "## Protocol",
+ 1206:         "",
+ 1219: 
+ 1220:     for _, row in main_metrics.iterrows():
+ 1221:         call_rate = (
+ 1222:             f"{row['potential_call_rate']:.4f}"
+ 1223:             if pd.notna(
+ 1224:                 row["potential_call_rate"]
+ 1225:             )
+ 1226:             else "-"
+ 1227:         )
+ 1238:         "",
+ 1239:         "## Main deltas",
+ 1240:         "",
+ 1241:         f"- SRB-QCR minus detector: `{srb['auroc'] - detector['auroc']:+.4f}`",
+ 1242:         f"- SRB-QCR minus naive fusion: `{srb['auroc'] - naive['auroc']:+.4f}`",
+ 1243:         f"- SRB-QCR minus old Quality QCR: `{srb['auroc'] - old_quality['auroc']:+.4f}`",
+ 1244:         f"- SRB-QCR minus old Adaptive QCR: `{srb['auroc'] - old_adaptive['auroc']:+.4f}`",
+ 1245:         f"- potential VLM call rate: `{srb['potential_call_rate']:.4f}`",
+ 1246:         f"- potential calls saved: `{1.0 - srb['potential_call_rate']:.4f}`",
+ 1247:         "",
+ 1248:         "## Fold selections",
+ 1249:         "",
+ 1250:         "| Held-out category | Fallback | w_max | q quantile | q threshold | tau_delta | Dev AUROC | Dev delta vs detector |",
+ 1251:         "|---|---|---:|---:|---:|---:|---:|---:|",
+ 1252:     ]
+ 1253: 
+ 1254:     for _, row in selected_df.iterrows():
+ 1255:         lines.append(
+ 1256:             f"| {row['heldout_category']} | "
+ 1257:             f"{bool(row['detector_only_fallback'])} | "
+ 1258:             f"{row['selected_w_max']} | "
+ 1259:             f"{row['selected_q_quantile']} | "
+ 1260:             f"{row['selected_q_threshold']} | "
+ 1261:             f"{row['selected_tau_delta']} | "
+ 1262:             f"{row['selected_dev_macro_auroc']:.4f} | "
+ 1263:             f"{row['selected_dev_delta_vs_detector']:+.4f} |"
+ 1264:         )
+ 1278:         "## Interpretation restriction",
+ 1279:         "",
+ 1280:         "Potential call rate is an offline estimate based on",
+ 1281:         "the pre-VLM quality gate. It is not yet a measured",
+ 1282:         "wall-clock speedup.",
+ 1283:         "",
+ 1284:     ]
+ 1299:                 "auroc",
+ 1300:                 "ap",
+ 1301:                 "best_f1",
+ 1302:                 "potential_call_rate",
+ 1303:             ]
+ 1304:         ].to_string(index=False)
+ 1305:     )
+ 1306:     print()
+ 1307:     print(
+ 1308:         "SRB - detector:",
+ 1309:         f"{srb['auroc'] - detector['auroc']:+.4f}",
+ 1310:     )
+ 1311:     print(
+ 1312:         "SRB - naive:",
+ 1313:         f"{srb['auroc'] - naive['auroc']:+.4f}",
+ 1314:     )
+ 1315:     print(
+ 1316:         "SRB - old quality:",
+ 1317:         f"{srb['auroc'] - old_quality['auroc']:+.4f}",
+ 1318:     )
+ 1319:     print(
+ 1320:         "SRB - old adaptive:",
+ 1321:         f"{srb['auroc'] - old_adaptive['auroc']:+.4f}",
+ 1322:     )
+ 1323:     print(
+ 1324:         "potential call rate:",
+ 1325:         f"{srb['potential_call_rate']:.4f}",
+ 1326:     )
+ 1327:     print(
+ 1328:         "potential calls saved:",
+ 1329:         f"{1.0 - srb['potential_call_rate']:.4f}",
+ 1330:     )
+ 1331:     print()
+ 1332:     print("[DONE]", OUT_GRID)
+
+====================================================================================================
+experiments/stage22_selective_qcr/run_stage22_b2a_visa_fastflow_frozen_transfer.py
+====================================================================================================
+top-level functions: load_b1_module, sha256, as_bool, prepare_fastflow, target_quality_threshold, main
+
+   21: PROTOCOL_PATH = (
+   22:     ROOT
+   23:     / "results/stage22_selective_qcr"
+   24:     / "stage22_a2_srb_qcr_frozen_protocol.json"
+   25: )
+   26: 
+   27: CONFIG_PATH = (
+   63: VARIANTS = {
+   64:     "D0": ("Detector only", "score_D0"),
+   65:     "V3": ("Naive detector-crop fusion", "score_V3"),
+   66:     "V4": ("Old Quality-Calibrated QCR", "score_V4"),
+   67:     "V6": ("Old Adaptive QCR", "score_V6"),
+   68:     "S1": ("SRB-QCR frozen transfer", "score_S1"),
+   69: }
+   70: 
+   71: 
+  215:     base["M"] = m_numeric.fillna(0.0)
+  216: 
+  217:     base["Q"] = pd.to_numeric(
+  218:         base["candidate_quality_norm"],
+  219:         errors="coerce",
+  220:     ).fillna(0.0)
+  221: 
+  253:     return base.reset_index(drop=True)
+  254: 
+  255: 
+  256: def target_quality_threshold(
+  257:     df: pd.DataFrame,
+  258:     quantile: float,
+  259: ) -> tuple[float, int]:
+  300: 
+  301:     selected = (
+  302:         config_payload[
+  303:             "global_configuration"
+  304:         ]["selected"]
+  305:     )
+  306: 
+  307:     w_max = float(selected["w_max"])
+  308:     q_quantile = float(
+  309:         selected["q_quantile"]
+  310:     )
+  311:     tau_delta = float(
+  312:         selected["tau_delta"]
+  313:     )
+  314: 
+  315:     # Exact frozen configuration expected from Stage 22-B1.
+  316:     expected = {
+  317:         "w_max": 0.35,
+  318:         "q_quantile": 0.25,
+  319:         "tau_delta": 0.75,
+  320:     }
+  321: 
+  322:     actual = {
+  323:         "w_max": w_max,
+  324:         "q_quantile": q_quantile,
+  325:         "tau_delta": tau_delta,
+  326:     }
+  327: 
+  328:     if actual != expected:
+  335:     b1 = load_b1_module()
+  336:     base = prepare_fastflow(protocol, b1)
+  337: 
+  338:     q_threshold, q_count = (
+  339:         target_quality_threshold(
+  340:             base,
+  341:             q_quantile,
+  342:         )
+  343:     )
+  344: 
+  363:         "labels:",
+  364:         sorted(base["Y"].unique().tolist()),
+  365:     )
+  366:     print("w_max:", w_max)
+  367:     print("q_quantile:", q_quantile)
+  368:     print("target q threshold:", q_threshold)
+  369:     print("eligible q samples:", q_count)
+  370:     print("tau_delta:", tau_delta)
+  371:     print()
+  372: 
+  373:     if base["category"].nunique() != 12:
+  386:         print("[OK] Validation-only run passed.")
+  387:         return
+  388: 
+  389:     scored = b1.apply_srb(
+  390:         base,
+  391:         w_max=w_max,
+  392:         q_threshold=q_threshold,
+  393:         tau_delta=tau_delta,
+  394:     )
+  395: 
+  396:     per_category_rows = []
+  408:             "num_anomaly": int(
+  409:                 (group["Y"] == 1).sum()
+  410:             ),
+  411:             "potential_call_rate": float(
+  412:                 group["srb_pre_gate"].mean()
+  413:             ),
+  414:             "active_weight_rate": float(
+  415:                 group["srb_active"].mean()
+  416:             ),
+  417:         }
+  418: 
+  506:                 "num_backbones": len(
+  507:                     backbone_frame
+  508:                 ),
+  509:                 "potential_call_rate": (
+  510:                     float(
+  511:                         scored[
+  512:                             "srb_pre_gate"
+  513:                         ].mean()
+  514:                     )
+  515:                     if variant_id == "S1"
+  516:                     else np.nan
+  517:                 ),
+  518:                 "active_weight_rate": (
+  519:                     float(
+  520:                         scored[
+  521:                             "srb_active"
+  522:                         ].mean()
+  523:                     )
+  524:                     if variant_id == "S1"
+  547:         ),
+  548:         "transfer_target": "VisA FastFlow",
+  549:         "target_labels_used_for_parameters": False,
+  550:         "target_quality_rule": (
+  551:             "25th percentile of unlabeled eligible "
+  552:             "target candidate-quality values"
+  553:         ),
+  554:         "configuration": actual,
+  555:         "target_q_threshold": q_threshold,
+  556:         "eligible_q_samples": q_count,
+  557:         "rows": len(scored),
+  558:         "categories": int(
+  597:         encoding="utf-8",
+  598:     )
+  599: 
+  600:     srb = scores["S1"]
+  601: 
+  602:     lines = [
+  603:         "# Stage 22-B2a: Frozen SRB-QCR Transfer to VisA FastFlow",
+  604:         "",
+  605:         "## Protocol",
+  606:         "",
+  607:         "- parameters selected on: `VisA PatchCore category-LOCO`",
+  608:         "- target: `VisA FastFlow`",
+  609:         "- target labels used for parameter selection: `none`",
+  610:         f"- `w_max = {w_max}`",
+  611:         f"- `q_quantile = {q_quantile}`",
+  612:         f"- target unlabeled Q threshold: `{q_threshold:.6f}`",
+  613:         f"- `tau_delta = {tau_delta}`",
+  614:         "",
+  615:         "## Summary",
+  616:         "",
+  620: 
+  621:     for _, row in summary.iterrows():
+  622:         call_rate = (
+  623:             f"{row['potential_call_rate']:.4f}"
+  624:             if pd.notna(
+  625:                 row["potential_call_rate"]
+  626:             )
+  627:             else "-"
+  628:         )
+  639:         "",
+  640:         "## Frozen-transfer deltas",
+  641:         "",
+  642:         f"- SRB minus detector: `{srb - scores['D0']:+.4f}`",
+  643:         f"- SRB minus naive: `{srb - scores['V3']:+.4f}`",
+  644:         f"- SRB minus old Quality QCR: `{srb - scores['V4']:+.4f}`",
+  645:         f"- SRB minus old Adaptive QCR: `{srb - scores['V6']:+.4f}`",
+  646:         f"- categories SRB > detector: `{int((per_category['S1_minus_D0'] > 0).sum())}/12`",
+  647:         f"- worst category delta vs detector: `{per_category['S1_minus_D0'].min():+.4f}`",
+  648:         f"- potential calls saved: `{1.0 - float(scored['srb_pre_gate'].mean()):.4f}`",
+  649:         "",
+  650:         "Potential call saving remains an offline estimate,",
+  651:         "not a measured runtime speedup.",
+  670:                 "mean_image_auroc",
+  671:                 "mean_image_ap",
+  672:                 "mean_best_f1",
+  673:                 "potential_call_rate",
+  674:             ]
+  675:         ].to_string(index=False)
+  676:     )
+  677:     print()
+  678:     print(
+  679:         "SRB - detector:",
+  680:         f"{srb - scores['D0']:+.6f}",
+  681:     )
+  682:     print(
+  683:         "SRB - naive:",
+  684:         f"{srb - scores['V3']:+.6f}",
+  685:     )
+  686:     print(
+  687:         "SRB - old quality:",
+  688:         f"{srb - scores['V4']:+.6f}",
+  689:     )
+  690:     print(
+  691:         "SRB - old adaptive:",
+  692:         f"{srb - scores['V6']:+.6f}",
+  693:     )
+  694:     print(
+  695:         "category wins vs detector:",
+  701:     )
+  702:     print(
+  703:         "potential call rate:",
+  704:         f"{scored['srb_pre_gate'].mean():.6f}",
+  705:     )
+  706:     print(
+  707:         "potential calls saved:",
+  708:         f"{1.0 - scored['srb_pre_gate'].mean():.6f}",
+  709:     )
+  710:     print()
+  711:     print("[DONE]", OUT_PRED)
+
+====================================================================================================
+experiments/stage22_selective_qcr/run_stage22_b2b_ad2_frozen_transfer.py
+====================================================================================================
+top-level functions: load_module, load_frozen_config, prepare_ad2, target_q_threshold, macro_mean, main
+
+   26: PROTOCOL_PATH = (
+   27:     ROOT
+   28:     / "results/stage22_selective_qcr"
+   29:     / "stage22_a2_srb_qcr_frozen_protocol.json"
+   30: )
+   31: 
+   32: CONFIG_PATH = (
+   80:         "score_V3",
+   81:     ),
+   82:     "V4": (
+   83:         "Old Quality-Calibrated QCR",
+   84:         "score_V4",
+   85:     ),
+   86:     "V6": (
+   88:         "score_V6",
+   89:     ),
+   90:     "S1": (
+   91:         "SRB-QCR frozen transfer",
+   92:         "score_S1",
+   93:     ),
+   94: }
+  137:     )
+  138: 
+  139:     selected = config_payload[
+  140:         "global_configuration"
+  141:     ]["selected"]
+  142: 
+  143:     config = {
+  144:         "w_max": float(
+  145:             selected["w_max"]
+  146:         ),
+  147:         "q_quantile": float(
+  148:             selected["q_quantile"]
+  149:         ),
+  150:         "tau_delta": float(
+  151:             selected["tau_delta"]
+  152:         ),
+  153:     }
+  154: 
+  155:     expected = {
+  156:         "w_max": 0.35,
+  157:         "q_quantile": 0.25,
+  158:         "tau_delta": 0.75,
+  159:     }
+  160: 
+  161:     if config != expected:
+  186:         "Q",
+  187:         "V0_detector_only",
+  188:         "V3_naive_detector_crop_fusion",
+  189:         "V4_quality_calibrated_qcr",
+  190:         "V6_adaptive_qcr_refinement",
+  191:     ]
+  192: 
+  278: 
+  279:     pred["score_V4"] = pd.to_numeric(
+  280:         pred[
+  281:             "V4_quality_calibrated_qcr"
+  282:         ],
+  283:         errors="coerce",
+  284:     )
+  293:     return pred.reset_index(drop=True)
+  294: 
+  295: 
+  296: def target_q_threshold(
+  297:     pred: pd.DataFrame,
+  298:     quantile: float,
+  299: ) -> tuple[float, int]:
+  365:         .tolist()
+  366:     )
+  367: 
+  368:     q_threshold, eligible_q_count = (
+  369:         target_q_threshold(
+  370:             pred,
+  371:             config["q_quantile"],
+  372:         )
+  373:     )
+  374: 
+  382:         sorted(pred["Y"].unique().tolist()),
+  383:     )
+  384:     print(
+  385:         "w_max:",
+  386:         config["w_max"],
+  387:     )
+  388:     print(
+  389:         "q_quantile:",
+  390:         config["q_quantile"],
+  391:     )
+  392:     print(
+  393:         "target q threshold:",
+  394:         q_threshold,
+  395:     )
+  396:     print(
+  397:         "eligible q samples:",
+  398:         eligible_q_count,
+  399:     )
+  400:     print(
+  401:         "tau_delta:",
+  402:         config["tau_delta"],
+  403:     )
+  404:     print()
+  405: 
+  425:         )
+  426:         return
+  427: 
+  428:     scored = b1.apply_srb(
+  429:         pred,
+  430:         w_max=config["w_max"],
+  431:         q_threshold=q_threshold,
+  432:         tau_delta=config["tau_delta"],
+  433:     )
+  434: 
+  435:     per_category_rows = []
+  447:             "num_anomaly": int(
+  448:                 (group["Y"] == 1).sum()
+  449:             ),
+  450:             "potential_call_rate": float(
+  451:                 group[
+  452:                     "srb_pre_gate"
+  453:                 ].mean()
+  454:             ),
+  455:             "active_weight_rate": float(
+  456:                 group[
+  457:                     "srb_active"
+  458:                 ].mean()
+  459:             ),
+  460:         }
+  564:                 "num_categories": len(
+  565:                     per_category
+  566:                 ),
+  567:                 "potential_call_rate": (
+  568:                     float(
+  569:                         scored[
+  570:                             "srb_pre_gate"
+  571:                         ].mean()
+  572:                     )
+  573:                     if variant_id == "S1"
+  574:                     else np.nan
+  575:                 ),
+  576:                 "active_weight_rate": (
+  577:                     float(
+  578:                         scored[
+  579:                             "srb_active"
+  580:                         ].mean()
+  581:                     )
+  582:                     if variant_id == "S1"
+  596:         for _, row in summary.iterrows()
+  597:     }
+  598: 
+  599:     srb_vs_detector = (
+  600:         scores["S1"] - scores["D0"]
+  601:     )
+  602: 
+  615: 
+  616:     # Frozen interpretation rule declared before inspecting results.
+  617:     if (
+  618:         srb_vs_detector >= 0
+  619:         and category_wins >= 3
+  620:         and worst_delta >= -0.005
+  621:     ):
+  623:             "retain_as_cross_dataset_deployment_mode"
+  624:         )
+  625:     elif (
+  626:         srb_vs_detector >= -0.005
+  627:         and worst_delta >= -0.010
+  628:     ):
+  629:         decision = (
+  644:         ),
+  645:         "target_labels_used_for_parameters": False,
+  646:         "configuration": config,
+  647:         "target_quality_rule": (
+  648:             "25th percentile of unlabeled "
+  649:             "eligible AD2 Q values"
+  650:         ),
+  651:         "target_q_threshold": q_threshold,
+  652:         "eligible_q_samples": (
+  653:             eligible_q_count
+  654:         ),
+  712:     )
+  713: 
+  714:     lines = [
+  715:         "# Stage 22-B2b: Frozen SRB-QCR Transfer to AD2",
+  716:         "",
+  717:         "## Protocol",
+  718:         "",
+  719:         "- parameter source: `VisA PatchCore category-LOCO`",
+  720:         "- transfer target: `AD2 four categories`",
+  721:         "- AD2 labels used for parameter selection: `none`",
+  722:         f"- `w_max = {config['w_max']}`",
+  723:         f"- `q_quantile = {config['q_quantile']}`",
+  724:         f"- target unlabeled Q threshold: `{q_threshold:.6f}`",
+  725:         f"- `tau_delta = {config['tau_delta']}`",
+  726:         "",
+  727:         "## Summary",
+  728:         "",
+  732: 
+  733:     for _, row in summary.iterrows():
+  734:         call_rate = (
+  735:             f"{row['potential_call_rate']:.4f}"
+  736:             if pd.notna(
+  737:                 row["potential_call_rate"]
+  738:             )
+  739:             else "-"
+  740:         )
+  752:         "",
+  753:         "## Frozen-transfer deltas",
+  754:         "",
+  755:         f"- SRB minus detector: `{scores['S1'] - scores['D0']:+.4f}`",
+  756:         f"- SRB minus naive: `{scores['S1'] - scores['V3']:+.4f}`",
+  757:         f"- SRB minus old Quality QCR: `{scores['S1'] - scores['V4']:+.4f}`",
+  758:         f"- SRB minus old Adaptive QCR: `{scores['S1'] - scores['V6']:+.4f}`",
+  759:         f"- categories SRB > detector: `{category_wins}/4`",
+  760:         f"- worst category delta vs detector: `{worst_delta:+.4f}`",
+  761:         f"- potential calls saved: `{1.0 - float(scored['srb_pre_gate'].mean()):.4f}`",
+  762:         f"- frozen decision: `{decision}`",
+  763:         "",
+  764:         "Potential call saving remains an offline estimate.",
+  786:                 "pooled_image_auroc",
+  787:                 "mean_image_ap",
+  788:                 "mean_best_f1",
+  789:                 "potential_call_rate",
+  790:             ]
+  791:         ].to_string(index=False)
+  792:     )
+  793: 
+  794:     print()
+  795:     print(
+  796:         "SRB - detector:",
+  797:         f"{scores['S1'] - scores['D0']:+.6f}",
+  798:     )
+  799:     print(
+  800:         "SRB - naive:",
+  801:         f"{scores['S1'] - scores['V3']:+.6f}",
+  802:     )
+  803:     print(
+  804:         "SRB - old quality:",
+  805:         f"{scores['S1'] - scores['V4']:+.6f}",
+  806:     )
+  807:     print(
+  808:         "SRB - old adaptive:",
+  809:         f"{scores['S1'] - scores['V6']:+.6f}",
+  810:     )
+  811:     print(
+  818:     )
+  819:     print(
+  820:         "potential call rate:",
+  821:         f"{scored['srb_pre_gate'].mean():.6f}",
+  822:     )
+  823:     print(
+  824:         "potential calls saved:",
+  825:         f"{1.0 - scored['srb_pre_gate'].mean():.6f}",
+  826:     )
+  827:     print(
+  828:         "frozen decision:",
+
+====================================================================================================
+experiments/stage22_selective_qcr/run_stage22_c1_paired_bootstrap.py
+====================================================================================================
+top-level functions: safe_auc, load_protocol, make_strata, evaluate_indices, point_scores, bootstrap_scores, summarize_delta, safe_key, main
+
+   72: 
+   73: PAIRS = [
+   74:     {
+   75:         "comparison": "SRB-QCR vs detector",
+   76:         "left": "S1",
+   77:         "right": "D0",
+   78:         "claim_role": "reliability_mode_primary",
+   79:     },
+   80:     {
+   81:         "comparison": "Quality QCR vs naive fusion",
+   82:         "left": "V4",
+   83:         "right": "V3",
+   84:         "claim_role": "high_accuracy_mode_primary",
+   85:     },
+   86:     {
+   87:         "comparison": "Adaptive QCR vs Quality QCR",
+   88:         "left": "V6",
+   89:         "right": "V4",
+   90:         "claim_role": "adaptive_refinement_secondary",
+   91:     },
+   92:     {
+   93:         "comparison": "SRB-QCR vs Quality QCR",
+   94:         "left": "S1",
+   95:         "right": "V4",
+   96:         "claim_role": "accuracy_efficiency_tradeoff",
+
+====================================================================================================
+experiments/stage22_selective_qcr/run_stage22_c2b_actual_selective_runtime.py
+====================================================================================================
+top-level functions: load_reasoning_module, normalize_path, as_bool, load_gate_lookup, lookup_gate, build_selective_view, synchronize, load_clip_model, warm_up, benchmark_mode, main
+
+   29:     / "visa_patchcore"
+   30: )
+   31: 
+   32: GATE_PREDICTIONS = (
+   33:     ROOT
+   34:     / "results/stage22_selective_qcr"
+   35:     / "stage22_b1_visa_patchcore_loco_predictions.csv"
+  141:     )
+  142: 
+  143: 
+  144: def load_gate_lookup() -> tuple[dict, pd.DataFrame]:
+  145:     if not GATE_PREDICTIONS.exists():
+  146:         raise FileNotFoundError(GATE_PREDICTIONS)
+  147: 
+  148:     gate = pd.read_csv(GATE_PREDICTIONS)
+  149: 
+  150:     filters = {
+  151:         "dataset": "VisA",
+  154:     }
+  155: 
+  156:     for column, value in filters.items():
+  157:         if column in gate.columns:
+  158:             gate = gate[
+  159:                 gate[column].astype(str) == value
+  160:             ]
+  161: 
+  162:     if "backbone" in gate.columns:
+  163:         gate = gate[
+  164:             gate["backbone"]
+  165:             .astype(str)
+  166:             .str.contains(
+  167:                 "patchcore",
+  173:     required = [
+  174:         "category",
+  175:         "image_key",
+  176:         "srb_pre_gate",
+  177:     ]
+  178: 
+  179:     missing = [
+  180:         column
+  181:         for column in required
+  182:         if column not in gate.columns
+  183:     ]
+  184: 
+  185:     if missing:
+  186:         raise RuntimeError(
+  187:             f"Gate prediction table missing: {missing}"
+  188:         )
+  189: 
+  190:     gate = gate.drop_duplicates(
+  191:         subset=["category", "image_key"]
+  192:     ).reset_index(drop=True)
+  193: 
+  194:     gate["gate_bool"] = as_bool(
+  195:         gate["srb_pre_gate"]
+  196:     )
+  197: 
+  198:     lookup: dict[
+  200:         bool,
+  201:     ] = {}
+  202: 
+  203:     for _, row in gate.iterrows():
+  204:         category = str(row["category"])
+  205:         passed = bool(row["gate_bool"])
+  206: 
+  207:         candidate_paths = [
+  208:             row.get("image_key", ""),
+  217: 
+  218:             lookup[(category, key)] = passed
+  219: 
+  220:     return lookup, gate
+  221: 
+  222: 
+  223: def lookup_gate(
+  224:     module,
+  225:     lookup: dict,
+  226:     category: str,
+  251:     return None
+  252: 
+  253: 
+  254: def build_selective_view(
+  255:     module,
+  256: ) -> pd.DataFrame:
+  257:     lookup, gate = load_gate_lookup()
+  258: 
+  259:     if VIEW_ROOT.exists():
+  260:         shutil.rmtree(VIEW_ROOT)
+  307:         unmatched = 0
+  308: 
+  309:         for _, row in df.iterrows():
+  310:             decision = lookup_gate(
+  311:                 module=module,
+  312:                 lookup=lookup,
+  313:                 category=category,
+  338:             else:
+  339:                 decisions.append(decision)
+  340: 
+  341:         df["stage22_srb_pre_gate"] = decisions
+  342: 
+  343:         selected = df[
+  344:             df["stage22_srb_pre_gate"]
+  345:         ].copy()
+  346: 
+  347:         destination_category = (
+  414:     if total_unmatched:
+  415:         raise RuntimeError(
+  416:             "Some PatchCore prediction rows could not "
+  417:             "be matched to Stage 22-B1 gate decisions.\n"
+  418:             f"Total unmatched: {total_unmatched}\n"
+  419:             f"Examples: {unmatched_examples}"
+  420:         )
+  421: 
+  422:     expected_gate_rows = len(gate)
+  423:     full_images = int(
+  424:         inventory["full_images"].sum()
+  425:     )
+  426: 
+  427:     if expected_gate_rows != full_images:
+  428:         raise RuntimeError(
+  429:             "Gate and PatchCore image counts differ.\n"
+  430:             f"Gate rows: {expected_gate_rows}\n"
+  431:             f"PatchCore rows: {full_images}"
+  432:         )
+  433: 
+  711:             elapsed
+  712:             / int(
+  713:                 pd.read_csv(
+  714:                     GATE_PREDICTIONS
+  715:                 )[
+  716:                     lambda frame: (
+  717:                         frame["backbone"]
+  798: 
+  799:     module = load_reasoning_module()
+  800: 
+  801:     inventory = build_selective_view(module)
+  802: 
+  803:     OUT_DIR.mkdir(
+  804:         parents=True,
+  839:         selective_images,
+  840:     )
+  841:     print(
+  842:         "gate call rate:",
+  843:         f"{call_rate:.6f}",
+  844:     )
+  845:     print(
+ 1152:         "",
+ 1153:         "The benchmark executes the original Stage 7",
+ 1154:         "CLIP reasoning path. Samples rejected by the",
+ 1155:         "SRB pre-gate are removed before the VLM loop,",
+ 1156:         "so the reported call reduction is an actual",
+ 1157:         "execution-level reduction rather than an",
+ 1158:         "offline estimate.",
+
+====================================================================================================
+experiments/stage22_selective_qcr/run_stage22_d2_mvtec15_asset_gap_audit.py
+====================================================================================================
+top-level functions: normalize, choose_column, detect_roles, scan_dataset_directories, count_images, infer_categories_from_file_path, scan_csv_sources, source_paths, find_code_paths, main
+
+   96:     "m_raw_crop_topk",
+   97: }
+   98: 
+   99: QUALITY_COLUMNS = {
+  100:     "candidate_quality",
+  101:     "candidate_quality_norm",
+  102:     "quality_score",
+  103:     "candidate_score_max",
+  104:     "candidate_score_mean",
+  105:     "q",
+  106:     "q_raw_candidate_quality",
+  107: }
+  108: 
+  109: CANDIDATE_COLUMNS = {
+  175:     if names.intersection(VLM_COLUMNS):
+  176:         roles.add("vlm")
+  177: 
+  178:     if names.intersection(QUALITY_COLUMNS):
+  179:         roles.add("quality")
+  180: 
+  181:     if names.intersection(CANDIDATE_COLUMNS):
+  182:         roles.add("candidate")
+  528:         has_label = "label" in roles
+  529:         has_detector = "detector" in roles
+  530:         has_vlm = "vlm" in roles
+  531:         has_quality = "quality" in roles
+  532:         has_candidates = "candidate" in roles
+  533:         has_path = "path" in roles
+  534: 
+  535:         quality_constructible = (
+  536:             has_quality or has_candidates
+  537:         )
+  538: 
+  539:         offline_ready = all(
+  541:                 has_label,
+  542:                 has_detector,
+  543:                 has_vlm,
+  544:                 quality_constructible,
+  545:                 has_path,
+  546:             ]
+  547:         )
+  551:         elif (
+  552:             has_label
+  553:             and has_detector
+  554:             and quality_constructible
+  555:             and has_path
+  556:             and not has_vlm
+  557:         ):
+  561:             and has_detector
+  562:             and has_vlm
+  563:             and has_path
+  564:             and not quality_constructible
+  565:         ):
+  566:             status = (
+  567:                 "needs_quality_or_candidates"
+  568:             )
+  569:         elif not has_detector:
+  570:             status = (
+  595:                 "has_label": has_label,
+  596:                 "has_detector": has_detector,
+  597:                 "has_vlm": has_vlm,
+  598:                 "has_quality": has_quality,
+  599:                 "has_candidates": has_candidates,
+  600:                 "has_path": has_path,
+  601:                 "quality_constructible": (
+  602:                     quality_constructible
+  603:                 ),
+  604:                 "offline_ready": offline_ready,
+  605:                 "status": status,
+  615:                         "vlm",
+  616:                     )
+  617:                 ),
+  618:                 "quality_sources": " | ".join(
+  619:                     source_paths(
+  620:                         category_sources,
+  621:                         "quality",
+  622:                     )
+  623:                 ),
+  624:                 "candidate_sources": " | ".join(
+  683:         "dataset_image_count",
+  684:         "has_detector",
+  685:         "has_vlm",
+  686:         "has_quality",
+  687:         "has_candidates",
+  688:         "offline_ready",
+  689:         "status",
+  726:                 )
+  727:             ),
+  728:             (
+  729:                 "quality sources: "
+  730:                 + (
+  731:                     row["quality_sources"]
+  732:                     or "none"
+  733:                 )
+  734:             ),
+
+====================================================================================================
+results/stage22_selective_qcr/stage22_a1_cached_score_audit.json
+====================================================================================================
+[0].preview[0].Q_raw_candidate_quality: '0.888784646987915'
+[0].preview[0].V4_quality_calibrated_qcr: '0.49631452158232314'
+[0].preview[0].adaptive_gate: '0.02024600735091827'
+[0].preview[1].Q_raw_candidate_quality: '0.8934324383735657'
+[0].preview[1].V4_quality_calibrated_qcr: '0.42108966133645254'
+[0].preview[1].adaptive_gate: '0.01540844370447299'
+[0].preview[2].Q_raw_candidate_quality: '0.9453627467155457'
+[0].preview[2].V4_quality_calibrated_qcr: '0.7514516573854425'
+[0].preview[2].adaptive_gate: '0.17599455052859317'
+[124].preview[0].has_candidate_quality: 'True'
+[124].preview[1].has_candidate_quality: 'True'
+[124].preview[2].has_candidate_quality: 'True'
+[135].preview[0].method: 'patchcore_score'
+[135].preview[1].method: 'context_1.50_topk_mean'
+[135].preview[2].method: 'context_1.50_top1'
+[141].preview[0].method: 'patchcore_score'
+[141].preview[1].method: 'tight_crop_top1'
+[141].preview[2].method: 'tight_crop_topk_mean'
+[172].preview[0].method: 'PatchCore image_AUROC'
+[172].preview[1].method: 'PatchCore image_F1Score'
+[172].preview[2].method: 'PatchCore pixel_AUROC'
+[181].preview[0].decision: 'Use Stage 11-D/E unified multi-category pipeline as the paper-level main evidence.'
+[181].preview[1].decision: 'Keep Stage 10-G vial as historical single-category observation, not as a directly comparable main-table result.'
+[181].preview[2].decision: 'Do not claim Stage 10-G and Stage 11-D vial numbers contradict or reproduce each other.'
+[1].preview[0].adaptive_gate: '0.6700299489051916'
+[1].preview[0].score_quality: '0.9744213726504226'
+[1].preview[1].adaptive_gate: '0.35643727454662116'
+[1].preview[1].score_quality: '0.8972438851530047'
+[1].preview[2].adaptive_gate: '0.2888332841251371'
+[1].preview[2].score_quality: '0.8743158132909221'
+[2].preview[0].method: 'Detector only'
+[2].preview[1].method: 'Full-image VLM'
+[2].preview[2].method: 'Crop top-k VLM'
+[3].preview[0].auroc_V4_quality: '0.8733333333333334'
+[3].preview[0].auroc_quality_Q_alone: '0.5233333333333333'
+[3].preview[1].auroc_V4_quality: '0.7388888888888889'
+[3].preview[1].auroc_quality_Q_alone: '0.4833333333333333'
+[3].preview[2].auroc_V4_quality: '0.9088050314465409'
+[3].preview[2].auroc_quality_Q_alone: '0.4360587002096436'
+[40].preview[0].has_quality: 'False'
+[40].preview[0].quality_col: ''
+[40].preview[1].has_quality: 'False'
+[40].preview[1].quality_col: ''
+[40].preview[2].has_quality: 'False'
+[40].preview[2].quality_col: ''
+[41].preview[0].has_quality: 'False'
+[41].preview[0].quality_col: ''
+[41].preview[1].has_quality: 'False'
+[41].preview[1].quality_col: ''
+[41].preview[2].has_quality: 'False'
+[41].preview[2].quality_col: ''
+[44].preview[0].quality_like_cols: ''
+[44].preview[1].quality_like_cols: ''
+[44].preview[2].quality_like_cols: 'map_area;candidate_score_max;candidate_score_mean;tight_candidate_mask_pixels;tight_candidate_mask_density'
+[45].preview[0].method: 'Detector only'
+[45].preview[1].method: 'Full-image VLM'
+[45].preview[2].method: 'Crop top-k VLM'
+[47].preview[0].mean_auroc_V4_quality: '0.8504856743535989'
+[47].preview[0].mean_auroc_quality_Q_alone: '0.6458892382948987'
+[47].preview[1].mean_auroc_V4_quality: '0.8490653389238295'
+[47].preview[1].mean_auroc_quality_Q_alone: '0.5149039133473096'
+[47].preview[2].mean_auroc_V4_quality: '0.8471243885394828'
+[47].preview[2].mean_auroc_quality_Q_alone: '0.4290478686233403'
+[48].preview[0].mean_auroc_V4_quality: '0.8304419986023761'
+[48].preview[0].mean_auroc_quality_Q_alone: '0.46549615653389237'
+[48].preview[1].mean_auroc_V4_quality: '0.8006795946890287'
+[48].preview[1].mean_auroc_quality_Q_alone: '0.5345038434661076'
+[48].preview[2].mean_auroc_V4_quality: '0.8504856743535989'
+[48].preview[2].mean_auroc_quality_Q_alone: '0.6458892382948987'
+[49].preview[0].decision: 'Do not use as main AD2 QCR evidence because V4 is below V3.'
+[49].preview[0].mean_auroc_V4_quality: '0.8191194968553459'
+[49].preview[0].quality_family: 'candidate_region_score'
+[49].preview[1].decision: 'Exclude because this is VLM evidence, not candidate quality.'
+[49].preview[1].mean_auroc_V4_quality: '0.8504856743535989'
+[49].preview[1].quality_family: 'unsupported_or_vlm_evidence'
+[49].preview[2].decision: 'Valid non-GT candidate-quality source; use as sensitivity, not final main claim unless Q definition is locked and rerun consistently.'
+[49].preview[2].mean_auroc_V4_quality: '0.8490653389238295'
+[49].preview[2].quality_family: 'candidate_region_score'
+[4].preview[0].auroc_quality_qcr: '0.8733333333333334'
+[4].preview[0].delta_adaptive_minus_quality: '0.0'
+[4].preview[0].delta_quality_minus_V3: '-0.0033333333333334103'
+[4].preview[1].auroc_quality_qcr: '0.7425925925925926'
+[4].preview[1].delta_adaptive_minus_quality: '0.0'
+[4].preview[1].delta_quality_minus_V3: '-1.1102230246251565e-16'
+[4].preview[2].auroc_quality_qcr: '0.9234800838574424'
+[4].preview[2].delta_adaptive_minus_quality: '0.0'
+[4].preview[2].delta_quality_minus_V3: '0.00524109014675056'
+[50].preview[0].decision: 'Do not use as main AD2 QCR evidence because V4 is below V3.'
+[50].preview[0].mean_auroc_V4_quality: '0.8191194968553459'
+[50].preview[1].decision: 'Exclude because this is VLM evidence, not candidate quality.'
+[50].preview[1].mean_auroc_V4_quality: '0.8504856743535989'
+[50].preview[2].decision: 'Valid non-GT candidate-quality source; use as sensitivity, not final main claim unless Q definition is locked and rerun consistently.'
+[50].preview[2].mean_auroc_V4_quality: '0.8490653389238295'
+[51].preview[0].mean_auroc_V4_quality: '0.8490653389238295'
+[51].preview[0].mean_auroc_quality_Q_alone: '0.5149039133473096'
+[51].preview[0].quality_family: 'candidate_region_score'
+[51].preview[1].mean_auroc_V4_quality: '0.8469357092941998'
+[51].preview[1].mean_auroc_quality_Q_alone: '0.5156464011180992'
+[51].preview[1].quality_family: 'candidate_region_score'
+[52].preview[0].test_delta_adaptive_minus_quality: '0.0'
+[52].preview[0].test_delta_quality_minus_V3: '-0.006666666666666932'
+[52].preview[0].test_quality_qcr: '0.8699999999999999'
+[52].preview[0].train_mean_delta_quality: '0.03265548567435358'
+[52].preview[0].train_mean_quality: '0.8452783601211274'
+[52].preview[0].train_wins_quality: '2'
+[52].preview[1].test_delta_adaptive_minus_quality: '0.0'
+[52].preview[1].test_delta_quality_minus_V3: '-0.11481481481481493'
+[52].preview[1].test_quality_qcr: '0.6277777777777778'
+[52].preview[1].train_mean_delta_quality: '0.022990915443745652'
+[52].preview[1].train_mean_quality: '0.880305147915211'
+[52].preview[1].train_wins_quality: '3'
+[52].preview[2].test_delta_adaptive_minus_quality: '0.0'
+[52].preview[2].test_delta_quality_minus_V3: '-0.003144654088050425'
+[52].preview[2].test_quality_qcr: '0.9150943396226414'
+[52].preview[2].train_mean_delta_quality: '0.03148148148148141'
+[52].preview[2].train_mean_quality: '0.8302469135802468'
+[52].preview[2].train_wins_quality: '2'
+[53].preview[0].mean_delta_quality_minus_V3: '-0.025786163522012656'
+[53].preview[0].mean_test_quality_qcr: '0.8028476589797344'
+[53].preview[0].wins_adaptive_over_quality: '0'
+[53].preview[0].wins_quality_over_V3: '1'
+[53].preview[0].worst_quality_category: 'sheet_metal'
+[53].preview[0].worst_quality_delta: '-0.11481481481481493'
+[54].preview[0].test_delta_quality_minus_V3: '-0.0066666666666669'
+[54].preview[0].test_quality_qcr: '0.8699999999999999'
+[54].preview[0].train_delta_quality: '0.032655485674353564'
+[54].preview[0].train_mean_quality: '0.8452783601211274'
+[54].preview[0].train_wins_quality: '2'
+[54].preview[0].train_worst_delta_quality: '-0.0031446540880504'
+[54].preview[1].test_delta_quality_minus_V3: '-0.1148148148148149'
+[54].preview[1].test_quality_qcr: '0.6277777777777778'
+[54].preview[1].train_delta_quality: '0.022990915443745635'
+[54].preview[1].train_mean_quality: '0.880305147915211'
+[54].preview[1].train_wins_quality: '3'
+[54].preview[1].train_worst_delta_quality: '0.0133333333333333'
+[54].preview[2].test_delta_quality_minus_V3: '-0.0031446540880504'
+[54].preview[2].test_quality_qcr: '0.9150943396226414'
+[54].preview[2].train_delta_quality: '0.031481481481481395'
+[54].preview[2].train_mean_quality: '0.8302469135802468'
+[54].preview[2].train_wins_quality: '2'
+[54].preview[2].train_worst_delta_quality: '-0.0066666666666669'
+[55].preview[0].mean_delta_quality_minus_V3: '-0.02578616352201265'
+[55].preview[0].mean_test_quality_qcr: '0.8028476589797344'
+[55].preview[0].wins_adaptive_over_quality: '0'
+[55].preview[0].wins_quality_over_V3: '1'
+[55].preview[0].worst_quality_delta: '-0.1148148148148149'
+[55].preview[1].mean_delta_quality_minus_V3: '-0.02578616352201265'
+[55].preview[1].mean_test_quality_qcr: '0.8028476589797344'
+[55].preview[1].wins_adaptive_over_quality: '0'
+[55].preview[1].wins_quality_over_V3: '1'
+[55].preview[1].worst_quality_delta: '-0.1148148148148149'
+[55].preview[2].mean_delta_quality_minus_V3: '-0.027638015373864497'
+[55].preview[2].mean_test_quality_qcr: '0.8009958071278825'
+[55].preview[2].wins_adaptive_over_quality: '0'
+[55].preview[2].wins_quality_over_V3: '1'
+[55].preview[2].worst_quality_delta: '-0.1148148148148149'
+[56].preview[0].test_delta_quality_minus_V3: '-0.0066666666666667'
+[56].preview[0].test_quality_qcr: '0.8700000000000001'
+[56].preview[1].test_delta_quality_minus_V3: '0.0592592592592591'
+[56].preview[1].test_quality_qcr: '0.8018518518518518'
+[56].preview[2].test_delta_quality_minus_V3: '0.0020964360587001'
+[56].preview[2].test_quality_qcr: '0.920335429769392'
+[57].preview[0].method: 'Naive detector-crop fusion'
+[57].preview[1].method: 'Quality-Calibrated QCR'
+[57].preview[2].method: 'Quality-Calibrated QCR + adaptive refinement'
+[58].preview[0].decision: 'keep'
+[58].preview[1].decision: 'downgrade_to_auxiliary'
+[58].preview[2].decision: 'supporting_cross_category_evidence'
+[62].preview[0].delta_v4_quality_minus_v3_naive: '-0.009166666666666656'
+[62].preview[0].delta_v5_fixed_minus_v4_quality: '0.018333333333333313'
+[62].preview[0].delta_v6_adaptive_minus_v4_quality: '0.0001666666666666483'
+[62].preview[1].delta_v4_quality_minus_v3_naive: '-0.0030000000000000027'
+[62].preview[1].delta_v5_fixed_minus_v4_quality: '0.0047999999999999154'
+[62].preview[1].delta_v6_adaptive_minus_v4_quality: '0.0'
+[62].preview[2].delta_v4_quality_minus_v3_naive: '-0.0027000000000000357'
+[62].preview[2].delta_v5_fixed_minus_v4_quality: '0.007600000000000051'
+[62].preview[2].delta_v6_adaptive_minus_v4_quality: '9.999999999998899e-05'
+[66].preview.preview[0].Q_raw_candidate_quality: '0.888784646987915'
+[66].preview.preview[0].V4_quality_calibrated_qcr: '0.49631452158232314'
+[66].preview.preview[0].adaptive_gate: '0.02024600735091827'
+[66].preview.preview[1].Q_raw_candidate_quality: '0.8934324383735657'
+[66].preview.preview[1].V4_quality_calibrated_qcr: '0.42108966133645254'
+[66].preview.preview[1].adaptive_gate: '0.01540844370447299'
+[66].preview.preview[2].Q_raw_candidate_quality: '0.9453627467155457'
+[66].preview.preview[2].V4_quality_calibrated_qcr: '0.7514516573854425'
+[66].preview.preview[2].adaptive_gate: '0.17599455052859317'
+[69].preview[0].uses_quality: 'False'
+[69].preview[1].uses_quality: 'False'
+[69].preview[2].uses_quality: 'False'
+[72].preview[0].delta_v5_minus_v4_quality: '-0.009746188496188468'
+[72].preview[0].quality_beats_naive: 'True'
+[72].preview[0].v5_beats_quality_only: 'False'
+[72].preview[1].delta_v5_minus_v4_quality: '-0.008613998613998586'
+[72].preview[1].quality_beats_naive: 'True'
+[72].preview[1].v5_beats_quality_only: 'False'
+[72].preview[2].delta_v5_minus_v4_quality: '-0.026217948717948913'
+[72].preview[2].quality_beats_naive: 'True'
+[72].preview[2].v5_beats_quality_only: 'False'
+[74].preview[0].delta_v5_minus_v4_quality: '0.003814968814968789'
+[74].preview[0].quality_beats_naive: 'True'
+[74].preview[0].v5_beats_quality_only: 'True'
+[74].preview[1].delta_v5_minus_v4_quality: '0.006362612612612728'
+[74].preview[1].quality_beats_naive: 'True'
+[74].preview[1].v5_beats_quality_only: 'True'
+[74].preview[2].delta_v5_minus_v4_quality: '-0.019672557172557226'
+[74].preview[2].quality_beats_naive: 'True'
+[74].preview[2].v5_beats_quality_only: 'False'
+[75].preview[0].delta_v5_minus_v4_quality: '0.003814968814968789'
+[75].preview[0].delta_v6_minus_v4_quality: '0.0006418918918918992'
+[75].preview[0].v5_beats_quality: 'True'
+[75].preview[0].v6_beats_quality: 'True'
+[75].preview[1].delta_v5_minus_v4_quality: '0.006362612612612617'
+[75].preview[1].delta_v6_minus_v4_quality: '0.00046257796257798134'
+[75].preview[1].v5_beats_quality: 'True'
+[75].preview[1].v6_beats_quality: 'True'
+[75].preview[2].delta_v5_minus_v4_quality: '-0.019672557172557115'
+[75].preview[2].delta_v6_minus_v4_quality: '0.001236139986140028'
+[75].preview[2].v5_beats_quality: 'False'
+[75].preview[2].v6_beats_quality: 'True'
+[76].preview[0].delta_v5_minus_v4_quality: '0.003814968814968789'
+[76].preview[0].delta_v6_minus_v4_quality: '0.0006418918918918992'
+[76].preview[0].v5_beats_quality: 'True'
+[76].preview[0].v6_beats_quality: 'True'
+[76].preview[1].delta_v5_minus_v4_quality: '0.006362612612612617'
+[76].preview[1].delta_v6_minus_v4_quality: '0.00046257796257798134'
+[76].preview[1].v5_beats_quality: 'True'
+[76].preview[1].v6_beats_quality: 'True'
+[76].preview[2].delta_v5_minus_v4_quality: '0.0009225571725571813'
+[76].preview[2].delta_v6_minus_v4_quality: '0.0003413028413028485'
+[76].preview[2].v5_beats_quality: 'True'
+[76].preview[2].v6_beats_quality: 'True'
+[83].preview[0].method: 'Detector only'
+[83].preview[1].method: 'Crop VLM only'
+[83].preview[2].method: 'Naive detector-crop fusion'
+[84].preview[0].method: 'PatchCore + context VLM, same-set'
+[84].preview[1].method: 'PatchCore + context VLM, LOCO'
+[84].preview[2].method: 'PatchCore'
+[85].preview[0].decision: 'Keep candidate quality calibration as the main method core.'
+[85].preview[1].decision: 'Keep adaptive consistency only as a refinement.'
+[85].preview[2].decision: 'Do not use fixed Q+C as the final method even if it peaks on some categories.'
+[89].preview[0].candidate_quality_norm: '0.2286803755187426'
+[89].preview[1].candidate_quality_norm: '0.29529117055009907'
+[89].preview[2].candidate_quality_norm: '0.2977948022137951'
+[90].preview[0].candidate_quality_norm: '0.2286803755187426'
+[90].preview[1].candidate_quality_norm: '0.295291170550099'
+[90].preview[2].candidate_quality_norm: '0.2977948022137951'
+
+====================================================================================================
+results/stage22_selective_qcr/stage22_a2_srb_qcr_frozen_protocol.json
+====================================================================================================
+method.pre_gate: 'G_pre = I(has_candidate) * I(not fallback) * I(Q >= tau_q)'
+protocol_id: 'stage22_a2_srb_qcr_v1'
+
+====================================================================================================
+results/stage22_selective_qcr/stage22_b1_visa_patchcore_global_config.json
+====================================================================================================
+global_configuration.all_candidates[0].mean_dev_call_rate: 0.41634174051458467
+global_configuration.all_candidates[0].mean_dev_rank: 1.0
+global_configuration.all_candidates[0].q_quantile: 0.25
+global_configuration.all_candidates[0].selection_count: 12
+global_configuration.all_candidates[0].tau_delta: 0.75
+global_configuration.all_candidates[0].w_max: 0.35
+global_configuration.method: 'SRB-QCR'
+global_configuration.selected.mean_dev_call_rate: 0.41634174051458467
+global_configuration.selected.mean_dev_rank: 1.0
+global_configuration.selected.q_quantile: 0.25
+global_configuration.selected.selection_count: 12
+global_configuration.selected.tau_delta: 0.75
+global_configuration.selected.w_max: 0.35
+global_configuration.selection_rule: 'frequency, mean development rank, call rate, conservative tie order'
+protocol_id: 'stage22_a2_srb_qcr_v1'
+
+====================================================================================================
+results/stage22_selective_qcr/stage22_b2a_visa_fastflow_transfer_metadata.json
+====================================================================================================
+configuration.q_quantile: 0.25
+configuration.tau_delta: 0.75
+configuration.w_max: 0.35
+target_q_threshold: 0.4883371159518991
+target_quality_rule: '25th percentile of unlabeled eligible target candidate-quality values'
+
+====================================================================================================
+results/stage22_selective_qcr/stage22_b2b_ad2_transfer_metadata.json
+====================================================================================================
+configuration.q_quantile: 0.25
+configuration.tau_delta: 0.75
+configuration.w_max: 0.35
+decision: 'retain_as_cross_dataset_deployment_mode'
+target_q_threshold: 0.4660236651046249
+target_quality_rule: '25th percentile of unlabeled eligible AD2 Q values'
+
+====================================================================================================
+results/stage22_selective_qcr/stage22_d4a_bottle_checkpoint_selection.json
+====================================================================================================
+decision: 'checkpoint_reuse_not_yet_validated'

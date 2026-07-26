@@ -1,0 +1,2097 @@
+from __future__ import annotations
+
+import argparse
+import gc
+import importlib.util
+import json
+import time
+from pathlib import Path
+from typing import Any
+
+import numpy as np
+import pandas as pd
+import torch
+from PIL import Image
+
+
+ROOT = Path("/root/private_data/iad-vlm-anomaly").resolve()
+
+STAGE7_SCRIPT = (
+    ROOT
+    / "experiments/stage7_generalization"
+    / "visa_binary_prompt_reasoning.py"
+)
+
+B2B_PREDICTIONS = (
+    ROOT
+    / "results/stage22_selective_qcr"
+    / "stage22_b2b_ad2_frozen_predictions.csv"
+)
+
+IMAGE_PREDICTIONS = (
+    ROOT
+    / "results/stage11_mvtecad2_multicategory"
+    / "stage11_d_vlm_image_predictions.csv"
+)
+
+CANDIDATE_SCORES = (
+    ROOT
+    / "results/stage11_mvtecad2_multicategory"
+    / "stage11_d_vlm_candidate_scores.csv"
+)
+
+
+ASSET_MAPPING = (
+    ROOT
+    / "results/stage23_ad2_mirror"
+    / "ad2_actual_selective_runtime"
+    / "stage23_c1d_ad2_runtime_asset_mapping.csv"
+)
+
+OUTPUT_ROOT = (
+    ROOT
+    / "results/stage23_ad2_mirror"
+    / "ad2_actual_selective_runtime"
+)
+
+DOC_ROOT = (
+    ROOT
+    / "docs/stage23_ad2_mirror"
+)
+
+CATEGORIES = [
+    "fruit_jelly",
+    "sheet_metal",
+    "vial",
+    "walnuts",
+]
+
+EXPECTED_FULL_ROWS = 243
+EXPECTED_SELECTIVE_CALLS = 182
+
+FROZEN = {
+    "w_max": 0.35,
+    "q_quantile": 0.25,
+    "tau_delta": 0.75,
+}
+
+
+def load_python_module(path: Path, name: str):
+    if not path.exists():
+        raise FileNotFoundError(path)
+
+    spec = importlib.util.spec_from_file_location(
+        name,
+        path,
+    )
+
+    if spec is None or spec.loader is None:
+        raise RuntimeError(
+            f"Could not import Python module: {path}"
+        )
+
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    return module
+
+
+def canonical_path(value: Any) -> str:
+    text = str(value).replace("\\", "/").strip()
+
+    for marker in [
+        "/datasets/MVTec_AD_2_anomalib_all/",
+        "datasets/MVTec_AD_2_anomalib_all/",
+        "/datasets/",
+        "datasets/",
+    ]:
+        if marker in text:
+            return text.split(marker, 1)[1]
+
+    return text.removeprefix("./")
+
+
+def resolve_file(value: Any) -> Path:
+    raw = Path(str(value))
+
+    candidates = [
+        raw,
+        ROOT / raw,
+        ROOT / "datasets" / raw,
+        (
+            ROOT
+            / "datasets/MVTec_AD_2_anomalib_all"
+            / raw
+        ),
+    ]
+
+    normalized = canonical_path(value)
+
+    candidates += [
+        (
+            ROOT
+            / "datasets/MVTec_AD_2_anomalib_all"
+            / normalized
+        ),
+        ROOT / "datasets" / normalized,
+    ]
+
+    for candidate in candidates:
+        candidate = candidate.resolve(
+            strict=False
+        )
+
+        if candidate.exists() and candidate.is_file():
+            return candidate
+
+    raise FileNotFoundError(
+        f"Could not resolve file: {value}"
+    )
+
+
+def as_bool(series: pd.Series) -> pd.Series:
+    numeric = pd.to_numeric(
+        series,
+        errors="coerce",
+    )
+
+    if numeric.notna().all():
+        return numeric.gt(0)
+
+    text = (
+        series.astype(str)
+        .str.strip()
+        .str.lower()
+    )
+
+    positive = {
+        "1",
+        "true",
+        "yes",
+        "anomaly",
+        "abnormal",
+        "bad",
+    }
+
+    negative = {
+        "0",
+        "false",
+        "no",
+        "normal",
+        "good",
+    }
+
+    unknown = sorted(
+        set(text.unique())
+        - positive
+        - negative
+    )
+
+    if unknown:
+        raise RuntimeError(
+            f"Unknown Boolean values: {unknown}"
+        )
+
+    return text.isin(positive)
+
+
+def load_predictions(
+    categories: list[str],
+) -> pd.DataFrame:
+    if not B2B_PREDICTIONS.exists():
+        raise FileNotFoundError(
+            B2B_PREDICTIONS
+        )
+
+    frame = pd.read_csv(
+        B2B_PREDICTIONS
+    )
+
+    required = {
+        "category",
+        "image_path",
+        "D",
+        "M",
+        "Q",
+        "M_raw_crop_topk",
+        "srb_pre_gate",
+        "score_S1",
+    }
+
+    missing = sorted(
+        required - set(frame.columns)
+    )
+
+    if missing:
+        raise RuntimeError(
+            "B2b predictions are missing "
+            f"required columns: {missing}"
+        )
+
+    frame = frame[
+        frame["category"].astype(str).isin(
+            categories
+        )
+    ].copy()
+
+    frame["category"] = (
+        frame["category"].astype(str)
+    )
+
+    frame["path_key"] = (
+        frame["image_path"]
+        .astype(str)
+        .map(canonical_path)
+    )
+
+    numeric_columns = [
+        "D",
+        "M",
+        "Q",
+        "M_raw_crop_topk",
+        "srb_pre_gate",
+        "score_S1",
+    ]
+
+    for column in numeric_columns:
+        frame[column] = pd.to_numeric(
+            frame[column],
+            errors="coerce",
+        )
+
+    if frame[
+        numeric_columns
+    ].isna().any().any():
+        bad = frame[
+            frame[
+                numeric_columns
+            ]
+            .isna()
+            .any(axis=1)
+        ].head(20)
+
+        raise RuntimeError(
+            "B2b predictions contain missing "
+            "numeric values:\n"
+            + bad.to_string(index=False)
+        )
+
+    if "M_available" in frame.columns:
+        frame["M_available_bool"] = as_bool(
+            frame["M_available"]
+        )
+    else:
+        frame["M_available_bool"] = (
+            frame["M_raw_crop_topk"].notna()
+        )
+
+    if frame["path_key"].duplicated().any():
+        duplicates = frame[
+            frame["path_key"].duplicated(
+                keep=False
+            )
+        ][
+            [
+                "category",
+                "image_path",
+                "path_key",
+            ]
+        ].head(20)
+
+        raise RuntimeError(
+            "Duplicate path keys:\n"
+            + duplicates.to_string(index=False)
+        )
+
+    actual_categories = set(
+        frame["category"].unique()
+    )
+
+    expected_categories = set(
+        categories
+    )
+
+    if actual_categories != expected_categories:
+        raise RuntimeError(
+            "Category mismatch. "
+            f"Expected={sorted(expected_categories)}, "
+            f"actual={sorted(actual_categories)}"
+        )
+
+    frame["resolved_image_path"] = (
+        frame["image_path"]
+        .map(
+            lambda value: str(
+                resolve_file(value)
+            )
+        )
+    )
+
+    return (
+        frame.sort_values(
+            [
+                "category",
+                "path_key",
+            ]
+        )
+        .reset_index(drop=True)
+    )
+
+
+def load_runtime_crops(
+    predictions: pd.DataFrame,
+    categories: list[str],
+    top_k: int,
+) -> dict[str, list[dict]]:
+    # Load the filesystem-validated Stage 23-C1d runtime mapping.
+    if not ASSET_MAPPING.exists():
+        raise FileNotFoundError(ASSET_MAPPING)
+
+    mapping = pd.read_csv(ASSET_MAPPING)
+
+    required = {
+        "category",
+        "path_key",
+        "gate_on",
+        "runtime_crop_paths",
+        "num_eval_images",
+        "all_assets_ready",
+        "asset_mode",
+    }
+
+    missing = sorted(required - set(mapping.columns))
+    if missing:
+        raise RuntimeError(
+            f"C1d runtime mapping is missing columns: {missing}"
+        )
+
+    mapping = mapping[
+        mapping["category"].astype(str).isin(categories)
+    ].copy()
+
+    mapping["category"] = mapping["category"].astype(str)
+    mapping["path_key"] = (
+        mapping["path_key"].astype(str).map(canonical_path)
+    )
+    mapping["gate_on_bool"] = as_bool(mapping["gate_on"])
+    mapping["assets_ready_bool"] = as_bool(mapping["all_assets_ready"])
+    mapping["num_eval_images"] = pd.to_numeric(
+        mapping["num_eval_images"],
+        errors="raise",
+    ).astype(int)
+
+    if mapping["path_key"].duplicated().any():
+        raise RuntimeError("Duplicate path keys in C1d mapping.")
+
+    if not mapping["assets_ready_bool"].all():
+        raise RuntimeError("C1d mapping contains unready assets.")
+
+    expected = predictions[
+        ["category", "path_key", "srb_pre_gate"]
+    ].copy()
+    expected["gate_expected"] = expected["srb_pre_gate"] > 0
+
+    aligned = expected.merge(
+        mapping[
+            [
+                "category",
+                "path_key",
+                "gate_on_bool",
+                "runtime_crop_paths",
+                "num_eval_images",
+                "asset_mode",
+            ]
+        ],
+        on=["category", "path_key"],
+        how="left",
+        validate="one_to_one",
+    )
+
+    if aligned["runtime_crop_paths"].isna().any():
+        raise RuntimeError("Predictions are missing from C1d mapping.")
+
+    if not (
+        aligned["gate_expected"] == aligned["gate_on_bool"]
+    ).all():
+        raise RuntimeError("Gate mismatch between B2b and C1d mapping.")
+
+    import json
+
+    crops_by_path: dict[str, list[dict]] = {}
+
+    for _, row in aligned.iterrows():
+        raw_paths = json.loads(row["runtime_crop_paths"])
+
+        if not isinstance(raw_paths, list):
+            raise RuntimeError(
+                f"runtime_crop_paths is not a list for {row['path_key']}"
+            )
+
+        if len(raw_paths) != int(row["num_eval_images"]):
+            raise RuntimeError(
+                f"Crop count mismatch for {row['path_key']}"
+            )
+
+        if len(raw_paths) < 1:
+            raise RuntimeError(
+                f"No runtime crops for {row['path_key']}"
+            )
+
+        if len(raw_paths) > top_k:
+            raise RuntimeError(
+                f"Runtime mapping exceeds top_k for {row['path_key']}"
+            )
+
+        records = []
+
+        for rank, raw_path in enumerate(raw_paths, start=1):
+            crop_path = resolve_file(raw_path)
+            records.append(
+                {
+                    "candidate_rank": rank,
+                    "crop_path": str(crop_path),
+                    "cached_margin": float("nan"),
+                }
+            )
+
+        crops_by_path[row["path_key"]] = records
+
+    if len(crops_by_path) != len(predictions):
+        raise RuntimeError(
+            f"Runtime mapping row mismatch: "
+            f"{len(crops_by_path)} vs {len(predictions)}"
+        )
+
+    return crops_by_path
+
+
+def load_image_reference_scores(
+    categories: list[str],
+) -> pd.DataFrame:
+    if not IMAGE_PREDICTIONS.exists():
+        raise FileNotFoundError(
+            IMAGE_PREDICTIONS
+        )
+
+    frame = pd.read_csv(
+        IMAGE_PREDICTIONS
+    )
+
+    required = {
+        "category",
+        "image_path",
+        "context_topk_mean_score",
+    }
+
+    missing = sorted(
+        required - set(frame.columns)
+    )
+
+    if missing:
+        raise RuntimeError(
+            "Image prediction CSV is missing "
+            f"columns: {missing}"
+        )
+
+    frame = frame[
+        frame["category"].astype(str).isin(
+            categories
+        )
+    ].copy()
+
+    frame["path_key"] = (
+        frame["image_path"]
+        .astype(str)
+        .map(canonical_path)
+    )
+
+    frame[
+        "context_topk_mean_score"
+    ] = pd.to_numeric(
+        frame[
+            "context_topk_mean_score"
+        ],
+        errors="coerce",
+    )
+
+    if frame[
+        "context_topk_mean_score"
+    ].isna().any():
+        raise RuntimeError(
+            "Missing context_topk_mean_score values."
+        )
+
+    if frame["path_key"].duplicated().any():
+        raise RuntimeError(
+            "Duplicate image-level reference paths."
+        )
+
+    return frame[
+        [
+            "path_key",
+            "context_topk_mean_score",
+        ]
+    ].copy()
+
+
+def build_runtime_assets(
+    stage7,
+    model,
+    tokenizer,
+    categories: list[str],
+    device: str,
+) -> dict[str, torch.Tensor]:
+    text_features = {}
+
+    for category in categories:
+        features, _ = (
+            stage7.build_text_features(
+                model=model,
+                tokenizer=tokenizer,
+                category=category,
+                strategy=(
+                    "inspection_binary"
+                ),
+                device=device,
+            )
+        )
+
+        text_features[
+            category
+        ] = features
+
+    return text_features
+
+
+def open_crop_images(
+    crop_records: list[dict],
+) -> list[Image.Image]:
+    images = []
+
+    try:
+        for record in crop_records:
+            image = Image.open(
+                record["crop_path"]
+            ).convert("RGB")
+
+            images.append(image)
+
+        return images
+
+    except Exception:
+        for image in images:
+            image.close()
+
+        raise
+
+
+def close_images(
+    images: list[Image.Image],
+) -> None:
+    for image in images:
+        image.close()
+
+
+def infer_one(
+    stage7,
+    model,
+    preprocess,
+    text_features: torch.Tensor,
+    crop_records: list[dict],
+    row: pd.Series,
+    device: str,
+) -> tuple[dict, list[dict]]:
+    images = open_crop_images(
+        crop_records
+    )
+
+    try:
+        features = stage7.encode_images(
+            model=model,
+            preprocess=preprocess,
+            images=images,
+            device=device,
+        )
+
+        similarities = (
+            features
+            @ text_features.T
+        ).detach().cpu().numpy()
+
+        margins = (
+            similarities[:, 1]
+            - similarities[:, 0]
+        )
+
+        candidate_rows = []
+
+        for index, (
+            margin,
+            crop_record,
+        ) in enumerate(
+            zip(
+                margins,
+                crop_records,
+            )
+        ):
+            candidate_rows.append(
+                {
+                    "path_key": str(
+                        row["path_key"]
+                    ),
+                    "category": str(
+                        row["category"]
+                    ),
+                    "candidate_rank": int(
+                        crop_record[
+                            "candidate_rank"
+                        ]
+                    ),
+                    "crop_path": str(
+                        crop_record[
+                            "crop_path"
+                        ]
+                    ),
+                    "cached_margin": float(
+                        crop_record[
+                            "cached_margin"
+                        ]
+                    ),
+                    "runtime_margin": float(
+                        margin
+                    ),
+                    "margin_abs_diff": float(
+                        abs(
+                            margin
+                            - crop_record[
+                                "cached_margin"
+                            ]
+                        )
+                    ),
+                    "normal_similarity": float(
+                        similarities[
+                            index,
+                            0,
+                        ]
+                    ),
+                    "anomaly_similarity": float(
+                        similarities[
+                            index,
+                            1,
+                        ]
+                    ),
+                }
+            )
+
+        return (
+            {
+                "path_key": str(
+                    row["path_key"]
+                ),
+                "category": str(
+                    row["category"]
+                ),
+                "M_raw_runtime": float(
+                    np.mean(margins)
+                ),
+                "num_eval_images": int(
+                    len(images)
+                ),
+                "fallback": 0,
+                "used_mode": (
+                    "context_1p50_topk_mean"
+                ),
+            },
+            candidate_rows,
+        )
+
+    finally:
+        close_images(images)
+
+
+def synchronize(device: str) -> None:
+    if device.startswith("cuda"):
+        torch.cuda.synchronize()
+
+
+def warmup(
+    stage7,
+    model,
+    preprocess,
+    text_features_by_category,
+    crops_by_path,
+    predictions: pd.DataFrame,
+    device: str,
+    warmup_images: int,
+) -> None:
+    if warmup_images <= 0:
+        return
+
+    active = predictions[
+        predictions[
+            "srb_pre_gate"
+        ].gt(0)
+    ]
+
+    source = (
+        active
+        if not active.empty
+        else predictions
+    )
+
+    rows = source.head(
+        warmup_images
+    )
+
+    print(
+        f"[WARMUP] images={len(rows)}"
+    )
+
+    for _, row in rows.iterrows():
+        category = str(
+            row["category"]
+        )
+
+        infer_one(
+            stage7=stage7,
+            model=model,
+            preprocess=preprocess,
+            text_features=(
+                text_features_by_category[
+                    category
+                ]
+            ),
+            crop_records=(
+                crops_by_path[
+                    row["path_key"]
+                ]
+            ),
+            row=row,
+            device=device,
+        )
+
+    synchronize(device)
+
+
+def run_mode(
+    stage7,
+    model,
+    preprocess,
+    text_features_by_category,
+    crops_by_path,
+    predictions: pd.DataFrame,
+    device: str,
+    mode: str,
+    repeat: int,
+) -> tuple[
+    dict,
+    pd.DataFrame,
+    pd.DataFrame,
+]:
+    if mode not in {
+        "full",
+        "selective",
+    }:
+        raise ValueError(mode)
+
+    if mode == "full":
+        active = predictions.copy()
+    else:
+        active = predictions[
+            predictions[
+                "srb_pre_gate"
+            ].gt(0)
+        ].copy()
+
+    active = (
+        active.sort_values(
+            [
+                "category",
+                "path_key",
+            ]
+        )
+        .reset_index(drop=True)
+    )
+
+    gc.collect()
+
+    if device.startswith("cuda"):
+        torch.cuda.empty_cache()
+        torch.cuda.reset_peak_memory_stats()
+
+    synchronize(device)
+
+    started = time.perf_counter()
+
+    image_rows = []
+    candidate_rows = []
+
+    for index, row in active.iterrows():
+        category = str(
+            row["category"]
+        )
+
+        image_result, candidate_result = (
+            infer_one(
+                stage7=stage7,
+                model=model,
+                preprocess=preprocess,
+                text_features=(
+                    text_features_by_category[
+                        category
+                    ]
+                ),
+                crop_records=(
+                    crops_by_path[
+                        row["path_key"]
+                    ]
+                ),
+                row=row,
+                device=device,
+            )
+        )
+
+        image_rows.append(
+            image_result
+        )
+
+        candidate_rows.extend(
+            candidate_result
+        )
+
+        if (
+            index == 0
+            or (index + 1) % 50 == 0
+            or index + 1 == len(active)
+        ):
+            print(
+                f"[{mode} repeat {repeat}] "
+                f"{index + 1}/{len(active)}"
+            )
+
+    synchronize(device)
+
+    elapsed = (
+        time.perf_counter()
+        - started
+    )
+
+    peak_mib = (
+        float(
+            torch.cuda.max_memory_allocated()
+        )
+        / (1024 ** 2)
+        if device.startswith("cuda")
+        else float("nan")
+    )
+
+    image_output = pd.DataFrame(
+        image_rows
+    )
+
+    candidate_output = pd.DataFrame(
+        candidate_rows
+    )
+
+    if len(image_output) != len(active):
+        raise RuntimeError(
+            f"{mode}: expected {len(active)} "
+            f"image outputs, got "
+            f"{len(image_output)}"
+        )
+
+    fallback_count = int(
+        image_output[
+            "fallback"
+        ].sum()
+    )
+
+    if fallback_count:
+        raise RuntimeError(
+            f"{mode}: produced "
+            f"{fallback_count} fallbacks."
+        )
+
+    total_eval_images = int(
+        image_output[
+            "num_eval_images"
+        ].sum()
+    )
+
+    metrics = {
+        "repeat": repeat,
+        "mode": mode,
+        "vlm_calls": int(
+            len(active)
+        ),
+        "eval_images": (
+            total_eval_images
+        ),
+        "elapsed_sec": elapsed,
+        "sec_per_call": (
+            elapsed / len(active)
+            if len(active)
+            else float("nan")
+        ),
+        "calls_per_sec": (
+            len(active) / elapsed
+            if elapsed > 0
+            else float("nan")
+        ),
+        "peak_gpu_allocated_mib": (
+            peak_mib
+        ),
+        "fallback_count": (
+            fallback_count
+        ),
+    }
+
+    return (
+        metrics,
+        image_output,
+        candidate_output,
+    )
+
+
+def normalize_runtime_m(
+    base: pd.DataFrame,
+    runtime: pd.DataFrame,
+) -> pd.DataFrame:
+    result = runtime.copy()
+
+    stats = (
+        base.groupby(
+            "category",
+            as_index=False,
+        )
+        .agg(
+            m_raw_min=(
+                "M_raw_crop_topk",
+                "min",
+            ),
+            m_raw_max=(
+                "M_raw_crop_topk",
+                "max",
+            ),
+        )
+    )
+
+    result = result.merge(
+        stats,
+        on="category",
+        how="left",
+        validate="many_to_one",
+    )
+
+    span = (
+        result["m_raw_max"]
+        - result["m_raw_min"]
+    )
+
+    result["M_runtime"] = (
+        (
+            result["M_raw_runtime"]
+            - result["m_raw_min"]
+        )
+        / span.where(
+            span > 1e-12
+        )
+    ).fillna(0.0).clip(
+        0.0,
+        1.0,
+    )
+
+    return result
+
+
+def build_score_audit(
+    base: pd.DataFrame,
+    runtime: pd.DataFrame,
+    image_reference: pd.DataFrame,
+    mode: str,
+) -> tuple[pd.DataFrame, dict]:
+    runtime = normalize_runtime_m(
+        base=base,
+        runtime=runtime,
+    )
+
+    runtime = runtime.merge(
+        image_reference,
+        on="path_key",
+        how="left",
+        validate="one_to_one",
+    )
+
+    merged = base.merge(
+        runtime[
+            [
+                "path_key",
+                "M_raw_runtime",
+                "M_runtime",
+                "context_topk_mean_score",
+                "num_eval_images",
+                "fallback",
+                "used_mode",
+            ]
+        ],
+        on="path_key",
+        how="left",
+        validate="one_to_one",
+    )
+
+    selected = merged[
+        "srb_pre_gate"
+    ].gt(0)
+
+    if mode == "full":
+        expected_runtime = pd.Series(
+            True,
+            index=merged.index,
+        )
+    else:
+        expected_runtime = selected
+
+    actual_runtime = merged[
+        "M_raw_runtime"
+    ].notna()
+
+    if not actual_runtime.equals(
+        expected_runtime
+    ):
+        mismatch = merged[
+            actual_runtime
+            != expected_runtime
+        ][
+            [
+                "category",
+                "path_key",
+                "srb_pre_gate",
+                "M_raw_runtime",
+            ]
+        ].head(20)
+
+        raise RuntimeError(
+            f"{mode}: runtime coverage mismatch:\n"
+            + mismatch.to_string(index=False)
+        )
+
+    compared = merged[
+        actual_runtime
+    ].copy()
+
+    compared[
+        "M_raw_abs_diff"
+    ] = (
+        compared[
+            "M_raw_runtime"
+        ]
+        - compared[
+            "M_raw_crop_topk"
+        ]
+    ).abs()
+
+    compared[
+        "M_image_reference_abs_diff"
+    ] = (
+        compared[
+            "M_raw_runtime"
+        ]
+        - compared[
+            "context_topk_mean_score"
+        ]
+    ).abs()
+
+    compared[
+        "M_norm_abs_diff"
+    ] = (
+        compared[
+            "M_runtime"
+        ]
+        - compared["M"]
+    ).abs()
+
+    merged[
+        "M_for_runtime_score"
+    ] = merged["M_runtime"]
+
+    # Skipped rows have pre-gate=0, so M is unused.
+    merged.loc[
+        ~actual_runtime,
+        "M_for_runtime_score",
+    ] = 0.0
+
+    agreement = (
+        1.0
+        - (
+            (
+                merged["D"]
+                - merged[
+                    "M_for_runtime_score"
+                ]
+            ).abs()
+            / FROZEN["tau_delta"]
+        )
+    ).clip(
+        lower=0.0,
+        upper=1.0,
+    )
+
+    weight = (
+        FROZEN["w_max"]
+        * merged[
+            "srb_pre_gate"
+        ].astype(float)
+        * merged["Q"]
+        * agreement
+    ).clip(
+        lower=0.0,
+        upper=FROZEN["w_max"],
+    )
+
+    merged[
+        "score_S1_runtime"
+    ] = (
+        merged["D"]
+        + weight
+        * (
+            merged[
+                "M_for_runtime_score"
+            ]
+            - merged["D"]
+        )
+    )
+
+    merged[
+        "score_S1_abs_diff"
+    ] = (
+        merged[
+            "score_S1_runtime"
+        ]
+        - merged["score_S1"]
+    ).abs()
+
+    summary = {
+        "mode": mode,
+        "runtime_rows": int(
+            actual_runtime.sum()
+        ),
+        "max_m_raw_abs_diff": float(
+            compared[
+                "M_raw_abs_diff"
+            ].max()
+        ),
+        "mean_m_raw_abs_diff": float(
+            compared[
+                "M_raw_abs_diff"
+            ].mean()
+        ),
+        "max_image_reference_abs_diff": float(
+            compared[
+                "M_image_reference_abs_diff"
+            ].max()
+        ),
+        "max_m_norm_abs_diff": float(
+            compared[
+                "M_norm_abs_diff"
+            ].max()
+        ),
+        "max_score_s1_abs_diff": float(
+            merged[
+                "score_S1_abs_diff"
+            ].max()
+        ),
+        "mean_score_s1_abs_diff": float(
+            merged[
+                "score_S1_abs_diff"
+            ].mean()
+        ),
+    }
+
+    columns = [
+        "category",
+        "image_path",
+        "path_key",
+        "D",
+        "M",
+        "Q",
+        "M_raw_crop_topk",
+        "M_raw_runtime",
+        "context_topk_mean_score",
+        "M_runtime",
+        "srb_pre_gate",
+        "score_S1",
+        "score_S1_runtime",
+        "score_S1_abs_diff",
+        "num_eval_images",
+        "fallback",
+        "used_mode",
+    ]
+
+    return (
+        merged[columns],
+        summary,
+    )
+
+
+def paired_results(
+    raw: pd.DataFrame,
+) -> pd.DataFrame:
+    rows = []
+
+    for repeat in sorted(
+        raw["repeat"].unique()
+    ):
+        full = raw[
+            (raw["repeat"] == repeat)
+            & (raw["mode"] == "full")
+        ].iloc[0]
+
+        selective = raw[
+            (raw["repeat"] == repeat)
+            & (
+                raw["mode"]
+                == "selective"
+            )
+        ].iloc[0]
+
+        rows.append(
+            {
+                "repeat": int(repeat),
+                "full_vlm_calls": int(
+                    full["vlm_calls"]
+                ),
+                "selective_vlm_calls": int(
+                    selective[
+                        "vlm_calls"
+                    ]
+                ),
+                "actual_calls_saved": int(
+                    full["vlm_calls"]
+                    - selective[
+                        "vlm_calls"
+                    ]
+                ),
+                "actual_call_saving_rate": float(
+                    1.0
+                    - selective[
+                        "vlm_calls"
+                    ]
+                    / full["vlm_calls"]
+                ),
+                "full_eval_images": int(
+                    full["eval_images"]
+                ),
+                "selective_eval_images": int(
+                    selective[
+                        "eval_images"
+                    ]
+                ),
+                "full_elapsed_sec": float(
+                    full["elapsed_sec"]
+                ),
+                "selective_elapsed_sec": float(
+                    selective[
+                        "elapsed_sec"
+                    ]
+                ),
+                "wall_time_saved_sec": float(
+                    full["elapsed_sec"]
+                    - selective[
+                        "elapsed_sec"
+                    ]
+                ),
+                "wall_time_saving_rate": float(
+                    1.0
+                    - selective[
+                        "elapsed_sec"
+                    ]
+                    / full["elapsed_sec"]
+                ),
+                "speedup": float(
+                    full["elapsed_sec"]
+                    / selective[
+                        "elapsed_sec"
+                    ]
+                ),
+                "full_peak_gpu_allocated_mib": float(
+                    full[
+                        "peak_gpu_allocated_mib"
+                    ]
+                ),
+                "selective_peak_gpu_allocated_mib": float(
+                    selective[
+                        "peak_gpu_allocated_mib"
+                    ]
+                ),
+            }
+        )
+
+    return pd.DataFrame(rows)
+
+
+def write_report(
+    predictions: pd.DataFrame,
+    paired: pd.DataFrame,
+    audit_summaries: dict[str, dict],
+    categories: list[str],
+    args: argparse.Namespace,
+) -> Path:
+    full_calls = int(
+        len(predictions)
+    )
+
+    selective_calls = int(
+        predictions[
+            "srb_pre_gate"
+        ].gt(0).sum()
+    )
+
+    lines = [
+        "# Stage 23-C2: AD2 Actual Selective VLM Runtime",
+        "",
+        "## Protocol",
+        "",
+        "- target: `AD2 four categories`",
+        f"- categories: `{len(categories)}`",
+        f"- images: `{len(predictions)}`",
+        "- CLIP: `ViT-B-32/openai`",
+        "- prompt strategy: `inspection_binary`",
+        "- exact M source: `context_topk_mean_score`",
+        "- crop source: cached `context_1p50_crop_path` images",
+        f"- maximum candidates per logical VLM call: `{args.top_k}`",
+        "- CLIP model loading excluded from timing",
+        "- text encoding and crop-index loading excluded from timing",
+        "- crop-image file I/O, preprocessing, and CLIP image inference included",
+        f"- paired repeats: `{args.repeats}`",
+        "- execution order alternates by repeat to reduce order bias",
+        "",
+        "## Frozen SRB configuration",
+        "",
+        f"- `w_max = {FROZEN['w_max']}`",
+        f"- `q_quantile = {FROZEN['q_quantile']}`",
+        f"- `tau_delta = {FROZEN['tau_delta']}`",
+        "",
+        "## Actual calls",
+        "",
+        f"- full VLM calls: `{full_calls}`",
+        f"- selective VLM calls: `{selective_calls}`",
+        f"- actual calls saved: `{full_calls - selective_calls}`",
+        f"- actual call saving rate: `{1.0 - selective_calls / full_calls:.6f}`",
+        "",
+        "## Paired runtime results",
+        "",
+        "| Repeat | Full sec | Selective sec | Saved sec | Saving rate | Speedup |",
+        "|---:|---:|---:|---:|---:|---:|",
+    ]
+
+    for _, row in paired.iterrows():
+        lines.append(
+            f"| {int(row['repeat'])} | "
+            f"{row['full_elapsed_sec']:.3f} | "
+            f"{row['selective_elapsed_sec']:.3f} | "
+            f"{row['wall_time_saved_sec']:.3f} | "
+            f"{row['wall_time_saving_rate']:.4f} | "
+            f"{row['speedup']:.4f}x |"
+        )
+
+    lines += [
+        "",
+        "## Median runtime",
+        "",
+        f"- full median time: `{paired['full_elapsed_sec'].median():.3f} s`",
+        f"- selective median time: `{paired['selective_elapsed_sec'].median():.3f} s`",
+        f"- median wall-time saving: `{paired['wall_time_saving_rate'].median():.6f}`",
+        f"- median speedup: `{paired['speedup'].median():.6f}x`",
+        "",
+        "## Output consistency",
+        "",
+    ]
+
+    for mode in [
+        "full",
+        "selective",
+    ]:
+        summary = audit_summaries[
+            mode
+        ]
+
+        lines += [
+            f"### {mode}",
+            f"- runtime rows: `{summary['runtime_rows']}`",
+            f"- max raw M difference: `{summary['max_m_raw_abs_diff']:.10f}`",
+            f"- max image-reference difference: `{summary['max_image_reference_abs_diff']:.10f}`",
+            f"- max normalized M difference: `{summary['max_m_norm_abs_diff']:.10f}`",
+            f"- max SRB score difference: `{summary['max_score_s1_abs_diff']:.10f}`",
+            "",
+        ]
+
+    lines += [
+        "The speedup is specific to the current hardware, software stack, "
+        "cached context-crop protocol, and per-image top-k CLIP execution path.",
+    ]
+
+    DOC_ROOT.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    report_path = (
+        DOC_ROOT
+        / "stage23_c2_ad2_actual_selective_runtime.md"
+    )
+
+    report_path.write_text(
+        "\n".join(lines),
+        encoding="utf-8",
+        newline="\n",
+    )
+
+    return report_path
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "--categories",
+        nargs="+",
+        default=CATEGORIES,
+    )
+
+    parser.add_argument(
+        "--device",
+        default="cuda:0",
+    )
+
+    parser.add_argument(
+        "--clip_model",
+        default="ViT-B-32",
+    )
+
+    parser.add_argument(
+        "--clip_pretrained",
+        default="openai",
+    )
+
+    parser.add_argument(
+        "--top_k",
+        type=int,
+        default=3,
+    )
+
+    parser.add_argument(
+        "--warmup_images",
+        type=int,
+        default=5,
+    )
+
+    parser.add_argument(
+        "--repeats",
+        type=int,
+        default=3,
+    )
+
+    parser.add_argument(
+        "--score_tolerance",
+        type=float,
+        default=1e-4,
+    )
+
+    parser.add_argument(
+        "--validate-only",
+        action="store_true",
+    )
+
+    args = parser.parse_args()
+
+    categories = list(
+        dict.fromkeys(
+            args.categories
+        )
+    )
+
+    invalid = [
+        category
+        for category in categories
+        if category not in CATEGORIES
+    ]
+
+    if invalid:
+        raise ValueError(
+            f"Unknown categories: {invalid}"
+        )
+
+    if args.repeats < 1:
+        raise ValueError(
+            "repeats must be at least 1"
+        )
+
+    predictions = load_predictions(
+        categories
+    )
+
+    crops_by_path = load_runtime_crops(
+        predictions=predictions,
+        categories=categories,
+        top_k=args.top_k,
+    )
+
+    image_reference = (
+        load_image_reference_scores(
+            categories
+        )
+    )
+
+    full_calls = len(
+        predictions
+    )
+
+    selective_calls = int(
+        predictions[
+            "srb_pre_gate"
+        ].gt(0).sum()
+    )
+
+    total_eval_crops = int(
+        sum(
+            len(
+                crops_by_path[
+                    path_key
+                ]
+            )
+            for path_key in predictions[
+                "path_key"
+            ]
+        )
+    )
+
+    selective_eval_crops = int(
+        sum(
+            len(
+                crops_by_path[
+                    row["path_key"]
+                ]
+            )
+            for _, row in predictions[
+                predictions[
+                    "srb_pre_gate"
+                ].gt(0)
+            ].iterrows()
+        )
+    )
+
+    print(
+        "===== STAGE 23-C2 PREFLIGHT ====="
+    )
+
+    print(
+        "categories:",
+        len(categories),
+        categories,
+    )
+
+    print("images:", full_calls)
+
+    print(
+        "full VLM calls:",
+        full_calls,
+    )
+
+    print(
+        "selective VLM calls:",
+        selective_calls,
+    )
+
+    print(
+        "actual calls saved:",
+        full_calls
+        - selective_calls,
+    )
+
+    print(
+        "call saving rate:",
+        f"{1.0 - selective_calls / full_calls:.6f}",
+    )
+
+    print(
+        "full context crops:",
+        total_eval_crops,
+    )
+
+    print(
+        "selective context crops:",
+        selective_eval_crops,
+    )
+
+    print(
+        "exact M source:",
+        "context_topk_mean_score",
+    )
+
+    if set(categories) == set(
+        CATEGORIES
+    ):
+        if (
+            full_calls
+            != EXPECTED_FULL_ROWS
+        ):
+            raise RuntimeError(
+                "Expected "
+                f"{EXPECTED_FULL_ROWS} full rows, "
+                f"got {full_calls}."
+            )
+
+        if (
+            selective_calls
+            != EXPECTED_SELECTIVE_CALLS
+        ):
+            raise RuntimeError(
+                "Expected "
+                f"{EXPECTED_SELECTIVE_CALLS} "
+                "selective calls, got "
+                f"{selective_calls}."
+            )
+
+    if args.validate_only:
+        print()
+        print(
+            "[OK] Validation-only run passed."
+        )
+
+        return
+
+    if (
+        args.device.startswith("cuda")
+        and not torch.cuda.is_available()
+    ):
+        raise RuntimeError(
+            "CUDA requested but unavailable."
+        )
+
+    stage7 = load_python_module(
+        STAGE7_SCRIPT,
+        "stage7_binary_prompt_reasoning",
+    )
+
+    print()
+    print(
+        "[INFO] Loading CLIP once; "
+        "model load is excluded from timing."
+    )
+
+    model, _, preprocess = (
+        stage7.open_clip
+        .create_model_and_transforms(
+            args.clip_model,
+            pretrained=(
+                args.clip_pretrained
+            ),
+            device=args.device,
+        )
+    )
+
+    tokenizer = (
+        stage7.open_clip.get_tokenizer(
+            args.clip_model
+        )
+    )
+
+    model.eval()
+
+    text_features_by_category = (
+        build_runtime_assets(
+            stage7=stage7,
+            model=model,
+            tokenizer=tokenizer,
+            categories=categories,
+            device=args.device,
+        )
+    )
+
+    warmup(
+        stage7=stage7,
+        model=model,
+        preprocess=preprocess,
+        text_features_by_category=(
+            text_features_by_category
+        ),
+        crops_by_path=crops_by_path,
+        predictions=predictions,
+        device=args.device,
+        warmup_images=(
+            args.warmup_images
+        ),
+    )
+
+    OUTPUT_ROOT.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    raw_records = []
+    first_image_outputs = {}
+    first_candidate_outputs = {}
+
+    for repeat in range(
+        1,
+        args.repeats + 1,
+    ):
+        order = (
+            ["full", "selective"]
+            if repeat % 2 == 1
+            else ["selective", "full"]
+        )
+
+        print()
+        print(
+            f"===== PAIRED REPEAT {repeat} "
+            f"ORDER={order} ====="
+        )
+
+        for mode in order:
+            (
+                metrics,
+                image_output,
+                candidate_output,
+            ) = run_mode(
+                stage7=stage7,
+                model=model,
+                preprocess=preprocess,
+                text_features_by_category=(
+                    text_features_by_category
+                ),
+                crops_by_path=crops_by_path,
+                predictions=predictions,
+                device=args.device,
+                mode=mode,
+                repeat=repeat,
+            )
+
+            raw_records.append(
+                metrics
+            )
+
+            if mode not in first_image_outputs:
+                first_image_outputs[
+                    mode
+                ] = image_output
+
+                first_candidate_outputs[
+                    mode
+                ] = candidate_output
+
+            print(
+                f"[DONE] {mode} repeat {repeat}: "
+                f"calls={metrics['vlm_calls']}, "
+                f"crops={metrics['eval_images']}, "
+                f"time={metrics['elapsed_sec']:.3f}s, "
+                f"peak={metrics['peak_gpu_allocated_mib']:.1f} MiB"
+            )
+
+    raw = pd.DataFrame(
+        raw_records
+    ).sort_values(
+        [
+            "repeat",
+            "mode",
+        ]
+    )
+
+    paired = paired_results(
+        raw
+    )
+
+    audit_summaries = {}
+
+    for mode in [
+        "full",
+        "selective",
+    ]:
+        audit, summary = (
+            build_score_audit(
+                base=predictions,
+                runtime=(
+                    first_image_outputs[
+                        mode
+                    ]
+                ),
+                image_reference=(
+                    image_reference
+                ),
+                mode=mode,
+            )
+        )
+
+        audit_path = (
+            OUTPUT_ROOT
+            / (
+                "stage23_c2_"
+                f"{mode}_score_audit.csv"
+            )
+        )
+
+        candidate_audit_path = (
+            OUTPUT_ROOT
+            / (
+                "stage23_c2_"
+                f"{mode}_candidate_audit.csv"
+            )
+        )
+
+        audit.to_csv(
+            audit_path,
+            index=False,
+            lineterminator="\n",
+        )
+
+        first_candidate_outputs[
+            mode
+        ].to_csv(
+            candidate_audit_path,
+            index=False,
+            lineterminator="\n",
+        )
+
+        audit_summaries[
+            mode
+        ] = summary
+
+        if (
+            summary[
+                "max_m_raw_abs_diff"
+            ]
+            > args.score_tolerance
+        ):
+            raise RuntimeError(
+                f"{mode}: max raw M difference "
+                f"{summary['max_m_raw_abs_diff']} "
+                "exceeds tolerance "
+                f"{args.score_tolerance}."
+            )
+
+        if (
+            summary[
+                "max_score_s1_abs_diff"
+            ]
+            > args.score_tolerance
+        ):
+            raise RuntimeError(
+                f"{mode}: max SRB score "
+                f"difference "
+                f"{summary['max_score_s1_abs_diff']} "
+                "exceeds tolerance "
+                f"{args.score_tolerance}."
+            )
+
+    raw_path = (
+        OUTPUT_ROOT
+        / "stage23_c2_raw_runtime.csv"
+    )
+
+    paired_path = (
+        OUTPUT_ROOT
+        / "stage23_c2_paired_runtime.csv"
+    )
+
+    summary_path = (
+        OUTPUT_ROOT
+        / "stage23_c2_runtime_summary.json"
+    )
+
+    raw.to_csv(
+        raw_path,
+        index=False,
+        lineterminator="\n",
+    )
+
+    paired.to_csv(
+        paired_path,
+        index=False,
+        lineterminator="\n",
+    )
+
+    summary_payload = {
+        "protocol_id": (
+            "stage23_c2_ad2_actual_"
+            "selective_runtime_v1"
+        ),
+        "categories": categories,
+        "num_categories": len(
+            categories
+        ),
+        "num_images": len(
+            predictions
+        ),
+        "full_vlm_calls": full_calls,
+        "selective_vlm_calls": (
+            selective_calls
+        ),
+        "actual_calls_saved": (
+            full_calls
+            - selective_calls
+        ),
+        "actual_call_saving_rate": (
+            1.0
+            - selective_calls
+            / full_calls
+        ),
+        "full_context_crops": (
+            total_eval_crops
+        ),
+        "selective_context_crops": (
+            selective_eval_crops
+        ),
+        "repeats": args.repeats,
+        "full_median_sec": float(
+            paired[
+                "full_elapsed_sec"
+            ].median()
+        ),
+        "selective_median_sec": float(
+            paired[
+                "selective_elapsed_sec"
+            ].median()
+        ),
+        "median_wall_time_saving_rate": float(
+            paired[
+                "wall_time_saving_rate"
+            ].median()
+        ),
+        "median_speedup": float(
+            paired[
+                "speedup"
+            ].median()
+        ),
+        "mean_wall_time_saving_rate": float(
+            paired[
+                "wall_time_saving_rate"
+            ].mean()
+        ),
+        "mean_speedup": float(
+            paired[
+                "speedup"
+            ].mean()
+        ),
+        "full_peak_gpu_allocated_mib_max": float(
+            raw.loc[
+                raw["mode"] == "full",
+                "peak_gpu_allocated_mib",
+            ].max()
+        ),
+        "selective_peak_gpu_allocated_mib_max": float(
+            raw.loc[
+                raw["mode"]
+                == "selective",
+                "peak_gpu_allocated_mib",
+            ].max()
+        ),
+        "score_tolerance": (
+            args.score_tolerance
+        ),
+        "audit": audit_summaries,
+        "timing_scope": {
+            "clip_model_load_included": False,
+            "text_encoding_included": False,
+            "crop_index_loading_included": False,
+            "crop_image_file_io_included": True,
+            "crop_preprocessing_included": True,
+            "clip_image_inference_included": True,
+            "crop_construction_from_original_included": False,
+        },
+        "exact_m_source": (
+            "context_topk_mean_score"
+        ),
+        "frozen_configuration": (
+            FROZEN
+        ),
+    }
+
+    summary_path.write_text(
+        json.dumps(
+            summary_payload,
+            indent=2,
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+        newline="\n",
+    )
+
+    report_path = write_report(
+        predictions=predictions,
+        paired=paired,
+        audit_summaries=(
+            audit_summaries
+        ),
+        categories=categories,
+        args=args,
+    )
+
+    print()
+    print(
+        "===== STAGE 23-C2 COMPLETE ====="
+    )
+
+    print(
+        paired.to_string(
+            index=False
+        )
+    )
+
+    print()
+    print(
+        "median full time:",
+        f"{paired['full_elapsed_sec'].median():.3f}s",
+    )
+
+    print(
+        "median selective time:",
+        f"{paired['selective_elapsed_sec'].median():.3f}s",
+    )
+
+    print(
+        "median wall-time saving:",
+        f"{paired['wall_time_saving_rate'].median():.6f}",
+    )
+
+    print(
+        "median speedup:",
+        f"{paired['speedup'].median():.6f}x",
+    )
+
+    print()
+    print(
+        "full max raw M diff:",
+        f"{audit_summaries['full']['max_m_raw_abs_diff']:.10f}",
+    )
+
+    print(
+        "selective max raw M diff:",
+        f"{audit_summaries['selective']['max_m_raw_abs_diff']:.10f}",
+    )
+
+    print(
+        "selective max SRB score diff:",
+        f"{audit_summaries['selective']['max_score_s1_abs_diff']:.10f}",
+    )
+
+    print()
+
+    for path in [
+        raw_path,
+        paired_path,
+        summary_path,
+        OUTPUT_ROOT
+        / "stage23_c2_full_score_audit.csv",
+        OUTPUT_ROOT
+        / "stage23_c2_selective_score_audit.csv",
+        OUTPUT_ROOT
+        / "stage23_c2_full_candidate_audit.csv",
+        OUTPUT_ROOT
+        / "stage23_c2_selective_candidate_audit.csv",
+        report_path,
+    ]:
+        print("[DONE]", path)
+
+
+if __name__ == "__main__":
+    main()

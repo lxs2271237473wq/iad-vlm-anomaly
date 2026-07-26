@@ -1,0 +1,816 @@
+===== STAGE 23-C1a AD2 RUNTIME SOURCE LOCK =====
+
+===== LOCKED INPUTS =====
+B2b rows: 243
+categories: ['fruit_jelly', 'sheet_metal', 'vial', 'walnuts']
+CLIP backends: {'open_clip:ViT-B-32/openai': 502}
+Stage 18 sources: {'stage18_m_score_source': {'context_topk_mean_score': 243}, 'stage18_q_score_source': {'max(candidate_score_mean)': 243}, 'stage18_full_image_source': {'full_image_score': 243}, 'stage18_note': {'AD2 QCR ablation assembled from Stage11 image-level VLM predictions and candidate-level non-GT quality evidence.': 243}}
+
+===== M SOURCE COMPARISON =====
+context_topk_mean: rows=163, max_abs_diff=0.0062047839164734, mean_abs_diff=0.0017951141075366315, exact_within_1e_12=False
+context_top1: rows=163, max_abs_diff=0.0100759317477544, mean_abs_diff=0.0023716570074329086, exact_within_1e_12=False
+context_topk_max: rows=163, max_abs_diff=0.0100759317477544, mean_abs_diff=0.0026477755243549056, exact_within_1e_12=False
+tight_topk_mean: rows=163, max_abs_diff=0.012380763888359101, mean_abs_diff=0.00386181859211931, exact_within_1e_12=False
+tight_top1: rows=163, max_abs_diff=0.0154057145118713, mean_abs_diff=0.004288911987057975, exact_within_1e_12=False
+tight_topk_max: rows=163, max_abs_diff=0.0154057145118713, mean_abs_diff=0.004561373442106693, exact_within_1e_12=False
+
+===== CROP PATH AUDIT =====
+tight_crop_path: {'column_exists': True, 'nonempty_rows': 502, 'existing_rows': 502, 'missing_rows': 0, 'all_exist': True, 'examples': ['results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/tight/000180_000_overexposed_cand00_tight.png', 'results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/tight/000180_000_overexposed_cand01_tight.png', 'results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/tight/000180_000_overexposed_cand02_tight.png', 'results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/tight/000181_000_regular_cand00_tight.png', 'results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/tight/000181_000_regular_cand01_tight.png']}
+context_1p50_crop_path: {'column_exists': True, 'nonempty_rows': 502, 'existing_rows': 502, 'missing_rows': 0, 'all_exist': True, 'examples': ['results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/context_1.50/000180_000_overexposed_cand00_context_1.50.png', 'results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/context_1.50/000180_000_overexposed_cand01_context_1.50.png', 'results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/context_1.50/000180_000_overexposed_cand02_context_1.50.png', 'results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/context_1.50/000181_000_regular_cand00_context_1.50.png', 'results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/context_1.50/000181_000_regular_cand01_context_1.50.png']}
+
+===== TOP SOURCE FILES =====
+[1] experiments/stage23_ad2_mirror/build_stage23_c1a_ad2_runtime_source_lock.py score=27
+  functions=normalize_path, function_names, source_hits, aggregate_candidate_scores, compare_m_source, crop_path_audit, main
+  hit line 30: ['stage11_d_vlm_candidate_scores.csv']
+       26: 
+       27: CANDIDATES = (
+       28:     ROOT
+       29:     / "results/stage11_mvtecad2_multicategory"
+       30:     / "stage11_d_vlm_candidate_scores.csv"
+       31: )
+       32: 
+       33: IMAGE_PREDICTIONS = (
+       34:     ROOT
+       35:     / "results/stage11_mvtecad2_multicategory"
+       36:     / "stage11_d_vlm_image_predictions.csv"
+  hit line 36: ['stage11_d_vlm_image_predictions.csv']
+       32: 
+       33: IMAGE_PREDICTIONS = (
+       34:     ROOT
+       35:     / "results/stage11_mvtecad2_multicategory"
+       36:     / "stage11_d_vlm_image_predictions.csv"
+       37: )
+       38: 
+       39: OUT_JSON = (
+       40:     ROOT
+       41:     / "results/stage23_ad2_mirror"
+       42:     / "stage23_c1a_ad2_runtime_source_lock.json"
+  hit line 52: ['stage11_d_vlm_candidate_scores.csv']
+       48:     / "stage23_c1a_ad2_runtime_source_lock.txt"
+       49: )
+       50: 
+       51: SEARCH_TERMS = [
+       52:     "stage11_d_vlm_candidate_scores.csv",
+       53:     "stage11_d_vlm_image_predictions.csv",
+       54:     "tight_vlm_margin",
+       55:     "context_vlm_margin",
+       56:     "clip_backend",
+       57:     "open_clip",
+       58:     "inspection_binary",
+  hit line 53: ['stage11_d_vlm_image_predictions.csv']
+       49: )
+       50: 
+       51: SEARCH_TERMS = [
+       52:     "stage11_d_vlm_candidate_scores.csv",
+       53:     "stage11_d_vlm_image_predictions.csv",
+       54:     "tight_vlm_margin",
+       55:     "context_vlm_margin",
+       56:     "clip_backend",
+       57:     "open_clip",
+       58:     "inspection_binary",
+       59:     "normal_prompts",
+  hit line 54: ['tight_vlm_margin']
+       50: 
+       51: SEARCH_TERMS = [
+       52:     "stage11_d_vlm_candidate_scores.csv",
+       53:     "stage11_d_vlm_image_predictions.csv",
+       54:     "tight_vlm_margin",
+       55:     "context_vlm_margin",
+       56:     "clip_backend",
+       57:     "open_clip",
+       58:     "inspection_binary",
+       59:     "normal_prompts",
+       60:     "anomaly_prompts",
+  hit line 55: ['context_vlm_margin']
+       51: SEARCH_TERMS = [
+       52:     "stage11_d_vlm_candidate_scores.csv",
+       53:     "stage11_d_vlm_image_predictions.csv",
+       54:     "tight_vlm_margin",
+       55:     "context_vlm_margin",
+       56:     "clip_backend",
+       57:     "open_clip",
+       58:     "inspection_binary",
+       59:     "normal_prompts",
+       60:     "anomaly_prompts",
+       61: ]
+  hit line 56: ['clip_backend']
+       52:     "stage11_d_vlm_candidate_scores.csv",
+       53:     "stage11_d_vlm_image_predictions.csv",
+       54:     "tight_vlm_margin",
+       55:     "context_vlm_margin",
+       56:     "clip_backend",
+       57:     "open_clip",
+       58:     "inspection_binary",
+       59:     "normal_prompts",
+       60:     "anomaly_prompts",
+       61: ]
+       62: 
+  hit line 57: ['open_clip']
+       53:     "stage11_d_vlm_image_predictions.csv",
+       54:     "tight_vlm_margin",
+       55:     "context_vlm_margin",
+       56:     "clip_backend",
+       57:     "open_clip",
+       58:     "inspection_binary",
+       59:     "normal_prompts",
+       60:     "anomaly_prompts",
+       61: ]
+       62: 
+       63: 
+[2] experiments/stage11_mvtecad2_multicategory/run_stage11_d_vlm_full_vs_context.py score=25
+  functions=category_name, normal_prompts, anomaly_prompts, resolve_path, to_binary_label, to_float, binary_auroc, average_precision, best_f1_accuracy, validate_inputs, load_regions, score_regions, build_image_predictions, metric_row, summarize, load_stage11c_summary, load_quality, write_report, parse_categories, main
+  hit line 22: ['stage11_d_vlm_candidate_scores.csv']
+       18: 
+       19: OUT_DIR = ROOT / "results/stage11_mvtecad2_multicategory"
+       20: DOC_DIR = ROOT / "docs/stage11_mvtecad2_multicategory"
+       21: 
+       22: OUT_CANDIDATES = OUT_DIR / "stage11_d_vlm_candidate_scores.csv"
+       23: OUT_IMAGES = OUT_DIR / "stage11_d_vlm_image_predictions.csv"
+       24: OUT_SUMMARY = OUT_DIR / "stage11_d_vlm_summary.csv"
+       25: OUT_REPORT = DOC_DIR / "stage11_d_vlm_full_vs_context_report.md"
+       26: 
+       27: 
+       28: CATEGORY_DISPLAY = {
+  hit line 23: ['stage11_d_vlm_image_predictions.csv']
+       19: OUT_DIR = ROOT / "results/stage11_mvtecad2_multicategory"
+       20: DOC_DIR = ROOT / "docs/stage11_mvtecad2_multicategory"
+       21: 
+       22: OUT_CANDIDATES = OUT_DIR / "stage11_d_vlm_candidate_scores.csv"
+       23: OUT_IMAGES = OUT_DIR / "stage11_d_vlm_image_predictions.csv"
+       24: OUT_SUMMARY = OUT_DIR / "stage11_d_vlm_summary.csv"
+       25: OUT_REPORT = DOC_DIR / "stage11_d_vlm_full_vs_context_report.md"
+       26: 
+       27: 
+       28: CATEGORY_DISPLAY = {
+       29:     "fruit_jelly": "fruit jelly",
+  hit line 40: ['normal_prompts']
+       36: def category_name(category: str) -> str:
+       37:     return CATEGORY_DISPLAY.get(category, category.replace("_", " "))
+       38: 
+       39: 
+       40: def normal_prompts(category: str) -> List[str]:
+       41:     name = category_name(category)
+       42:     return [
+       43:         f"a quality inspection image of a normal {name}",
+       44:         f"an industrial inspection photo of an intact {name}",
+       45:         f"a clean and defect-free {name}",
+       46:         f"a normal product image of a {name} with no defect",
+  hit line 50: ['anomaly_prompts']
+       46:         f"a normal product image of a {name} with no defect",
+       47:     ]
+       48: 
+       49: 
+       50: def anomaly_prompts(category: str) -> List[str]:
+       51:     name = category_name(category)
+       52:     return [
+       53:         f"a quality inspection image of a defective {name}",
+       54:         f"an industrial inspection photo of a damaged {name}",
+       55:         f"a {name} with visible defects or anomalies",
+       56:         f"an abnormal product image of a {name} with defect",
+  hit line 206: ['open_clip']
+      202: 
+      203:         self.device = "cuda" if torch.cuda.is_available() else "cpu"
+      204: 
+      205:         try:
+      206:             import open_clip
+      207: 
+      208:             model, _, preprocess = open_clip.create_model_and_transforms(
+      209:                 "ViT-B-32",
+      210:                 pretrained="openai",
+      211:             )
+      212:             tokenizer = open_clip.get_tokenizer("ViT-B-32")
+  hit line 208: ['open_clip']
+      204: 
+      205:         try:
+      206:             import open_clip
+      207: 
+      208:             model, _, preprocess = open_clip.create_model_and_transforms(
+      209:                 "ViT-B-32",
+      210:                 pretrained="openai",
+      211:             )
+      212:             tokenizer = open_clip.get_tokenizer("ViT-B-32")
+      213: 
+      214:             self.backend = "open_clip:ViT-B-32/openai"
+  hit line 212: ['open_clip']
+      208:             model, _, preprocess = open_clip.create_model_and_transforms(
+      209:                 "ViT-B-32",
+      210:                 pretrained="openai",
+      211:             )
+      212:             tokenizer = open_clip.get_tokenizer("ViT-B-32")
+      213: 
+      214:             self.backend = "open_clip:ViT-B-32/openai"
+      215:             self.model = model.to(self.device).eval()
+      216:             self.preprocess = preprocess
+      217:             self.tokenizer = tokenizer
+      218: 
+  hit line 214: ['open_clip']
+      210:                 pretrained="openai",
+      211:             )
+      212:             tokenizer = open_clip.get_tokenizer("ViT-B-32")
+      213: 
+      214:             self.backend = "open_clip:ViT-B-32/openai"
+      215:             self.model = model.to(self.device).eval()
+      216:             self.preprocess = preprocess
+      217:             self.tokenizer = tokenizer
+      218: 
+      219:             return
+      220: 
+[3] experiments/stage10_dataset_expansion/run_stage10_f_multiscale_context_crop.py score=22
+  functions=to_binary_label, resolve_path, binary_auroc, average_precision, best_f1_accuracy, expanded_box, reset_crop_dir, load_regions, build_multiscale_crops, score_crops, build_image_predictions, summarize, write_report, main
+  hit line 29: ['normal_prompts']
+       25: OUT_SUMMARY = OUT_DIR / "stage10_f_multiscale_context_summary.csv"
+       26: OUT_REPORT = DOC_DIR / "stage10_f_multiscale_context_crop_report.md"
+       27: 
+       28: 
+       29: NORMAL_PROMPTS = [
+       30:     "a quality inspection image of a normal vial",
+       31:     "an industrial inspection photo of an intact vial",
+       32:     "a clean and defect-free vial surface",
+       33:     "a normal product image of a vial with no defect",
+       34: ]
+       35: 
+  hit line 36: ['anomaly_prompts']
+       32:     "a clean and defect-free vial surface",
+       33:     "a normal product image of a vial with no defect",
+       34: ]
+       35: 
+       36: ANOMALY_PROMPTS = [
+       37:     "a quality inspection image of a defective vial",
+       38:     "an industrial inspection photo of a damaged vial",
+       39:     "a vial with visible defects or anomalies",
+       40:     "an abnormal product image of a vial with defect",
+       41: ]
+       42: 
+  hit line 186: ['open_clip']
+      182: 
+      183:         self.device = "cuda" if torch.cuda.is_available() else "cpu"
+      184: 
+      185:         try:
+      186:             import open_clip
+      187: 
+      188:             model, _, preprocess = open_clip.create_model_and_transforms(
+      189:                 "ViT-B-32",
+      190:                 pretrained="openai",
+      191:             )
+      192:             tokenizer = open_clip.get_tokenizer("ViT-B-32")
+  hit line 188: ['open_clip']
+      184: 
+      185:         try:
+      186:             import open_clip
+      187: 
+      188:             model, _, preprocess = open_clip.create_model_and_transforms(
+      189:                 "ViT-B-32",
+      190:                 pretrained="openai",
+      191:             )
+      192:             tokenizer = open_clip.get_tokenizer("ViT-B-32")
+      193: 
+      194:             self.backend = "open_clip:ViT-B-32/openai"
+  hit line 192: ['open_clip']
+      188:             model, _, preprocess = open_clip.create_model_and_transforms(
+      189:                 "ViT-B-32",
+      190:                 pretrained="openai",
+      191:             )
+      192:             tokenizer = open_clip.get_tokenizer("ViT-B-32")
+      193: 
+      194:             self.backend = "open_clip:ViT-B-32/openai"
+      195:             self.model = model.to(self.device).eval()
+      196:             self.preprocess = preprocess
+      197:             self.tokenizer = tokenizer
+      198:             return
+  hit line 194: ['open_clip']
+      190:                 pretrained="openai",
+      191:             )
+      192:             tokenizer = open_clip.get_tokenizer("ViT-B-32")
+      193: 
+      194:             self.backend = "open_clip:ViT-B-32/openai"
+      195:             self.model = model.to(self.device).eval()
+      196:             self.preprocess = preprocess
+      197:             self.tokenizer = tokenizer
+      198:             return
+      199:         except Exception as open_clip_error:
+      200:             print("[WARN] open_clip backend unavailable:", repr(open_clip_error))
+  hit line 199: ['open_clip']
+      195:             self.model = model.to(self.device).eval()
+      196:             self.preprocess = preprocess
+      197:             self.tokenizer = tokenizer
+      198:             return
+      199:         except Exception as open_clip_error:
+      200:             print("[WARN] open_clip backend unavailable:", repr(open_clip_error))
+      201: 
+      202:         try:
+      203:             from transformers import CLIPModel, CLIPProcessor
+      204: 
+      205:             model_name = "openai/clip-vit-base-patch32"
+  hit line 200: ['open_clip']
+      196:             self.preprocess = preprocess
+      197:             self.tokenizer = tokenizer
+      198:             return
+      199:         except Exception as open_clip_error:
+      200:             print("[WARN] open_clip backend unavailable:", repr(open_clip_error))
+      201: 
+      202:         try:
+      203:             from transformers import CLIPModel, CLIPProcessor
+      204: 
+      205:             model_name = "openai/clip-vit-base-patch32"
+      206:             self.model = CLIPModel.from_pretrained(model_name).to(self.device).eval()
+[4] experiments/stage10_dataset_expansion/run_stage10_e_vlm_full_vs_crop.py score=19
+  functions=to_binary_label, resolve_path, binary_auroc, average_precision, best_f1_accuracy, load_regions, score_candidates, build_image_predictions, summarize_predictions, write_report, main
+  hit line 25: ['normal_prompts']
+       21: OUT_SUMMARY = OUT_DIR / "stage10_e_vlm_summary.csv"
+       22: OUT_REPORT = DOC_DIR / "stage10_e_vlm_full_vs_crop_report.md"
+       23: 
+       24: 
+       25: NORMAL_PROMPTS = [
+       26:     "a quality inspection image of a normal vial",
+       27:     "an industrial inspection photo of an intact vial",
+       28:     "a clean and defect-free vial surface",
+       29:     "a normal product image of a vial with no defect",
+       30: ]
+       31: 
+  hit line 32: ['anomaly_prompts']
+       28:     "a clean and defect-free vial surface",
+       29:     "a normal product image of a vial with no defect",
+       30: ]
+       31: 
+       32: ANOMALY_PROMPTS = [
+       33:     "a quality inspection image of a defective vial",
+       34:     "an industrial inspection photo of a damaged vial",
+       35:     "a vial with visible defects or anomalies",
+       36:     "an abnormal product image of a vial with defect",
+       37: ]
+       38: 
+  hit line 172: ['open_clip']
+      168: 
+      169:         self.device = "cuda" if torch.cuda.is_available() else "cpu"
+      170: 
+      171:         try:
+      172:             import open_clip
+      173: 
+      174:             model, _, preprocess = open_clip.create_model_and_transforms(
+      175:                 "ViT-B-32",
+      176:                 pretrained="openai",
+      177:             )
+      178:             tokenizer = open_clip.get_tokenizer("ViT-B-32")
+  hit line 174: ['open_clip']
+      170: 
+      171:         try:
+      172:             import open_clip
+      173: 
+      174:             model, _, preprocess = open_clip.create_model_and_transforms(
+      175:                 "ViT-B-32",
+      176:                 pretrained="openai",
+      177:             )
+      178:             tokenizer = open_clip.get_tokenizer("ViT-B-32")
+      179: 
+      180:             self.backend = "open_clip:ViT-B-32/openai"
+  hit line 178: ['open_clip']
+      174:             model, _, preprocess = open_clip.create_model_and_transforms(
+      175:                 "ViT-B-32",
+      176:                 pretrained="openai",
+      177:             )
+      178:             tokenizer = open_clip.get_tokenizer("ViT-B-32")
+      179: 
+      180:             self.backend = "open_clip:ViT-B-32/openai"
+      181:             self.model = model.to(self.device).eval()
+      182:             self.preprocess = preprocess
+      183:             self.tokenizer = tokenizer
+      184:             return
+  hit line 180: ['open_clip']
+      176:                 pretrained="openai",
+      177:             )
+      178:             tokenizer = open_clip.get_tokenizer("ViT-B-32")
+      179: 
+      180:             self.backend = "open_clip:ViT-B-32/openai"
+      181:             self.model = model.to(self.device).eval()
+      182:             self.preprocess = preprocess
+      183:             self.tokenizer = tokenizer
+      184:             return
+      185:         except Exception as open_clip_error:
+      186:             print("[WARN] open_clip backend unavailable:", repr(open_clip_error))
+  hit line 185: ['open_clip']
+      181:             self.model = model.to(self.device).eval()
+      182:             self.preprocess = preprocess
+      183:             self.tokenizer = tokenizer
+      184:             return
+      185:         except Exception as open_clip_error:
+      186:             print("[WARN] open_clip backend unavailable:", repr(open_clip_error))
+      187: 
+      188:         try:
+      189:             from transformers import CLIPModel, CLIPProcessor
+      190: 
+      191:             model_name = "openai/clip-vit-base-patch32"
+  hit line 186: ['open_clip']
+      182:             self.preprocess = preprocess
+      183:             self.tokenizer = tokenizer
+      184:             return
+      185:         except Exception as open_clip_error:
+      186:             print("[WARN] open_clip backend unavailable:", repr(open_clip_error))
+      187: 
+      188:         try:
+      189:             from transformers import CLIPModel, CLIPProcessor
+      190: 
+      191:             model_name = "openai/clip-vit-base-patch32"
+      192:             self.model = CLIPModel.from_pretrained(model_name).to(self.device).eval()
+[5] experiments/analysis/clip_semantic_candidate_scoring.py score=11
+  functions=load_clip_model, encode_texts, encode_image_crop, load_prompt_groups, read_resized_image, crop_candidate, minmax_norm, score_category, main
+  hit line 10: ['open_clip']
+        6: import pandas as pd
+        7: import torch
+        8: from PIL import Image
+        9: 
+       10: import open_clip
+       11: 
+       12: 
+       13: PROJECT_ROOT = Path(__file__).resolve().parents[2]
+       14: 
+       15: 
+       16: def load_clip_model(args):
+  hit line 19: ['open_clip']
+       15: 
+       16: def load_clip_model(args):
+       17:     device = "cuda" if torch.cuda.is_available() else "cpu"
+       18: 
+       19:     model, _, preprocess = open_clip.create_model_and_transforms(
+       20:         args.clip_model,
+       21:         pretrained=args.clip_pretrained,
+       22:         device=device,
+       23:     )
+       24:     tokenizer = open_clip.get_tokenizer(args.clip_model)
+       25: 
+  hit line 24: ['open_clip']
+       20:         args.clip_model,
+       21:         pretrained=args.clip_pretrained,
+       22:         device=device,
+       23:     )
+       24:     tokenizer = open_clip.get_tokenizer(args.clip_model)
+       25: 
+       26:     model.eval()
+       27: 
+       28:     print(f"[INFO] Loaded CLIP model: {args.clip_model}")
+       29:     print(f"[INFO] Pretrained: {args.clip_pretrained}")
+       30:     print(f"[INFO] Device: {device}")
+  hit line 57: ['normal_prompts']
+       53: 
+       54:     category_df = df[df["category"] == category]
+       55:     generic_df = df[df["category"] == "generic"]
+       56: 
+       57:     normal_prompts = []
+       58:     defect_prompts = []
+       59: 
+       60:     normal_prompts.extend(
+       61:         category_df[category_df["prompt_type"] == "normal"]["prompt"].dropna().tolist()
+       62:     )
+       63:     defect_prompts.extend(
+  hit line 60: ['normal_prompts']
+       56: 
+       57:     normal_prompts = []
+       58:     defect_prompts = []
+       59: 
+       60:     normal_prompts.extend(
+       61:         category_df[category_df["prompt_type"] == "normal"]["prompt"].dropna().tolist()
+       62:     )
+       63:     defect_prompts.extend(
+       64:         category_df[category_df["prompt_type"] == "defect"]["prompt"].dropna().tolist()
+       65:     )
+       66: 
+  hit line 67: ['normal_prompts']
+       63:     defect_prompts.extend(
+       64:         category_df[category_df["prompt_type"] == "defect"]["prompt"].dropna().tolist()
+       65:     )
+       66: 
+       67:     normal_prompts.extend(
+       68:         generic_df[generic_df["prompt_type"].str.startswith("negative_", na=False)]["prompt"].dropna().tolist()
+       69:     )
+       70:     defect_prompts.extend(
+       71:         generic_df[generic_df["prompt_type"].str.startswith("defect_", na=False)]["prompt"].dropna().tolist()
+       72:     )
+       73: 
+  hit line 74: ['normal_prompts']
+       70:     defect_prompts.extend(
+       71:         generic_df[generic_df["prompt_type"].str.startswith("defect_", na=False)]["prompt"].dropna().tolist()
+       72:     )
+       73: 
+       74:     normal_prompts = list(dict.fromkeys(normal_prompts))
+       75:     defect_prompts = list(dict.fromkeys(defect_prompts))
+       76: 
+       77:     if len(normal_prompts) == 0:
+       78:         raise ValueError(f"No normal prompts found for category: {category}")
+       79: 
+       80:     if len(defect_prompts) == 0:
+  hit line 77: ['normal_prompts']
+       73: 
+       74:     normal_prompts = list(dict.fromkeys(normal_prompts))
+       75:     defect_prompts = list(dict.fromkeys(defect_prompts))
+       76: 
+       77:     if len(normal_prompts) == 0:
+       78:         raise ValueError(f"No normal prompts found for category: {category}")
+       79: 
+       80:     if len(defect_prompts) == 0:
+       81:         raise ValueError(f"No defect prompts found for category: {category}")
+       82: 
+       83:     return normal_prompts, defect_prompts
+[6] experiments/stage22_selective_qcr/run_stage22_d5_mvtec15_clip_crop_reasoning.py score=11
+  functions=load_stage7_module, category_paths, load_boxes, validate_category, safe_metric, close_images, run_category, rebuild_summary, main
+  hit line 78: ['open_clip']
+       74:     module = importlib.util.module_from_spec(spec)
+       75:     spec.loader.exec_module(module)
+       76: 
+       77:     required = [
+       78:         "open_clip",
+       79:         "canonical_path",
+       80:         "build_text_features",
+       81:         "get_eval_images",
+       82:         "encode_images",
+       83:     ]
+       84: 
+  hit line 337: ['inspection_binary']
+      333:         module.build_text_features(
+      334:             model=model,
+      335:             tokenizer=tokenizer,
+      336:             category=category,
+      337:             strategy="inspection_binary",
+      338:             device=device,
+      339:         )
+      340:     )
+      341: 
+      342:     rows = []
+      343:     started = time.perf_counter()
+  hit line 420: ['inspection_binary']
+      416:                     "num_eval_images": len(
+      417:                         eval_images
+      418:                     ),
+      419:                     "strategy": (
+      420:                         "inspection_binary"
+      421:                     ),
+      422:                     "eval_mode": (
+      423:                         "crop_topk_ensemble"
+      424:                     ),
+      425:                     "clip_model": args.clip_model,
+      426:                     "clip_pretrained": (
+  hit line 508: ['inspection_binary']
+      504:         "elapsed_sec": elapsed,
+      505:         "sec_per_image": (
+      506:             elapsed / len(result)
+      507:         ),
+      508:         "strategy": "inspection_binary",
+      509:         "eval_mode": "crop_topk_ensemble",
+      510:         "clip_model": args.clip_model,
+      511:         "clip_pretrained": (
+      512:             args.clip_pretrained
+      513:         ),
+      514:         "normal_prompts": (
+  hit line 514: ['normal_prompts']
+      510:         "clip_model": args.clip_model,
+      511:         "clip_pretrained": (
+      512:             args.clip_pretrained
+      513:         ),
+      514:         "normal_prompts": (
+      515:             prompt_row["normal_prompts"]
+      516:         ),
+      517:         "anomaly_prompts": (
+      518:             prompt_row["anomaly_prompts"]
+      519:         ),
+      520:     }
+  hit line 515: ['normal_prompts']
+      511:         "clip_pretrained": (
+      512:             args.clip_pretrained
+      513:         ),
+      514:         "normal_prompts": (
+      515:             prompt_row["normal_prompts"]
+      516:         ),
+      517:         "anomaly_prompts": (
+      518:             prompt_row["anomaly_prompts"]
+      519:         ),
+      520:     }
+      521: 
+  hit line 517: ['anomaly_prompts']
+      513:         ),
+      514:         "normal_prompts": (
+      515:             prompt_row["normal_prompts"]
+      516:         ),
+      517:         "anomaly_prompts": (
+      518:             prompt_row["anomaly_prompts"]
+      519:         ),
+      520:     }
+      521: 
+      522:     result.to_csv(
+      523:         paths["prediction_csv"],
+  hit line 518: ['anomaly_prompts']
+      514:         "normal_prompts": (
+      515:             prompt_row["normal_prompts"]
+      516:         ),
+      517:         "anomaly_prompts": (
+      518:             prompt_row["anomaly_prompts"]
+      519:         ),
+      520:     }
+      521: 
+      522:     result.to_csv(
+      523:         paths["prediction_csv"],
+      524:         index=False,
+[7] experiments/stage23_ad2_mirror/run_stage23_c2_ad2_actual_selective_runtime.py score=11
+  functions=load_python_module, canonical_path, resolve_file, as_bool, load_predictions, load_runtime_crops, load_image_reference_scores, build_runtime_assets, open_crop_images, close_images, infer_one, synchronize, warmup, run_mode, normalize_runtime_m, build_score_audit, paired_results, write_report, main
+  hit line 34: ['stage11_d_vlm_image_predictions.csv']
+       30: 
+       31: IMAGE_PREDICTIONS = (
+       32:     ROOT
+       33:     / "results/stage11_mvtecad2_multicategory"
+       34:     / "stage11_d_vlm_image_predictions.csv"
+       35: )
+       36: 
+       37: CANDIDATE_SCORES = (
+       38:     ROOT
+       39:     / "results/stage11_mvtecad2_multicategory"
+       40:     / "stage11_d_vlm_candidate_scores.csv"
+  hit line 40: ['stage11_d_vlm_candidate_scores.csv']
+       36: 
+       37: CANDIDATE_SCORES = (
+       38:     ROOT
+       39:     / "results/stage11_mvtecad2_multicategory"
+       40:     / "stage11_d_vlm_candidate_scores.csv"
+       41: )
+       42: 
+       43: OUTPUT_ROOT = (
+       44:     ROOT
+       45:     / "results/stage23_ad2_mirror"
+       46:     / "ad2_actual_selective_runtime"
+  hit line 352: ['context_vlm_margin']
+      348:         "category",
+      349:         "image_path",
+      350:         "candidate_rank",
+      351:         "context_1p50_crop_path",
+      352:         "context_vlm_margin",
+      353:     }
+      354: 
+      355:     missing = sorted(
+      356:         required - set(candidates.columns)
+      357:     )
+      358: 
+  hit line 390: ['context_vlm_margin']
+      386:             errors="coerce",
+      387:         )
+      388:     )
+      389: 
+      390:     candidates["context_vlm_margin"] = (
+      391:         pd.to_numeric(
+      392:             candidates["context_vlm_margin"],
+      393:             errors="coerce",
+      394:         )
+      395:     )
+      396: 
+  hit line 392: ['context_vlm_margin']
+      388:     )
+      389: 
+      390:     candidates["context_vlm_margin"] = (
+      391:         pd.to_numeric(
+      392:             candidates["context_vlm_margin"],
+      393:             errors="coerce",
+      394:         )
+      395:     )
+      396: 
+      397:     candidates = candidates[
+      398:         candidates["candidate_rank"] > 0
+  hit line 404: ['context_vlm_margin']
+      400: 
+      401:     if candidates[
+      402:         [
+      403:             "candidate_rank",
+      404:             "context_vlm_margin",
+      405:         ]
+      406:     ].isna().any().any():
+      407:         raise RuntimeError(
+      408:             "Candidate rows contain invalid ranks "
+      409:             "or cached context margins."
+      410:         )
+  hit line 448: ['context_vlm_margin']
+      444:                         crop_path
+      445:                     ),
+      446:                     "cached_margin": float(
+      447:                         row[
+      448:                             "context_vlm_margin"
+      449:                         ]
+      450:                     ),
+      451:                 }
+      452:             )
+      453: 
+      454:         crops_by_path[
+  hit line 558: ['inspection_binary']
+      554:                 model=model,
+      555:                 tokenizer=tokenizer,
+      556:                 category=category,
+      557:                 strategy=(
+      558:                     "inspection_binary"
+      559:                 ),
+      560:                 device=device,
+      561:             )
+      562:         )
+      563: 
+      564:         text_features[
+[8] experiments/stage7_generalization/visa_binary_prompt_reasoning.py score=11
+  functions=canonical_path, build_prompts, encode_prompt_set, build_text_features, load_candidate_boxes, crop_candidate, get_eval_images, encode_images, safe_auroc, safe_ap, best_f1_threshold, evaluate_category, main
+  hit line 10: ['open_clip']
+        6: import torch
+        7: from PIL import Image
+        8: from sklearn.metrics import average_precision_score, f1_score, roc_auc_score
+        9: 
+       10: import open_clip
+       11: 
+       12: 
+       13: VISA_CATEGORIES = [
+       14:     "candle",
+       15:     "capsules",
+       16:     "cashew",
+  hit line 85: ['inspection_binary']
+       81:             f"a damaged or contaminated {obj}",
+       82:         ]
+       83:         return normal, anomaly
+       84: 
+       85:     if strategy == "inspection_binary":
+       86:         normal = [
+       87:             f"a quality inspection image of a normal {obj}",
+       88:             f"an industrial inspection photo of a defect-free {obj}",
+       89:             f"a close-up inspection image showing a normal {obj}",
+       90:         ]
+       91:         anomaly = [
+  hit line 114: ['normal_prompts', 'anomaly_prompts']
+      110:     return feature
+      111: 
+      112: 
+      113: def build_text_features(model, tokenizer, category, strategy, device):
+      114:     normal_prompts, anomaly_prompts = build_prompts(category, strategy)
+      115: 
+      116:     normal_feature = encode_prompt_set(model, tokenizer, normal_prompts, device)
+      117:     anomaly_feature = encode_prompt_set(model, tokenizer, anomaly_prompts, device)
+      118: 
+      119:     text_features = torch.cat([normal_feature, anomaly_feature], dim=0)
+      120: 
+  hit line 116: ['normal_prompts']
+      112: 
+      113: def build_text_features(model, tokenizer, category, strategy, device):
+      114:     normal_prompts, anomaly_prompts = build_prompts(category, strategy)
+      115: 
+      116:     normal_feature = encode_prompt_set(model, tokenizer, normal_prompts, device)
+      117:     anomaly_feature = encode_prompt_set(model, tokenizer, anomaly_prompts, device)
+      118: 
+      119:     text_features = torch.cat([normal_feature, anomaly_feature], dim=0)
+      120: 
+      121:     prompt_row = {
+      122:         "category": category,
+  hit line 117: ['anomaly_prompts']
+      113: def build_text_features(model, tokenizer, category, strategy, device):
+      114:     normal_prompts, anomaly_prompts = build_prompts(category, strategy)
+      115: 
+      116:     normal_feature = encode_prompt_set(model, tokenizer, normal_prompts, device)
+      117:     anomaly_feature = encode_prompt_set(model, tokenizer, anomaly_prompts, device)
+      118: 
+      119:     text_features = torch.cat([normal_feature, anomaly_feature], dim=0)
+      120: 
+      121:     prompt_row = {
+      122:         "category": category,
+      123:         "strategy": strategy,
+  hit line 124: ['normal_prompts']
+      120: 
+      121:     prompt_row = {
+      122:         "category": category,
+      123:         "strategy": strategy,
+      124:         "normal_prompts": " || ".join(normal_prompts),
+      125:         "anomaly_prompts": " || ".join(anomaly_prompts),
+      126:     }
+      127: 
+      128:     return text_features, prompt_row
+      129: 
+      130: 
+  hit line 125: ['anomaly_prompts']
+      121:     prompt_row = {
+      122:         "category": category,
+      123:         "strategy": strategy,
+      124:         "normal_prompts": " || ".join(normal_prompts),
+      125:         "anomaly_prompts": " || ".join(anomaly_prompts),
+      126:     }
+      127: 
+      128:     return text_features, prompt_row
+      129: 
+      130: 
+      131: def load_candidate_boxes(candidate_root, category, top_k):
+  hit line 386: ['inspection_binary']
+      382:     parser = argparse.ArgumentParser()
+      383:     parser.add_argument("--patchcore_root", type=str, default="results/stage7_generalization/visa_patchcore")
+      384:     parser.add_argument("--output_root", type=str, default="results/stage7_generalization/visa_binary_prompt_reasoning")
+      385:     parser.add_argument("--categories", nargs="+", default=VISA_CATEGORIES)
+      386:     parser.add_argument("--strategies", nargs="+", default=["generic_binary", "category_binary", "inspection_binary"])
+      387:     parser.add_argument("--eval_modes", nargs="+", default=["full_all", "crop_or_full", "crop_topk_ensemble"])
+      388:     parser.add_argument("--clip_model", type=str, default="ViT-B-32")
+      389:     parser.add_argument("--clip_pretrained", type=str, default="openai")
+      390:     parser.add_argument("--device", type=str, default="")
+      391:     parser.add_argument("--top_k", type=int, default=3)
+      392:     parser.add_argument("--map_size", type=int, default=224)
+
+===== DECISION =====
+exact_m_source_identified: False
+selected_m_source: context_topk_mean
+crop_assets_ready: True
+clip_backend_identified: True
+generator_source_identified: True
+runtime_runner_ready: False
+
+[DONE] /root/private_data/iad-vlm-anomaly/results/stage23_ad2_mirror/stage23_c1a_ad2_runtime_source_lock.json
+[DONE] /root/private_data/iad-vlm-anomaly/docs/stage23_ad2_mirror/stage23_c1a_ad2_runtime_source_lock.txt

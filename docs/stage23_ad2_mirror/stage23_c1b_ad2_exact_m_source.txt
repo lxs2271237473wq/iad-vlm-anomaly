@@ -1,0 +1,32 @@
+===== STAGE 23-C1b EXACT M SOURCE =====
+
+===== INPUT ALIGNMENT =====
+B2b rows: 243
+M-available rows: 243
+matched image-prediction rows: 243
+Stage 18 source counts: {'stage18_m_score_source': {'context_topk_mean_score': 243}, 'stage18_q_score_source': {'max(candidate_score_mean)': 243}, 'stage18_full_image_source': {'full_image_score': 243}, 'stage18_note': {'AD2 QCR ablation assembled from Stage11 image-level VLM predictions and candidate-level non-GT quality evidence.': 243}}
+
+===== ALL SOURCE COMPARISONS =====
+stage11_d_vlm_image_predictions::context_topk_mean_score: rows=243, max=0.0, mean=0.0, p99=0.0, exact_1e-12=True, exact_1e-9=True
+recomputed_from_candidate_scores::candidate_context_topk_mean: rows=163, max=0.0062047839164734, mean=0.0017951141075366315, p99=0.005818839073181108, exact_1e-12=False, exact_1e-9=False
+recomputed_from_candidate_scores::candidate_context_top1: rows=163, max=0.0100759317477544, mean=0.0023716570074329086, p99=0.006472398440043115, exact_1e-12=False, exact_1e-9=False
+recomputed_from_candidate_scores::candidate_context_topk_max: rows=163, max=0.0100759317477544, mean=0.0026477755243549056, p99=0.006980215112368293, exact_1e-12=False, exact_1e-9=False
+stage11_d_vlm_image_predictions::context_top1_score: rows=243, max=0.0108200460672379, mean=0.0016764397381591508, p99=0.006185870766639681, exact_1e-12=False, exact_1e-9=False
+stage11_d_vlm_image_predictions::context_topk_max_score: rows=243, max=0.0108200460672379, mean=0.0019674625232386474, p99=0.00833528995513911, exact_1e-12=False, exact_1e-9=False
+recomputed_from_candidate_scores::candidate_tight_topk_mean: rows=163, max=0.012380763888359101, mean=0.00386181859211931, p99=0.012116694450378421, exact_1e-12=False, exact_1e-9=False
+recomputed_from_candidate_scores::candidate_tight_top1: rows=163, max=0.0154057145118713, mean=0.004288911987057975, p99=0.012530537346998879, exact_1e-12=False, exact_1e-9=False
+recomputed_from_candidate_scores::candidate_tight_topk_max: rows=163, max=0.0154057145118713, mean=0.004561373442106693, p99=0.012530537346998879, exact_1e-12=False, exact_1e-9=False
+stage11_d_vlm_image_predictions::tight_top1_score: rows=243, max=0.0168832540512084, mean=0.004913891201892503, p99=0.013963350057601924, exact_1e-12=False, exact_1e-9=False
+stage11_d_vlm_image_predictions::tight_topk_max_score: rows=243, max=0.0168832540512084, mean=0.005467573157799093, p99=0.014822786450386012, exact_1e-12=False, exact_1e-9=False
+stage11_d_vlm_image_predictions::tight_topk_mean_score: rows=243, max=0.0168832540512084, mean=0.00417176640205422, p99=0.013879997432231853, exact_1e-12=False, exact_1e-9=False
+stage11_d_vlm_image_predictions::full_image_score: rows=243, max=0.0171600580215454, mean=0.005556838635472752, p99=0.015977138578891773, exact_1e-12=False, exact_1e-9=False
+
+===== DECISION =====
+selected_source_family: stage11_d_vlm_image_predictions
+selected_source_column: context_topk_mean_score
+selected_max_abs_diff: 0.0
+exact_m_source_identified: True
+runtime_runner_ready: True
+
+[DONE] /root/private_data/iad-vlm-anomaly/results/stage23_ad2_mirror/stage23_c1b_ad2_exact_m_source.json
+[DONE] /root/private_data/iad-vlm-anomaly/docs/stage23_ad2_mirror/stage23_c1b_ad2_exact_m_source.txt

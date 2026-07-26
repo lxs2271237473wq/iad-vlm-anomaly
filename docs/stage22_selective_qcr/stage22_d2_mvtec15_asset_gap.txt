@@ -1,0 +1,180 @@
+===== STAGE 22-D2 MVTec15 ASSET GAP =====
+
+STATUS COUNTS
+{
+  "needs_detector_and_candidates": 15
+}
+
+PER CATEGORY
+
+  category  dataset_directory_found  dataset_image_count  has_detector  has_vlm  has_quality  has_candidates  offline_ready                        status
+    bottle                     True                  355         False    False        False           False          False needs_detector_and_candidates
+     cable                     True                  466         False    False        False           False          False needs_detector_and_candidates
+   capsule                     True                  460         False    False        False           False          False needs_detector_and_candidates
+    carpet                     True                  486         False    False        False           False          False needs_detector_and_candidates
+      grid                     True                  399         False    False        False           False          False needs_detector_and_candidates
+  hazelnut                     True                  571         False    False        False           False          False needs_detector_and_candidates
+   leather                     True                  461         False    False        False           False          False needs_detector_and_candidates
+ metal_nut                     True                  428         False    False        False           False          False needs_detector_and_candidates
+      pill                     True                  575         False    False        False           False          False needs_detector_and_candidates
+     screw                     True                  599         False    False        False           False          False needs_detector_and_candidates
+      tile                     True                  431         False    False        False           False          False needs_detector_and_candidates
+toothbrush                     True                  132         False    False        False           False          False needs_detector_and_candidates
+transistor                     True                  353         False    False        False           False          False needs_detector_and_candidates
+      wood                     True                  386         False    False        False           False          False needs_detector_and_candidates
+    zipper                     True                  510         False    False        False           False          False needs_detector_and_candidates
+
+SOURCE DETAILS
+
+[bottle]
+status: needs_detector_and_candidates
+dataset directories: datasets/MVTecAD/bottle
+detector sources: none
+VLM sources: none
+quality sources: none
+candidate sources: none
+
+[cable]
+status: needs_detector_and_candidates
+dataset directories: datasets/MVTecAD/cable
+detector sources: none
+VLM sources: none
+quality sources: none
+candidate sources: none
+
+[capsule]
+status: needs_detector_and_candidates
+dataset directories: datasets/MVTecAD/capsule
+detector sources: none
+VLM sources: none
+quality sources: none
+candidate sources: none
+
+[carpet]
+status: needs_detector_and_candidates
+dataset directories: datasets/MVTecAD/carpet
+detector sources: none
+VLM sources: none
+quality sources: none
+candidate sources: none
+
+[grid]
+status: needs_detector_and_candidates
+dataset directories: datasets/MVTecAD/grid
+detector sources: none
+VLM sources: none
+quality sources: none
+candidate sources: none
+
+[hazelnut]
+status: needs_detector_and_candidates
+dataset directories: datasets/MVTecAD/hazelnut
+detector sources: none
+VLM sources: none
+quality sources: none
+candidate sources: none
+
+[leather]
+status: needs_detector_and_candidates
+dataset directories: datasets/MVTecAD/leather
+detector sources: none
+VLM sources: none
+quality sources: none
+candidate sources: none
+
+[metal_nut]
+status: needs_detector_and_candidates
+dataset directories: datasets/MVTecAD/metal_nut
+detector sources: none
+VLM sources: none
+quality sources: none
+candidate sources: none
+
+[pill]
+status: needs_detector_and_candidates
+dataset directories: datasets/MVTecAD/pill
+detector sources: none
+VLM sources: none
+quality sources: none
+candidate sources: none
+
+[screw]
+status: needs_detector_and_candidates
+dataset directories: datasets/MVTecAD/screw
+detector sources: none
+VLM sources: none
+quality sources: none
+candidate sources: none
+
+[tile]
+status: needs_detector_and_candidates
+dataset directories: datasets/MVTecAD/tile
+detector sources: none
+VLM sources: none
+quality sources: none
+candidate sources: none
+
+[toothbrush]
+status: needs_detector_and_candidates
+dataset directories: datasets/MVTecAD/toothbrush
+detector sources: none
+VLM sources: none
+quality sources: none
+candidate sources: none
+
+[transistor]
+status: needs_detector_and_candidates
+dataset directories: datasets/MVTecAD/transistor
+detector sources: none
+VLM sources: none
+quality sources: none
+candidate sources: none
+
+[wood]
+status: needs_detector_and_candidates
+dataset directories: datasets/MVTecAD/wood
+detector sources: none
+VLM sources: none
+quality sources: none
+candidate sources: none
+
+[zipper]
+status: needs_detector_and_candidates
+dataset directories: datasets/MVTecAD/zipper
+detector sources: none
+VLM sources: none
+quality sources: none
+candidate sources: none
+
+LIKELY CODE PATHS
+
+experiments/stage22_selective_qcr/run_stage22_d2_mvtec15_asset_gap_audit.py
+experiments/analysis/clip_semantic_candidate_scoring.py
+experiments/analysis/defect_type_prompt_reasoning_crop.py
+experiments/analysis/real_anomaly_crop_visual_prompt_reasoning.py
+experiments/stage10_dataset_expansion/run_stage10_e_vlm_full_vs_crop.py
+experiments/stage10_dataset_expansion/run_stage10_f_multiscale_context_crop.py
+experiments/stage11_mvtecad2_multicategory/run_stage11_d_vlm_full_vs_context.py
+experiments/stage22_selective_qcr/run_stage22_c2b_actual_selective_runtime.py
+experiments/stage7_generalization/visa_binary_prompt_reasoning.py
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py
+experiments/analysis/defect_type_prompt_reasoning.py
+experiments/analysis/defect_type_prompt_reasoning_gt_crop.py
+experiments/analysis/defect_type_visual_prompt_refinement.py
+experiments/stage7_generalization/visa_multibackbone_binary_prompt_reasoning.py
+experiments/analysis/anomaly_region_scoring_baseline.py
+experiments/analysis/full_test_patchcore_candidate_regions.py
+experiments/analysis/generate_manufacturing_defect_explanations.py
+experiments/analysis/patchcore_candidate_regions.py
+experiments/analysis/sam2_prompt_feasibility.py
+experiments/stage10_dataset_expansion/run_stage10_d_patchcore_candidate_crops.py
+experiments/stage11_mvtecad2_multicategory/analyze_stage11_f1_vial_path_aligned_drift.py
+experiments/stage11_mvtecad2_multicategory/analyze_stage11_f2_vial_source_aligned_drift.py
+experiments/stage11_mvtecad2_multicategory/analyze_stage11_f3_vial_image_set_overlap.py
+experiments/stage11_mvtecad2_multicategory/analyze_stage11_f_vial_candidate_policy_drift.py
+experiments/stage11_mvtecad2_multicategory/run_stage11_c_candidate_regions.py
+experiments/stage11_mvtecad2_multicategory/run_stage11_h_fabric_secondary_extension.py
+experiments/stage18_ad2_qcr_ablation/build_stage18_b1_ad2_qcr_schema_profile.py
+experiments/stage7_generalization/run_visa_patchcore_baseline_and_candidates.py
+experiments/analysis/anomaly_map_calibration.py
+experiments/analysis/build_defect_type_reasoning_benchmark.py
