@@ -1,0 +1,36 @@
+{
+  "source": "results/stage22_selective_qcr/mvtec15_srb_qcr_transfer/stage22_d6b_mvtec15_unified_predictions.csv",
+  "source_rows": 1725,
+  "source_categories": 15,
+  "inventory_rows": 70,
+  "case_types": {
+    "gate_off_high_disagreement": 10,
+    "gate_on_high_weight": 10,
+    "largest_naive_fusion_damage": 10,
+    "largest_srb_gain_over_detector": 10,
+    "largest_srb_repair_over_naive": 10,
+    "largest_srb_repair_over_old_quality": 10,
+    "worst_srb_regression_vs_detector": 10
+  },
+  "category_counts": {
+    "bottle": 10,
+    "cable": 3,
+    "capsule": 4,
+    "carpet": 7,
+    "grid": 4,
+    "hazelnut": 5,
+    "leather": 3,
+    "metal_nut": 14,
+    "pill": 5,
+    "screw": 1,
+    "tile": 3,
+    "toothbrush": 3,
+    "transistor": 1,
+    "wood": 4,
+    "zipper": 3
+  },
+  "largest_positive_delta_vs_detector": 0.06182857192716548,
+  "worst_delta_vs_detector": -0.06485313996778219,
+  "largest_naive_damage": 0.5,
+  "largest_repair_over_old_quality": 0.5
+}

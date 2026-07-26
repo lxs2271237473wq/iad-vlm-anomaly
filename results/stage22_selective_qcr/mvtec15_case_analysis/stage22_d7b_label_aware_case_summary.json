@@ -1,0 +1,37 @@
+{
+  "source": "results/stage22_selective_qcr/mvtec15_srb_qcr_transfer/stage22_d6b_mvtec15_unified_predictions.csv",
+  "source_rows": 1725,
+  "source_categories": 15,
+  "inventory_rows": 45,
+  "selection_rule": "Label-aware direction: +1 for anomaly images and -1 for normal images.",
+  "case_types": {
+    "gate_off_missed_vlm_opportunity": 5,
+    "gate_off_protected_from_harmful_vlm": 5,
+    "gate_on_harmful": 5,
+    "gate_on_helpful": 5,
+    "largest_naive_harm": 5,
+    "largest_srb_repair_over_naive": 5,
+    "largest_srb_repair_over_old_quality": 5,
+    "srb_failure_vs_detector": 5,
+    "srb_success_vs_detector": 5
+  },
+  "category_counts": {
+    "bottle": 8,
+    "cable": 8,
+    "capsule": 6,
+    "carpet": 1,
+    "grid": 3,
+    "leather": 1,
+    "metal_nut": 6,
+    "pill": 3,
+    "tile": 6,
+    "toothbrush": 2,
+    "zipper": 1
+  },
+  "largest_srb_benefit_vs_detector": 0.05880167943795339,
+  "worst_srb_benefit_vs_detector": -0.06485313996778219,
+  "largest_naive_harm_vs_detector": 0.5,
+  "largest_srb_repair_over_old_quality": 0.5,
+  "gate_on_rows": 1294,
+  "gate_off_rows": 431
+}
