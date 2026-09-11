@@ -1,0 +1,70 @@
+{
+  "signature": {
+    "local_learning_robustness.py": "447518a1a7ca0a0c146c6324fbd0e9b80647bee16408c07755a36c60fb25815c",
+    "local_learning.py": "c6442e2a55a788b8b29b4c5be41b2076f0be39896f2a8e64171a735f1b8cecba",
+    "common.py": "8d936a723a5147b8728d1ddf561cd4de891f14a539ab9cc6d666f84521b3087a"
+  },
+  "convex_linear": {
+    "success": true,
+    "iterations": 24,
+    "objective": 0.3155751564072365,
+    "max_gradient": 1.519350829800063e-07,
+    "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "l2": 0.001
+  },
+  "training": {
+    "response_42": {
+      "initial_loss": 0.7093433141708374,
+      "final_loss": 0.41292229294776917,
+      "epochs": 20,
+      "training_samples": 163481
+    },
+    "response_123": {
+      "initial_loss": 0.6781563758850098,
+      "final_loss": 0.4104882776737213,
+      "epochs": 20,
+      "training_samples": 163481
+    },
+    "response_2026": {
+      "initial_loss": 0.6946857571601868,
+      "final_loss": 0.4108997881412506,
+      "epochs": 20,
+      "training_samples": 163481
+    },
+    "map_42": {
+      "initial_loss": 0.6714557409286499,
+      "final_loss": 0.3566707670688629,
+      "epochs": 20,
+      "training_samples": 163481
+    },
+    "map_123": {
+      "initial_loss": 0.698162853717804,
+      "final_loss": 0.35855627059936523,
+      "epochs": 20,
+      "training_samples": 163481
+    },
+    "map_2026": {
+      "initial_loss": 0.7515097260475159,
+      "final_loss": 0.35654833912849426,
+      "epochs": 20,
+      "training_samples": 163481
+    },
+    "full_42": {
+      "reused_previous_seed42": true
+    },
+    "full_123": {
+      "initial_loss": 0.7221925258636475,
+      "final_loss": 0.2656053602695465,
+      "epochs": 20,
+      "training_samples": 163481
+    },
+    "full_2026": {
+      "initial_loss": 0.7419928312301636,
+      "final_loss": 0.26613256335258484,
+      "epochs": 20,
+      "training_samples": 163481
+    }
+  },
+  "previous_prediction_max_difference": 1.7763568394002505e-15,
+  "heldout": "chewinggum"
+}

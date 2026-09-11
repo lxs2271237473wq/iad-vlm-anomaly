@@ -1,0 +1,28 @@
+{
+  "code_sha256": "7c3093eabde359e0792ea479c565829d366d0a81fe559fccf137f50013138983",
+  "normal_calibration": {
+    "D": {
+      "center": 33.54534339904785,
+      "scale": 1.9580806743621826,
+      "n": 90,
+      "mad": 1.9580806743621826,
+      "fallback_std": false
+    },
+    "contrast": {
+      "center": 2.9805850982666016,
+      "scale": 0.584216588973999,
+      "n": 90,
+      "mad": 0.584216588973999,
+      "fallback_std": false
+    },
+    "standardized_contrast": {
+      "center": 1.734877109527588,
+      "scale": 0.09119511870145797,
+      "n": 90,
+      "mad": 0.09119511870145797,
+      "fallback_std": false
+    }
+  },
+  "center_sigma": 4,
+  "surround_sigma": 16
+}

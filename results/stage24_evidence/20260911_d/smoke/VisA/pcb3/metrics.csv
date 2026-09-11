@@ -1,0 +1,10 @@
+method,n,normal,anomaly,auroc,ap
+D_raw,4,2,2,1.0,1.0
+M_global,4,2,2,0.25,0.5
+M_tight_top1,4,2,2,1.0,1.0
+M_context_top1,4,2,2,0.75,0.8333333333333333
+M_context_top3max,4,2,2,0.5,0.5833333333333333
+D_z,4,2,2,1.0,1.0
+M_context_top1_z,4,2,2,0.75,0.8333333333333333
+naive_context_top1,4,2,2,1.0,1.0
+naive_context_top3max,4,2,2,1.0,1.0

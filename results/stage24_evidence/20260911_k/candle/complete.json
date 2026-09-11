@@ -1,0 +1,70 @@
+{
+  "signature": {
+    "local_learning_robustness.py": "447518a1a7ca0a0c146c6324fbd0e9b80647bee16408c07755a36c60fb25815c",
+    "local_learning.py": "c6442e2a55a788b8b29b4c5be41b2076f0be39896f2a8e64171a735f1b8cecba",
+    "common.py": "8d936a723a5147b8728d1ddf561cd4de891f14a539ab9cc6d666f84521b3087a"
+  },
+  "convex_linear": {
+    "success": true,
+    "iterations": 25,
+    "objective": 0.31407448668604576,
+    "max_gradient": 5.311322257548802e-08,
+    "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "l2": 0.001
+  },
+  "training": {
+    "response_42": {
+      "initial_loss": 0.7091008424758911,
+      "final_loss": 0.4150015115737915,
+      "epochs": 20,
+      "training_samples": 160541
+    },
+    "response_123": {
+      "initial_loss": 0.6787381172180176,
+      "final_loss": 0.4135526418685913,
+      "epochs": 20,
+      "training_samples": 160541
+    },
+    "response_2026": {
+      "initial_loss": 0.6945316791534424,
+      "final_loss": 0.4140293002128601,
+      "epochs": 20,
+      "training_samples": 160541
+    },
+    "map_42": {
+      "initial_loss": 0.6725361943244934,
+      "final_loss": 0.35606124997138977,
+      "epochs": 20,
+      "training_samples": 160541
+    },
+    "map_123": {
+      "initial_loss": 0.6944345235824585,
+      "final_loss": 0.3575182855129242,
+      "epochs": 20,
+      "training_samples": 160541
+    },
+    "map_2026": {
+      "initial_loss": 0.7502238750457764,
+      "final_loss": 0.3552960157394409,
+      "epochs": 20,
+      "training_samples": 160541
+    },
+    "full_42": {
+      "reused_previous_seed42": true
+    },
+    "full_123": {
+      "initial_loss": 0.7134305238723755,
+      "final_loss": 0.26251649856567383,
+      "epochs": 20,
+      "training_samples": 160541
+    },
+    "full_2026": {
+      "initial_loss": 0.7390867471694946,
+      "final_loss": 0.26043033599853516,
+      "epochs": 20,
+      "training_samples": 160541
+    }
+  },
+  "previous_prediction_max_difference": 8.881784197001252e-16,
+  "heldout": "candle"
+}

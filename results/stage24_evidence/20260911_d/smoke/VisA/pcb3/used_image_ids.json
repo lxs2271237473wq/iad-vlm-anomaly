@@ -1,0 +1,24 @@
+{
+  "train": [
+    "006fad0fd422f2627a8c5670",
+    "009ca27534bca66144726b1b",
+    "01b4fa6d6f6b25a169cb3c76",
+    "01b9d4c69845673f2f4546a1",
+    "01d36cf583a60e7a5cd6cd67",
+    "01eefc16be78e824658d359a",
+    "0218ee16af82e2a2d68a10b9",
+    "022d3db49ed59b8525c61a6c"
+  ],
+  "calibration": [
+    "00ef6542a72fc9f71ed246e8",
+    "03cbf5cf1a692f2373ab2a8d",
+    "093638d6cb3f3f3e540ecc4f",
+    "0f7bf017462b45e7a68ca6e5"
+  ],
+  "evaluation": [
+    "00160ff324c599b2c715a0b5",
+    "00825985d63dafd101884c28",
+    "009b5b8e3f53c3ec7bca77e5",
+    "00b31381bedc1d3eac00940e"
+  ]
+}

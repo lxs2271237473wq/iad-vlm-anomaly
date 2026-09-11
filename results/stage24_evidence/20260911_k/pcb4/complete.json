@@ -1,0 +1,70 @@
+{
+  "signature": {
+    "local_learning_robustness.py": "447518a1a7ca0a0c146c6324fbd0e9b80647bee16408c07755a36c60fb25815c",
+    "local_learning.py": "c6442e2a55a788b8b29b4c5be41b2076f0be39896f2a8e64171a735f1b8cecba",
+    "common.py": "8d936a723a5147b8728d1ddf561cd4de891f14a539ab9cc6d666f84521b3087a"
+  },
+  "convex_linear": {
+    "success": true,
+    "iterations": 22,
+    "objective": 0.3077133621648958,
+    "max_gradient": 8.813860553718005e-08,
+    "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "l2": 0.001
+  },
+  "training": {
+    "response_42": {
+      "initial_loss": 0.7090024352073669,
+      "final_loss": 0.4135121703147888,
+      "epochs": 20,
+      "training_samples": 160218
+    },
+    "response_123": {
+      "initial_loss": 0.678854763507843,
+      "final_loss": 0.41189876198768616,
+      "epochs": 20,
+      "training_samples": 160218
+    },
+    "response_2026": {
+      "initial_loss": 0.6944730281829834,
+      "final_loss": 0.4122677743434906,
+      "epochs": 20,
+      "training_samples": 160218
+    },
+    "map_42": {
+      "initial_loss": 0.6729884147644043,
+      "final_loss": 0.352539598941803,
+      "epochs": 20,
+      "training_samples": 160218
+    },
+    "map_123": {
+      "initial_loss": 0.6936872005462646,
+      "final_loss": 0.3539428412914276,
+      "epochs": 20,
+      "training_samples": 160218
+    },
+    "map_2026": {
+      "initial_loss": 0.7502331733703613,
+      "final_loss": 0.3515380918979645,
+      "epochs": 20,
+      "training_samples": 160218
+    },
+    "full_42": {
+      "reused_previous_seed42": true
+    },
+    "full_123": {
+      "initial_loss": 0.7145983576774597,
+      "final_loss": 0.2564399838447571,
+      "epochs": 20,
+      "training_samples": 160218
+    },
+    "full_2026": {
+      "initial_loss": 0.7398514151573181,
+      "final_loss": 0.25590428709983826,
+      "epochs": 20,
+      "training_samples": 160218
+    }
+  },
+  "previous_prediction_max_difference": 8.881784197001252e-16,
+  "heldout": "pcb4"
+}

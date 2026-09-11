@@ -1,0 +1,43 @@
+{
+  "code_sha256": "c6442e2a55a788b8b29b4c5be41b2076f0be39896f2a8e64171a735f1b8cecba",
+  "heldout": "macaroni1",
+  "training_categories": [
+    "candle",
+    "capsules",
+    "cashew",
+    "chewinggum",
+    "fryum",
+    "macaroni2",
+    "pcb1",
+    "pcb2",
+    "pcb3",
+    "pcb4",
+    "pipe_fryum"
+  ],
+  "epochs": 20,
+  "seed": 42,
+  "features": [
+    "response",
+    "center_surround",
+    "surround",
+    "response_std",
+    "intensity_mean",
+    "intensity_std",
+    "image_gradient"
+  ],
+  "training_reports": {
+    "linear": {
+      "initial_loss": 0.5536981225013733,
+      "final_loss": 0.34792831540107727,
+      "epochs": 20,
+      "training_samples": 160299
+    },
+    "mlp": {
+      "initial_loss": 0.7278129458427429,
+      "final_loss": 0.26648151874542236,
+      "epochs": 20,
+      "training_samples": 160299
+    }
+  },
+  "supervision": "source pixel masks; heldout category excluded from model fitting"
+}

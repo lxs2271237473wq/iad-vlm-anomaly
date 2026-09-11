@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "normal_images": 48,
+  "views": 240,
+  "seconds": 60.272536486852914,
+  "labels_used": false,
+  "identity_parity": true,
+  "selection": "first 4 source normal calibration images by image_id per category",
+  "limitation": "Controlled photometric sensitivity only; no anomaly performance, real illumination equivalence or novelty claim."
+}

@@ -1,0 +1,70 @@
+{
+  "signature": {
+    "local_learning_robustness.py": "447518a1a7ca0a0c146c6324fbd0e9b80647bee16408c07755a36c60fb25815c",
+    "local_learning.py": "c6442e2a55a788b8b29b4c5be41b2076f0be39896f2a8e64171a735f1b8cecba",
+    "common.py": "8d936a723a5147b8728d1ddf561cd4de891f14a539ab9cc6d666f84521b3087a"
+  },
+  "convex_linear": {
+    "success": true,
+    "iterations": 24,
+    "objective": 0.31183550934675514,
+    "max_gradient": 1.2181001089457515e-07,
+    "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "l2": 0.001
+  },
+  "training": {
+    "response_42": {
+      "initial_loss": 0.7091205716133118,
+      "final_loss": 0.41859859228134155,
+      "epochs": 20,
+      "training_samples": 162874
+    },
+    "response_123": {
+      "initial_loss": 0.6790009140968323,
+      "final_loss": 0.4171752333641052,
+      "epochs": 20,
+      "training_samples": 162874
+    },
+    "response_2026": {
+      "initial_loss": 0.6944326758384705,
+      "final_loss": 0.4176647961139679,
+      "epochs": 20,
+      "training_samples": 162874
+    },
+    "map_42": {
+      "initial_loss": 0.6722642779350281,
+      "final_loss": 0.3553045690059662,
+      "epochs": 20,
+      "training_samples": 162874
+    },
+    "map_123": {
+      "initial_loss": 0.6937156915664673,
+      "final_loss": 0.35709965229034424,
+      "epochs": 20,
+      "training_samples": 162874
+    },
+    "map_2026": {
+      "initial_loss": 0.7492833137512207,
+      "final_loss": 0.3546949625015259,
+      "epochs": 20,
+      "training_samples": 162874
+    },
+    "full_42": {
+      "reused_previous_seed42": true
+    },
+    "full_123": {
+      "initial_loss": 0.7131839990615845,
+      "final_loss": 0.25977906584739685,
+      "epochs": 20,
+      "training_samples": 162874
+    },
+    "full_2026": {
+      "initial_loss": 0.7390633225440979,
+      "final_loss": 0.2568807899951935,
+      "epochs": 20,
+      "training_samples": 162874
+    }
+  },
+  "previous_prediction_max_difference": 8.881784197001252e-16,
+  "heldout": "capsules"
+}

@@ -1,0 +1,1 @@
+{"status": "passed", "checks": ["positive samples inside GT", "negatives outside dilated GT", "unique samples", "normal-only negatives", "chunked max equals analytic linear score"], "performance_claim": false}

@@ -1,0 +1,9 @@
+{
+  "method": "D512",
+  "baseline": "previous_geometry256",
+  "delta_macro_auroc": 0.047314456927552165,
+  "lower95": -0.010340671632710324,
+  "upper95": 0.10582838446826544,
+  "categories_improved": 6,
+  "replicates": 5000
+}

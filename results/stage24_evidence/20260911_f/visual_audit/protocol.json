@@ -1,0 +1,1 @@
+{"selection": "3 highest scoring normals and 3 lowest scoring anomalies per specified category", "columns": ["original", "GT contour if anomalous", "per-image normalized heatmap"], "warning": "Posthoc diagnostic selection; heatmap colors cannot compare absolute scores across images."}

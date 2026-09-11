@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "source_only": true,
+  "mask_inputs": false,
+  "primary_comparison": "linear_contrast versus linear_D",
+  "other_variants": "exploratory",
+  "protocol": "Fixed Gaussian sigma 4/16 on 512 cached maps; normal-only calibration; source category LOCO Logistic C=1.",
+  "caveat": "Known center-surround operation and simple regression controls; not a novel algorithm. No target evaluation."
+}

@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "evaluation_images": 2162,
+  "categories": 12,
+  "max_geometry_prediction_difference": 3.552713678800501e-13,
+  "note": "Same 256 data in both slots; pipeline regression test only, not 512 performance."
+}

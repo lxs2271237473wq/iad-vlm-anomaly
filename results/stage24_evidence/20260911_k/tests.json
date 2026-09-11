@@ -1,0 +1,1 @@
+{"status": "passed", "linear_optimizer": {"success": true, "iterations": 7, "objective": 0.5957580264555693, "max_gradient": 1.096918791817494e-08, "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL", "l2": 0.001}, "masked_inputs_do_not_affect_predictions": true, "performance_claim": false}

@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "source_only": true,
+  "anomalies": 1200,
+  "valid_anomalies": 1200,
+  "seconds": 263.05558937136084,
+  "primary_pooling_control": "top1 versus detector",
+  "other_pooling_controls": "exploratory; no best variant selected for target evaluation",
+  "caveats": [
+    "Within-anomaly pixel AUC compares defect and background in the same anomalous image; not official dataset pixel AUROC.",
+    "GT-conditioned quantities are oracle diagnostics, never deployable scores.",
+    "95th-percentile threshold uses source normal calibration maxima, not test normals.",
+    "Pooling uses existing smoothed maps; failure does not rule out every pooling method.",
+    "Bootstrap conditional on fixed predictions, no correction for repeated exploration."
+  ]
+}

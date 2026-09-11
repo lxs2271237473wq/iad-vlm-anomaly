@@ -1,0 +1,70 @@
+{
+  "signature": {
+    "local_learning_robustness.py": "447518a1a7ca0a0c146c6324fbd0e9b80647bee16408c07755a36c60fb25815c",
+    "local_learning.py": "c6442e2a55a788b8b29b4c5be41b2076f0be39896f2a8e64171a735f1b8cecba",
+    "common.py": "8d936a723a5147b8728d1ddf561cd4de891f14a539ab9cc6d666f84521b3087a"
+  },
+  "convex_linear": {
+    "success": true,
+    "iterations": 25,
+    "objective": 0.3160921070146155,
+    "max_gradient": 1.4513250625884698e-07,
+    "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "l2": 0.001
+  },
+  "training": {
+    "response_42": {
+      "initial_loss": 0.7089893221855164,
+      "final_loss": 0.41498512029647827,
+      "epochs": 20,
+      "training_samples": 160217
+    },
+    "response_123": {
+      "initial_loss": 0.6789153218269348,
+      "final_loss": 0.4133397936820984,
+      "epochs": 20,
+      "training_samples": 160217
+    },
+    "response_2026": {
+      "initial_loss": 0.6944851279258728,
+      "final_loss": 0.413832426071167,
+      "epochs": 20,
+      "training_samples": 160217
+    },
+    "map_42": {
+      "initial_loss": 0.672773003578186,
+      "final_loss": 0.354737788438797,
+      "epochs": 20,
+      "training_samples": 160217
+    },
+    "map_123": {
+      "initial_loss": 0.6936472058296204,
+      "final_loss": 0.3560047149658203,
+      "epochs": 20,
+      "training_samples": 160217
+    },
+    "map_2026": {
+      "initial_loss": 0.7496426105499268,
+      "final_loss": 0.3542343080043793,
+      "epochs": 20,
+      "training_samples": 160217
+    },
+    "full_42": {
+      "reused_previous_seed42": true
+    },
+    "full_123": {
+      "initial_loss": 0.7117030024528503,
+      "final_loss": 0.26335591077804565,
+      "epochs": 20,
+      "training_samples": 160217
+    },
+    "full_2026": {
+      "initial_loss": 0.7400687336921692,
+      "final_loss": 0.2598155736923218,
+      "epochs": 20,
+      "training_samples": 160217
+    }
+  },
+  "previous_prediction_max_difference": 1.7763568394002505e-15,
+  "heldout": "pcb3"
+}

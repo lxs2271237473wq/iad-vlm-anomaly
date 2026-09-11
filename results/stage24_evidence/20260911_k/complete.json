@@ -1,0 +1,17 @@
+{
+  "status": "complete",
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "source_only": true,
+  "primary": "full versus map-only and converged linear, separately for every seed",
+  "caveats": [
+    "Fixed original sampling and backbone/coreset seed 42; varies head initialization and minibatch ordering only.",
+    "Identical 7-32-1 architecture, unused standardized inputs zeroed; effective input dimensionality differs.",
+    "Convex linear uses explicit weight-only L2; objective differs from AdamW decoupled decay.",
+    "Pixel-supervised category transfer, not official unsupervised VisA protocol.",
+    "Fixed seedwise paired intervals, no multiple-comparison adjustment or target evaluation."
+  ]
+}

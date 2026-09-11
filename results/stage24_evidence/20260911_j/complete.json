@@ -1,0 +1,7 @@
+{
+  "status": "complete",
+  "source_only": true,
+  "supervision": "source pixel masks, stronger than prior image-label fusion",
+  "primary_comparison": "MLP versus linear under identical pixel supervision",
+  "limitation": "Fixed one-seed control, fixed max aggregation, conditional bootstrap. No target evaluation or novel-method claim."
+}

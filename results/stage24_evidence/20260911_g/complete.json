@@ -1,0 +1,8 @@
+{
+  "status": "complete",
+  "source_only": true,
+  "additional_views_per_image": 4,
+  "primary_control": "view_mean versus identity",
+  "other_aggregations": "exploratory controls; no target selection",
+  "note": "Known test-time augmentation controls. All results retained; no claim of a new algorithm."
+}

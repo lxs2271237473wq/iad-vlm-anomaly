@@ -1,0 +1,70 @@
+{
+  "signature": {
+    "local_learning_robustness.py": "447518a1a7ca0a0c146c6324fbd0e9b80647bee16408c07755a36c60fb25815c",
+    "local_learning.py": "c6442e2a55a788b8b29b4c5be41b2076f0be39896f2a8e64171a735f1b8cecba",
+    "common.py": "8d936a723a5147b8728d1ddf561cd4de891f14a539ab9cc6d666f84521b3087a"
+  },
+  "convex_linear": {
+    "success": true,
+    "iterations": 24,
+    "objective": 0.31441198915421564,
+    "max_gradient": 1.0583727941618215e-07,
+    "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "l2": 0.001
+  },
+  "training": {
+    "response_42": {
+      "initial_loss": 0.709143877029419,
+      "final_loss": 0.410845011472702,
+      "epochs": 20,
+      "training_samples": 163529
+    },
+    "response_123": {
+      "initial_loss": 0.6786732077598572,
+      "final_loss": 0.409341037273407,
+      "epochs": 20,
+      "training_samples": 163529
+    },
+    "response_2026": {
+      "initial_loss": 0.6944804191589355,
+      "final_loss": 0.4097434878349304,
+      "epochs": 20,
+      "training_samples": 163529
+    },
+    "map_42": {
+      "initial_loss": 0.6726251840591431,
+      "final_loss": 0.35367661714553833,
+      "epochs": 20,
+      "training_samples": 163529
+    },
+    "map_123": {
+      "initial_loss": 0.6950034499168396,
+      "final_loss": 0.35530418157577515,
+      "epochs": 20,
+      "training_samples": 163529
+    },
+    "map_2026": {
+      "initial_loss": 0.7502688765525818,
+      "final_loss": 0.35322168469429016,
+      "epochs": 20,
+      "training_samples": 163529
+    },
+    "full_42": {
+      "reused_previous_seed42": true
+    },
+    "full_123": {
+      "initial_loss": 0.7147069573402405,
+      "final_loss": 0.26389527320861816,
+      "epochs": 20,
+      "training_samples": 163529
+    },
+    "full_2026": {
+      "initial_loss": 0.7395705580711365,
+      "final_loss": 0.2616612911224365,
+      "epochs": 20,
+      "training_samples": 163529
+    }
+  },
+  "previous_prediction_max_difference": 1.7763568394002505e-15,
+  "heldout": "cashew"
+}

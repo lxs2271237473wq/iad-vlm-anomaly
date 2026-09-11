@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "categories": [
+    "can",
+    "fabric",
+    "fruit_jelly",
+    "rice",
+    "sheet_metal",
+    "vial",
+    "wallplugs",
+    "walnuts"
+  ],
+  "image_size": 512,
+  "coreset_ratio": 0.025,
+  "protocol": "Frozen source configuration; all target train normals; normal-only calibration; no conditional residual."
+}

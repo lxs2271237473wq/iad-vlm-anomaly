@@ -1,0 +1,62 @@
+{
+  "code_sha256": "ceac569d58d5c6d01889bd2ad1ae0ee10a7e2e26ea3c710cb2f989ffc7eda5c0",
+  "normal_calibration": {
+    "identity": {
+      "center": 32.17442321777344,
+      "scale": 1.7930623580932616,
+      "n": 45,
+      "mad": 1.7930623580932616,
+      "fallback_std": false
+    },
+    "brightness08": {
+      "center": 34.94378662109375,
+      "scale": 1.2743242904663086,
+      "n": 45,
+      "mad": 1.2743242904663086,
+      "fallback_std": false
+    },
+    "brightness12": {
+      "center": 37.27370071411133,
+      "scale": 1.3339293983459473,
+      "n": 45,
+      "mad": 1.3339293983459473,
+      "fallback_std": false
+    },
+    "contrast08": {
+      "center": 33.899559020996094,
+      "scale": 1.6595602638244629,
+      "n": 45,
+      "mad": 1.6595602638244629,
+      "fallback_std": false
+    },
+    "contrast12": {
+      "center": 33.73895263671875,
+      "scale": 1.8182357460021972,
+      "n": 45,
+      "mad": 1.8182357460021972,
+      "fallback_std": false
+    },
+    "view_mean": {
+      "center": 34.325531005859375,
+      "scale": 1.4420861723327616,
+      "n": 45,
+      "mad": 1.4420861723327616,
+      "fallback_std": false
+    },
+    "view_median": {
+      "center": 34.20242691040039,
+      "scale": 1.372902621459961,
+      "n": 45,
+      "mad": 1.372902621459961,
+      "fallback_std": false
+    },
+    "view_min": {
+      "center": 32.14240646362305,
+      "scale": 1.7455943183898925,
+      "n": 45,
+      "mad": 1.7455943183898925,
+      "fallback_std": false
+    }
+  },
+  "images": 195
+}

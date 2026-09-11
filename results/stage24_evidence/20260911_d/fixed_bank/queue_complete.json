@@ -1,0 +1,21 @@
+{
+  "status": "complete",
+  "categories": [
+    "candle",
+    "capsules",
+    "cashew",
+    "chewinggum",
+    "fryum",
+    "macaroni1",
+    "macaroni2",
+    "pcb1",
+    "pcb2",
+    "pcb3",
+    "pcb4",
+    "pipe_fryum"
+  ],
+  "smoke": false,
+  "protocol": "source only; unchanged training images; fixed seed; normal-only calibration; CPU feature store",
+  "image_size": 512,
+  "coreset_ratio": 0.025
+}

@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "categories": [
+    "pcb3"
+  ],
+  "smoke": true,
+  "protocol": "source only; unchanged training images; fixed seed; normal-only calibration; CPU feature store",
+  "image_size": 512,
+  "coreset_ratio": 0.025
+}

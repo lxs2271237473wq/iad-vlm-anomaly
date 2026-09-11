@@ -1,0 +1,60 @@
+{
+  "passed": false,
+  "target_evaluated": false,
+  "rule": "Exploratory triage: conditional branch +0.01 AUROC, CI lower>0, >=8/12 wins against all three controls.",
+  "limitations": "Fixed OOF fits; not corrected for repeated research rounds. Passing requires further seeds and independent target evaluation.",
+  "variants": {
+    "geometry512": [
+      "D_z",
+      "M_context_top1_z",
+      "disagreement",
+      "log_roi_fraction",
+      "roi_context_occupancy",
+      "num_candidates",
+      "fallback_global"
+    ],
+    "geometry_multiscale": [
+      "D_z",
+      "M_context_top1_z",
+      "disagreement",
+      "log_roi_fraction",
+      "roi_context_occupancy",
+      "num_candidates",
+      "fallback_global",
+      "D256_z"
+    ],
+    "geometry_unconditional": [
+      "D_z",
+      "M_context_top1_z",
+      "disagreement",
+      "log_roi_fraction",
+      "roi_context_occupancy",
+      "num_candidates",
+      "fallback_global",
+      "D256_z",
+      "unconditional_top1pct_z"
+    ],
+    "geometry_conditional": [
+      "D_z",
+      "M_context_top1_z",
+      "disagreement",
+      "log_roi_fraction",
+      "roi_context_occupancy",
+      "num_candidates",
+      "fallback_global",
+      "D256_z",
+      "conditional_top1pct_z"
+    ],
+    "geometry_shuffled": [
+      "D_z",
+      "M_context_top1_z",
+      "disagreement",
+      "log_roi_fraction",
+      "roi_context_occupancy",
+      "num_candidates",
+      "fallback_global",
+      "D256_z",
+      "shuffled_residual_z"
+    ]
+  }
+}

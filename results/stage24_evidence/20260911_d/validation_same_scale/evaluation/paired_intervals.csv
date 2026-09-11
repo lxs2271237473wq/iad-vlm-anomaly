@@ -1,0 +1,6 @@
+method,baseline,delta_macro_auroc,lower95,upper95,categories_improved,categories,bootstrap_replicates
+D512_z,D256_z,0.0,0.0,0.0,0,12,2000
+geometry512,logistic_geometry,0.0,0.0,0.0,0,12,2000
+geometry_conditional,geometry_multiscale,0.0003861111111111111,-0.00026411095354209686,0.0010666405098596213,8,12,2000
+geometry_conditional,geometry_unconditional,-0.0003516226622662266,-0.001928441303868226,0.0012505514179815195,4,12,2000
+geometry_conditional,geometry_shuffled,0.003472112211221122,0.0014569739618370845,0.005696682963159809,10,12,2000

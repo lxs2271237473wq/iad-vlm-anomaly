@@ -1,0 +1,3 @@
+method,baseline,delta_macro_auroc,lower95,upper95,categories_improved,categories,bootstrap_replicates
+linear_contrast,geometry_unconditional,0.0019084708470847084,-0.002004465667935544,0.005519818322529363,4,12,2000
+linear_contrast,geometry512,0.003048074807480748,-0.000483272783094818,0.006320918487293755,4,12,2000

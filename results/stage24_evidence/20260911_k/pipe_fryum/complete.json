@@ -1,0 +1,70 @@
+{
+  "signature": {
+    "local_learning_robustness.py": "447518a1a7ca0a0c146c6324fbd0e9b80647bee16408c07755a36c60fb25815c",
+    "local_learning.py": "c6442e2a55a788b8b29b4c5be41b2076f0be39896f2a8e64171a735f1b8cecba",
+    "common.py": "8d936a723a5147b8728d1ddf561cd4de891f14a539ab9cc6d666f84521b3087a"
+  },
+  "convex_linear": {
+    "success": true,
+    "iterations": 25,
+    "objective": 0.31990738659448736,
+    "max_gradient": 5.174666640442218e-08,
+    "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "l2": 0.001
+  },
+  "training": {
+    "response_42": {
+      "initial_loss": 0.7089516520500183,
+      "final_loss": 0.41465967893600464,
+      "epochs": 20,
+      "training_samples": 163481
+    },
+    "response_123": {
+      "initial_loss": 0.6789262294769287,
+      "final_loss": 0.4131723642349243,
+      "epochs": 20,
+      "training_samples": 163481
+    },
+    "response_2026": {
+      "initial_loss": 0.6944754123687744,
+      "final_loss": 0.4134179949760437,
+      "epochs": 20,
+      "training_samples": 163481
+    },
+    "map_42": {
+      "initial_loss": 0.6730288863182068,
+      "final_loss": 0.3573228418827057,
+      "epochs": 20,
+      "training_samples": 163481
+    },
+    "map_123": {
+      "initial_loss": 0.6952404379844666,
+      "final_loss": 0.3588910698890686,
+      "epochs": 20,
+      "training_samples": 163481
+    },
+    "map_2026": {
+      "initial_loss": 0.7493682503700256,
+      "final_loss": 0.35687118768692017,
+      "epochs": 20,
+      "training_samples": 163481
+    },
+    "full_42": {
+      "reused_previous_seed42": true
+    },
+    "full_123": {
+      "initial_loss": 0.7148483991622925,
+      "final_loss": 0.26686716079711914,
+      "epochs": 20,
+      "training_samples": 163481
+    },
+    "full_2026": {
+      "initial_loss": 0.7400370836257935,
+      "final_loss": 0.2640043795108795,
+      "epochs": 20,
+      "training_samples": 163481
+    }
+  },
+  "previous_prediction_max_difference": 8.881784197001252e-16,
+  "heldout": "pipe_fryum"
+}

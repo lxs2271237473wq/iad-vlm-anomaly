@@ -1,0 +1,6 @@
+{
+  "status": "complete",
+  "primary_comparison": "D512 versus D256",
+  "replicates": 5000,
+  "note": "Provisional filename scene groups; fixed models/categories; public target previously inspected; no new target tuning. Resolution improvement is not a novel module."
+}

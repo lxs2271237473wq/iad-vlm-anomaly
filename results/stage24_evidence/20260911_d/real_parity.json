@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "normal_images": 8,
+  "embedding_shape": [
+    32768,
+    1536
+  ],
+  "selected_centers": 819,
+  "indices_identical": true,
+  "scores_and_maps_identical": true,
+  "original_seconds": 0.16157158091664314,
+  "safe_seconds": 0.12184836715459824,
+  "peak_allocated_gib": 0.36610937118530273,
+  "image_ids": [
+    "006fad0fd422f2627a8c5670",
+    "009ca27534bca66144726b1b",
+    "01b4fa6d6f6b25a169cb3c76",
+    "01b9d4c69845673f2f4546a1",
+    "01d36cf583a60e7a5cd6cd67",
+    "01eefc16be78e824658d359a",
+    "0218ee16af82e2a2d68a10b9",
+    "022d3db49ed59b8525c61a6c"
+  ],
+  "note": "Normal-only implementation parity test. No anomaly performance claim."
+}
