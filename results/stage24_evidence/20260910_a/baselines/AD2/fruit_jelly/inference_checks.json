@@ -1,0 +1,7 @@
+{
+  "batch_composition_score_delta": 2.288818359375e-05,
+  "labels_excluded_from_model_inputs": true,
+  "post_processor_used": false,
+  "center_crop_used": false,
+  "finite_outputs": true
+}

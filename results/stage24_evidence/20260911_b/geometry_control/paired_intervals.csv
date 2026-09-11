@@ -1,0 +1,4 @@
+method,baseline,delta_macro_auroc,lower95,upper95,categories_improved,categories,bootstrap_replicates
+logistic_reference,logistic_geometry,-0.00024403190319031908,-0.0024094952191501674,0.0015354248825691652,6,12,2000
+logistic_exchange,logistic_geometry,-0.0014374862486248629,-0.004326557941925035,0.0014630623669862565,4,12,2000
+logistic_geometry,fixed_source_oof,0.009334185918591859,0.002072765239770024,0.01688969339721512,8,12,2000

@@ -1,0 +1,58 @@
+{
+  "replicates": 5000,
+  "seed": 42,
+  "groups": [
+    {
+      "category": "can",
+      "normal_groups": 12,
+      "anomalous_groups": 15,
+      "images": 162
+    },
+    {
+      "category": "fabric",
+      "normal_groups": 11,
+      "anomalous_groups": 15,
+      "images": 156
+    },
+    {
+      "category": "fruit_jelly",
+      "normal_groups": 5,
+      "anomalous_groups": 15,
+      "images": 80
+    },
+    {
+      "category": "rice",
+      "normal_groups": 7,
+      "anomalous_groups": 15,
+      "images": 132
+    },
+    {
+      "category": "sheet_metal",
+      "normal_groups": 4,
+      "anomalous_groups": 15,
+      "images": 114
+    },
+    {
+      "category": "vial",
+      "normal_groups": 5,
+      "anomalous_groups": 15,
+      "images": 140
+    },
+    {
+      "category": "wallplugs",
+      "normal_groups": 10,
+      "anomalous_groups": 15,
+      "images": 150
+    },
+    {
+      "category": "walnuts",
+      "normal_groups": 10,
+      "anomalous_groups": 15,
+      "images": 150
+    }
+  ],
+  "grouping": "AD2 filename prefix, category, official split and normal/bad directory; provisional scene identity",
+  "stratification": "category and normal/anomalous groups",
+  "fitted_models_fixed": true,
+  "categories_fixed": true
+}

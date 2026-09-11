@@ -1,0 +1,170 @@
+{
+  "selected": "tight_text_z",
+  "source_cv": {
+    "tight_text_z": 0.9184820682068208,
+    "tight_visual_z": 0.9177777227722771,
+    "context15_text_z": 0.9173672167216721,
+    "context15_visual_z": 0.9181654015401541,
+    "context30_text_z": 0.9165514301430143,
+    "context30_visual_z": 0.917235698569857
+  },
+  "outer_folds": [
+    {
+      "heldout": "candle",
+      "selected": "tight_text_z",
+      "inner_scores": {
+        "tight_text_z": 0.9136071707170718,
+        "tight_visual_z": 0.9124852385238522,
+        "context15_text_z": 0.9124338433843385,
+        "context15_visual_z": 0.912938283828383,
+        "context30_text_z": 0.9115949594959495,
+        "context30_visual_z": 0.9115880588058807
+      }
+    },
+    {
+      "heldout": "capsules",
+      "selected": "tight_text_z",
+      "inner_scores": {
+        "tight_text_z": 0.9336864086408642,
+        "tight_visual_z": 0.931848604860486,
+        "context15_text_z": 0.9320261926192619,
+        "context15_visual_z": 0.9323948694869486,
+        "context30_text_z": 0.9308326732673268,
+        "context30_visual_z": 0.9315549054905492
+      }
+    },
+    {
+      "heldout": "cashew",
+      "selected": "tight_text_z",
+      "inner_scores": {
+        "tight_text_z": 0.9149162616261627,
+        "tight_visual_z": 0.9146263126312631,
+        "context15_text_z": 0.9132612961296128,
+        "context15_visual_z": 0.9146289228922893,
+        "context30_text_z": 0.9136108310831083,
+        "context30_visual_z": 0.9134450945094508
+      }
+    },
+    {
+      "heldout": "chewinggum",
+      "selected": "tight_text_z",
+      "inner_scores": {
+        "tight_text_z": 0.9131527152715272,
+        "tight_visual_z": 0.9124357635763577,
+        "context15_text_z": 0.9117034503450345,
+        "context15_visual_z": 0.9128430843084309,
+        "context30_text_z": 0.9109526252625262,
+        "context30_visual_z": 0.9117231623162315
+      }
+    },
+    {
+      "heldout": "fryum",
+      "selected": "tight_text_z",
+      "inner_scores": {
+        "tight_text_z": 0.9170480648064806,
+        "tight_visual_z": 0.9158867386738674,
+        "context15_text_z": 0.9153875787578758,
+        "context15_visual_z": 0.9161369336933695,
+        "context30_text_z": 0.9143909390939093,
+        "context30_visual_z": 0.914872097209721
+      }
+    },
+    {
+      "heldout": "macaroni1",
+      "selected": "tight_text_z",
+      "inner_scores": {
+        "tight_text_z": 0.9246912391239124,
+        "tight_visual_z": 0.9243071407140714,
+        "context15_text_z": 0.9238693369336932,
+        "context15_visual_z": 0.9245989498949896,
+        "context30_text_z": 0.9228359435943595,
+        "context30_visual_z": 0.9240722472247224
+      }
+    },
+    {
+      "heldout": "macaroni2",
+      "selected": "context15_text_z",
+      "inner_scores": {
+        "tight_text_z": 0.9320942694269426,
+        "tight_visual_z": 0.932804590459046,
+        "context15_text_z": 0.9329341134113412,
+        "context15_visual_z": 0.9327401740174018,
+        "context30_text_z": 0.9323038703870388,
+        "context30_visual_z": 0.9324050105010501
+      }
+    },
+    {
+      "heldout": "pcb1",
+      "selected": "tight_text_z",
+      "inner_scores": {
+        "tight_text_z": 0.9153789378937893,
+        "tight_visual_z": 0.9144558355835583,
+        "context15_text_z": 0.9141124812481248,
+        "context15_visual_z": 0.9149762676267627,
+        "context30_text_z": 0.9128967596759676,
+        "context30_visual_z": 0.9134489348934896
+      }
+    },
+    {
+      "heldout": "pcb2",
+      "selected": "tight_text_z",
+      "inner_scores": {
+        "tight_text_z": 0.9173216321632165,
+        "tight_visual_z": 0.9159220522052205,
+        "context15_text_z": 0.9153597959795978,
+        "context15_visual_z": 0.9164774077407741,
+        "context30_text_z": 0.914171707170717,
+        "context30_visual_z": 0.9149033903390339
+      }
+    },
+    {
+      "heldout": "pcb3",
+      "selected": "context15_visual_z",
+      "inner_scores": {
+        "tight_text_z": 0.914804200420042,
+        "tight_visual_z": 0.914975397539754,
+        "context15_text_z": 0.9144587158715871,
+        "context15_visual_z": 0.9154859285928592,
+        "context30_text_z": 0.9134750375037505,
+        "context30_visual_z": 0.9137432343234324
+      }
+    },
+    {
+      "heldout": "pcb4",
+      "selected": "tight_text_z",
+      "inner_scores": {
+        "tight_text_z": 0.9120725772577258,
+        "tight_visual_z": 0.9115098409840985,
+        "context15_text_z": 0.9107485748574858,
+        "context15_visual_z": 0.9116738373837385,
+        "context30_text_z": 0.9099930093009302,
+        "context30_visual_z": 0.9104738073807382
+      }
+    },
+    {
+      "heldout": "pipe_fryum",
+      "selected": "context15_visual_z",
+      "inner_scores": {
+        "tight_text_z": 0.9105205520552055,
+        "tight_visual_z": 0.9099781878187817,
+        "context15_text_z": 0.9099654965496551,
+        "context15_visual_z": 0.9105505850585057,
+        "context30_text_z": 0.9086467446744675,
+        "context30_visual_z": 0.9090908490849084
+      }
+    }
+  ],
+  "target_evaluated": false,
+  "supervision": "source image labels; target labels never used",
+  "C": 1,
+  "features": [
+    "D_z",
+    "M_context_top1_z",
+    "disagreement",
+    "log_roi_fraction",
+    "roi_context_occupancy",
+    "num_candidates",
+    "fallback_global"
+  ],
+  "note": "Nested OOF is the primary selection estimate; best single-variant score is exploratory."
+}

@@ -1,0 +1,19 @@
+{
+  "dataset": "VisA",
+  "reference_pool_size": 32,
+  "reference_count": 2,
+  "roi": "top1 detector rectangle",
+  "reference_search": "masked RGB SQDIFF translation at 128x128; context factor 3, minimum 16x16 cells; candidate+1-cell excluded",
+  "scoring_context_factor": 1.5,
+  "normal_calibration": "independent held-out normal; median/MAD; no clipping",
+  "exchange": "hard rectangular patch swap; reference scored crop resized to query scored crop size",
+  "additional_views": "two references plus four exchanged views; query rescored for parity check",
+  "smoke": false,
+  "clip_sha256": "e6d1bd7789aa45192b3bf90570a789b478bae1b74ebcce7eddd908e83a2b7c31",
+  "inference_manifest_sha256": "2a1d2d48ad177354187163953140ddba00a746bf1ecf34fa5bc29ab4da277f85",
+  "code_sha256": {
+    "extract_exchange.py": "56136306004b218e0c2372fff8779e855c013516b3508bd441babd1e13dfe21b",
+    "common.py": "8d936a723a5147b8728d1ddf561cd4de891f14a539ab9cc6d666f84521b3087a",
+    "run_baselines.py": "b205de34868088a9ac87a161a65295dbd1af082202c6b194e4ed811dec5e21e2"
+  }
+}

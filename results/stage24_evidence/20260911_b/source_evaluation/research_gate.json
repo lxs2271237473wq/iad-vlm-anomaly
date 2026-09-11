@@ -1,0 +1,47 @@
+{
+  "source_exchange_increment_supported": false,
+  "target_run_started": false,
+  "comparison_intervals": [
+    {
+      "method": "gate_exchange",
+      "baseline": "fixed_source_oof",
+      "delta_macro_auroc": 0.003596067106710671,
+      "lower95": -0.0006420145233549659,
+      "upper95": 0.007928624531433148,
+      "categories_improved": 6,
+      "categories": 12,
+      "bootstrap_replicates": 2000
+    },
+    {
+      "method": "gate_exchange",
+      "baseline": "gate_reference",
+      "delta_macro_auroc": -0.0007718921892189219,
+      "lower95": -0.0018995413191874274,
+      "upper95": 0.0003463222011930928,
+      "categories_improved": 4,
+      "categories": 12,
+      "bootstrap_replicates": 2000
+    },
+    {
+      "method": "gate_exchange",
+      "baseline": "logistic_reference",
+      "delta_macro_auroc": -0.005494086908690869,
+      "lower95": -0.012009498252860112,
+      "upper95": 0.0008397951914452865,
+      "categories_improved": 5,
+      "categories": 12,
+      "bootstrap_replicates": 2000
+    },
+    {
+      "method": "gate_exchange",
+      "baseline": "gate_budget_pool",
+      "delta_macro_auroc": -0.0005411716171617163,
+      "lower95": -0.0016672867881383586,
+      "upper95": 0.0006274140333385376,
+      "categories_improved": 4,
+      "categories": 12,
+      "bootstrap_replicates": 2000
+    }
+  ],
+  "note": "This pilot cannot establish target generalization or publication-level novelty."
+}

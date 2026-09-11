@@ -1,0 +1,26 @@
+{
+  "status": "512 feature extraction preflight passed",
+  "category": "pcb3",
+  "normal_training_images": 815,
+  "sampled_normal_images": 8,
+  "input_size": 512,
+  "batch_size": 4,
+  "embedding_shapes": [
+    [
+      16384,
+      1536
+    ],
+    [
+      16384,
+      1536
+    ]
+  ],
+  "peak_allocated_gib": 0.34084033966064453,
+  "peak_reserved_gib": 0.556640625,
+  "device_total_gib": 23.5164794921875,
+  "estimated_full_training_embeddings_gib": 19.1015625,
+  "estimated_embeddings_plus_vstack_gib": 38.203125,
+  "coreset_selection_run": false,
+  "anomaly_evaluation_run": false,
+  "note": "Capacity estimate excludes further projection and inference allocations. Existing GPU embedding_store + vstack needs redesign/offload or more memory before full 512 training."
+}

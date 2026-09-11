@@ -90,3 +90,30 @@ Thumbs.db
 third_party/*
 !third_party/
 !third_party/README.md
+# ============================================================
+# Stage 24 lightweight experimental evidence
+# ============================================================
+
+# Allow Stage 24 directory traversal
+!results/
+!results/stage24_evidence/
+!results/stage24_evidence/**/
+
+# Keep lightweight reproducibility/evaluation artifacts
+!results/stage24_evidence/**/*.csv
+!results/stage24_evidence/**/*.json
+!results/stage24_evidence/**/*.jsonl
+!results/stage24_evidence/**/*.md
+!results/stage24_evidence/**/*.txt
+!results/stage24_evidence/**/*.jpg
+
+# Explicitly keep heavy generated artifacts ignored
+results/stage24_evidence/**/*.pt
+results/stage24_evidence/**/*.pth
+results/stage24_evidence/**/*.ckpt
+results/stage24_evidence/**/*.npz
+results/stage24_evidence/**/*.npy
+results/stage24_evidence/**/*.joblib
+results/stage24_evidence/**/*.pid
+results/stage24_evidence/**/*.lock
+results/stage24_evidence/**/*.log

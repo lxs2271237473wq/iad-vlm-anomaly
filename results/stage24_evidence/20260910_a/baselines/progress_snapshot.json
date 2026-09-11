@@ -1,0 +1,302 @@
+[
+  {
+    "dataset": "AD2",
+    "category": "can",
+    "status": "baseline_complete",
+    "train_images": 412,
+    "calibration_images": 46,
+    "evaluation_images": 162,
+    "seconds": 125.12772380094975,
+    "memory_bank_shape": [
+      42188,
+      1536
+    ],
+    "memory_bank_sha256": "fbee4586e52dffaee3058827e0c01b19010f0cd2a3a1664e836e21dc61ec34ad",
+    "predictions_sha256": "6913cec0bff5f32ba5238547d484285900edcb373505a0ee1a9be03b2c13ef07"
+  },
+  {
+    "dataset": "AD2",
+    "category": "fabric",
+    "status": "baseline_complete",
+    "train_images": 387,
+    "calibration_images": 43,
+    "evaluation_images": 156,
+    "seconds": 162.9946914901957,
+    "memory_bank_shape": [
+      39628,
+      1536
+    ],
+    "memory_bank_sha256": "86f42d54c3b010a3daee281c1dcba158f8b82976fed4a1f2a7a9b9200861959d",
+    "predictions_sha256": "171b96b8ce98cb0ae056b8307a390f5a356963312ddc7a4d14f327b31b85e46d"
+  },
+  {
+    "dataset": "AD2",
+    "category": "fruit_jelly",
+    "status": "baseline_complete",
+    "train_images": 263,
+    "calibration_images": 37,
+    "evaluation_images": 80,
+    "seconds": 57.5488496273756,
+    "memory_bank_shape": [
+      26931,
+      1536
+    ],
+    "memory_bank_sha256": "27fe53bc8e9d14f4c003286a2cdd7cbacc4f82bf0b46bf1b06a78612ef76a98b",
+    "predictions_sha256": "908b92c8b0fc55ed808200c524921a61265712b9805ba71938ec357aba763b3d"
+  },
+  {
+    "dataset": "AD2",
+    "category": "rice",
+    "status": "baseline_complete",
+    "train_images": 313,
+    "calibration_images": 35,
+    "evaluation_images": 132,
+    "seconds": 122.07138029485941,
+    "memory_bank_shape": [
+      32051,
+      1536
+    ],
+    "memory_bank_sha256": "a4335246f6962b819875d5b4091090e9372298f7c7bb534664c32d29df942ec4",
+    "predictions_sha256": "b60c23978b343cb66c337707eac2bacbb5af648db072cefe806a3f24cdcce3cd"
+  },
+  {
+    "dataset": "AD2",
+    "category": "sheet_metal",
+    "status": "baseline_complete",
+    "train_images": 137,
+    "calibration_images": 19,
+    "evaluation_images": 114,
+    "seconds": 31.798518739640713,
+    "memory_bank_shape": [
+      14028,
+      1536
+    ],
+    "memory_bank_sha256": "f6d8509a4e20dd23638e8de6bf6a817a2a14901975a2c21edace2f48ef1fdaec",
+    "predictions_sha256": "50c87f770d0611e8b5c3f3746687d16209e1faf5fe9b8db7ed8683ef0fd20a83"
+  },
+  {
+    "dataset": "AD2",
+    "category": "vial",
+    "status": "baseline_complete",
+    "train_images": 291,
+    "calibration_images": 41,
+    "evaluation_images": 140,
+    "seconds": 61.46583234285936,
+    "memory_bank_shape": [
+      29798,
+      1536
+    ],
+    "memory_bank_sha256": "788690df443bfcd2b22dae99b674782d4d6f0887a0c1dbfe5f70ec1c26e3c131",
+    "predictions_sha256": "d2d3cb81014ddc96239945f147116a2858f477de97310c0917d48636a6aaf9c8"
+  },
+  {
+    "dataset": "AD2",
+    "category": "wallplugs",
+    "status": "baseline_complete",
+    "train_images": 293,
+    "calibration_images": 33,
+    "evaluation_images": 150,
+    "seconds": 76.0031685619615,
+    "memory_bank_shape": [
+      30003,
+      1536
+    ],
+    "memory_bank_sha256": "b5043acef9cfa143199abe8faf00a4daef447af30d00520f166f18959edaf30d",
+    "predictions_sha256": "06fa71e819aa85bb7461dd5a1a97d4ae3bd1b6a9b575f66567953ac379ce2694"
+  },
+  {
+    "dataset": "AD2",
+    "category": "walnuts",
+    "status": "baseline_complete",
+    "train_images": 432,
+    "calibration_images": 48,
+    "evaluation_images": 150,
+    "seconds": 181.938769755885,
+    "memory_bank_shape": [
+      44236,
+      1536
+    ],
+    "memory_bank_sha256": "be7b08c644a474664468d3db5978366789876cf4a97cf2d4a00450b2034f3b17",
+    "predictions_sha256": "399a5d6fde3713c27214145b6f59f3623bd7aadb293598cb84351df06bf6cfef"
+  },
+  {
+    "dataset": "VisA",
+    "category": "candle",
+    "status": "baseline_complete",
+    "train_images": 810,
+    "calibration_images": 90,
+    "evaluation_images": 200,
+    "seconds": 333.42915533762425,
+    "memory_bank_shape": [
+      82944,
+      1536
+    ],
+    "memory_bank_sha256": "5f9ed0ec341966d23dd8e9761e0293e6788339265fb03b247a7702e876fdde3f",
+    "predictions_sha256": "5a90c0b1f3cf4c3ce9c63ff3ba41e19f152f5616f4f298ca8f179c8fdae5efa0"
+  },
+  {
+    "dataset": "VisA",
+    "category": "capsules",
+    "status": "baseline_complete",
+    "train_images": 488,
+    "calibration_images": 54,
+    "evaluation_images": 160,
+    "seconds": 127.7456578258425,
+    "memory_bank_shape": [
+      49971,
+      1536
+    ],
+    "memory_bank_sha256": "9722920eda9b05eea9cf4bbb2f518835cc7e3fc2edc2f650c8bf46f25c512dcd",
+    "predictions_sha256": "f49d6c82a6dc31b5293d67e25ac60783facfc1739fb9ab02987e8b2fa7328f6b"
+  },
+  {
+    "dataset": "VisA",
+    "category": "cashew",
+    "status": "baseline_complete",
+    "train_images": 405,
+    "calibration_images": 45,
+    "evaluation_images": 150,
+    "seconds": 93.21338594797999,
+    "memory_bank_shape": [
+      41472,
+      1536
+    ],
+    "memory_bank_sha256": "f7f454f2f5cbffe024cf7b0797893cd58426f73677aaabdc7af96d5e940f775d",
+    "predictions_sha256": "2a929d6c94a12b7eed3af04c0194e0c9bc143c0ac67dc6c5c38d24d52dc3a258"
+  },
+  {
+    "dataset": "VisA",
+    "category": "chewinggum",
+    "status": "baseline_complete",
+    "train_images": 408,
+    "calibration_images": 45,
+    "evaluation_images": 150,
+    "seconds": 94.370318824891,
+    "memory_bank_shape": [
+      41779,
+      1536
+    ],
+    "memory_bank_sha256": "0fdcebe176869ed9353f6574638ddef889a09cc774c8b856ee1a0841206c8ad4",
+    "predictions_sha256": "7cb8bed61be0a9fba55b1cfb2e032e86b852d253b81acf156970d4c1836e98d2"
+  },
+  {
+    "dataset": "VisA",
+    "category": "fryum",
+    "status": "baseline_complete",
+    "train_images": 405,
+    "calibration_images": 45,
+    "evaluation_images": 150,
+    "seconds": 92.22893013805151,
+    "memory_bank_shape": [
+      41472,
+      1536
+    ],
+    "memory_bank_sha256": "c613607200badd40cb0db85ab48a93ab69df4107455b47a2d7f9c627914812f3",
+    "predictions_sha256": "ce33e25025683f0445c542a4b8f5491daff99e75e74700c40a27347ce9a234bd"
+  },
+  {
+    "dataset": "VisA",
+    "category": "macaroni1",
+    "status": "baseline_complete",
+    "train_images": 810,
+    "calibration_images": 90,
+    "evaluation_images": 200,
+    "seconds": 335.51817337889224,
+    "memory_bank_shape": [
+      82944,
+      1536
+    ],
+    "memory_bank_sha256": "0074b000ec3ef1597fe5cd899dd1a63bc030c34d760c1c7c9a80cfc4c1f895fa",
+    "predictions_sha256": "058978f4beac681084f4399e8f64e954c36d1f0f7778bc07ecc01324c3a54c11"
+  },
+  {
+    "dataset": "VisA",
+    "category": "macaroni2",
+    "status": "baseline_complete",
+    "train_images": 810,
+    "calibration_images": 90,
+    "evaluation_images": 200,
+    "seconds": 335.65879064938053,
+    "memory_bank_shape": [
+      82944,
+      1536
+    ],
+    "memory_bank_sha256": "336f41a52e5cdd900b2cd9644921adfe42c3615db60729f9b31c5d854401981b",
+    "predictions_sha256": "095a8a4aa3551c83a92225512006c01ba7766b4d4ecc03c8e26ef1fa1f1f820e"
+  },
+  {
+    "dataset": "VisA",
+    "category": "pcb1",
+    "status": "baseline_complete",
+    "train_images": 814,
+    "calibration_images": 90,
+    "evaluation_images": 200,
+    "seconds": 338.89278522413224,
+    "memory_bank_shape": [
+      83353,
+      1536
+    ],
+    "memory_bank_sha256": "0412a2d1c2bcaf6a599c62194c8813377e5d7bf93edf6d07245fd2f57564f799",
+    "predictions_sha256": "f7300d519bba7119d6b7ebaab6a2ca8bef300e1a72770571e16d1727b45190f5"
+  },
+  {
+    "dataset": "VisA",
+    "category": "pcb2",
+    "status": "baseline_complete",
+    "train_images": 811,
+    "calibration_images": 90,
+    "evaluation_images": 200,
+    "seconds": 336.7184909218922,
+    "memory_bank_shape": [
+      83046,
+      1536
+    ],
+    "memory_bank_sha256": "bbc4084171c8523a2b0c69e5947cb4174f2193fb821bd8340bbe941f5b2e2f4e",
+    "predictions_sha256": "dfaa3c89a0ee0362b0433a49a9e96da53f0c98b4da5cd3785c9b0e56a6a87db7"
+  },
+  {
+    "dataset": "VisA",
+    "category": "pcb3",
+    "status": "baseline_complete",
+    "train_images": 815,
+    "calibration_images": 90,
+    "evaluation_images": 201,
+    "seconds": 338.5954529638402,
+    "memory_bank_shape": [
+      83456,
+      1536
+    ],
+    "memory_bank_sha256": "f2771e4e8ad33882aef39c9607503a7fd5fe865e80a7bbf0987690acd3bd0b58",
+    "predictions_sha256": "efe174e35adba68535ef119f1b16abfc1c86c6915f3249083ea641ee438ee7b1"
+  },
+  {
+    "dataset": "VisA",
+    "category": "pcb4",
+    "status": "baseline_complete",
+    "train_images": 814,
+    "calibration_images": 90,
+    "evaluation_images": 201,
+    "seconds": 338.4549491330981,
+    "memory_bank_shape": [
+      83353,
+      1536
+    ],
+    "memory_bank_sha256": "7700cd4409ff1c77f51fb3fdadf7c8d95a4bbf481a85553f4c048bbcb8b173c4",
+    "predictions_sha256": "d8fb999d3e5839f70ea52aef37e43f09124decb5707483e863aa58f3b1048e66"
+  },
+  {
+    "dataset": "VisA",
+    "category": "pipe_fryum",
+    "status": "baseline_complete",
+    "train_images": 405,
+    "calibration_images": 45,
+    "evaluation_images": 150,
+    "seconds": 91.36921995924786,
+    "memory_bank_shape": [
+      41472,
+      1536
+    ],
+    "memory_bank_sha256": "827cf2742eca8425bb8dbde286cb862dad53ff622e8139fe8b9f1aa8bfc21046",
+    "predictions_sha256": "8adfca595628aed25ec14192ac1441667dda3530a2e34eba2f5eae3fc4bd80d5"
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "queries": 291,
+  "valid_evidence": 291,
+  "normal_controls": 90,
+  "seconds": 42.1628029900603,
+  "encoded_views": 2037,
+  "evidence_sha256": "82483f34bfc5345891db3756ed44250bebd753c22c865922c3b85590d9177d2d"
+}

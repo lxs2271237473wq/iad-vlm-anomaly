@@ -1,0 +1,23 @@
+{
+  "scales": {
+    "tight": 1.0,
+    "context15": 1.5,
+    "context30": 3.0
+  },
+  "roi": "fixed top1 from 256 full-field detector",
+  "reference_pool": 32,
+  "selected_references": 2,
+  "matcher": "same masked RGB translation search as source exchange pilot",
+  "reference_extraction": "retrieve at context3, then take aligned subwindows for each scale",
+  "query_views": 3,
+  "reference_views": 6,
+  "labels_used": false,
+  "mask_used": false,
+  "weight_sha256": "e6d1bd7789aa45192b3bf90570a789b478bae1b74ebcce7eddd908e83a2b7c31",
+  "code_sha256": "463659d0efdaf3ed3da9fe7758462b6f1f4ab7e8dc354a44bff51a36aefd5b9d",
+  "helper_sha256": {
+    "common.py": "8d936a723a5147b8728d1ddf561cd4de891f14a539ab9cc6d666f84521b3087a",
+    "run_baselines.py": "b205de34868088a9ac87a161a65295dbd1af082202c6b194e4ed811dec5e21e2",
+    "extract_exchange.py": "56136306004b218e0c2372fff8779e855c013516b3508bd441babd1e13dfe21b"
+  }
+}

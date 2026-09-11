@@ -1,0 +1,23 @@
+{
+  "git_revision": "d858b81e1df80b07efb6c31daff2d7c7d3c0d91c",
+  "files": {
+    "README.md": "00740d0d50f8032462b304d7039281ceac62e070d5da6b7801a1f3ab1d9549d1",
+    "baseline_intervals.py": "52165e70cd1d16cf2f984b3ef452d9000dddc1e427cb714c1c7ff6e9f926e77d",
+    "build_manifest.py": "452e57b1b86b606be2993d28eeeb27a7eedf23f9b47007a42071aebd82f80cca",
+    "capture_environment.py": "ccf44b19b6dd29a0aedf830e1d0af0ce3686aa0bce86b6aea9b30dcf556153ac",
+    "common.py": "8d936a723a5147b8728d1ddf561cd4de891f14a539ab9cc6d666f84521b3087a",
+    "diagnose_exchange_controls.py": "074a77e0aa0022dac440922c634f3f187724ec1bf5cc4c9352ef49d2afeaca66",
+    "evaluate_exchange.py": "025499a3328b803538785ea3f5d07bbe992d5a05d8d47bae988db511791ab7af",
+    "evaluate_roi_coverage.py": "115a8806e6150a1b1348075ffa1a1737ba908cf1fb0d7e4cc15bccda64fb9c3c",
+    "extract_exchange.py": "56136306004b218e0c2372fff8779e855c013516b3508bd441babd1e13dfe21b",
+    "finish_baselines.sh": "b4edd62aeab761d92bcd7c3261100124ca38ca0c05df00a1a13655fec894f5ff",
+    "run_baselines.py": "b205de34868088a9ac87a161a65295dbd1af082202c6b194e4ed811dec5e21e2",
+    "run_exchange_queue.sh": "9db2103350490291822f0fcef4b941cab3f4bff3e9b906999881e35d1ceb64f0",
+    "run_queue.sh": "e8825c829a1b333e4c5b69a6eb24db4b79f32834c3ca8d092c82fa25b4161345",
+    "source_fusion.py": "9d16b2ec48f54cb102e75dd067d013d4520eb203870959fa8bed65020bba1808",
+    "summarize_baselines.py": "d567055a1df0c6433820214a70916ef6badc774beafd51d1283764b72215caad",
+    "test_exchange.py": "01df42e36fd221da611612cace28fbd898fbded7895093058caf07e9d9843650",
+    "test_geometry.py": "90dbc7fe1bb4ccf2573ab50813991528766202b8b7592e6e2a24d14673691d0a",
+    "transfer_geometry_baseline.py": "737710c805a3a0d7fbc624dc66c57564a965ee4f4e9718e90d95ef00aa366211"
+  }
+}

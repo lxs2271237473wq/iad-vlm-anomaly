@@ -1,0 +1,44 @@
+{
+  "dataset": "VisA",
+  "category": "pcb3",
+  "seed": 42,
+  "image_size": 256,
+  "coreset_ratio": 0.1,
+  "backbone": "wide_resnet50_2",
+  "layers": [
+    "layer2",
+    "layer3"
+  ],
+  "neighbors": 9,
+  "preprocess": "RGB full-field square resize; no center crop",
+  "clip": "ViT-B-32/OpenAI cached weights",
+  "clip_sha256": "e6d1bd7789aa45192b3bf90570a789b478bae1b74ebcce7eddd908e83a2b7c31",
+  "clip_size": 224,
+  "prompts": [
+    "a normal printed circuit board",
+    "a defect-free printed circuit board",
+    "a clean undamaged printed circuit board",
+    "a defective printed circuit board",
+    "an anomalous printed circuit board",
+    "a damaged or contaminated printed circuit board"
+  ],
+  "candidate_quantile": 0.97,
+  "min_map_area": 4,
+  "top_k": 3,
+  "context_factor": 1.5,
+  "normal_calibration": "median / 1.4826 MAD; std fallback; no clipping",
+  "manifest_sha256": "2a1d2d48ad177354187163953140ddba00a746bf1ecf34fa5bc29ab4da277f85",
+  "code_sha256": {
+    "build_manifest.py": "452e57b1b86b606be2993d28eeeb27a7eedf23f9b47007a42071aebd82f80cca",
+    "common.py": "8d936a723a5147b8728d1ddf561cd4de891f14a539ab9cc6d666f84521b3087a",
+    "run_baselines.py": "b205de34868088a9ac87a161a65295dbd1af082202c6b194e4ed811dec5e21e2"
+  },
+  "smoke": false,
+  "packages": {
+    "torch": "2.7.0+cu118",
+    "torchvision": "0.22.0+cu118",
+    "anomalib": "2.5.0",
+    "open_clip_torch": "3.3.0",
+    "timm": "1.0.27"
+  }
+}

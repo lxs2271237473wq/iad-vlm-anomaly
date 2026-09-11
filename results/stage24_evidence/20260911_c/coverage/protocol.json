@@ -1,0 +1,6 @@
+{
+  "source_only": true,
+  "gt_used_for_evaluation_only": true,
+  "image_count": 1200,
+  "caveat": "Nearest-neighbor mask survival is a geometric sampling diagnostic, not evidence that RGB information or model sensitivity is absent."
+}

@@ -1,0 +1,16 @@
+{
+  "status": "post-pilot diagnostic",
+  "source_only": true,
+  "C": 1,
+  "features": [
+    "D_z",
+    "M_context_top1_z",
+    "disagreement",
+    "log_roi_fraction",
+    "roi_context_occupancy",
+    "num_candidates",
+    "fallback_global"
+  ],
+  "validation": "same full-category LOCO",
+  "target_evaluated": false
+}

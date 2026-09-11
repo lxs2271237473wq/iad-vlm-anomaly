@@ -1,0 +1,13 @@
+{
+  "status": "smoke_complete",
+  "train_images": 8,
+  "calibration_images": 4,
+  "evaluation_images": 4,
+  "seconds": 4.71271349908784,
+  "memory_bank_shape": [
+    819,
+    1536
+  ],
+  "memory_bank_sha256": "9a48ef3d336b91f05e561a58089a9243a299296ce3a313b8e6f97c9ddb8f2e1b",
+  "predictions_sha256": "5ba604c327d23c338edcce08945336ffa6dfcf0e6f20fbe2dddffa14b13bb7f2"
+}

@@ -1,0 +1,13 @@
+{
+  "status": "baseline_complete",
+  "train_images": 815,
+  "calibration_images": 90,
+  "evaluation_images": 201,
+  "seconds": 338.5954529638402,
+  "memory_bank_shape": [
+    83456,
+    1536
+  ],
+  "memory_bank_sha256": "f2771e4e8ad33882aef39c9607503a7fd5fe865e80a7bbf0987690acd3bd0b58",
+  "predictions_sha256": "efe174e35adba68535ef119f1b16abfc1c86c6915f3249083ea641ee438ee7b1"
+}

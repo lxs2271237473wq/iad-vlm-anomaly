@@ -1,0 +1,49 @@
+{
+  "source": "VisA",
+  "target": "AD2",
+  "C": 1,
+  "features": [
+    "D_z",
+    "M_context_top1_z",
+    "disagreement",
+    "log_roi_fraction",
+    "roi_context_occupancy",
+    "num_candidates",
+    "fallback_global"
+  ],
+  "selection": "source-only category LOCO; geometry control; no exchange/reference inputs",
+  "source_file_sha256": "9964524f4fe281056d6c9af9adaea9935ead8f4b5901b73af7e599178b9dfb32",
+  "code_sha256": "737710c805a3a0d7fbc624dc66c57564a965ee4f4e9718e90d95ef00aa366211",
+  "coefficients": [
+    [
+      4.734846115646245,
+      0.2042368286405984,
+      -0.15379434100379785,
+      -0.10849078637287553,
+      -0.42922259923072503,
+      0.4301800260851059,
+      0.0
+    ]
+  ],
+  "intercept": [
+    1.5390610729045655
+  ],
+  "scaler_mean": [
+    3.550133818691724,
+    0.3850041624782996,
+    3.6982038043945513,
+    -3.5894355862225162,
+    0.44981004132626523,
+    2.383441258094357,
+    0.0
+  ],
+  "scaler_scale": [
+    4.951160638065788,
+    1.2004283746754332,
+    4.370994383240983,
+    0.5047331047875964,
+    0.025778673141412797,
+    0.8118933220801734,
+    1.0
+  ]
+}
