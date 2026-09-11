@@ -27,3 +27,23 @@ datasets/
   BTAD/
 
 The datasets/MVTecAD/ layer must be preserved because more datasets will be added later.
+# Stage 24 Experimental Evidence
+
+This directory contains lightweight reproducibility artifacts for Stage 24.
+
+Included:
+- manifests
+- prediction tables
+- evaluation metrics
+- source-domain evidence
+- transfer results
+- ROI diagnostic figures
+
+Excluded:
+- PatchCore memory banks
+- dense anomaly maps
+- model checkpoints
+- temporary caches
+
+Heavy artifacts can be regenerated using:
+experiments/stage24_evidence/
