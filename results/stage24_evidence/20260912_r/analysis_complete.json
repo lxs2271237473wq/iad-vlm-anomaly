@@ -1,0 +1,6 @@
+{
+  "status": "complete",
+  "replicates": 5000,
+  "estimand": "(MLP perturbed AUROC - MLP identity AUROC) - (D perturbed AUROC - D identity AUROC); negative means extra MLP loss",
+  "limitations": "Exploratory overlapping source sample; fixed categories and head seed; image resampling does not model unknown scene dependence; no multiple-comparison correction; no causal attribution."
+}

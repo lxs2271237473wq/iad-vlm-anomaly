@@ -1,0 +1,20 @@
+{
+  "status": "complete",
+  "normal_images": 320,
+  "source_normal_images": 192,
+  "target_normal_images": 128,
+  "fit_check_images_per_category": [
+    8,
+    8
+  ],
+  "labels_read": false,
+  "code_sha256": "9fb4b45967bffe5dab4c0acc05c957d47b9fde057482f40f4e4dd470c24a1076",
+  "caveats": [
+    "Only predefined normal calibration images; no target evaluation images or labels.",
+    "Equal image and category weights within each sampling stratum.",
+    "Pixel dependence means no pixel-based significance p-values are reported.",
+    "KS measures marginal distribution shift, not joint alignment or anomaly detection performance.",
+    "Relative feature alignment can erase defect signal; no new model is trained or selected.",
+    "Source-scaler tails reference the existing supervised training scaler, not a formal OOD detector."
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "status": "complete",
+  "target_images": 1084,
+  "target_categories": 8,
+  "limitations": "Source pixel supervision; target public data previously inspected; fixed backbone/sampling, varying heads only; provisional scene bootstrap; no multiple-test correction or seed selection."
+}

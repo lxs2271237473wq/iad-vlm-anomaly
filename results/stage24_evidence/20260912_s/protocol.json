@@ -1,0 +1,15 @@
+{
+  "code_sha256": "56512bf919bf4021be687f97939e377878d955b9051830265b83bd2667a21ee7",
+  "quantiles": [
+    0,
+    0.5,
+    0.9,
+    0.95,
+    0.99,
+    1
+  ],
+  "minimum_images_per_label": 5,
+  "head_seed": 42,
+  "description": "Normal source fit/uniform pixels determine bins. Source evaluation sampled pixels only; frozen category-LOCO heads. No target evaluations, retraining or threshold selection.",
+  "caveats": "Response strata are approximate matching, with residual response confounding. GT-selected pixel sample, not dense detection metrics. Tail bins unbounded. No pixel-IID significance."
+}

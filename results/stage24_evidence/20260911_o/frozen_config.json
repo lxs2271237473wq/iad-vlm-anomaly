@@ -1,0 +1,52 @@
+{
+  "code_sha256": "8f0d4cd14b2127ae5dc03b06fba3b400a6a4fdec05206f07c57aac10d7eae6d5",
+  "reference_sha256": "b1f99ae3798690f62763c636178570ab0c480c25b3cf8e83b604d52f47315d30",
+  "sample_cache_sha256": "b7084e03592bbd4ea1b1b5a20197ddebbf173003ee1a8f7592e74baf767bd060",
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "training": {
+    "percentile_42": {
+      "initial_loss": 0.7217378616333008,
+      "final_loss": 0.2810049057006836,
+      "epochs": 20,
+      "training_samples": 176281
+    },
+    "percentile_123": {
+      "initial_loss": 0.7210168838500977,
+      "final_loss": 0.28120285272598267,
+      "epochs": 20,
+      "training_samples": 176281
+    },
+    "percentile_2026": {
+      "initial_loss": 0.7422031760215759,
+      "final_loss": 0.2799913287162781,
+      "epochs": 20,
+      "training_samples": 176281
+    },
+    "robust_42": {
+      "initial_loss": 0.7184827923774719,
+      "final_loss": 0.2742444574832916,
+      "epochs": 20,
+      "training_samples": 176281
+    },
+    "robust_123": {
+      "initial_loss": 0.7082141041755676,
+      "final_loss": 0.2795012593269348,
+      "epochs": 20,
+      "training_samples": 176281
+    },
+    "robust_2026": {
+      "initial_loss": 0.7394656538963318,
+      "final_loss": 0.2824965715408325,
+      "epochs": 20,
+      "training_samples": 176281
+    }
+  },
+  "primary": "percentile versus D512 and same-seed map-only control",
+  "secondary": "robust normal appearance",
+  "target_adaptation": "Previously fixed 8 normal fit images per category; no refitting or hyperparameter change.",
+  "target_labels_used_for_training": false
+}

@@ -1,0 +1,13 @@
+{
+  "code_sha256": "cc2eca4ccfdc9ad07b7593340c8ba8afae2262dbd156a867e22b030b80ebaeb3",
+  "images": 384,
+  "views": 1920,
+  "selection": "first sixteen image IDs per source category and image label",
+  "factors": [
+    0.9,
+    1.1
+  ],
+  "head_seed": 42,
+  "target_used": false,
+  "limitations": "Exploratory small source subset; masks diagnostic only; image transforms need not preserve defect visibility; no causal or novelty claim."
+}

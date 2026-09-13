@@ -1,0 +1,51 @@
+{
+  "signature": {
+    "code": "51edda5c34308b24667723883c8c82a81319e8615db1cdf799918fd90c3f93a3",
+    "normal_reference": "b1f99ae3798690f62763c636178570ab0c480c25b3cf8e83b604d52f47315d30"
+  },
+  "training": {
+    "percentile_42": {
+      "initial_loss": 0.7210720181465149,
+      "final_loss": 0.27980682253837585,
+      "epochs": 20,
+      "training_samples": 160282
+    },
+    "percentile_123": {
+      "initial_loss": 0.720008909702301,
+      "final_loss": 0.28059494495391846,
+      "epochs": 20,
+      "training_samples": 160282
+    },
+    "percentile_2026": {
+      "initial_loss": 0.7417676448822021,
+      "final_loss": 0.2800329625606537,
+      "epochs": 20,
+      "training_samples": 160282
+    },
+    "robust_42": {
+      "initial_loss": 0.7181791067123413,
+      "final_loss": 0.27454516291618347,
+      "epochs": 20,
+      "training_samples": 160282
+    },
+    "robust_123": {
+      "initial_loss": 0.707124650478363,
+      "final_loss": 0.2820163071155548,
+      "epochs": 20,
+      "training_samples": 160282
+    },
+    "robust_2026": {
+      "initial_loss": 0.7394278645515442,
+      "final_loss": 0.28400251269340515,
+      "epochs": 20,
+      "training_samples": 160282
+    }
+  },
+  "heldout": "pcb2",
+  "unchanged_channels": [
+    0,
+    1,
+    2,
+    3
+  ]
+}

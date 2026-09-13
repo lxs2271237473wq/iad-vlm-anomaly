@@ -1,0 +1,19 @@
+{
+  "code_sha256": "a98f4ef311c192fc9de6e1014a66a766d1f3fa8b53ac40fe79f3b8670cd901b8",
+  "images": 384,
+  "reference_images_per_category": 4,
+  "grid": 32,
+  "input_size": 512,
+  "backbone": "WRN50_2 layer2/3, existing PatchCore pooling; adaptive average to 32x32",
+  "features": "L2 normalized center and eight-neighbor mean; cosine distance",
+  "primary": "context_matched_center versus center_nn with identical reference pool",
+  "controls": [
+    "same_position",
+    "shuffled_correspondence",
+    "D_z"
+  ],
+  "aggregation": "full-grid maximum",
+  "no_training": true,
+  "seed": 42,
+  "limitations": "Source exploratory subset overlaps prior probes; 32-grid may erase small defects; neural receptive fields overlap despite excluding center cell; not learned registration or RegAD reproduction; D_z uses larger reference bank."
+}

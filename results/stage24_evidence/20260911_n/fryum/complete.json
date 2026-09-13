@@ -1,0 +1,51 @@
+{
+  "signature": {
+    "code": "51edda5c34308b24667723883c8c82a81319e8615db1cdf799918fd90c3f93a3",
+    "normal_reference": "b1f99ae3798690f62763c636178570ab0c480c25b3cf8e83b604d52f47315d30"
+  },
+  "training": {
+    "percentile_42": {
+      "initial_loss": 0.7202973365783691,
+      "final_loss": 0.27425190806388855,
+      "epochs": 20,
+      "training_samples": 163581
+    },
+    "percentile_123": {
+      "initial_loss": 0.7198424339294434,
+      "final_loss": 0.27429649233818054,
+      "epochs": 20,
+      "training_samples": 163581
+    },
+    "percentile_2026": {
+      "initial_loss": 0.7431970238685608,
+      "final_loss": 0.2736300826072693,
+      "epochs": 20,
+      "training_samples": 163581
+    },
+    "robust_42": {
+      "initial_loss": 0.7163096070289612,
+      "final_loss": 0.26611804962158203,
+      "epochs": 20,
+      "training_samples": 163581
+    },
+    "robust_123": {
+      "initial_loss": 0.7076818943023682,
+      "final_loss": 0.2761251926422119,
+      "epochs": 20,
+      "training_samples": 163581
+    },
+    "robust_2026": {
+      "initial_loss": 0.7406708598136902,
+      "final_loss": 0.2768693268299103,
+      "epochs": 20,
+      "training_samples": 163581
+    }
+  },
+  "heldout": "fryum",
+  "unchanged_channels": [
+    0,
+    1,
+    2,
+    3
+  ]
+}

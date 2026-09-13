@@ -1,0 +1,4 @@
+{
+  "status": "complete",
+  "caveats": "Accuracy conditional on matched samples, equal images then categories; unmatched images excluded from accuracy but retained in coverage. No independent-pair tests. Normal response units not calibrated probability. Source pixels only."
+}

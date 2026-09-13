@@ -1,0 +1,7 @@
+{
+  "status": "complete",
+  "source_only": true,
+  "head_seed": 42,
+  "permutations": 10,
+  "limitations": "Mask-selected sampled pixels, not dense image or official pixel AUROC; perturbations can break joint support; derivative is sensitivity not causal importance; permutations are not training seeds."
+}

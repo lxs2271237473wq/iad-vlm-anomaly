@@ -1,0 +1,7 @@
+{
+  "status": "complete",
+  "images": 1200,
+  "same_pairs": true,
+  "previous_full42_parity": true,
+  "limitations": "Exploratory fixed matched source subset; no target generalization or causal feature attribution."
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "category": "macaroni2",
+    "image_id": "3ee6c47f9ef08b16ed10dfb3",
+    "label": 0,
+    "D_z": 5.969846729926788,
+    "query_path": "/root/private_data/iad-vlm-anomaly/datasets/VisA/macaroni2/Data/Images/Normal/0187.JPG",
+    "bank_index": 51023,
+    "raw_patch_y": 15,
+    "raw_patch_x": 29,
+    "patch_grid": [
+      64,
+      64
+    ],
+    "nearest_distance": 53.454864501953125,
+    "smoothed_peak_y": 124,
+    "smoothed_peak_x": 235,
+    "reference_image_id": "6c07569cef18883dc0dc061d",
+    "reference_path": "/root/private_data/iad-vlm-anomaly/datasets/VisA/macaroni2/Data/Images/Normal/0032.JPG",
+    "reference_patch_y": 22,
+    "reference_patch_x": 37,
+    "embedding_error": 0.0,
+    "relative_embedding_error": 0.0,
+    "provenance_verified": true
+  },
+  {
+    "category": "macaroni2",
+    "image_id": "e2b654828a5193f8b616f3bb",
+    "label": 1,
+    "D_z": -0.0860596888758275,
+    "query_path": "/root/private_data/iad-vlm-anomaly/datasets/VisA/macaroni2/Data/Images/Anomaly/028.JPG",
+    "bank_index": 42807,
+    "raw_patch_y": 48,
+    "raw_patch_x": 52,
+    "patch_grid": [
+      64,
+      64
+    ],
+    "nearest_distance": 32.69932174682617,
+    "smoothed_peak_y": 387,
+    "smoothed_peak_x": 421,
+    "reference_image_id": "ec3188dc9fe9d3ece74a2a45",
+    "reference_path": "/root/private_data/iad-vlm-anomaly/datasets/VisA/macaroni2/Data/Images/Normal/0838.JPG",
+    "reference_patch_y": 51,
+    "reference_patch_x": 19,
+    "embedding_error": 0.0,
+    "relative_embedding_error": 0.0,
+    "provenance_verified": true
+  },
+  {
+    "category": "capsules",
+    "image_id": "a011ef8008d602d3710fc5f4",
+    "label": 0,
+    "D_z": 4.006973298292908,
+    "query_path": "/root/private_data/iad-vlm-anomaly/datasets/VisA/capsules/Data/Images/Normal/024.JPG",
+    "bank_index": 20689,
+    "raw_patch_y": 24,
+    "raw_patch_x": 9,
+    "patch_grid": [
+      64,
+      64
+    ],
+    "nearest_distance": 45.564422607421875,
+    "smoothed_peak_y": 195,
+    "smoothed_peak_x": 75,
+    "reference_image_id": "361e95b27caa416bd85cce91",
+    "reference_path": "/root/private_data/iad-vlm-anomaly/datasets/VisA/capsules/Data/Images/Normal/088.JPG",
+    "reference_patch_y": 38,
+    "reference_patch_x": 13,
+    "embedding_error": 0.0,
+    "relative_embedding_error": 0.0,
+    "provenance_verified": true
+  },
+  {
+    "category": "capsules",
+    "image_id": "42e847a39519793337b1bcc3",
+    "label": 1,
+    "D_z": -1.311671218618116,
+    "query_path": "/root/private_data/iad-vlm-anomaly/datasets/VisA/capsules/Data/Images/Anomaly/029.JPG",
+    "bank_index": 19276,
+    "raw_patch_y": 23,
+    "raw_patch_x": 18,
+    "patch_grid": [
+      64,
+      64
+    ],
+    "nearest_distance": 35.948551177978516,
+    "smoothed_peak_y": 187,
+    "smoothed_peak_x": 148,
+    "reference_image_id": "683b7f0dae3e6d31d37cb156",
+    "reference_path": "/root/private_data/iad-vlm-anomaly/datasets/VisA/capsules/Data/Images/Normal/265.JPG",
+    "reference_patch_y": 32,
+    "reference_patch_x": 15,
+    "embedding_error": 0.0,
+    "relative_embedding_error": 0.0,
+    "provenance_verified": true
+  }
+]

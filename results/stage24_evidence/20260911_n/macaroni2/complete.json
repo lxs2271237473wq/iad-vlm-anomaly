@@ -1,0 +1,51 @@
+{
+  "signature": {
+    "code": "51edda5c34308b24667723883c8c82a81319e8615db1cdf799918fd90c3f93a3",
+    "normal_reference": "b1f99ae3798690f62763c636178570ab0c480c25b3cf8e83b604d52f47315d30"
+  },
+  "training": {
+    "percentile_42": {
+      "initial_loss": 0.7193778157234192,
+      "final_loss": 0.2897064983844757,
+      "epochs": 20,
+      "training_samples": 160307
+    },
+    "percentile_123": {
+      "initial_loss": 0.7198916077613831,
+      "final_loss": 0.29136762022972107,
+      "epochs": 20,
+      "training_samples": 160307
+    },
+    "percentile_2026": {
+      "initial_loss": 0.7428494095802307,
+      "final_loss": 0.2911513149738312,
+      "epochs": 20,
+      "training_samples": 160307
+    },
+    "robust_42": {
+      "initial_loss": 0.7169463634490967,
+      "final_loss": 0.28634336590766907,
+      "epochs": 20,
+      "training_samples": 160307
+    },
+    "robust_123": {
+      "initial_loss": 0.7076430916786194,
+      "final_loss": 0.2930959165096283,
+      "epochs": 20,
+      "training_samples": 160307
+    },
+    "robust_2026": {
+      "initial_loss": 0.739757776260376,
+      "final_loss": 0.29422634840011597,
+      "epochs": 20,
+      "training_samples": 160307
+    }
+  },
+  "heldout": "macaroni2",
+  "unchanged_channels": [
+    0,
+    1,
+    2,
+    3
+  ]
+}

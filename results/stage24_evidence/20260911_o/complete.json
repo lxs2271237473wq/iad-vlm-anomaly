@@ -1,0 +1,6 @@
+{
+  "status": "complete",
+  "target_images": 1084,
+  "target_categories": 8,
+  "caveats": "Source pixel supervision; fixed backbone/samples; head seeds only; previously inspected public target; provisional scene bootstrap; no seed selection or multiple-testing correction."
+}

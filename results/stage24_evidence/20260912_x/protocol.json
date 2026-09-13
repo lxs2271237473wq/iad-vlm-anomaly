@@ -1,0 +1,10 @@
+{
+  "code_sha256": "ed61fc02e7664e08bf080033f1cc904123fbc1663556f8c5ab7f3a4aa40f307b",
+  "reference": "Same source category 8 normal fit images; uniform plus high-response pixels; unique 7D vectors as previous reference probe",
+  "features": "Local intensity mean/std and gradient; fixed normal robust scaling",
+  "score": "Maximum 3D appearance nearest-neighbor distance over all 512x512 pixels",
+  "selection": "All 2162 source evaluation images; no masks/labels used to score",
+  "no_training": true,
+  "no_fusion": true,
+  "limitations": "High-response reference sampling depends on fixed detector; existing cached detector maps loaded by shared feature extractor. Runtime includes shared extraction, not a standalone optimized deployment benchmark."
+}

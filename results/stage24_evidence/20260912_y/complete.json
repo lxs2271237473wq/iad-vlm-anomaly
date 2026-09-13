@@ -1,0 +1,8 @@
+{
+  "status": "complete",
+  "ring_test": true,
+  "nearest_test": true,
+  "images": 384,
+  "seconds": 18.605210799723864,
+  "limitations": "Source exploratory subset overlaps prior probes; 32-grid may erase small defects; neural receptive fields overlap despite excluding center cell; not learned registration or RegAD reproduction; D_z uses larger reference bank."
+}

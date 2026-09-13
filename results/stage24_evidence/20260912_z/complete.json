@@ -1,0 +1,7 @@
+{
+  "status": "complete",
+  "cases": 4,
+  "all_origins_verified": true,
+  "score_parity": true,
+  "limitations": "Recovered selected raw-peak nearest neighbors only; no universal geometry/correspondence correctness claim. Shortlist verification can fail and must be reported."
+}

@@ -1,0 +1,5 @@
+method,baseline,delta_macro_auroc,lower95,upper95,categories_improved,categories,bootstrap_replicates
+context_matched_center,center_nn,-0.046223958333333336,-0.0758544921875,-0.0185546875,0,12,2000
+context_matched_center,same_position,0.042317708333333336,-0.001961263020833333,0.08984375,8,12,2000
+context_matched_center,shuffled_correspondence,0.318359375,0.25161946614583336,0.39128417968749996,10,12,2000
+context_matched_center,D_z,-0.17513020833333334,-0.21647949218749998,-0.13509114583333334,1,12,2000

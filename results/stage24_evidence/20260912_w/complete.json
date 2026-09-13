@@ -1,0 +1,5 @@
+{
+  "status": "complete",
+  "images": 1200,
+  "limitations": "GT-assisted matched source diagnostic; normals only for references; no target evaluation; support heuristic not guarantee; conditional matched accuracy not detection AUROC; no tuning or novelty claim."
+}

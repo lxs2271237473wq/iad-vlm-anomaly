@@ -1,0 +1,22 @@
+{
+  "code_sha256": "f22e5720e5bd5b727ce6868ec5e26a426f47b83ef9191f2d6ecb51819efeaba7",
+  "pairs_sha256": "1b11be5771c377b2798606f7b2f0e6e59742066ae8e3e487a7a0ab222227c205",
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "calipers": [
+    0.01,
+    0.05,
+    0.1
+  ],
+  "training": false,
+  "target_used": false,
+  "controls": [
+    "response",
+    "map",
+    "full"
+  ],
+  "limitations": "Fixed sampled positives and GT-assisted negative selection. Conditional pair accuracy, not image AUROC; head seeds only."
+}

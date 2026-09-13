@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "images": 2162,
+  "anomalies": 1200,
+  "exact_nn_test": true,
+  "macro_peak_in_mask": 0.25833333333333336,
+  "seconds_total": 429.180520478636,
+  "limitations": "Source-only normal-reference baseline; supervised MLP controls use stronger labels; no paired-sample diagnostic equivalence, no target or novelty claim."
+}

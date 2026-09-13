@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "source_only": true,
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "primary": "appearance percentile versus raw full model",
+  "secondary": "robust median/MAD appearance control",
+  "protocol": "Same source pixel samples, same MLP; source normal fit images only for references; no target evaluation.",
+  "caveats": "Head seeds only; fixed masks/backbone; quantile mapping clips appearance tails; normal marginal alignment is not innovation or proof of detection gain."
+}

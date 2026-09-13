@@ -1,0 +1,51 @@
+{
+  "signature": {
+    "code": "51edda5c34308b24667723883c8c82a81319e8615db1cdf799918fd90c3f93a3",
+    "normal_reference": "b1f99ae3798690f62763c636178570ab0c480c25b3cf8e83b604d52f47315d30"
+  },
+  "training": {
+    "percentile_42": {
+      "initial_loss": 0.7235233783721924,
+      "final_loss": 0.28554263710975647,
+      "epochs": 20,
+      "training_samples": 163481
+    },
+    "percentile_123": {
+      "initial_loss": 0.7286657094955444,
+      "final_loss": 0.28730106353759766,
+      "epochs": 20,
+      "training_samples": 163481
+    },
+    "percentile_2026": {
+      "initial_loss": 0.7441277503967285,
+      "final_loss": 0.28689950704574585,
+      "epochs": 20,
+      "training_samples": 163481
+    },
+    "robust_42": {
+      "initial_loss": 0.7181504368782043,
+      "final_loss": 0.2779141664505005,
+      "epochs": 20,
+      "training_samples": 163481
+    },
+    "robust_123": {
+      "initial_loss": 0.7156583070755005,
+      "final_loss": 0.286307692527771,
+      "epochs": 20,
+      "training_samples": 163481
+    },
+    "robust_2026": {
+      "initial_loss": 0.7419360876083374,
+      "final_loss": 0.28683146834373474,
+      "epochs": 20,
+      "training_samples": 163481
+    }
+  },
+  "heldout": "chewinggum",
+  "unchanged_channels": [
+    0,
+    1,
+    2,
+    3
+  ]
+}

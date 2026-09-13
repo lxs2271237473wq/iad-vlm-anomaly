@@ -1,0 +1,6 @@
+{
+  "status": "complete",
+  "replicates": 5000,
+  "unit": "Paired image within fixed category, only images with finite scores for both controls",
+  "limitations": "Conditional selected subset; reference fit fixed; unknown scene dependence ignored; exploratory multiple comparisons unadjusted; not detection AUROC or independent validation."
+}

@@ -1,0 +1,13 @@
+{
+  "code_sha256": "c2767e0a56686b1aa9219b44e3ab016b7c6e04af160f20a3b620f142054e295e",
+  "categories": [
+    "macaroni2",
+    "capsules"
+  ],
+  "selection": "Two lowest source D AUROC categories; highest-scored normal and lowest-scored anomaly in each",
+  "diagnostic_only": true,
+  "no_training": true,
+  "no_target": true,
+  "provenance": "Scan original used normal train IDs, batch4; approximate distance shortlist then direct Euclidean verification; accept relative embedding error <=1e-5",
+  "limitations": "Posthoc extreme cases are not representative rates; raw maximum patch need not equal smoothed map peak; no proof of incorrect correspondence from dissimilarity alone."
+}

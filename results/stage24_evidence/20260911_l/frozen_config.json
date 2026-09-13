@@ -1,0 +1,90 @@
+{
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "source_feature_parity": true,
+  "source_categories": [
+    "candle",
+    "capsules",
+    "cashew",
+    "chewinggum",
+    "fryum",
+    "macaroni1",
+    "macaroni2",
+    "pcb1",
+    "pcb2",
+    "pcb3",
+    "pcb4",
+    "pipe_fryum"
+  ],
+  "code_sha256": "e52d109ba214971d77eb5b2541ca4b7d52b4a393af278f3d168393307f204de5",
+  "sample_cache_sha256": "b7084e03592bbd4ea1b1b5a20197ddebbf173003ee1a8f7592e74baf767bd060",
+  "training": {
+    "response_42": {
+      "initial_loss": 0.7090729475021362,
+      "final_loss": 0.41255760192871094,
+      "epochs": 20,
+      "training_samples": 176281
+    },
+    "response_123": {
+      "initial_loss": 0.6787432432174683,
+      "final_loss": 0.4115126132965088,
+      "epochs": 20,
+      "training_samples": 176281
+    },
+    "response_2026": {
+      "initial_loss": 0.6944777965545654,
+      "final_loss": 0.41183438897132874,
+      "epochs": 20,
+      "training_samples": 176281
+    },
+    "map_42": {
+      "initial_loss": 0.6725315451622009,
+      "final_loss": 0.3532954156398773,
+      "epochs": 20,
+      "training_samples": 176281
+    },
+    "map_123": {
+      "initial_loss": 0.6945360898971558,
+      "final_loss": 0.3546949028968811,
+      "epochs": 20,
+      "training_samples": 176281
+    },
+    "map_2026": {
+      "initial_loss": 0.7500774264335632,
+      "final_loss": 0.3528023064136505,
+      "epochs": 20,
+      "training_samples": 176281
+    },
+    "full_42": {
+      "initial_loss": 0.7283117175102234,
+      "final_loss": 0.25866034626960754,
+      "epochs": 20,
+      "training_samples": 176281
+    },
+    "full_123": {
+      "initial_loss": 0.7140929698944092,
+      "final_loss": 0.26305609941482544,
+      "epochs": 20,
+      "training_samples": 176281
+    },
+    "full_2026": {
+      "initial_loss": 0.7398149967193604,
+      "final_loss": 0.25986823439598083,
+      "epochs": 20,
+      "training_samples": 176281
+    }
+  },
+  "linear_convergence": {
+    "success": true,
+    "iterations": 23,
+    "objective": 0.31522576500328237,
+    "max_gradient": 8.143903887651745e-08,
+    "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "l2": 0.001
+  },
+  "target_labels_used_for_fitting": false,
+  "protocol": "All source categories fit final heads; target normal bank/calibration reused; no target fine-tuning or seed selection."
+}
