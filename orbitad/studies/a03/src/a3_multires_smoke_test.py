@@ -1,0 +1,1 @@
+../../../scripts/a3_multires_smoke_test.py

@@ -1,0 +1,16 @@
+category,dataset_directory_found,dataset_directories,dataset_image_count,has_label,has_detector,has_vlm,has_quality,has_candidates,has_path,quality_constructible,offline_ready,status,detector_sources,vlm_sources,quality_sources,candidate_sources,label_sources,num_relevant_csvs
+bottle,True,datasets/MVTecAD/bottle,355,False,False,False,False,False,False,False,False,needs_detector_and_candidates,,,,,,1
+cable,True,datasets/MVTecAD/cable,466,False,False,False,False,False,False,False,False,needs_detector_and_candidates,,,,,,1
+capsule,True,datasets/MVTecAD/capsule,460,False,False,False,False,False,False,False,False,needs_detector_and_candidates,,,,,,1
+carpet,True,datasets/MVTecAD/carpet,486,False,False,False,False,False,False,False,False,needs_detector_and_candidates,,,,,,1
+grid,True,datasets/MVTecAD/grid,399,True,False,False,False,False,True,False,False,needs_detector_and_candidates,,,,,results/visualizations/patchcore/MVTecAD/grid/failures/failure_cases.csv,117
+hazelnut,True,datasets/MVTecAD/hazelnut,571,False,False,False,False,False,False,False,False,needs_detector_and_candidates,,,,,,1
+leather,True,datasets/MVTecAD/leather,461,True,False,False,False,False,True,False,False,needs_detector_and_candidates,,,,,results/visualizations/patchcore/MVTecAD/leather/failures/failure_cases.csv,115
+metal_nut,True,datasets/MVTecAD/metal_nut,428,False,False,False,False,False,False,False,False,needs_detector_and_candidates,,,,,,1
+pill,True,datasets/MVTecAD/pill,575,False,False,False,False,False,False,False,False,needs_detector_and_candidates,,,,,,1
+screw,True,datasets/MVTecAD/screw,599,True,False,False,False,False,True,False,False,needs_detector_and_candidates,,,,,results/visualizations/patchcore/MVTecAD/screw/failures/failure_cases.csv,115
+tile,True,datasets/MVTecAD/tile,431,False,False,False,False,False,False,False,False,needs_detector_and_candidates,,,,,,1
+toothbrush,True,datasets/MVTecAD/toothbrush,132,False,False,False,False,False,False,False,False,needs_detector_and_candidates,,,,,,1
+transistor,True,datasets/MVTecAD/transistor,353,False,False,False,False,False,False,False,False,needs_detector_and_candidates,,,,,,1
+wood,True,datasets/MVTecAD/wood,386,True,False,False,False,False,True,False,False,needs_detector_and_candidates,,,,,results/visualizations/patchcore/MVTecAD/wood/failures/failure_cases.csv,115
+zipper,True,datasets/MVTecAD/zipper,510,False,False,False,False,False,False,False,False,needs_detector_and_candidates,,,,,,1

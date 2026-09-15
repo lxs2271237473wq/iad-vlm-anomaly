@@ -1,0 +1,16 @@
+{
+  "category": "wood",
+  "num_test_images": 79,
+  "num_normal": 19,
+  "num_anomaly": 60,
+  "image_auroc": 0.986842105263158,
+  "image_ap": 0.9962783606851402,
+  "num_candidate_rows": 155,
+  "num_images_with_candidates": 79,
+  "candidate_coverage_rate": 1.0,
+  "threshold_quantile": 0.97,
+  "top_components": 3,
+  "min_area": 20,
+  "image_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/wood/patchcore_image_predictions.csv",
+  "candidate_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/wood/candidate_regions.csv"
+}

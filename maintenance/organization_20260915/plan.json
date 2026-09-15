@@ -1,0 +1,526 @@
+[
+  {
+    "old": "experiments/analysis",
+    "new": "srb_qcr/src/analysis"
+  },
+  {
+    "old": "experiments/paper_stage",
+    "new": "srb_qcr/src/paper_stage"
+  },
+  {
+    "old": "experiments/stage10_dataset_expansion",
+    "new": "srb_qcr/src/stage10_dataset_expansion"
+  },
+  {
+    "old": "experiments/stage11_mvtecad2_multicategory",
+    "new": "srb_qcr/src/stage11_mvtecad2_multicategory"
+  },
+  {
+    "old": "experiments/stage12_paper_writing",
+    "new": "srb_qcr/src/stage12_paper_writing"
+  },
+  {
+    "old": "experiments/stage13_strong_baseline",
+    "new": "srb_qcr/src/stage13_strong_baseline"
+  },
+  {
+    "old": "experiments/stage14_strong_vlm_baselines",
+    "new": "srb_qcr/src/stage14_strong_vlm_baselines"
+  },
+  {
+    "old": "experiments/stage15_modern_detector_baselines",
+    "new": "srb_qcr/src/stage15_modern_detector_baselines"
+  },
+  {
+    "old": "experiments/stage16_qcru_ablation",
+    "new": "srb_qcr/src/stage16_qcru_ablation"
+  },
+  {
+    "old": "experiments/stage17_defensive_sensitivity",
+    "new": "srb_qcr/src/stage17_defensive_sensitivity"
+  },
+  {
+    "old": "experiments/stage18_ad2_qcr_ablation",
+    "new": "srb_qcr/src/stage18_ad2_qcr_ablation"
+  },
+  {
+    "old": "experiments/stage19_efficientad100_sensitivity",
+    "new": "srb_qcr/src/stage19_efficientad100_sensitivity"
+  },
+  {
+    "old": "experiments/stage20_anomalyclip_baseline",
+    "new": "srb_qcr/src/stage20_anomalyclip_baseline"
+  },
+  {
+    "old": "experiments/stage22_selective_qcr",
+    "new": "srb_qcr/src/stage22_selective_qcr"
+  },
+  {
+    "old": "experiments/stage23_ad2_mirror",
+    "new": "srb_qcr/src/stage23_ad2_mirror"
+  },
+  {
+    "old": "experiments/stage24_evidence",
+    "new": "evidence_fusion/src/stage24_evidence"
+  },
+  {
+    "old": "experiments/stage7_generalization",
+    "new": "srb_qcr/src/stage7_generalization"
+  },
+  {
+    "old": "experiments/stage9_qcr_u",
+    "new": "srb_qcr/src/stage9_qcr_u"
+  },
+  {
+    "old": "docs/anomaly_map_calibration_analysis.md",
+    "new": "srb_qcr/docs/anomaly_map_calibration_analysis.md"
+  },
+  {
+    "old": "docs/anomaly_region_scoring_baseline_analysis.md",
+    "new": "srb_qcr/docs/anomaly_region_scoring_baseline_analysis.md"
+  },
+  {
+    "old": "docs/clip_semantic_weight_sweep_analysis.md",
+    "new": "srb_qcr/docs/clip_semantic_weight_sweep_analysis.md"
+  },
+  {
+    "old": "docs/conservative_residual_anomaly_calibration_analysis.md",
+    "new": "srb_qcr/docs/conservative_residual_anomaly_calibration_analysis.md"
+  },
+  {
+    "old": "docs/conservative_residual_calibration_sweep_analysis.md",
+    "new": "srb_qcr/docs/conservative_residual_calibration_sweep_analysis.md"
+  },
+  {
+    "old": "docs/defect_type_prompt_reasoning_gt_crop_analysis.md",
+    "new": "srb_qcr/docs/defect_type_prompt_reasoning_gt_crop_analysis.md"
+  },
+  {
+    "old": "docs/defect_type_visual_prompt_refinement_analysis.md",
+    "new": "srb_qcr/docs/defect_type_visual_prompt_refinement_analysis.md"
+  },
+  {
+    "old": "docs/enhanced_anomaly_region_scoring_analysis.md",
+    "new": "srb_qcr/docs/enhanced_anomaly_region_scoring_analysis.md"
+  },
+  {
+    "old": "docs/final_method_framework.md",
+    "new": "srb_qcr/docs/final_method_framework.md"
+  },
+  {
+    "old": "docs/final_method_framework_en.md",
+    "new": "srb_qcr/docs/final_method_framework_en.md"
+  },
+  {
+    "old": "docs/final_method_framework_zh.md",
+    "new": "srb_qcr/docs/final_method_framework_zh.md"
+  },
+  {
+    "old": "docs/final_paper_outline_and_experiment_narrative_zh.md",
+    "new": "srb_qcr/docs/final_paper_outline_and_experiment_narrative_zh.md"
+  },
+  {
+    "old": "docs/full_test_anomaly_crop_visual_prompt_reasoning_analysis.md",
+    "new": "srb_qcr/docs/full_test_anomaly_crop_visual_prompt_reasoning_analysis.md"
+  },
+  {
+    "old": "docs/manufacturing_defect_explanation_analysis.md",
+    "new": "srb_qcr/docs/manufacturing_defect_explanation_analysis.md"
+  },
+  {
+    "old": "docs/paper_p1",
+    "new": "srb_qcr/docs/paper_p1"
+  },
+  {
+    "old": "docs/paper_p10",
+    "new": "srb_qcr/docs/paper_p10"
+  },
+  {
+    "old": "docs/paper_p11",
+    "new": "srb_qcr/docs/paper_p11"
+  },
+  {
+    "old": "docs/paper_p11b",
+    "new": "srb_qcr/docs/paper_p11b"
+  },
+  {
+    "old": "docs/paper_p12",
+    "new": "srb_qcr/docs/paper_p12"
+  },
+  {
+    "old": "docs/paper_p13",
+    "new": "srb_qcr/docs/paper_p13"
+  },
+  {
+    "old": "docs/paper_p14",
+    "new": "srb_qcr/docs/paper_p14"
+  },
+  {
+    "old": "docs/paper_p2",
+    "new": "srb_qcr/docs/paper_p2"
+  },
+  {
+    "old": "docs/paper_p3",
+    "new": "srb_qcr/docs/paper_p3"
+  },
+  {
+    "old": "docs/paper_p4",
+    "new": "srb_qcr/docs/paper_p4"
+  },
+  {
+    "old": "docs/paper_p5",
+    "new": "srb_qcr/docs/paper_p5"
+  },
+  {
+    "old": "docs/paper_p6",
+    "new": "srb_qcr/docs/paper_p6"
+  },
+  {
+    "old": "docs/paper_p7",
+    "new": "srb_qcr/docs/paper_p7"
+  },
+  {
+    "old": "docs/paper_p8",
+    "new": "srb_qcr/docs/paper_p8"
+  },
+  {
+    "old": "docs/paper_p9",
+    "new": "srb_qcr/docs/paper_p9"
+  },
+  {
+    "old": "docs/paper_ready_experiment_tables.md",
+    "new": "srb_qcr/docs/paper_ready_experiment_tables.md"
+  },
+  {
+    "old": "docs/patchcore_candidate_region_analysis.md",
+    "new": "srb_qcr/docs/patchcore_candidate_region_analysis.md"
+  },
+  {
+    "old": "docs/patchcore_failure_case_analysis.md",
+    "new": "srb_qcr/docs/patchcore_failure_case_analysis.md"
+  },
+  {
+    "old": "docs/patchcore_mvtec_baseline_analysis.md",
+    "new": "srb_qcr/docs/patchcore_mvtec_baseline_analysis.md"
+  },
+  {
+    "old": "docs/real_anomaly_crop_visual_prompt_reasoning_analysis.md",
+    "new": "srb_qcr/docs/real_anomaly_crop_visual_prompt_reasoning_analysis.md"
+  },
+  {
+    "old": "docs/sam2_anomaly_aware_selection_analysis.md",
+    "new": "srb_qcr/docs/sam2_anomaly_aware_selection_analysis.md"
+  },
+  {
+    "old": "docs/sam2_prompt_feasibility_analysis.md",
+    "new": "srb_qcr/docs/sam2_prompt_feasibility_analysis.md"
+  },
+  {
+    "old": "docs/stage10_dataset_expansion",
+    "new": "srb_qcr/docs/stage10_dataset_expansion"
+  },
+  {
+    "old": "docs/stage11_mvtecad2_multicategory",
+    "new": "srb_qcr/docs/stage11_mvtecad2_multicategory"
+  },
+  {
+    "old": "docs/stage12_paper_writing",
+    "new": "srb_qcr/docs/stage12_paper_writing"
+  },
+  {
+    "old": "docs/stage13_strong_baseline",
+    "new": "srb_qcr/docs/stage13_strong_baseline"
+  },
+  {
+    "old": "docs/stage14_strong_vlm_baselines",
+    "new": "srb_qcr/docs/stage14_strong_vlm_baselines"
+  },
+  {
+    "old": "docs/stage15_modern_detector_baselines",
+    "new": "srb_qcr/docs/stage15_modern_detector_baselines"
+  },
+  {
+    "old": "docs/stage16_qcru_ablation",
+    "new": "srb_qcr/docs/stage16_qcru_ablation"
+  },
+  {
+    "old": "docs/stage17_defensive_sensitivity",
+    "new": "srb_qcr/docs/stage17_defensive_sensitivity"
+  },
+  {
+    "old": "docs/stage18_ad2_qcr_ablation",
+    "new": "srb_qcr/docs/stage18_ad2_qcr_ablation"
+  },
+  {
+    "old": "docs/stage19_efficientad100_sensitivity",
+    "new": "srb_qcr/docs/stage19_efficientad100_sensitivity"
+  },
+  {
+    "old": "docs/stage20_anomalyclip_baseline",
+    "new": "srb_qcr/docs/stage20_anomalyclip_baseline"
+  },
+  {
+    "old": "docs/stage21_final_paper_update",
+    "new": "srb_qcr/docs/stage21_final_paper_update"
+  },
+  {
+    "old": "docs/stage22_selective_qcr",
+    "new": "srb_qcr/docs/stage22_selective_qcr"
+  },
+  {
+    "old": "docs/stage23_ad2_mirror",
+    "new": "srb_qcr/docs/stage23_ad2_mirror"
+  },
+  {
+    "old": "docs/stage7_generalization",
+    "new": "srb_qcr/docs/stage7_generalization"
+  },
+  {
+    "old": "docs/stage8_paper_tables",
+    "new": "srb_qcr/docs/stage8_paper_tables"
+  },
+  {
+    "old": "docs/trainable_anomaly_map_calibration_analysis.md",
+    "new": "srb_qcr/docs/trainable_anomaly_map_calibration_analysis.md"
+  },
+  {
+    "old": "results/analysis",
+    "new": "srb_qcr/results/analysis"
+  },
+  {
+    "old": "results/paper_p1",
+    "new": "srb_qcr/results/paper_p1"
+  },
+  {
+    "old": "results/paper_p10",
+    "new": "srb_qcr/results/paper_p10"
+  },
+  {
+    "old": "results/paper_p11",
+    "new": "srb_qcr/results/paper_p11"
+  },
+  {
+    "old": "results/paper_p11b",
+    "new": "srb_qcr/results/paper_p11b"
+  },
+  {
+    "old": "results/paper_p12",
+    "new": "srb_qcr/results/paper_p12"
+  },
+  {
+    "old": "results/paper_p13",
+    "new": "srb_qcr/results/paper_p13"
+  },
+  {
+    "old": "results/paper_p14",
+    "new": "srb_qcr/results/paper_p14"
+  },
+  {
+    "old": "results/paper_p2",
+    "new": "srb_qcr/results/paper_p2"
+  },
+  {
+    "old": "results/paper_p3",
+    "new": "srb_qcr/results/paper_p3"
+  },
+  {
+    "old": "results/paper_p4",
+    "new": "srb_qcr/results/paper_p4"
+  },
+  {
+    "old": "results/paper_p5",
+    "new": "srb_qcr/results/paper_p5"
+  },
+  {
+    "old": "results/paper_p6",
+    "new": "srb_qcr/results/paper_p6"
+  },
+  {
+    "old": "results/paper_p7",
+    "new": "srb_qcr/results/paper_p7"
+  },
+  {
+    "old": "results/paper_p8",
+    "new": "srb_qcr/results/paper_p8"
+  },
+  {
+    "old": "results/paper_p9",
+    "new": "srb_qcr/results/paper_p9"
+  },
+  {
+    "old": "results/stage10_dataset_expansion",
+    "new": "srb_qcr/results/stage10_dataset_expansion"
+  },
+  {
+    "old": "results/stage11_mvtecad2_multicategory",
+    "new": "srb_qcr/results/stage11_mvtecad2_multicategory"
+  },
+  {
+    "old": "results/stage12_paper_writing",
+    "new": "srb_qcr/results/stage12_paper_writing"
+  },
+  {
+    "old": "results/stage13_strong_baseline",
+    "new": "srb_qcr/results/stage13_strong_baseline"
+  },
+  {
+    "old": "results/stage14_strong_vlm_baselines",
+    "new": "srb_qcr/results/stage14_strong_vlm_baselines"
+  },
+  {
+    "old": "results/stage15_modern_detector_baselines",
+    "new": "srb_qcr/results/stage15_modern_detector_baselines"
+  },
+  {
+    "old": "results/stage16_qcru_ablation",
+    "new": "srb_qcr/results/stage16_qcru_ablation"
+  },
+  {
+    "old": "results/stage17_defensive_sensitivity",
+    "new": "srb_qcr/results/stage17_defensive_sensitivity"
+  },
+  {
+    "old": "results/stage18_ad2_qcr_ablation",
+    "new": "srb_qcr/results/stage18_ad2_qcr_ablation"
+  },
+  {
+    "old": "results/stage19_efficientad100_sensitivity",
+    "new": "srb_qcr/results/stage19_efficientad100_sensitivity"
+  },
+  {
+    "old": "results/stage20_anomalyclip_baseline",
+    "new": "srb_qcr/results/stage20_anomalyclip_baseline"
+  },
+  {
+    "old": "results/stage22_selective_qcr",
+    "new": "srb_qcr/results/stage22_selective_qcr"
+  },
+  {
+    "old": "results/stage23_ad2_mirror",
+    "new": "srb_qcr/results/stage23_ad2_mirror"
+  },
+  {
+    "old": "results/stage24_evidence",
+    "new": "evidence_fusion/results/stage24_evidence"
+  },
+  {
+    "old": "results/stage25_tiny_defects",
+    "new": "tiny_defects/results/stage25_tiny_defects"
+  },
+  {
+    "old": "results/stage7_generalization",
+    "new": "srb_qcr/results/stage7_generalization"
+  },
+  {
+    "old": "results/stage8_paper_tables",
+    "new": "srb_qcr/results/stage8_paper_tables"
+  },
+  {
+    "old": "results/stage9_qcr_u",
+    "new": "srb_qcr/results/stage9_qcr_u"
+  },
+  {
+    "old": "results/visualizations",
+    "new": "srb_qcr/results/visualizations"
+  },
+  {
+    "old": "runs/analysis",
+    "new": "srb_qcr/runs/analysis"
+  },
+  {
+    "old": "runs/stage10_mvtecad2_patchcore",
+    "new": "srb_qcr/runs/stage10_mvtecad2_patchcore"
+  },
+  {
+    "old": "runs/stage11_mvtecad2_multicategory",
+    "new": "srb_qcr/runs/stage11_mvtecad2_multicategory"
+  },
+  {
+    "old": "runs/stage14_strong_vlm_baselines",
+    "new": "srb_qcr/runs/stage14_strong_vlm_baselines"
+  },
+  {
+    "old": "runs/stage15_modern_detector_baselines",
+    "new": "srb_qcr/runs/stage15_modern_detector_baselines"
+  },
+  {
+    "old": "runs/stage17_defensive_sensitivity",
+    "new": "srb_qcr/runs/stage17_defensive_sensitivity"
+  },
+  {
+    "old": "runs/stage19_efficientad100_sensitivity",
+    "new": "srb_qcr/runs/stage19_efficientad100_sensitivity"
+  },
+  {
+    "old": "runs/stage22_selective_qcr",
+    "new": "srb_qcr/runs/stage22_selective_qcr"
+  },
+  {
+    "old": "runs/stage24_evidence",
+    "new": "evidence_fusion/runs/stage24_evidence"
+  },
+  {
+    "old": "runs/stage7_generalization",
+    "new": "srb_qcr/runs/stage7_generalization"
+  },
+  {
+    "old": "logs/archive",
+    "new": "srb_qcr/logs/archive"
+  },
+  {
+    "old": "logs/stage15_d_efficientad_fixed_budget_primary4_epoch30.log",
+    "new": "srb_qcr/logs/stage15_d_efficientad_fixed_budget_primary4_epoch30.log"
+  },
+  {
+    "old": "logs/stage15_d_efficientad_fixed_budget_probe.log",
+    "new": "srb_qcr/logs/stage15_d_efficientad_fixed_budget_probe.log"
+  },
+  {
+    "old": "logs/stage17_a_efficientad100_fruit_jelly.log",
+    "new": "srb_qcr/logs/stage17_a_efficientad100_fruit_jelly.log"
+  },
+  {
+    "old": "logs/stage20_c3_anomalyclip_single_image_smoke.log",
+    "new": "srb_qcr/logs/stage20_c3_anomalyclip_single_image_smoke.log"
+  },
+  {
+    "old": "logs/stage20_d_anomalyclip_ad2four_full.log",
+    "new": "srb_qcr/logs/stage20_d_anomalyclip_ad2four_full.log"
+  },
+  {
+    "old": "paper",
+    "new": "srb_qcr/paper"
+  },
+  {
+    "old": "SRB_QCR_Final_Package.zip",
+    "new": "srb_qcr/archives/SRB_QCR_Final_Package.zip"
+  },
+  {
+    "old": "ad2_model_zoo_sources.tar.gz",
+    "new": "ad2_model_zoo/archives/ad2_model_zoo_sources.tar.gz"
+  },
+  {
+    "old": "experiments/glass_env",
+    "new": "ad2_model_zoo/envs/GLASS"
+  },
+  {
+    "old": "experiments/glass_official_f788d56",
+    "new": "ad2_model_zoo/repos/GLASS"
+  },
+  {
+    "old": "experiments/glass_wheels",
+    "new": "ad2_model_zoo/dependencies/GLASS_wheels"
+  },
+  {
+    "old": "experiments/glass_source.tar.gz",
+    "new": "ad2_model_zoo/archives/glass_source.tar.gz"
+  },
+  {
+    "old": "experiments/glass_wheels.tar.gz",
+    "new": "ad2_model_zoo/archives/glass_wheels.tar.gz"
+  },
+  {
+    "old": "orbitad/superadd_source.tar.gz",
+    "new": "orbitad/archives/superadd_source.tar.gz"
+  }
+]

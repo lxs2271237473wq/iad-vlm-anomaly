@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "moved_entities": 131,
+  "code_root_locator_patches": 14,
+  "study_links_checked": 336,
+  "broken_study_links": [],
+  "verification": "original inode/device retained; compatibility link target; Python AST + hash; both venv Python entrypoints",
+  "training_started": false,
+  "limitations": "Not full re-execution of historical experiments; legacy paths retained; study source matching for date runs is heuristic."
+}

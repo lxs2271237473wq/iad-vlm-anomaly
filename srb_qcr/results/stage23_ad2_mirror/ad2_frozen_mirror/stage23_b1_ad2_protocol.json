@@ -1,0 +1,27 @@
+{
+  "protocol_id": "stage23_b1_ad2_four_category_frozen_mirror_v1",
+  "target": "AD2 four categories",
+  "categories": [
+    "fruit_jelly",
+    "sheet_metal",
+    "vial",
+    "walnuts"
+  ],
+  "configuration": {
+    "w_max": 0.35,
+    "q_quantile": 0.25,
+    "tau_delta": 0.75
+  },
+  "uses_target_labels_for_parameters": false,
+  "noninferiority_margin": 0.002,
+  "bootstrap": {
+    "paired": true,
+    "stratified_by": [
+      "category",
+      "Y"
+    ],
+    "repeats": 5000,
+    "seed": 20260726
+  },
+  "source_csv": "results/stage22_selective_qcr/stage22_b2b_ad2_frozen_predictions.csv"
+}

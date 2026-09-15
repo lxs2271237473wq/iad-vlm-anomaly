@@ -1,0 +1,1 @@
+../../../scripts/a4_occ_mechanism_ablation_edge8.py

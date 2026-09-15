@@ -1,0 +1,1 @@
+../../../scripts/a0_build_public_good_manifest.py

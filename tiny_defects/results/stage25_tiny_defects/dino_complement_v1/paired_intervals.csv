@@ -1,0 +1,5 @@
+scope,method,baseline,delta_macro_auroc,lower95,upper95,categories_improved,categories,bootstrap_replicates
+all_source_fit,fusion_oof,D_z,0.009936468646864687,0.0030721658792763474,0.016441463087102048,6,8,2000
+all_source_fit,fusion_oof,d_only_oof,0.009936468646864687,0.0030721658792763474,0.016441463087102048,6,8,2000
+tiny_only_plus_all_normal,fusion_oof,D_z,0.02665014797221855,0.00126816387077626,0.05351496256448932,5,8,2000
+tiny_only_plus_all_normal,fusion_oof,d_only_oof,0.02665014797221855,0.00126816387077626,0.05351496256448932,5,8,2000

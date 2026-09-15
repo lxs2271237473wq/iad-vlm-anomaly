@@ -1,0 +1,17 @@
+scope,category,method,auroc,ap
+source_development_holdout,candle,D_z,0.9734,0.9737000804531304
+source_development_holdout,candle,dino_max,0.9325999999999999,0.9272354137279666
+source_development_holdout,candle,dino_top1,0.9452,0.9427893558221676
+source_development_holdout,candle,fusion_frozen,0.9751,0.9760611715677637
+source_development_holdout,pcb1,D_z,0.9847999999999999,0.9849984935421512
+source_development_holdout,pcb1,dino_max,0.9022,0.8685509200388413
+source_development_holdout,pcb1,dino_top1,0.9397,0.9060307616373753
+source_development_holdout,pcb1,fusion_frozen,0.9823,0.9798811121537581
+tiny_only_plus_all_normal,candle,D_z,0.9678947368421054,0.9272283738953752
+tiny_only_plus_all_normal,candle,dino_max,0.9518421052631578,0.8765376956455831
+tiny_only_plus_all_normal,candle,dino_top1,0.9523684210526315,0.8906139848485899
+tiny_only_plus_all_normal,candle,fusion_frozen,0.9765789473684211,0.9452025535642126
+tiny_only_plus_all_normal,pcb1,D_z,0.9666666666666667,0.7887426900584795
+tiny_only_plus_all_normal,pcb1,dino_max,0.8966666666666667,0.25735930735930734
+tiny_only_plus_all_normal,pcb1,dino_top1,0.8983333333333334,0.29355332776385407
+tiny_only_plus_all_normal,pcb1,fusion_frozen,0.97,0.6819444444444444

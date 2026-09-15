@@ -1,0 +1,6 @@
+{
+  "status": "complete",
+  "replicates": 5000,
+  "groups": "Provisional filename-derived scene groups within category and label",
+  "limitations": "Fixed models/categories, public target repeatedly inspected, no multi-exploration correction. Tiny-only filters variants by observed annotation; not independent target validation."
+}

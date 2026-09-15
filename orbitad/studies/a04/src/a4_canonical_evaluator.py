@@ -1,0 +1,1 @@
+../../../scripts/a4_canonical_evaluator.py

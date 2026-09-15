@@ -1,0 +1,37 @@
+{
+  "protocol_id": "stage23_c1c_ad2_crop_identity_bridge_v1",
+  "missing_gate_on_rows": 49,
+  "recovered_rows": 0,
+  "unresolved_rows": 49,
+  "bridge_diagnostics": [
+    {
+      "bridge": "resolved_path",
+      "unique_candidate_keys": 259,
+      "matched_rows": 0,
+      "newly_recovered_rows": 0
+    },
+    {
+      "bridge": "relative_suffix",
+      "unique_candidate_keys": 259,
+      "matched_rows": 0,
+      "newly_recovered_rows": 0
+    },
+    {
+      "bridge": "basename",
+      "unique_candidate_keys": 259,
+      "matched_rows": 0,
+      "newly_recovered_rows": 0
+    },
+    {
+      "bridge": "sha256",
+      "unique_candidate_keys": 259,
+      "matched_rows": 0,
+      "newly_recovered_rows": 0
+    }
+  ],
+  "selected_bridge_counts": {},
+  "max_image_vs_candidate_mean_abs_diff": null,
+  "max_b2b_vs_candidate_mean_abs_diff": null,
+  "mapping_csv": "results/stage23_ad2_mirror/ad2_actual_selective_runtime/stage23_c1c_ad2_crop_group_mapping.csv",
+  "runtime_runner_ready": false
+}

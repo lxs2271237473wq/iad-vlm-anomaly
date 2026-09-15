@@ -1,0 +1,17 @@
+scope,category,method,auroc,ap
+source_validation,cashew,D_z,0.976,0.9890793622967358
+source_validation,cashew,dino_max,0.9558,0.9782103467516604
+source_validation,cashew,dino_top1,0.9778,0.9882008247507181
+source_validation,cashew,fusion_frozen,0.9903999999999998,0.9956883179204341
+source_validation,pipe_fryum,D_z,0.999,0.9995153846153846
+source_validation,pipe_fryum,dino_max,0.984,0.9913599864086726
+source_validation,pipe_fryum,dino_top1,0.9632000000000001,0.9782619450033754
+source_validation,pipe_fryum,fusion_frozen,0.9998,0.9999009900990099
+tiny_only_plus_all_normal,cashew,D_z,0.9736842105263158,0.9740970918692563
+tiny_only_plus_all_normal,cashew,dino_max,0.9368421052631579,0.9299943868345546
+tiny_only_plus_all_normal,cashew,dino_top1,0.9657894736842105,0.9545672689328328
+tiny_only_plus_all_normal,cashew,fusion_frozen,0.9957894736842104,0.9944138284404442
+tiny_only_plus_all_normal,pipe_fryum,D_z,1.0,1.0
+tiny_only_plus_all_normal,pipe_fryum,dino_max,0.9723529411764705,0.9634534994993429
+tiny_only_plus_all_normal,pipe_fryum,dino_top1,0.9229411764705883,0.8556893922846541
+tiny_only_plus_all_normal,pipe_fryum,fusion_frozen,1.0,1.0

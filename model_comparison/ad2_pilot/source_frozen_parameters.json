@@ -1,0 +1,57 @@
+{
+  "status": "historical_cache_exploratory_not_official_benchmark",
+  "source": "VisA PatchCore (2162 images,12 categories)",
+  "target": "historical AD2 four-category subset (243 images)",
+  "selection_policy": "Source only; alpha uses source macro AUROC; logistic and rank hyperparameters fixed before target read. No OOF or independent source validation.",
+  "selected_alpha": 0.4,
+  "alpha_grid": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "logistic": {
+    "C": 1.0,
+    "coef": [
+      [
+        6.815613776019888,
+        7.296757827961406
+      ]
+    ],
+    "intercept": [
+      -5.221384651378086
+    ],
+    "category_equal_weights": true
+  },
+  "rank_constant": {
+    "b": -0.04565188158457175,
+    "alpha": 0.48858901133305205,
+    "temperature": 0.1,
+    "l2": 0.01,
+    "initial_b": 0,
+    "category_equal_pair_loss": true,
+    "iterations": 2
+  },
+  "dynamic_Q": "Not run: source candidate_quality_norm and target max(candidate_score_mean) quality provenance are not established as equivalent.",
+  "limitations": [
+    "Cached per-category normalization includes legacy target whole-test min/max; target is not a clean held-out pipeline.",
+    "No detector/VLM inference, no geometry fix, no eight-category AD2 evaluation.",
+    "Source labels supervise the learned fusions; source fitted AUROC is not cross-validation.",
+    "Historical SRB parameters come from old protocol; shown for diagnostic reference only.",
+    "No target-driven parameter/model selection. Prior audits have already inspected target labels/results.",
+    "No confidence intervals or significance claim; no new reliability features/model implemented."
+  ],
+  "versions": {
+    "python": "3.13.5",
+    "numpy": "2.1.3",
+    "scipy": "1.15.3",
+    "sklearn": "1.6.1"
+  }
+}

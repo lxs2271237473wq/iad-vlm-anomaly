@@ -1,0 +1,6 @@
+{
+  "status": "complete",
+  "images": 1462,
+  "trained_head": false,
+  "limitations": "Limited-normal ordinary baseline, not novel model. Candidate maps cached; measured time excludes original proposal extraction. Normal full/crop bank extraction budgets differ, same final bank size. No supervised head or target data."
+}

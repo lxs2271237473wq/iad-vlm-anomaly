@@ -1,0 +1,9 @@
+image_id,dataset,category,original_split,role,path,width,height
+000c94f0bfc092125a1218e7,VisA,chewinggum,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/chewinggum/Data/Images/Normal/328.JPG,1342,1118
+00d0f35e95bedd40a2b3c376,VisA,chewinggum,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/chewinggum/Data/Images/Normal/056.JPG,1342,1118
+015d0c1f7e912c6dc26f515f,VisA,chewinggum,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/chewinggum/Data/Images/Normal/142.JPG,1342,1118
+03b45910040e83957f6cad20,VisA,chewinggum,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/chewinggum/Data/Images/Normal/302.JPG,1342,1118
+064f5e851384e30b5e735c0f,VisA,chewinggum,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/chewinggum/Data/Images/Normal/453.JPG,1342,1118
+070482637f5ab7e31772b372,VisA,chewinggum,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/chewinggum/Data/Images/Normal/496.JPG,1342,1118
+075f42a1ca13e43c9103cd41,VisA,chewinggum,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/chewinggum/Data/Images/Normal/349.JPG,1342,1118
+082de9bbe33009b1897399fd,VisA,chewinggum,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/chewinggum/Data/Images/Normal/232.JPG,1342,1118

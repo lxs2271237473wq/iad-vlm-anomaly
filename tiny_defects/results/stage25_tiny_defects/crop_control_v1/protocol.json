@@ -1,0 +1,21 @@
+{
+  "code_sha256": "1fd58e1a5cdfc1a9db54cac2d96846784e1cf891edfe8dde0334de0f41b57e85",
+  "source_images": 1462,
+  "normal_reference_images_per_category": 8,
+  "bank_size": 8192,
+  "bank_sampling": "Uniform random without replacement seed42; no coreset optimization",
+  "reference_crops": "Eight fixed grid windows per normal image, each quarter width/height",
+  "input_sizes": {
+    "full": 512,
+    "crop": 256
+  },
+  "aggregation": "Max nearest-neighbor Euclidean patch distance, then max across 8 crops",
+  "methods": [
+    "mixed8",
+    "top8",
+    "grid8",
+    "full_limited_bank"
+  ],
+  "primary": "mixed8 versus full_limited_bank and original D512",
+  "limitations": "Limited-normal ordinary baseline, not novel model. Candidate maps cached; measured time excludes original proposal extraction. Normal full/crop bank extraction budgets differ, same final bank size. No supervised head or target data."
+}

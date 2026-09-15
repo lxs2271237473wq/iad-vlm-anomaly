@@ -1,0 +1,9 @@
+scope,method,auroc,ap
+source_validation,D_z,0.9875,0.9942973734560602
+source_validation,dino_max,0.9699,0.9847851665801666
+source_validation,dino_top1,0.9705,0.9832313848770468
+source_validation,fusion_frozen,0.9950999999999999,0.997794654009722
+tiny_only_plus_all_normal,D_z,0.986842105263158,0.9870485459346281
+tiny_only_plus_all_normal,dino_max,0.9545975232198143,0.9467239431669487
+tiny_only_plus_all_normal,dino_top1,0.9443653250773993,0.9051283306087434
+tiny_only_plus_all_normal,fusion_frozen,0.9978947368421052,0.9972069142202221

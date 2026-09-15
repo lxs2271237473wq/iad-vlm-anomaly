@@ -1,0 +1,1 @@
+../../../scripts/a1_dinov3_512_smoke_test.py

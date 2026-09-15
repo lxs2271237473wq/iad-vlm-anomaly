@@ -1,0 +1,18 @@
+{
+  "code_sha256": "7a6727dfef2e7f73139ddaafefd91bc00c30863dd3d17cc269dc30f65d9c07a5",
+  "images": 1462,
+  "scope": "All source_fit images; existing maps make full coverage audit affordable",
+  "budget": 8,
+  "window": "128x128 on 512 grid; corresponding native rectangle",
+  "top_nms_radius": 64,
+  "duplicate_iou": 0.5,
+  "primary": "mixed8",
+  "controls": [
+    "top8",
+    "grid8"
+  ],
+  "recall": "A single window covers >=50% or >=90% native component pixels; union coverage reported separately",
+  "continue_gate": "mixed8 tiny component 50%-coverage recall, image then category macro >=0.90; project gate not paper standard",
+  "target_used": false,
+  "tests_passed": true
+}

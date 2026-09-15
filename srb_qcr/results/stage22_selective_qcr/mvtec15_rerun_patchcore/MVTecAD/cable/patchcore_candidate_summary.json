@@ -1,0 +1,16 @@
+{
+  "category": "cable",
+  "num_test_images": 150,
+  "num_normal": 58,
+  "num_anomaly": 92,
+  "image_auroc": 0.9853823088455772,
+  "image_ap": 0.9907141932740784,
+  "num_candidate_rows": 292,
+  "num_images_with_candidates": 150,
+  "candidate_coverage_rate": 1.0,
+  "threshold_quantile": 0.97,
+  "top_components": 3,
+  "min_area": 20,
+  "image_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/cable/patchcore_image_predictions.csv",
+  "candidate_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/cable/candidate_regions.csv"
+}

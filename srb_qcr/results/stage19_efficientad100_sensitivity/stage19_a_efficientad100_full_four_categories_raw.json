@@ -1,0 +1,76 @@
+[
+  {
+    "category": "fruit_jelly",
+    "seeded_from": "results/stage17_defensive_sensitivity/stage17_a_efficientad100_fruit_jelly.csv",
+    "row": {
+      "timestamp": "2026-07-05T14:30:13",
+      "category": "fruit_jelly",
+      "status": "success",
+      "max_epochs": 100,
+      "train_batch_size": 1,
+      "eval_batch_size": 64,
+      "num_workers": 16,
+      "precision": "16-mixed",
+      "check_val_every_n_epoch": 20,
+      "fit_sec": 15268.667,
+      "test_sec": 16.217,
+      "image_AUROC": 0.8266666531562805,
+      "image_F1Score": 0.84375,
+      "pixel_AUROC": 0.8424254655838013,
+      "pixel_F1Score": 0.5561066269874573,
+      "error": NaN,
+      "stage19_seeded_from": "results/stage17_defensive_sensitivity/stage17_a_efficientad100_fruit_jelly.csv"
+    }
+  },
+  {
+    "category": "sheet_metal",
+    "metrics": {
+      "image_AUROC": 0.7083333134651184,
+      "image_F1Score": 0.8823529481887817,
+      "pixel_AUROC": 0.7777146697044373,
+      "pixel_F1Score": 0.29560014605522156
+    },
+    "raw": [
+      {
+        "image_AUROC": 0.7083333134651184,
+        "image_F1Score": 0.8823529481887817,
+        "pixel_AUROC": 0.7777146697044373,
+        "pixel_F1Score": 0.29560014605522156
+      }
+    ]
+  },
+  {
+    "category": "vial",
+    "metrics": {
+      "image_AUROC": 0.9035639762878418,
+      "image_F1Score": 0.9444444179534912,
+      "pixel_AUROC": 0.9423906803131104,
+      "pixel_F1Score": 0.40549859404563904
+    },
+    "raw": [
+      {
+        "image_AUROC": 0.9035639762878418,
+        "image_F1Score": 0.9444444179534912,
+        "pixel_AUROC": 0.9423906803131104,
+        "pixel_F1Score": 0.40549859404563904
+      }
+    ]
+  },
+  {
+    "category": "walnuts",
+    "metrics": {
+      "image_AUROC": 0.6240740418434143,
+      "image_F1Score": 0.7636363506317139,
+      "pixel_AUROC": 0.7760066986083984,
+      "pixel_F1Score": 0.061979860067367554
+    },
+    "raw": [
+      {
+        "image_AUROC": 0.6240740418434143,
+        "image_F1Score": 0.7636363506317139,
+        "pixel_AUROC": 0.7760066986083984,
+        "pixel_F1Score": 0.061979860067367554
+      }
+    ]
+  }
+]

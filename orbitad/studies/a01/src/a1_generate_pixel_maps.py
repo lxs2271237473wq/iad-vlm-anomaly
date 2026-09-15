@@ -1,0 +1,1 @@
+../../../scripts/a1_generate_pixel_maps.py

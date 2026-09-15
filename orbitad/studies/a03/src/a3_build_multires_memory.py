@@ -1,0 +1,1 @@
+../../../scripts/a3_build_multires_memory.py

@@ -1,0 +1,37 @@
+project:
+  name: OrbitAD
+  stage: A0_dataset_audit
+
+dataset:
+  name: MVTec_AD_2
+  root: /root/private_data/iad-vlm-anomaly/datasets/MVTec_AD_2
+  readonly: true
+
+  categories:
+    - can
+    - fabric
+    - fruit_jelly
+    - rice
+    - sheet_metal
+    - vial
+    - wallplugs
+    - walnuts
+
+  splits:
+    - train
+    - validation
+    - test_public
+    - test_private
+    - test_private_mixed
+
+audit:
+  check_images: true
+  check_masks: true
+  check_resolution: true
+  check_duplicates: true
+  check_corruption: true
+  compute_defect_area: true
+  compute_border_statistics: true
+
+output:
+  root: orbitad/results/a0_dataset_audit

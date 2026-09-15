@@ -1,0 +1,9 @@
+image_id,dataset,category,original_split,role,path,width,height
+000cfb9b37c105c1aadec1c4,VisA,capsules,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/capsules/Data/Images/Normal/061.JPG,1500,1000
+0144b8b67f6a0bcbc35ca6f0,VisA,capsules,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/capsules/Data/Images/Normal/312.JPG,1500,1000
+01473b2004c78157204535b4,VisA,capsules,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/capsules/Data/Images/Normal/302.JPG,1500,1000
+01f44f2b391bc1d2a7fc9062,VisA,capsules,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/capsules/Data/Images/Normal/067.JPG,1500,1000
+026d76c147cea4f1e46d1b91,VisA,capsules,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/capsules/Data/Images/Normal/089.JPG,1500,1000
+02f15044fffe4e3e1fcaedcc,VisA,capsules,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/capsules/Data/Images/Normal/521.JPG,1500,1000
+035b0501c5889682277f129b,VisA,capsules,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/capsules/Data/Images/Normal/495.JPG,1500,1000
+042651ab4dbc81b79eb60df7,VisA,capsules,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/capsules/Data/Images/Normal/167.JPG,1500,1000

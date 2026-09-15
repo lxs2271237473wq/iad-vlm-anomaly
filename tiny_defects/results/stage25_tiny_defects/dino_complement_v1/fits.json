@@ -1,0 +1,362 @@
+[
+  {
+    "heldout": "capsules",
+    "method": "fusion_oof",
+    "coefficients": [
+      [
+        4.885429365364517,
+        1.626971443802077
+      ]
+    ],
+    "intercept": [
+      2.360809383451923
+    ],
+    "training_categories": [
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb2",
+      "pcb3",
+      "pcb4"
+    ],
+    "iterations": 10
+  },
+  {
+    "heldout": "capsules",
+    "method": "d_only_oof",
+    "coefficients": [
+      [
+        6.107766087191877
+      ]
+    ],
+    "intercept": [
+      2.369536124073696
+    ],
+    "training_categories": [
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb2",
+      "pcb3",
+      "pcb4"
+    ],
+    "iterations": 8
+  },
+  {
+    "heldout": "chewinggum",
+    "method": "fusion_oof",
+    "coefficients": [
+      [
+        3.6552712816627517,
+        1.515480085488013
+      ]
+    ],
+    "intercept": [
+      1.625404645272613
+    ],
+    "training_categories": [
+      "capsules",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb2",
+      "pcb3",
+      "pcb4"
+    ],
+    "iterations": 10
+  },
+  {
+    "heldout": "chewinggum",
+    "method": "d_only_oof",
+    "coefficients": [
+      [
+        4.5396983803062
+      ]
+    ],
+    "intercept": [
+      1.5578944204119667
+    ],
+    "training_categories": [
+      "capsules",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb2",
+      "pcb3",
+      "pcb4"
+    ],
+    "iterations": 8
+  },
+  {
+    "heldout": "fryum",
+    "method": "fusion_oof",
+    "coefficients": [
+      [
+        4.676273847892517,
+        1.6288301647882928
+      ]
+    ],
+    "intercept": [
+      2.1881817128950116
+    ],
+    "training_categories": [
+      "capsules",
+      "chewinggum",
+      "macaroni1",
+      "macaroni2",
+      "pcb2",
+      "pcb3",
+      "pcb4"
+    ],
+    "iterations": 10
+  },
+  {
+    "heldout": "fryum",
+    "method": "d_only_oof",
+    "coefficients": [
+      [
+        5.847629289742601
+      ]
+    ],
+    "intercept": [
+      2.176550699602708
+    ],
+    "training_categories": [
+      "capsules",
+      "chewinggum",
+      "macaroni1",
+      "macaroni2",
+      "pcb2",
+      "pcb3",
+      "pcb4"
+    ],
+    "iterations": 9
+  },
+  {
+    "heldout": "macaroni1",
+    "method": "fusion_oof",
+    "coefficients": [
+      [
+        4.421931191404501,
+        1.9874081571701092
+      ]
+    ],
+    "intercept": [
+      2.420001344420429
+    ],
+    "training_categories": [
+      "capsules",
+      "chewinggum",
+      "fryum",
+      "macaroni2",
+      "pcb2",
+      "pcb3",
+      "pcb4"
+    ],
+    "iterations": 9
+  },
+  {
+    "heldout": "macaroni1",
+    "method": "d_only_oof",
+    "coefficients": [
+      [
+        5.715639790370138
+      ]
+    ],
+    "intercept": [
+      2.279951555171289
+    ],
+    "training_categories": [
+      "capsules",
+      "chewinggum",
+      "fryum",
+      "macaroni2",
+      "pcb2",
+      "pcb3",
+      "pcb4"
+    ],
+    "iterations": 10
+  },
+  {
+    "heldout": "macaroni2",
+    "method": "fusion_oof",
+    "coefficients": [
+      [
+        5.006705346546411,
+        1.8370112493451503
+      ]
+    ],
+    "intercept": [
+      2.6522445326606134
+    ],
+    "training_categories": [
+      "capsules",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "pcb2",
+      "pcb3",
+      "pcb4"
+    ],
+    "iterations": 11
+  },
+  {
+    "heldout": "macaroni2",
+    "method": "d_only_oof",
+    "coefficients": [
+      [
+        6.366493122715491
+      ]
+    ],
+    "intercept": [
+      2.630615438802139
+    ],
+    "training_categories": [
+      "capsules",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "pcb2",
+      "pcb3",
+      "pcb4"
+    ],
+    "iterations": 9
+  },
+  {
+    "heldout": "pcb2",
+    "method": "fusion_oof",
+    "coefficients": [
+      [
+        4.748550399478756,
+        1.9915247900950137
+      ]
+    ],
+    "intercept": [
+      2.582661773420178
+    ],
+    "training_categories": [
+      "capsules",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb3",
+      "pcb4"
+    ],
+    "iterations": 10
+  },
+  {
+    "heldout": "pcb2",
+    "method": "d_only_oof",
+    "coefficients": [
+      [
+        6.111858214466103
+      ]
+    ],
+    "intercept": [
+      2.457088803943414
+    ],
+    "training_categories": [
+      "capsules",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb3",
+      "pcb4"
+    ],
+    "iterations": 8
+  },
+  {
+    "heldout": "pcb3",
+    "method": "fusion_oof",
+    "coefficients": [
+      [
+        4.68537141019266,
+        1.823869740997307
+      ]
+    ],
+    "intercept": [
+      2.478480060372622
+    ],
+    "training_categories": [
+      "capsules",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb2",
+      "pcb4"
+    ],
+    "iterations": 9
+  },
+  {
+    "heldout": "pcb3",
+    "method": "d_only_oof",
+    "coefficients": [
+      [
+        5.964439306693172
+      ]
+    ],
+    "intercept": [
+      2.370387889351743
+    ],
+    "training_categories": [
+      "capsules",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb2",
+      "pcb4"
+    ],
+    "iterations": 9
+  },
+  {
+    "heldout": "pcb4",
+    "method": "fusion_oof",
+    "coefficients": [
+      [
+        4.842569354936585,
+        1.8556909449584966
+      ]
+    ],
+    "intercept": [
+      2.5295439626938983
+    ],
+    "training_categories": [
+      "capsules",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb2",
+      "pcb3"
+    ],
+    "iterations": 9
+  },
+  {
+    "heldout": "pcb4",
+    "method": "d_only_oof",
+    "coefficients": [
+      [
+        6.197019889583989
+      ]
+    ],
+    "intercept": [
+      2.4443092086428235
+    ],
+    "training_categories": [
+      "capsules",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb2",
+      "pcb3"
+    ],
+    "iterations": 10
+  }
+]

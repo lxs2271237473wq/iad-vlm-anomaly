@@ -1,0 +1,36 @@
+category,method_group,method,image_auroc,image_ap,pixel_auroc,pixel_f1,protocol,fairness_tag
+fruit_jelly,external_vlm_baseline,WinCLIP fixed protocol,0.4666666686534881,,0.832697868347168,0.2824292480945587,"class_name=jelly, k_shot=1, scales=(1, 2, 3)",primary_or_reference
+fruit_jelly,vlm_branch,full-image VLM,0.7533333333333333,,,,Stage 11 reference,primary_or_reference
+fruit_jelly,vlm_branch,context-aware VLM,0.8566666666666667,,,,Stage 11 reported context method,primary_or_reference
+fruit_jelly,classical_detector,PatchCore,0.7166666666666667,,,,Stage 11 reference,primary_or_reference
+fruit_jelly,modern_detector_baseline,EfficientAD-30 fixed-budget,0.8433333039283752,,0.7893707156181335,0.5394811034202576,"EfficientAD small, 30 epochs, train_batch_size=1, eval_batch_size=64, num_workers=16",fixed_budget_detector_baseline
+fruit_jelly,fusion_loco,"PatchCore + context VLM, LOCO",0.8333333333333333,0.947585679498191,,,Stage 13 leave-one-category-out fusion,primary_or_reference
+fruit_jelly,fusion_same_set,"PatchCore + context VLM, same-set",0.8933333333333334,0.9710965140241457,,,Stage 13 same-set upper-bound fusion,upper_bound_diagnostic
+sheet_metal,external_vlm_baseline,WinCLIP fixed protocol,0.7074074745178223,,0.8140121698379517,0.2274182885885238,"class_name=sheet metal, k_shot=1, scales=(1, 2, 3)",primary_or_reference
+sheet_metal,vlm_branch,full-image VLM,0.7129629629629629,,,,Stage 11 reference,primary_or_reference
+sheet_metal,vlm_branch,context-aware VLM,0.6574074074074074,,,,Stage 11 reported context method,primary_or_reference
+sheet_metal,classical_detector,PatchCore,0.7462962962962963,,,,Stage 11 reference,primary_or_reference
+sheet_metal,modern_detector_baseline,EfficientAD-30 fixed-budget,0.7333333492279053,,0.7509881854057312,0.2994703650474548,"EfficientAD small, 30 epochs, train_batch_size=1, eval_batch_size=64, num_workers=16",fixed_budget_detector_baseline
+sheet_metal,fusion_loco,"PatchCore + context VLM, LOCO",0.7481481481481481,0.9260559519111412,,,Stage 13 leave-one-category-out fusion,primary_or_reference
+sheet_metal,fusion_same_set,"PatchCore + context VLM, same-set",0.7555555555555555,0.926475339347547,,,Stage 13 same-set upper-bound fusion,upper_bound_diagnostic
+vial,external_vlm_baseline,WinCLIP fixed protocol,0.8794549107551575,,0.8187899589538574,0.2075731754302978,"class_name=vial, k_shot=1, scales=(1, 2, 3)",primary_or_reference
+vial,vlm_branch,full-image VLM,0.6876310272536688,,,,Stage 11 reference,primary_or_reference
+vial,vlm_branch,context-aware VLM,0.6834381551362684,,,,Stage 11 reported context method,primary_or_reference
+vial,classical_detector,PatchCore,0.8731656184486373,,,,Stage 11 reference,primary_or_reference
+vial,modern_detector_baseline,EfficientAD-30 fixed-budget,0.909853219985962,,0.9281267523765564,0.3604857921600342,"EfficientAD small, 30 epochs, train_batch_size=1, eval_batch_size=64, num_workers=16",fixed_budget_detector_baseline
+vial,fusion_loco,"PatchCore + context VLM, LOCO",0.9224318658280924,0.9724507430631107,,,Stage 13 leave-one-category-out fusion,primary_or_reference
+vial,fusion_same_set,"PatchCore + context VLM, same-set",0.9255765199161424,0.973437150696619,,,Stage 13 same-set upper-bound fusion,upper_bound_diagnostic
+walnuts,external_vlm_baseline,WinCLIP fixed protocol,0.4014814496040344,,0.8155226707458496,0.3742561340332031,"class_name=walnut, k_shot=1, scales=(1, 2, 3)",primary_or_reference
+walnuts,vlm_branch,full-image VLM,0.4296296296296296,,,,Stage 11 reference,primary_or_reference
+walnuts,vlm_branch,context-aware VLM,0.642962962962963,,,,Stage 11 reported context method,primary_or_reference
+walnuts,classical_detector,PatchCore,0.8051851851851852,,,,Stage 11 reference,primary_or_reference
+walnuts,modern_detector_baseline,EfficientAD-30 fixed-budget,0.5551851987838745,,0.7686794996261597,0.0422395654022693,"EfficientAD small, 30 epochs, train_batch_size=1, eval_batch_size=64, num_workers=16",fixed_budget_detector_baseline
+walnuts,fusion_loco,"PatchCore + context VLM, LOCO",0.78,0.8750914976758436,,,Stage 13 leave-one-category-out fusion,primary_or_reference
+walnuts,fusion_same_set,"PatchCore + context VLM, same-set",0.8066666666666666,0.8883462747083113,,,Stage 13 same-set upper-bound fusion,upper_bound_diagnostic
+MEAN,external_vlm_baseline,WinCLIP fixed protocol,0.6137526258826256,,0.8202556669712067,0.2729192115366459,"mean over fruit_jelly, sheet_metal, vial, walnuts",mean_summary
+MEAN,vlm_branch,full-image VLM,0.6458892382948986,,,,"mean over fruit_jelly, sheet_metal, vial, walnuts",mean_summary
+MEAN,vlm_branch,context-aware VLM,0.7101187980433263,,,,"mean over fruit_jelly, sheet_metal, vial, walnuts",mean_summary
+MEAN,classical_detector,PatchCore,0.7853284416491964,,,,"mean over fruit_jelly, sheet_metal, vial, walnuts",mean_summary
+MEAN,modern_detector_baseline,EfficientAD-30 fixed-budget,0.7604262679815292,,0.8092912882566452,0.310419206507504,"mean over fruit_jelly, sheet_metal, vial, walnuts",mean_summary
+MEAN,fusion_loco,"PatchCore + context VLM, LOCO",0.8209783368273935,0.9302959680370716,,,"mean over fruit_jelly, sheet_metal, vial, walnuts",mean_summary
+MEAN,fusion_same_set,"PatchCore + context VLM, same-set",0.8452830188679246,0.9398388196941556,,,"mean over fruit_jelly, sheet_metal, vial, walnuts",mean_summary

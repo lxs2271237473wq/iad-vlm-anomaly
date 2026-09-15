@@ -1,0 +1,37 @@
+{
+  "device": 0,
+  "dataset": {
+    "dataset_name": "MVTec-AD-2",
+    "original_data_path": "/root/private_data/iad-vlm-anomaly/datasets/MVTec_AD_2",
+    "data_path": "/root/private_data/iad-vlm-anomaly/ad2_model_zoo/data/robis_train_crops",
+    "mvtecad2_class_list": [
+      "sheet_metal",
+      "vial",
+      "wallplugs",
+      "walnuts",
+      "can",
+      "fabric",
+      "fruit_jelly",
+      "rice"
+    ],
+    "test_type": "validation"
+  },
+  "save": {
+    "save_dir": "/root/private_data/iad-vlm-anomaly/ad2_model_zoo/weights/RoBiS",
+    "amap_savedir": "/root/private_data/iad-vlm-anomaly/ad2_model_zoo/results/RoBiS"
+  },
+  "model": {
+    "encoder": "dinov2reg_vit_base_14",
+    "input_size": 518,
+    "crop_size": 518,
+    "INP_num": 6
+  },
+  "training": {
+    "total_epochs": 200,
+    "batch_size": 16,
+    "train_state": true
+  },
+  "testing": {
+    "test_state": false
+  }
+}

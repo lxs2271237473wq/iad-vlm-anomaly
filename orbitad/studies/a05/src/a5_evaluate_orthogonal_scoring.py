@@ -1,0 +1,1 @@
+../../../scripts/a5_evaluate_orthogonal_scoring.py

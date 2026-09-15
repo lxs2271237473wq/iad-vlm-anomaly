@@ -1,0 +1,16 @@
+{
+  "category": "tile",
+  "num_test_images": 117,
+  "num_normal": 33,
+  "num_anomaly": 84,
+  "image_auroc": 0.9884559884559885,
+  "image_ap": 0.9965870558749815,
+  "num_candidate_rows": 205,
+  "num_images_with_candidates": 117,
+  "candidate_coverage_rate": 1.0,
+  "threshold_quantile": 0.97,
+  "top_components": 3,
+  "min_area": 20,
+  "image_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/tile/patchcore_image_predictions.csv",
+  "candidate_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/tile/candidate_regions.csv"
+}

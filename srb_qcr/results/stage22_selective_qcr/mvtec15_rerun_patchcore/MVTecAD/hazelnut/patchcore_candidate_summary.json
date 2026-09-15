@@ -1,0 +1,16 @@
+{
+  "category": "hazelnut",
+  "num_test_images": 110,
+  "num_normal": 40,
+  "num_anomaly": 70,
+  "image_auroc": 1.0,
+  "image_ap": 0.9999999999999999,
+  "num_candidate_rows": 168,
+  "num_images_with_candidates": 110,
+  "candidate_coverage_rate": 1.0,
+  "threshold_quantile": 0.97,
+  "top_components": 3,
+  "min_area": 20,
+  "image_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/hazelnut/patchcore_image_predictions.csv",
+  "candidate_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/hazelnut/candidate_regions.csv"
+}

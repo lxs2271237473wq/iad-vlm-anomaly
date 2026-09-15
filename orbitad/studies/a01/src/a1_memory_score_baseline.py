@@ -1,0 +1,1 @@
+../../../scripts/a1_memory_score_baseline.py

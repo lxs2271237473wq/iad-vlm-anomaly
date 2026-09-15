@@ -1,0 +1,28 @@
+{
+  "code_sha256": "71b06182ea67037250613b55dc4573fdb737392682d9099d818fae8345fa3eed",
+  "version": "v1",
+  "primary": "compact tiny components: native area/image area <=0.001 AND bbox max side after square resize512 <=32",
+  "secondary": "area<=0.001 but max side>32: thin_or_extended_small_area",
+  "connectivity": 8,
+  "no_component_removal": true,
+  "source_categories": {
+    "pcb2": "source_fit",
+    "fryum": "source_fit",
+    "chewinggum": "source_fit",
+    "pcb4": "source_fit",
+    "capsules": "source_fit",
+    "pcb3": "source_fit",
+    "macaroni2": "source_fit",
+    "macaroni1": "source_fit",
+    "pipe_fryum": "source_validation",
+    "cashew": "source_validation",
+    "pcb1": "source_development_holdout",
+    "candle": "source_development_holdout"
+  },
+  "source_split": "8/2/2 category-disjoint hash order; all previously inspected, not independent test",
+  "target_role": "AD2 public exploration only; no target anomaly training",
+  "hard_normal": "D_raw above source/category original normal-calibration q95, fixed teacher tag only; not physical nuisance annotation",
+  "future_test": "Not present: external untouched data or locked official private evaluation required",
+  "gt_use": "Partition and evaluation only; excluded from inference manifest",
+  "original_images_unchanged": true
+}

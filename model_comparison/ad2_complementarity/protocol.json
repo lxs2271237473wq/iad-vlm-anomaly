@@ -1,0 +1,8 @@
+{
+  "n": 1084,
+  "normal": 379,
+  "anomaly": 705,
+  "threshold": "Per-category test ROC >=95% recall. Diagnostic only, not deployment or validated fusion.",
+  "efficientad": "Checkpoint and aggregate metrics found; aligned per-image scores unavailable. No retraining or inference performed.",
+  "selection": "Models, categories fixed; DINO top1 primary, max sensitivity. Public previously used for development."
+}

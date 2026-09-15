@@ -1,0 +1,1 @@
+../../../src/stage24_evidence/run_local_signal.sh

@@ -1,0 +1,1 @@
+../../../scripts/a6_build_rns_maps.py

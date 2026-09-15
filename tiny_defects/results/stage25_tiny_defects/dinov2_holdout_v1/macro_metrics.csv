@@ -1,0 +1,9 @@
+scope,method,auroc,ap
+source_development_holdout,D_z,0.9791,0.9793492869976408
+source_development_holdout,dino_max,0.9174,0.8978931668834039
+source_development_holdout,dino_top1,0.94245,0.9244100587297714
+source_development_holdout,fusion_frozen,0.9786999999999999,0.9779711418607608
+tiny_only_plus_all_normal,D_z,0.9672807017543861,0.8579855319769274
+tiny_only_plus_all_normal,dino_max,0.9242543859649123,0.5669485015024452
+tiny_only_plus_all_normal,dino_top1,0.9253508771929825,0.592083656306222
+tiny_only_plus_all_normal,fusion_frozen,0.9732894736842106,0.8135734990043284

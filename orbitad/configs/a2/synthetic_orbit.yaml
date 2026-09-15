@@ -1,0 +1,84 @@
+experiment:
+  name: a2_0_synthetic_acquisition_alignment
+  seed: 20260913
+
+dataset:
+  root: /root/private_data/iad-vlm-anomaly/datasets/MVTec_AD_2
+  source_split: validation/good
+
+protocol:
+  regular_only: true
+  use_test_public_for_selection: false
+  use_test_masks: false
+
+model:
+  name: vit_base_patch16_dinov3.lvd1689m
+  input_size: 512
+  frozen: true
+
+perturbations:
+
+  exposure:
+    enabled: true
+    factors:
+      - 0.70
+      - 0.85
+      - 1.15
+      - 1.30
+
+  directional_gradient:
+    enabled: true
+    amplitudes:
+      - 0.15
+      - 0.30
+      - 0.45
+    directions_deg:
+      - 0
+      - 45
+      - 90
+      - 135
+      - 180
+      - 225
+      - 270
+      - 315
+
+  spotlight:
+    enabled: true
+    amplitudes:
+      - 0.15
+      - 0.30
+      - 0.45
+    sigma_fraction:
+      - 0.20
+      - 0.35
+
+  shadow:
+    enabled: true
+    amplitudes:
+      - 0.15
+      - 0.30
+      - 0.45
+    sigma_fraction:
+      - 0.20
+      - 0.35
+
+  low_frequency_field:
+    enabled: true
+    grid_sizes:
+      - 2
+      - 4
+      - 8
+    amplitudes:
+      - 0.15
+      - 0.30
+      - 0.45
+
+constraints:
+  clamp_01: true
+  preserve_geometry: true
+  no_blur: true
+  no_crop: true
+  no_rotation: true
+
+output:
+  root: orbitad/results/a2_synthetic_alignment

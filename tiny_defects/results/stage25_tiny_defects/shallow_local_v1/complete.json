@@ -1,0 +1,11 @@
+{
+  "status": "complete",
+  "training_images": 1462,
+  "validation_images": 300,
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "target_used": false
+}

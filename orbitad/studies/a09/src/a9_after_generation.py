@@ -1,0 +1,1 @@
+../../../scripts/a9_after_generation.py

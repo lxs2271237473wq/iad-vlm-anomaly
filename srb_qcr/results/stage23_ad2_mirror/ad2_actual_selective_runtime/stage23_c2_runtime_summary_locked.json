@@ -1,0 +1,57 @@
+{
+  "protocol_id": "stage23_c2_ad2_actual_runtime_locked_v1",
+  "status": "runtime_valid_historical_score_replay_not_exact",
+  "accuracy_result_source": "stage23_b1_ad2_frozen_mirror",
+  "runtime_result_source": "stage23_c2_three_paired_gpu_repeats",
+  "num_images": 243,
+  "full_vlm_calls": 243,
+  "selective_vlm_calls": 182,
+  "actual_calls_saved": 61,
+  "actual_call_saving_rate": 0.2510288065843621,
+  "full_context_crops": 502,
+  "selective_context_crops": 397,
+  "actual_crops_saved": 105,
+  "actual_crop_saving_rate": 0.20916334661354585,
+  "full_median_sec": 287.431,
+  "selective_median_sec": 240.746,
+  "median_saved_sec": 54.6,
+  "median_wall_time_saving_rate": 0.1894701757102985,
+  "median_speedup": 1.2337608932235635,
+  "mean_wall_time_saving_rate": 0.1779388280626545,
+  "mean_speedup": 1.216958329825679,
+  "peak_gpu_allocated_mib": 602.2,
+  "historical_score_replay": {
+    "exact": false,
+    "direct_mean_abs_diff": 0.009285854672248434,
+    "direct_median_abs_diff": 0.0069753327406941994,
+    "direct_max_abs_diff": 0.0269316434860228,
+    "rows_over_1e_4": 242,
+    "likely_reason": "category-specific prompt or text-feature mismatch",
+    "category_diagnostics": {
+      "fruit_jelly": {
+        "rows": 40,
+        "direct_mean_abs_diff": 0.004588857987740368,
+        "flipped_mean_abs_diff": 0.010411897227944108,
+        "direct_correlation": 0.7726884490015508
+      },
+      "sheet_metal": {
+        "rows": 57,
+        "direct_mean_abs_diff": 0.005422824391910027,
+        "flipped_mean_abs_diff": 0.021942740210947307,
+        "direct_correlation": 0.6508921799637812
+      },
+      "vial": {
+        "rows": 71,
+        "direct_mean_abs_diff": 0.005854846382493899,
+        "flipped_mean_abs_diff": 0.005154312778747405,
+        "direct_correlation": 0.612303580017398
+      },
+      "walnuts": {
+        "rows": 75,
+        "direct_mean_abs_diff": 0.017974843764677548,
+        "flipped_mean_abs_diff": 0.004190428719545403,
+        "direct_correlation": 0.06492102146090292
+      }
+    }
+  }
+}

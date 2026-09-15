@@ -1,0 +1,48 @@
+experiment:
+  name: a1_3_anomaly_score_sensitivity
+  seed: 20260913
+
+dataset:
+  root: /root/private_data/iad-vlm-anomaly/datasets/MVTec_AD_2
+
+  categories:
+    - can
+    - fabric
+    - fruit_jelly
+    - rice
+    - sheet_metal
+    - vial
+    - wallplugs
+    - walnuts
+
+  train_split: train/good
+  public_good_manifest: orbitad/data/manifests/test_public_good.csv
+  public_bad_manifest: orbitad/data/manifests/test_public_bad.csv
+
+model:
+  name: vit_base_patch16_dinov3.lvd1689m
+  frozen: true
+  input_size: 512
+  patch_size: 16
+
+memory:
+  patches_per_train_image: 64
+  max_patches_per_category: 32768
+  metric: cosine
+  deterministic: true
+
+scoring:
+  image_score: topk_mean
+  topk: 10
+  report_patch_mean: true
+  report_patch_p95: true
+  report_patch_p99: true
+
+protocol:
+  train_regular_only: true
+  use_validation_for_training: false
+  use_test_public_for_training: false
+  use_masks_for_training: false
+
+output:
+  root: orbitad/results/a1_anomaly_score_sensitivity

@@ -1,0 +1,9 @@
+image_id,dataset,category,original_split,role,path,width,height
+008c78d2888b3b7523a92220,VisA,fryum,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/fryum/Data/Images/Normal/033.JPG,1500,1000
+01bb1327f207ea1dad9025e3,VisA,fryum,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/fryum/Data/Images/Normal/076.JPG,1500,1000
+0252e4bdb4d8a23276af8a1b,VisA,fryum,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/fryum/Data/Images/Normal/330.JPG,1500,1000
+0388029ae9cdbe2131e5b218,VisA,fryum,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/fryum/Data/Images/Normal/185.JPG,1500,1000
+045c901e137eec87513a2656,VisA,fryum,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/fryum/Data/Images/Normal/131.JPG,1500,1000
+06c5f2ac43cbe5ebb82d0d80,VisA,fryum,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/fryum/Data/Images/Normal/492.JPG,1500,1000
+073bcaeec7b4dea7b22352e9,VisA,fryum,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/fryum/Data/Images/Normal/155.JPG,1500,1000
+07df0d729410b00703fcf64b,VisA,fryum,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/fryum/Data/Images/Normal/403.JPG,1500,1000

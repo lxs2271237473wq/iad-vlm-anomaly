@@ -1,0 +1,31 @@
+{
+  "training_categories": [
+    "capsules",
+    "chewinggum",
+    "fryum",
+    "macaroni1",
+    "macaroni2",
+    "pcb2",
+    "pcb3",
+    "pcb4"
+  ],
+  "mean": [
+    4.297801167468783,
+    0.29861477649326035
+  ],
+  "scale": [
+    5.6866856202646545,
+    0.12342298509659702
+  ],
+  "coefficients": [
+    [
+      4.720318772081116,
+      1.7785873916942303
+    ]
+  ],
+  "intercept": [
+    2.3923021857333517
+  ],
+  "C": 1,
+  "validation_labels_used": false
+}

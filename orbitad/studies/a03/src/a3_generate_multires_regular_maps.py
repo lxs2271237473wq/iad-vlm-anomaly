@@ -1,0 +1,1 @@
+../../../scripts/a3_generate_multires_regular_maps.py

@@ -1,0 +1,33 @@
+{
+  "code_sha256": "8b801d0d29f95c889f235a4be46aa5a649e2c8488cc3337496d5718fbce76ba0",
+  "candidate_code_sha256": "7a6727dfef2e7f73139ddaafefd91bc00c30863dd3d17cc269dc30f65d9c07a5",
+  "training_categories": [
+    "capsules",
+    "chewinggum",
+    "fryum",
+    "macaroni1",
+    "macaroni2",
+    "pcb2",
+    "pcb3",
+    "pcb4"
+  ],
+  "validation_categories": [
+    "cashew",
+    "pipe_fryum"
+  ],
+  "features": "Frozen WRN50_2 layer1/layer2, upsample layer2 to layer1, concatenate 768 channels at 64x64 from 256 crop",
+  "candidates": "Unchanged mixed8 on 512 teacher map, native quarter-field crop",
+  "supervision": "Source-fit real masks only; 16 positives,16 teacher-high negatives,16 random negatives per crop; 3x3 exclusion at feature grid",
+  "heads": "Linear and 768-64-ReLU-1 MLP, same samples/standardizer/BCE budget",
+  "epochs": 20,
+  "lr": 0.001,
+  "weight_decay": 0.001,
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "primary": "MLP versus linear and original D512 on source_validation",
+  "aggregation": "Max patch logit over eight crops",
+  "limitations": "Known supervised deep local baseline, not claimed novelty; additional real masks and compute; no AD2 or holdout fitting."
+}

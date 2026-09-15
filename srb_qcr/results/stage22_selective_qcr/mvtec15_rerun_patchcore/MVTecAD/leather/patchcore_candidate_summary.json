@@ -1,0 +1,16 @@
+{
+  "category": "leather",
+  "num_test_images": 124,
+  "num_normal": 32,
+  "num_anomaly": 92,
+  "image_auroc": 1.0,
+  "image_ap": 1.0,
+  "num_candidate_rows": 184,
+  "num_images_with_candidates": 124,
+  "candidate_coverage_rate": 1.0,
+  "threshold_quantile": 0.97,
+  "top_components": 3,
+  "min_area": 20,
+  "image_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/leather/patchcore_image_predictions.csv",
+  "candidate_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/leather/candidate_regions.csv"
+}

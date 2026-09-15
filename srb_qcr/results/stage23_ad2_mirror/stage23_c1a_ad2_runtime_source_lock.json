@@ -1,0 +1,3500 @@
+{
+  "protocol_id": "stage23_c1a_ad2_runtime_source_lock_v1",
+  "rows": 243,
+  "categories": [
+    "fruit_jelly",
+    "sheet_metal",
+    "vial",
+    "walnuts"
+  ],
+  "clip_backends": {
+    "open_clip:ViT-B-32/openai": 502
+  },
+  "stage18_sources": {
+    "stage18_m_score_source": {
+      "context_topk_mean_score": 243
+    },
+    "stage18_q_score_source": {
+      "max(candidate_score_mean)": 243
+    },
+    "stage18_full_image_source": {
+      "full_image_score": 243
+    },
+    "stage18_note": {
+      "AD2 QCR ablation assembled from Stage11 image-level VLM predictions and candidate-level non-GT quality evidence.": 243
+    }
+  },
+  "m_source_comparison": [
+    {
+      "candidate_source": "context_topk_mean",
+      "rows_compared": 163,
+      "max_abs_diff": 0.0062047839164734,
+      "mean_abs_diff": 0.0017951141075366315,
+      "exact_within_1e_12": false
+    },
+    {
+      "candidate_source": "context_top1",
+      "rows_compared": 163,
+      "max_abs_diff": 0.0100759317477544,
+      "mean_abs_diff": 0.0023716570074329086,
+      "exact_within_1e_12": false
+    },
+    {
+      "candidate_source": "context_topk_max",
+      "rows_compared": 163,
+      "max_abs_diff": 0.0100759317477544,
+      "mean_abs_diff": 0.0026477755243549056,
+      "exact_within_1e_12": false
+    },
+    {
+      "candidate_source": "tight_topk_mean",
+      "rows_compared": 163,
+      "max_abs_diff": 0.012380763888359101,
+      "mean_abs_diff": 0.00386181859211931,
+      "exact_within_1e_12": false
+    },
+    {
+      "candidate_source": "tight_top1",
+      "rows_compared": 163,
+      "max_abs_diff": 0.0154057145118713,
+      "mean_abs_diff": 0.004288911987057975,
+      "exact_within_1e_12": false
+    },
+    {
+      "candidate_source": "tight_topk_max",
+      "rows_compared": 163,
+      "max_abs_diff": 0.0154057145118713,
+      "mean_abs_diff": 0.004561373442106693,
+      "exact_within_1e_12": false
+    }
+  ],
+  "crop_path_audit": {
+    "tight_crop_path": {
+      "column_exists": true,
+      "nonempty_rows": 502,
+      "existing_rows": 502,
+      "missing_rows": 0,
+      "all_exist": true,
+      "examples": [
+        "results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/tight/000180_000_overexposed_cand00_tight.png",
+        "results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/tight/000180_000_overexposed_cand01_tight.png",
+        "results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/tight/000180_000_overexposed_cand02_tight.png",
+        "results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/tight/000181_000_regular_cand00_tight.png",
+        "results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/tight/000181_000_regular_cand01_tight.png"
+      ]
+    },
+    "context_1p50_crop_path": {
+      "column_exists": true,
+      "nonempty_rows": 502,
+      "existing_rows": 502,
+      "missing_rows": 0,
+      "all_exist": true,
+      "examples": [
+        "results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/context_1.50/000180_000_overexposed_cand00_context_1.50.png",
+        "results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/context_1.50/000180_000_overexposed_cand01_context_1.50.png",
+        "results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/context_1.50/000180_000_overexposed_cand02_context_1.50.png",
+        "results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/context_1.50/000181_000_regular_cand00_context_1.50.png",
+        "results/stage11_mvtecad2_multicategory/stage11_c_candidate_crops/sheet_metal/context_1.50/000181_000_regular_cand01_context_1.50.png"
+      ]
+    }
+  },
+  "top_source_files": [
+    {
+      "path": "experiments/stage23_ad2_mirror/build_stage23_c1a_ad2_runtime_source_lock.py",
+      "score": 27,
+      "functions": [
+        "normalize_path",
+        "function_names",
+        "source_hits",
+        "aggregate_candidate_scores",
+        "compare_m_source",
+        "crop_path_audit",
+        "main"
+      ],
+      "hits": [
+        {
+          "line": 30,
+          "terms": [
+            "stage11_d_vlm_candidate_scores.csv"
+          ],
+          "context": [
+            "   26: ",
+            "   27: CANDIDATES = (",
+            "   28:     ROOT",
+            "   29:     / \"results/stage11_mvtecad2_multicategory\"",
+            "   30:     / \"stage11_d_vlm_candidate_scores.csv\"",
+            "   31: )",
+            "   32: ",
+            "   33: IMAGE_PREDICTIONS = (",
+            "   34:     ROOT",
+            "   35:     / \"results/stage11_mvtecad2_multicategory\"",
+            "   36:     / \"stage11_d_vlm_image_predictions.csv\""
+          ]
+        },
+        {
+          "line": 36,
+          "terms": [
+            "stage11_d_vlm_image_predictions.csv"
+          ],
+          "context": [
+            "   32: ",
+            "   33: IMAGE_PREDICTIONS = (",
+            "   34:     ROOT",
+            "   35:     / \"results/stage11_mvtecad2_multicategory\"",
+            "   36:     / \"stage11_d_vlm_image_predictions.csv\"",
+            "   37: )",
+            "   38: ",
+            "   39: OUT_JSON = (",
+            "   40:     ROOT",
+            "   41:     / \"results/stage23_ad2_mirror\"",
+            "   42:     / \"stage23_c1a_ad2_runtime_source_lock.json\""
+          ]
+        },
+        {
+          "line": 52,
+          "terms": [
+            "stage11_d_vlm_candidate_scores.csv"
+          ],
+          "context": [
+            "   48:     / \"stage23_c1a_ad2_runtime_source_lock.txt\"",
+            "   49: )",
+            "   50: ",
+            "   51: SEARCH_TERMS = [",
+            "   52:     \"stage11_d_vlm_candidate_scores.csv\",",
+            "   53:     \"stage11_d_vlm_image_predictions.csv\",",
+            "   54:     \"tight_vlm_margin\",",
+            "   55:     \"context_vlm_margin\",",
+            "   56:     \"clip_backend\",",
+            "   57:     \"open_clip\",",
+            "   58:     \"inspection_binary\","
+          ]
+        },
+        {
+          "line": 53,
+          "terms": [
+            "stage11_d_vlm_image_predictions.csv"
+          ],
+          "context": [
+            "   49: )",
+            "   50: ",
+            "   51: SEARCH_TERMS = [",
+            "   52:     \"stage11_d_vlm_candidate_scores.csv\",",
+            "   53:     \"stage11_d_vlm_image_predictions.csv\",",
+            "   54:     \"tight_vlm_margin\",",
+            "   55:     \"context_vlm_margin\",",
+            "   56:     \"clip_backend\",",
+            "   57:     \"open_clip\",",
+            "   58:     \"inspection_binary\",",
+            "   59:     \"normal_prompts\","
+          ]
+        },
+        {
+          "line": 54,
+          "terms": [
+            "tight_vlm_margin"
+          ],
+          "context": [
+            "   50: ",
+            "   51: SEARCH_TERMS = [",
+            "   52:     \"stage11_d_vlm_candidate_scores.csv\",",
+            "   53:     \"stage11_d_vlm_image_predictions.csv\",",
+            "   54:     \"tight_vlm_margin\",",
+            "   55:     \"context_vlm_margin\",",
+            "   56:     \"clip_backend\",",
+            "   57:     \"open_clip\",",
+            "   58:     \"inspection_binary\",",
+            "   59:     \"normal_prompts\",",
+            "   60:     \"anomaly_prompts\","
+          ]
+        },
+        {
+          "line": 55,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "   51: SEARCH_TERMS = [",
+            "   52:     \"stage11_d_vlm_candidate_scores.csv\",",
+            "   53:     \"stage11_d_vlm_image_predictions.csv\",",
+            "   54:     \"tight_vlm_margin\",",
+            "   55:     \"context_vlm_margin\",",
+            "   56:     \"clip_backend\",",
+            "   57:     \"open_clip\",",
+            "   58:     \"inspection_binary\",",
+            "   59:     \"normal_prompts\",",
+            "   60:     \"anomaly_prompts\",",
+            "   61: ]"
+          ]
+        },
+        {
+          "line": 56,
+          "terms": [
+            "clip_backend"
+          ],
+          "context": [
+            "   52:     \"stage11_d_vlm_candidate_scores.csv\",",
+            "   53:     \"stage11_d_vlm_image_predictions.csv\",",
+            "   54:     \"tight_vlm_margin\",",
+            "   55:     \"context_vlm_margin\",",
+            "   56:     \"clip_backend\",",
+            "   57:     \"open_clip\",",
+            "   58:     \"inspection_binary\",",
+            "   59:     \"normal_prompts\",",
+            "   60:     \"anomaly_prompts\",",
+            "   61: ]",
+            "   62: "
+          ]
+        },
+        {
+          "line": 57,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "   53:     \"stage11_d_vlm_image_predictions.csv\",",
+            "   54:     \"tight_vlm_margin\",",
+            "   55:     \"context_vlm_margin\",",
+            "   56:     \"clip_backend\",",
+            "   57:     \"open_clip\",",
+            "   58:     \"inspection_binary\",",
+            "   59:     \"normal_prompts\",",
+            "   60:     \"anomaly_prompts\",",
+            "   61: ]",
+            "   62: ",
+            "   63: "
+          ]
+        },
+        {
+          "line": 58,
+          "terms": [
+            "inspection_binary"
+          ],
+          "context": [
+            "   54:     \"tight_vlm_margin\",",
+            "   55:     \"context_vlm_margin\",",
+            "   56:     \"clip_backend\",",
+            "   57:     \"open_clip\",",
+            "   58:     \"inspection_binary\",",
+            "   59:     \"normal_prompts\",",
+            "   60:     \"anomaly_prompts\",",
+            "   61: ]",
+            "   62: ",
+            "   63: ",
+            "   64: def normalize_path(value: Any) -> str:"
+          ]
+        },
+        {
+          "line": 59,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "   55:     \"context_vlm_margin\",",
+            "   56:     \"clip_backend\",",
+            "   57:     \"open_clip\",",
+            "   58:     \"inspection_binary\",",
+            "   59:     \"normal_prompts\",",
+            "   60:     \"anomaly_prompts\",",
+            "   61: ]",
+            "   62: ",
+            "   63: ",
+            "   64: def normalize_path(value: Any) -> str:",
+            "   65:     text = str(value).replace(\"\\\\\", \"/\").strip()"
+          ]
+        },
+        {
+          "line": 60,
+          "terms": [
+            "anomaly_prompts"
+          ],
+          "context": [
+            "   56:     \"clip_backend\",",
+            "   57:     \"open_clip\",",
+            "   58:     \"inspection_binary\",",
+            "   59:     \"normal_prompts\",",
+            "   60:     \"anomaly_prompts\",",
+            "   61: ]",
+            "   62: ",
+            "   63: ",
+            "   64: def normalize_path(value: Any) -> str:",
+            "   65:     text = str(value).replace(\"\\\\\", \"/\").strip()",
+            "   66: "
+          ]
+        },
+        {
+          "line": 151,
+          "terms": [
+            "tight_vlm_margin"
+          ],
+          "context": [
+            "  147:     required = {",
+            "  148:         \"category\",",
+            "  149:         \"image_path\",",
+            "  150:         \"candidate_rank\",",
+            "  151:         \"tight_vlm_margin\",",
+            "  152:         \"context_vlm_margin\",",
+            "  153:     }",
+            "  154: ",
+            "  155:     missing = sorted(",
+            "  156:         required - set(candidates.columns)",
+            "  157:     )"
+          ]
+        },
+        {
+          "line": 152,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  148:         \"category\",",
+            "  149:         \"image_path\",",
+            "  150:         \"candidate_rank\",",
+            "  151:         \"tight_vlm_margin\",",
+            "  152:         \"context_vlm_margin\",",
+            "  153:     }",
+            "  154: ",
+            "  155:     missing = sorted(",
+            "  156:         required - set(candidates.columns)",
+            "  157:     )",
+            "  158: "
+          ]
+        },
+        {
+          "line": 168,
+          "terms": [
+            "tight_vlm_margin"
+          ],
+          "context": [
+            "  164:     frame = candidates.copy()",
+            "  165: ",
+            "  166:     for column in [",
+            "  167:         \"candidate_rank\",",
+            "  168:         \"tight_vlm_margin\",",
+            "  169:         \"context_vlm_margin\",",
+            "  170:     ]:",
+            "  171:         frame[column] = pd.to_numeric(",
+            "  172:             frame[column],",
+            "  173:             errors=\"coerce\",",
+            "  174:         )"
+          ]
+        },
+        {
+          "line": 169,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  165: ",
+            "  166:     for column in [",
+            "  167:         \"candidate_rank\",",
+            "  168:         \"tight_vlm_margin\",",
+            "  169:         \"context_vlm_margin\",",
+            "  170:     ]:",
+            "  171:         frame[column] = pd.to_numeric(",
+            "  172:             frame[column],",
+            "  173:             errors=\"coerce\",",
+            "  174:         )",
+            "  175: "
+          ]
+        },
+        {
+          "line": 195,
+          "terms": [
+            "tight_vlm_margin"
+          ],
+          "context": [
+            "  191: ",
+            "  192:     if frame[",
+            "  193:         [",
+            "  194:             \"candidate_rank\",",
+            "  195:             \"tight_vlm_margin\",",
+            "  196:             \"context_vlm_margin\",",
+            "  197:         ]",
+            "  198:     ].isna().any().any():",
+            "  199:         raise RuntimeError(",
+            "  200:             \"Candidate score rows contain missing values.\"",
+            "  201:         )"
+          ]
+        },
+        {
+          "line": 196,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  192:     if frame[",
+            "  193:         [",
+            "  194:             \"candidate_rank\",",
+            "  195:             \"tight_vlm_margin\",",
+            "  196:             \"context_vlm_margin\",",
+            "  197:         ]",
+            "  198:     ].isna().any().any():",
+            "  199:         raise RuntimeError(",
+            "  200:             \"Candidate score rows contain missing values.\"",
+            "  201:         )",
+            "  202: "
+          ]
+        },
+        {
+          "line": 220,
+          "terms": [
+            "tight_vlm_margin"
+          ],
+          "context": [
+            "  216:             \"candidate_rank\"",
+            "  217:         )",
+            "  218: ",
+            "  219:         tight = group[",
+            "  220:             \"tight_vlm_margin\"",
+            "  221:         ].to_numpy(dtype=float)",
+            "  222: ",
+            "  223:         context = group[",
+            "  224:             \"context_vlm_margin\"",
+            "  225:         ].to_numpy(dtype=float)",
+            "  226: "
+          ]
+        },
+        {
+          "line": 224,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  220:             \"tight_vlm_margin\"",
+            "  221:         ].to_numpy(dtype=float)",
+            "  222: ",
+            "  223:         context = group[",
+            "  224:             \"context_vlm_margin\"",
+            "  225:         ].to_numpy(dtype=float)",
+            "  226: ",
+            "  227:         rows.append(",
+            "  228:             {",
+            "  229:                 \"category\": category,",
+            "  230:                 \"path_key\": path_key,"
+          ]
+        },
+        {
+          "line": 473,
+          "terms": [
+            "clip_backend"
+          ],
+          "context": [
+            "  469:             record[\"path\"],",
+            "  470:         ),",
+            "  471:     )",
+            "  472: ",
+            "  473:     clip_backends = (",
+            "  474:         candidates[\"clip_backend\"]",
+            "  475:         .dropna()",
+            "  476:         .astype(str)",
+            "  477:         .value_counts()",
+            "  478:         .to_dict()",
+            "  479:         if \"clip_backend\""
+          ]
+        },
+        {
+          "line": 474,
+          "terms": [
+            "clip_backend"
+          ],
+          "context": [
+            "  470:         ),",
+            "  471:     )",
+            "  472: ",
+            "  473:     clip_backends = (",
+            "  474:         candidates[\"clip_backend\"]",
+            "  475:         .dropna()",
+            "  476:         .astype(str)",
+            "  477:         .value_counts()",
+            "  478:         .to_dict()",
+            "  479:         if \"clip_backend\"",
+            "  480:         in candidates.columns"
+          ]
+        },
+        {
+          "line": 479,
+          "terms": [
+            "clip_backend"
+          ],
+          "context": [
+            "  475:         .dropna()",
+            "  476:         .astype(str)",
+            "  477:         .value_counts()",
+            "  478:         .to_dict()",
+            "  479:         if \"clip_backend\"",
+            "  480:         in candidates.columns",
+            "  481:         else {}",
+            "  482:     )",
+            "  483: ",
+            "  484:     stage18_sources = {",
+            "  485:         column: ("
+          ]
+        },
+        {
+          "line": 507,
+          "terms": [
+            "clip_backend"
+          ],
+          "context": [
+            "  503:             \"stage23_c1a_ad2_runtime_source_lock_v1\"",
+            "  504:         ),",
+            "  505:         \"rows\": int(len(b2b)),",
+            "  506:         \"categories\": CATEGORIES,",
+            "  507:         \"clip_backends\": clip_backends,",
+            "  508:         \"stage18_sources\": stage18_sources,",
+            "  509:         \"m_source_comparison\": comparisons,",
+            "  510:         \"crop_path_audit\": crop_path_audit(",
+            "  511:             candidates",
+            "  512:         ),",
+            "  513:         \"top_source_files\": source_inventory[:12],"
+          ]
+        },
+        {
+          "line": 544,
+          "terms": [
+            "clip_backend"
+          ],
+          "context": [
+            "  540:         \"\",",
+            "  541:         \"===== LOCKED INPUTS =====\",",
+            "  542:         f\"B2b rows: {len(b2b)}\",",
+            "  543:         f\"categories: {sorted(b2b['category'].unique())}\",",
+            "  544:         f\"CLIP backends: {clip_backends}\",",
+            "  545:         f\"Stage 18 sources: {stage18_sources}\",",
+            "  546:         \"\",",
+            "  547:         \"===== M SOURCE COMPARISON =====\",",
+            "  548:     ]",
+            "  549: ",
+            "  550:     for row in comparisons:"
+          ]
+        },
+        {
+          "line": 626,
+          "terms": [
+            "clip_backend"
+          ],
+          "context": [
+            "  622:             for record in payload[",
+            "  623:                 \"crop_path_audit\"",
+            "  624:             ].values()",
+            "  625:         )",
+            "  626:         and bool(clip_backends)",
+            "  627:         and bool(source_inventory)",
+            "  628:     )",
+            "  629: ",
+            "  630:     lines += [",
+            "  631:         \"\",",
+            "  632:         \"===== DECISION =====\","
+          ]
+        },
+        {
+          "line": 646,
+          "terms": [
+            "clip_backend"
+          ],
+          "context": [
+            "  642:             \"crop_assets_ready: \"",
+            "  643:             f\"{any(record.get('all_exist', False) for record in payload['crop_path_audit'].values())}\"",
+            "  644:         ),",
+            "  645:         (",
+            "  646:             \"clip_backend_identified: \"",
+            "  647:             f\"{bool(clip_backends)}\"",
+            "  648:         ),",
+            "  649:         (",
+            "  650:             \"generator_source_identified: \"",
+            "  651:             f\"{bool(source_inventory)}\"",
+            "  652:         ),"
+          ]
+        },
+        {
+          "line": 647,
+          "terms": [
+            "clip_backend"
+          ],
+          "context": [
+            "  643:             f\"{any(record.get('all_exist', False) for record in payload['crop_path_audit'].values())}\"",
+            "  644:         ),",
+            "  645:         (",
+            "  646:             \"clip_backend_identified: \"",
+            "  647:             f\"{bool(clip_backends)}\"",
+            "  648:         ),",
+            "  649:         (",
+            "  650:             \"generator_source_identified: \"",
+            "  651:             f\"{bool(source_inventory)}\"",
+            "  652:         ),",
+            "  653:         f\"runtime_runner_ready: {ready}\","
+          ]
+        }
+      ]
+    },
+    {
+      "path": "experiments/stage11_mvtecad2_multicategory/run_stage11_d_vlm_full_vs_context.py",
+      "score": 25,
+      "functions": [
+        "category_name",
+        "normal_prompts",
+        "anomaly_prompts",
+        "resolve_path",
+        "to_binary_label",
+        "to_float",
+        "binary_auroc",
+        "average_precision",
+        "best_f1_accuracy",
+        "validate_inputs",
+        "load_regions",
+        "score_regions",
+        "build_image_predictions",
+        "metric_row",
+        "summarize",
+        "load_stage11c_summary",
+        "load_quality",
+        "write_report",
+        "parse_categories",
+        "main"
+      ],
+      "hits": [
+        {
+          "line": 22,
+          "terms": [
+            "stage11_d_vlm_candidate_scores.csv"
+          ],
+          "context": [
+            "   18: ",
+            "   19: OUT_DIR = ROOT / \"results/stage11_mvtecad2_multicategory\"",
+            "   20: DOC_DIR = ROOT / \"docs/stage11_mvtecad2_multicategory\"",
+            "   21: ",
+            "   22: OUT_CANDIDATES = OUT_DIR / \"stage11_d_vlm_candidate_scores.csv\"",
+            "   23: OUT_IMAGES = OUT_DIR / \"stage11_d_vlm_image_predictions.csv\"",
+            "   24: OUT_SUMMARY = OUT_DIR / \"stage11_d_vlm_summary.csv\"",
+            "   25: OUT_REPORT = DOC_DIR / \"stage11_d_vlm_full_vs_context_report.md\"",
+            "   26: ",
+            "   27: ",
+            "   28: CATEGORY_DISPLAY = {"
+          ]
+        },
+        {
+          "line": 23,
+          "terms": [
+            "stage11_d_vlm_image_predictions.csv"
+          ],
+          "context": [
+            "   19: OUT_DIR = ROOT / \"results/stage11_mvtecad2_multicategory\"",
+            "   20: DOC_DIR = ROOT / \"docs/stage11_mvtecad2_multicategory\"",
+            "   21: ",
+            "   22: OUT_CANDIDATES = OUT_DIR / \"stage11_d_vlm_candidate_scores.csv\"",
+            "   23: OUT_IMAGES = OUT_DIR / \"stage11_d_vlm_image_predictions.csv\"",
+            "   24: OUT_SUMMARY = OUT_DIR / \"stage11_d_vlm_summary.csv\"",
+            "   25: OUT_REPORT = DOC_DIR / \"stage11_d_vlm_full_vs_context_report.md\"",
+            "   26: ",
+            "   27: ",
+            "   28: CATEGORY_DISPLAY = {",
+            "   29:     \"fruit_jelly\": \"fruit jelly\","
+          ]
+        },
+        {
+          "line": 40,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "   36: def category_name(category: str) -> str:",
+            "   37:     return CATEGORY_DISPLAY.get(category, category.replace(\"_\", \" \"))",
+            "   38: ",
+            "   39: ",
+            "   40: def normal_prompts(category: str) -> List[str]:",
+            "   41:     name = category_name(category)",
+            "   42:     return [",
+            "   43:         f\"a quality inspection image of a normal {name}\",",
+            "   44:         f\"an industrial inspection photo of an intact {name}\",",
+            "   45:         f\"a clean and defect-free {name}\",",
+            "   46:         f\"a normal product image of a {name} with no defect\","
+          ]
+        },
+        {
+          "line": 50,
+          "terms": [
+            "anomaly_prompts"
+          ],
+          "context": [
+            "   46:         f\"a normal product image of a {name} with no defect\",",
+            "   47:     ]",
+            "   48: ",
+            "   49: ",
+            "   50: def anomaly_prompts(category: str) -> List[str]:",
+            "   51:     name = category_name(category)",
+            "   52:     return [",
+            "   53:         f\"a quality inspection image of a defective {name}\",",
+            "   54:         f\"an industrial inspection photo of a damaged {name}\",",
+            "   55:         f\"a {name} with visible defects or anomalies\",",
+            "   56:         f\"an abnormal product image of a {name} with defect\","
+          ]
+        },
+        {
+          "line": 206,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  202: ",
+            "  203:         self.device = \"cuda\" if torch.cuda.is_available() else \"cpu\"",
+            "  204: ",
+            "  205:         try:",
+            "  206:             import open_clip",
+            "  207: ",
+            "  208:             model, _, preprocess = open_clip.create_model_and_transforms(",
+            "  209:                 \"ViT-B-32\",",
+            "  210:                 pretrained=\"openai\",",
+            "  211:             )",
+            "  212:             tokenizer = open_clip.get_tokenizer(\"ViT-B-32\")"
+          ]
+        },
+        {
+          "line": 208,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  204: ",
+            "  205:         try:",
+            "  206:             import open_clip",
+            "  207: ",
+            "  208:             model, _, preprocess = open_clip.create_model_and_transforms(",
+            "  209:                 \"ViT-B-32\",",
+            "  210:                 pretrained=\"openai\",",
+            "  211:             )",
+            "  212:             tokenizer = open_clip.get_tokenizer(\"ViT-B-32\")",
+            "  213: ",
+            "  214:             self.backend = \"open_clip:ViT-B-32/openai\""
+          ]
+        },
+        {
+          "line": 212,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  208:             model, _, preprocess = open_clip.create_model_and_transforms(",
+            "  209:                 \"ViT-B-32\",",
+            "  210:                 pretrained=\"openai\",",
+            "  211:             )",
+            "  212:             tokenizer = open_clip.get_tokenizer(\"ViT-B-32\")",
+            "  213: ",
+            "  214:             self.backend = \"open_clip:ViT-B-32/openai\"",
+            "  215:             self.model = model.to(self.device).eval()",
+            "  216:             self.preprocess = preprocess",
+            "  217:             self.tokenizer = tokenizer",
+            "  218: "
+          ]
+        },
+        {
+          "line": 214,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  210:                 pretrained=\"openai\",",
+            "  211:             )",
+            "  212:             tokenizer = open_clip.get_tokenizer(\"ViT-B-32\")",
+            "  213: ",
+            "  214:             self.backend = \"open_clip:ViT-B-32/openai\"",
+            "  215:             self.model = model.to(self.device).eval()",
+            "  216:             self.preprocess = preprocess",
+            "  217:             self.tokenizer = tokenizer",
+            "  218: ",
+            "  219:             return",
+            "  220: "
+          ]
+        },
+        {
+          "line": 221,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  217:             self.tokenizer = tokenizer",
+            "  218: ",
+            "  219:             return",
+            "  220: ",
+            "  221:         except Exception as open_clip_error:",
+            "  222:             print(\"[WARN] open_clip backend unavailable:\", repr(open_clip_error))",
+            "  223: ",
+            "  224:         try:",
+            "  225:             from transformers import CLIPModel, CLIPProcessor",
+            "  226: ",
+            "  227:             model_name = \"openai/clip-vit-base-patch32\""
+          ]
+        },
+        {
+          "line": 222,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  218: ",
+            "  219:             return",
+            "  220: ",
+            "  221:         except Exception as open_clip_error:",
+            "  222:             print(\"[WARN] open_clip backend unavailable:\", repr(open_clip_error))",
+            "  223: ",
+            "  224:         try:",
+            "  225:             from transformers import CLIPModel, CLIPProcessor",
+            "  226: ",
+            "  227:             model_name = \"openai/clip-vit-base-patch32\"",
+            "  228: "
+          ]
+        },
+        {
+          "line": 238,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  234: ",
+            "  235:         except Exception as transformers_error:",
+            "  236:             raise RuntimeError(",
+            "  237:                 \"No usable CLIP backend found. \"",
+            "  238:                 \"Install/cache open_clip_torch or transformers CLIP first. \"",
+            "  239:                 f\"transformers error={repr(transformers_error)}\"",
+            "  240:             )",
+            "  241: ",
+            "  242:     def _prepare_text_features(self, category: str) -> Dict[str, object]:",
+            "  243:         import torch",
+            "  244: "
+          ]
+        },
+        {
+          "line": 248,
+          "terms": [
+            "normal_prompts",
+            "anomaly_prompts"
+          ],
+          "context": [
+            "  244: ",
+            "  245:         if category in self.text_feature_cache:",
+            "  246:             return self.text_feature_cache[category]",
+            "  247: ",
+            "  248:         prompts = normal_prompts(category) + anomaly_prompts(category)",
+            "  249:         n_normal = len(normal_prompts(category))",
+            "  250: ",
+            "  251:         with torch.no_grad():",
+            "  252:             if self.backend.startswith(\"open_clip\"):",
+            "  253:                 tokens = self.tokenizer(prompts).to(self.device)",
+            "  254:                 text_features = self.model.encode_text(tokens)"
+          ]
+        },
+        {
+          "line": 249,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "  245:         if category in self.text_feature_cache:",
+            "  246:             return self.text_feature_cache[category]",
+            "  247: ",
+            "  248:         prompts = normal_prompts(category) + anomaly_prompts(category)",
+            "  249:         n_normal = len(normal_prompts(category))",
+            "  250: ",
+            "  251:         with torch.no_grad():",
+            "  252:             if self.backend.startswith(\"open_clip\"):",
+            "  253:                 tokens = self.tokenizer(prompts).to(self.device)",
+            "  254:                 text_features = self.model.encode_text(tokens)",
+            "  255:             else:"
+          ]
+        },
+        {
+          "line": 252,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  248:         prompts = normal_prompts(category) + anomaly_prompts(category)",
+            "  249:         n_normal = len(normal_prompts(category))",
+            "  250: ",
+            "  251:         with torch.no_grad():",
+            "  252:             if self.backend.startswith(\"open_clip\"):",
+            "  253:                 tokens = self.tokenizer(prompts).to(self.device)",
+            "  254:                 text_features = self.model.encode_text(tokens)",
+            "  255:             else:",
+            "  256:                 inputs = self.processor(text=prompts, return_tensors=\"pt\", padding=True).to(self.device)",
+            "  257:                 text_features = self.model.get_text_features(**inputs)",
+            "  258: "
+          ]
+        },
+        {
+          "line": 281,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  277:         features = self._prepare_text_features(category)",
+            "  278:         image = Image.open(image_path).convert(\"RGB\")",
+            "  279: ",
+            "  280:         with torch.no_grad():",
+            "  281:             if self.backend.startswith(\"open_clip\"):",
+            "  282:                 image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)",
+            "  283:                 image_feature = self.model.encode_image(image_tensor)",
+            "  284:             else:",
+            "  285:                 inputs = self.processor(images=image, return_tensors=\"pt\").to(self.device)",
+            "  286:                 image_feature = self.model.get_image_features(**inputs)",
+            "  287: "
+          ]
+        },
+        {
+          "line": 389,
+          "terms": [
+            "clip_backend"
+          ],
+          "context": [
+            "  385: ",
+            "  386:         out = row.to_dict()",
+            "  387: ",
+            "  388:         out.update({",
+            "  389:             \"clip_backend\": scorer.backend,",
+            "  390: ",
+            "  391:             \"tight_normal_score\": tight_scores[\"normal_score\"],",
+            "  392:             \"tight_anomaly_score\": tight_scores[\"anomaly_score\"],",
+            "  393:             \"tight_vlm_margin\": tight_scores[\"vlm_margin\"],",
+            "  394: ",
+            "  395:             \"context_normal_score\": context_scores[\"normal_score\"],"
+          ]
+        },
+        {
+          "line": 393,
+          "terms": [
+            "tight_vlm_margin"
+          ],
+          "context": [
+            "  389:             \"clip_backend\": scorer.backend,",
+            "  390: ",
+            "  391:             \"tight_normal_score\": tight_scores[\"normal_score\"],",
+            "  392:             \"tight_anomaly_score\": tight_scores[\"anomaly_score\"],",
+            "  393:             \"tight_vlm_margin\": tight_scores[\"vlm_margin\"],",
+            "  394: ",
+            "  395:             \"context_normal_score\": context_scores[\"normal_score\"],",
+            "  396:             \"context_anomaly_score\": context_scores[\"anomaly_score\"],",
+            "  397:             \"context_vlm_margin\": context_scores[\"vlm_margin\"],",
+            "  398:         })",
+            "  399: "
+          ]
+        },
+        {
+          "line": 397,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  393:             \"tight_vlm_margin\": tight_scores[\"vlm_margin\"],",
+            "  394: ",
+            "  395:             \"context_normal_score\": context_scores[\"normal_score\"],",
+            "  396:             \"context_anomaly_score\": context_scores[\"anomaly_score\"],",
+            "  397:             \"context_vlm_margin\": context_scores[\"vlm_margin\"],",
+            "  398:         })",
+            "  399: ",
+            "  400:         rows.append(out)",
+            "  401: ",
+            "  402:     return pd.DataFrame(rows)",
+            "  403: "
+          ]
+        },
+        {
+          "line": 429,
+          "terms": [
+            "tight_vlm_margin"
+          ],
+          "context": [
+            "  425:         full_scores = full_cache[image_key]",
+            "  426: ",
+            "  427:         top1 = part.iloc[0]",
+            "  428: ",
+            "  429:         tight_scores = pd.to_numeric(part[\"tight_vlm_margin\"], errors=\"coerce\")",
+            "  430:         context_scores = pd.to_numeric(part[\"context_vlm_margin\"], errors=\"coerce\")",
+            "  431: ",
+            "  432:         tight_max_idx = tight_scores.idxmax()",
+            "  433:         context_max_idx = context_scores.idxmax()",
+            "  434: ",
+            "  435:         tight_max = part.loc[tight_max_idx]"
+          ]
+        },
+        {
+          "line": 430,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  426: ",
+            "  427:         top1 = part.iloc[0]",
+            "  428: ",
+            "  429:         tight_scores = pd.to_numeric(part[\"tight_vlm_margin\"], errors=\"coerce\")",
+            "  430:         context_scores = pd.to_numeric(part[\"context_vlm_margin\"], errors=\"coerce\")",
+            "  431: ",
+            "  432:         tight_max_idx = tight_scores.idxmax()",
+            "  433:         context_max_idx = context_scores.idxmax()",
+            "  434: ",
+            "  435:         tight_max = part.loc[tight_max_idx]",
+            "  436:         context_max = part.loc[context_max_idx]"
+          ]
+        },
+        {
+          "line": 444,
+          "terms": [
+            "clip_backend"
+          ],
+          "context": [
+            "  440:             \"category\": category,",
+            "  441:             \"image_path\": image_path,",
+            "  442:             \"gt_binary\": int(top1[\"gt_binary\"]),",
+            "  443:             \"num_candidates\": int(len(part)),",
+            "  444:             \"clip_backend\": scorer.backend,",
+            "  445: ",
+            "  446:             \"full_image_score\": full_scores[\"vlm_margin\"],",
+            "  447:             \"full_image_normal_score\": full_scores[\"normal_score\"],",
+            "  448:             \"full_image_anomaly_score\": full_scores[\"anomaly_score\"],",
+            "  449: ",
+            "  450:             \"tight_top1_score\": float(top1[\"tight_vlm_margin\"]),"
+          ]
+        },
+        {
+          "line": 450,
+          "terms": [
+            "tight_vlm_margin"
+          ],
+          "context": [
+            "  446:             \"full_image_score\": full_scores[\"vlm_margin\"],",
+            "  447:             \"full_image_normal_score\": full_scores[\"normal_score\"],",
+            "  448:             \"full_image_anomaly_score\": full_scores[\"anomaly_score\"],",
+            "  449: ",
+            "  450:             \"tight_top1_score\": float(top1[\"tight_vlm_margin\"]),",
+            "  451:             \"tight_topk_max_score\": float(tight_scores.max()),",
+            "  452:             \"tight_topk_mean_score\": float(tight_scores.mean()),",
+            "  453:             \"tight_best_crop_path\": tight_max[\"tight_crop_path\"],",
+            "  454: ",
+            "  455:             \"context_top1_score\": float(top1[\"context_vlm_margin\"]),",
+            "  456:             \"context_topk_max_score\": float(context_scores.max()),"
+          ]
+        },
+        {
+          "line": 455,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  451:             \"tight_topk_max_score\": float(tight_scores.max()),",
+            "  452:             \"tight_topk_mean_score\": float(tight_scores.mean()),",
+            "  453:             \"tight_best_crop_path\": tight_max[\"tight_crop_path\"],",
+            "  454: ",
+            "  455:             \"context_top1_score\": float(top1[\"context_vlm_margin\"]),",
+            "  456:             \"context_topk_max_score\": float(context_scores.max()),",
+            "  457:             \"context_topk_mean_score\": float(context_scores.mean()),",
+            "  458:             \"context_best_crop_path\": context_max[\"context_1p50_crop_path\"],",
+            "  459: ",
+            "  460:             \"patchcore_score\": float(top1[\"patchcore_score\"]),",
+            "  461:         })"
+          ]
+        },
+        {
+          "line": 558,
+          "terms": [
+            "clip_backend"
+          ],
+          "context": [
+            "  554:     categories: List[str],",
+            "  555: ) -> None:",
+            "  556:     DOC_DIR.mkdir(parents=True, exist_ok=True)",
+            "  557: ",
+            "  558:     backend = image_predictions[\"clip_backend\"].iloc[0] if len(image_predictions) else \"unknown\"",
+            "  559: ",
+            "  560:     csummary = load_stage11c_summary()",
+            "  561:     quality = load_quality()",
+            "  562: ",
+            "  563:     lines: List[str] = []",
+            "  564: "
+          ]
+        }
+      ]
+    },
+    {
+      "path": "experiments/stage10_dataset_expansion/run_stage10_f_multiscale_context_crop.py",
+      "score": 22,
+      "functions": [
+        "to_binary_label",
+        "resolve_path",
+        "binary_auroc",
+        "average_precision",
+        "best_f1_accuracy",
+        "expanded_box",
+        "reset_crop_dir",
+        "load_regions",
+        "build_multiscale_crops",
+        "score_crops",
+        "build_image_predictions",
+        "summarize",
+        "write_report",
+        "main"
+      ],
+      "hits": [
+        {
+          "line": 29,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "   25: OUT_SUMMARY = OUT_DIR / \"stage10_f_multiscale_context_summary.csv\"",
+            "   26: OUT_REPORT = DOC_DIR / \"stage10_f_multiscale_context_crop_report.md\"",
+            "   27: ",
+            "   28: ",
+            "   29: NORMAL_PROMPTS = [",
+            "   30:     \"a quality inspection image of a normal vial\",",
+            "   31:     \"an industrial inspection photo of an intact vial\",",
+            "   32:     \"a clean and defect-free vial surface\",",
+            "   33:     \"a normal product image of a vial with no defect\",",
+            "   34: ]",
+            "   35: "
+          ]
+        },
+        {
+          "line": 36,
+          "terms": [
+            "anomaly_prompts"
+          ],
+          "context": [
+            "   32:     \"a clean and defect-free vial surface\",",
+            "   33:     \"a normal product image of a vial with no defect\",",
+            "   34: ]",
+            "   35: ",
+            "   36: ANOMALY_PROMPTS = [",
+            "   37:     \"a quality inspection image of a defective vial\",",
+            "   38:     \"an industrial inspection photo of a damaged vial\",",
+            "   39:     \"a vial with visible defects or anomalies\",",
+            "   40:     \"an abnormal product image of a vial with defect\",",
+            "   41: ]",
+            "   42: "
+          ]
+        },
+        {
+          "line": 186,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  182: ",
+            "  183:         self.device = \"cuda\" if torch.cuda.is_available() else \"cpu\"",
+            "  184: ",
+            "  185:         try:",
+            "  186:             import open_clip",
+            "  187: ",
+            "  188:             model, _, preprocess = open_clip.create_model_and_transforms(",
+            "  189:                 \"ViT-B-32\",",
+            "  190:                 pretrained=\"openai\",",
+            "  191:             )",
+            "  192:             tokenizer = open_clip.get_tokenizer(\"ViT-B-32\")"
+          ]
+        },
+        {
+          "line": 188,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  184: ",
+            "  185:         try:",
+            "  186:             import open_clip",
+            "  187: ",
+            "  188:             model, _, preprocess = open_clip.create_model_and_transforms(",
+            "  189:                 \"ViT-B-32\",",
+            "  190:                 pretrained=\"openai\",",
+            "  191:             )",
+            "  192:             tokenizer = open_clip.get_tokenizer(\"ViT-B-32\")",
+            "  193: ",
+            "  194:             self.backend = \"open_clip:ViT-B-32/openai\""
+          ]
+        },
+        {
+          "line": 192,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  188:             model, _, preprocess = open_clip.create_model_and_transforms(",
+            "  189:                 \"ViT-B-32\",",
+            "  190:                 pretrained=\"openai\",",
+            "  191:             )",
+            "  192:             tokenizer = open_clip.get_tokenizer(\"ViT-B-32\")",
+            "  193: ",
+            "  194:             self.backend = \"open_clip:ViT-B-32/openai\"",
+            "  195:             self.model = model.to(self.device).eval()",
+            "  196:             self.preprocess = preprocess",
+            "  197:             self.tokenizer = tokenizer",
+            "  198:             return"
+          ]
+        },
+        {
+          "line": 194,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  190:                 pretrained=\"openai\",",
+            "  191:             )",
+            "  192:             tokenizer = open_clip.get_tokenizer(\"ViT-B-32\")",
+            "  193: ",
+            "  194:             self.backend = \"open_clip:ViT-B-32/openai\"",
+            "  195:             self.model = model.to(self.device).eval()",
+            "  196:             self.preprocess = preprocess",
+            "  197:             self.tokenizer = tokenizer",
+            "  198:             return",
+            "  199:         except Exception as open_clip_error:",
+            "  200:             print(\"[WARN] open_clip backend unavailable:\", repr(open_clip_error))"
+          ]
+        },
+        {
+          "line": 199,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  195:             self.model = model.to(self.device).eval()",
+            "  196:             self.preprocess = preprocess",
+            "  197:             self.tokenizer = tokenizer",
+            "  198:             return",
+            "  199:         except Exception as open_clip_error:",
+            "  200:             print(\"[WARN] open_clip backend unavailable:\", repr(open_clip_error))",
+            "  201: ",
+            "  202:         try:",
+            "  203:             from transformers import CLIPModel, CLIPProcessor",
+            "  204: ",
+            "  205:             model_name = \"openai/clip-vit-base-patch32\""
+          ]
+        },
+        {
+          "line": 200,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  196:             self.preprocess = preprocess",
+            "  197:             self.tokenizer = tokenizer",
+            "  198:             return",
+            "  199:         except Exception as open_clip_error:",
+            "  200:             print(\"[WARN] open_clip backend unavailable:\", repr(open_clip_error))",
+            "  201: ",
+            "  202:         try:",
+            "  203:             from transformers import CLIPModel, CLIPProcessor",
+            "  204: ",
+            "  205:             model_name = \"openai/clip-vit-base-patch32\"",
+            "  206:             self.model = CLIPModel.from_pretrained(model_name).to(self.device).eval()"
+          ]
+        },
+        {
+          "line": 212,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  208:             self.backend = \"transformers:openai/clip-vit-base-patch32\"",
+            "  209:             return",
+            "  210:         except Exception as transformers_error:",
+            "  211:             raise RuntimeError(",
+            "  212:                 \"No usable CLIP backend found. Install/cache open_clip_torch or transformers CLIP first. \"",
+            "  213:                 f\"transformers error={repr(transformers_error)}\"",
+            "  214:             )",
+            "  215: ",
+            "  216:     def _prepare_text_features(self) -> None:",
+            "  217:         import torch",
+            "  218: "
+          ]
+        },
+        {
+          "line": 219,
+          "terms": [
+            "normal_prompts",
+            "anomaly_prompts"
+          ],
+          "context": [
+            "  215: ",
+            "  216:     def _prepare_text_features(self) -> None:",
+            "  217:         import torch",
+            "  218: ",
+            "  219:         prompts = NORMAL_PROMPTS + ANOMALY_PROMPTS",
+            "  220: ",
+            "  221:         with torch.no_grad():",
+            "  222:             if self.backend.startswith(\"open_clip\"):",
+            "  223:                 tokens = self.tokenizer(prompts).to(self.device)",
+            "  224:                 text_features = self.model.encode_text(tokens)",
+            "  225:             else:"
+          ]
+        },
+        {
+          "line": 222,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  218: ",
+            "  219:         prompts = NORMAL_PROMPTS + ANOMALY_PROMPTS",
+            "  220: ",
+            "  221:         with torch.no_grad():",
+            "  222:             if self.backend.startswith(\"open_clip\"):",
+            "  223:                 tokens = self.tokenizer(prompts).to(self.device)",
+            "  224:                 text_features = self.model.encode_text(tokens)",
+            "  225:             else:",
+            "  226:                 inputs = self.processor(text=prompts, return_tensors=\"pt\", padding=True).to(self.device)",
+            "  227:                 text_features = self.model.get_text_features(**inputs)",
+            "  228: "
+          ]
+        },
+        {
+          "line": 231,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "  227:                 text_features = self.model.get_text_features(**inputs)",
+            "  228: ",
+            "  229:             text_features = text_features / text_features.norm(dim=-1, keepdim=True)",
+            "  230: ",
+            "  231:             n_normal = len(NORMAL_PROMPTS)",
+            "  232:             normal_feature = text_features[:n_normal].mean(dim=0, keepdim=True)",
+            "  233:             anomaly_feature = text_features[n_normal:].mean(dim=0, keepdim=True)",
+            "  234: ",
+            "  235:             normal_feature = normal_feature / normal_feature.norm(dim=-1, keepdim=True)",
+            "  236:             anomaly_feature = anomaly_feature / anomaly_feature.norm(dim=-1, keepdim=True)",
+            "  237: "
+          ]
+        },
+        {
+          "line": 249,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  245: ",
+            "  246:         image = Image.open(image_path).convert(\"RGB\")",
+            "  247: ",
+            "  248:         with torch.no_grad():",
+            "  249:             if self.backend.startswith(\"open_clip\"):",
+            "  250:                 image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)",
+            "  251:                 image_feature = self.model.encode_image(image_tensor)",
+            "  252:             else:",
+            "  253:                 inputs = self.processor(images=image, return_tensors=\"pt\").to(self.device)",
+            "  254:                 image_feature = self.model.get_image_features(**inputs)",
+            "  255: "
+          ]
+        },
+        {
+          "line": 396,
+          "terms": [
+            "clip_backend"
+          ],
+          "context": [
+            "  392:         scores = cache[str(crop_path)]",
+            "  393: ",
+            "  394:         out = row.to_dict()",
+            "  395:         out.update({",
+            "  396:             \"clip_backend\": scorer.backend,",
+            "  397:             \"context_normal_score\": scores[\"normal_score\"],",
+            "  398:             \"context_anomaly_score\": scores[\"anomaly_score\"],",
+            "  399:             \"context_vlm_margin\": scores[\"vlm_margin\"],",
+            "  400:         })",
+            "  401:         rows.append(out)",
+            "  402: "
+          ]
+        },
+        {
+          "line": 399,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  395:         out.update({",
+            "  396:             \"clip_backend\": scorer.backend,",
+            "  397:             \"context_normal_score\": scores[\"normal_score\"],",
+            "  398:             \"context_anomaly_score\": scores[\"anomaly_score\"],",
+            "  399:             \"context_vlm_margin\": scores[\"vlm_margin\"],",
+            "  400:         })",
+            "  401:         rows.append(out)",
+            "  402: ",
+            "  403:     return pd.DataFrame(rows)",
+            "  404: ",
+            "  405: "
+          ]
+        },
+        {
+          "line": 415,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  411:         part[\"candidate_rank\"] = pd.to_numeric(part[\"candidate_rank\"], errors=\"coerce\")",
+            "  412:         part_ranked = part.sort_values(\"candidate_rank\")",
+            "  413: ",
+            "  414:         top1 = part_ranked.iloc[0]",
+            "  415:         max_idx = pd.to_numeric(part[\"context_vlm_margin\"], errors=\"coerce\").idxmax()",
+            "  416:         max_row = part.loc[max_idx]",
+            "  417: ",
+            "  418:         rows.append({",
+            "  419:             \"dataset\": \"MVTec AD 2\",",
+            "  420:             \"category\": \"vial\",",
+            "  421:             \"image_path\": image_path,"
+          ]
+        },
+        {
+          "line": 425,
+          "terms": [
+            "clip_backend"
+          ],
+          "context": [
+            "  421:             \"image_path\": image_path,",
+            "  422:             \"context_name\": context_name,",
+            "  423:             \"gt_binary\": int(top1[\"gt_binary\"]),",
+            "  424:             \"num_candidates\": int(len(part)),",
+            "  425:             \"clip_backend\": top1[\"clip_backend\"],",
+            "  426:             \"context_top1_score\": float(top1[\"context_vlm_margin\"]),",
+            "  427:             \"context_topk_max_score\": float(max_row[\"context_vlm_margin\"]),",
+            "  428:             \"context_topk_mean_score\": float(pd.to_numeric(part[\"context_vlm_margin\"], errors=\"coerce\").mean()),",
+            "  429:             \"best_context_crop_path\": max_row[\"context_crop_path\"],",
+            "  430:             \"patchcore_pred_score\": float(pd.to_numeric(part[\"pred_score\"], errors=\"coerce\").iloc[0]),",
+            "  431:         })"
+          ]
+        },
+        {
+          "line": 426,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  422:             \"context_name\": context_name,",
+            "  423:             \"gt_binary\": int(top1[\"gt_binary\"]),",
+            "  424:             \"num_candidates\": int(len(part)),",
+            "  425:             \"clip_backend\": top1[\"clip_backend\"],",
+            "  426:             \"context_top1_score\": float(top1[\"context_vlm_margin\"]),",
+            "  427:             \"context_topk_max_score\": float(max_row[\"context_vlm_margin\"]),",
+            "  428:             \"context_topk_mean_score\": float(pd.to_numeric(part[\"context_vlm_margin\"], errors=\"coerce\").mean()),",
+            "  429:             \"best_context_crop_path\": max_row[\"context_crop_path\"],",
+            "  430:             \"patchcore_pred_score\": float(pd.to_numeric(part[\"pred_score\"], errors=\"coerce\").iloc[0]),",
+            "  431:         })",
+            "  432: "
+          ]
+        },
+        {
+          "line": 427,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  423:             \"gt_binary\": int(top1[\"gt_binary\"]),",
+            "  424:             \"num_candidates\": int(len(part)),",
+            "  425:             \"clip_backend\": top1[\"clip_backend\"],",
+            "  426:             \"context_top1_score\": float(top1[\"context_vlm_margin\"]),",
+            "  427:             \"context_topk_max_score\": float(max_row[\"context_vlm_margin\"]),",
+            "  428:             \"context_topk_mean_score\": float(pd.to_numeric(part[\"context_vlm_margin\"], errors=\"coerce\").mean()),",
+            "  429:             \"best_context_crop_path\": max_row[\"context_crop_path\"],",
+            "  430:             \"patchcore_pred_score\": float(pd.to_numeric(part[\"pred_score\"], errors=\"coerce\").iloc[0]),",
+            "  431:         })",
+            "  432: ",
+            "  433:     out = pd.DataFrame(rows)"
+          ]
+        },
+        {
+          "line": 428,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  424:             \"num_candidates\": int(len(part)),",
+            "  425:             \"clip_backend\": top1[\"clip_backend\"],",
+            "  426:             \"context_top1_score\": float(top1[\"context_vlm_margin\"]),",
+            "  427:             \"context_topk_max_score\": float(max_row[\"context_vlm_margin\"]),",
+            "  428:             \"context_topk_mean_score\": float(pd.to_numeric(part[\"context_vlm_margin\"], errors=\"coerce\").mean()),",
+            "  429:             \"best_context_crop_path\": max_row[\"context_crop_path\"],",
+            "  430:             \"patchcore_pred_score\": float(pd.to_numeric(part[\"pred_score\"], errors=\"coerce\").iloc[0]),",
+            "  431:         })",
+            "  432: ",
+            "  433:     out = pd.DataFrame(rows)",
+            "  434: "
+          ]
+        },
+        {
+          "line": 519,
+          "terms": [
+            "clip_backend"
+          ],
+          "context": [
+            "  515: ",
+            "  516: def write_report(summary: pd.DataFrame, score_df: pd.DataFrame) -> None:",
+            "  517:     DOC_DIR.mkdir(parents=True, exist_ok=True)",
+            "  518: ",
+            "  519:     backend = score_df[\"clip_backend\"].iloc[0] if len(score_df) else \"unknown\"",
+            "  520: ",
+            "  521:     lines: List[str] = []",
+            "  522:     lines.append(\"# Stage 10-F Multiscale Context Crop Diagnostic\")",
+            "  523:     lines.append(\"\")",
+            "  524:     lines.append(\"## 1. Purpose\")",
+            "  525:     lines.append(\"\")"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "experiments/stage10_dataset_expansion/run_stage10_e_vlm_full_vs_crop.py",
+      "score": 19,
+      "functions": [
+        "to_binary_label",
+        "resolve_path",
+        "binary_auroc",
+        "average_precision",
+        "best_f1_accuracy",
+        "load_regions",
+        "score_candidates",
+        "build_image_predictions",
+        "summarize_predictions",
+        "write_report",
+        "main"
+      ],
+      "hits": [
+        {
+          "line": 25,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "   21: OUT_SUMMARY = OUT_DIR / \"stage10_e_vlm_summary.csv\"",
+            "   22: OUT_REPORT = DOC_DIR / \"stage10_e_vlm_full_vs_crop_report.md\"",
+            "   23: ",
+            "   24: ",
+            "   25: NORMAL_PROMPTS = [",
+            "   26:     \"a quality inspection image of a normal vial\",",
+            "   27:     \"an industrial inspection photo of an intact vial\",",
+            "   28:     \"a clean and defect-free vial surface\",",
+            "   29:     \"a normal product image of a vial with no defect\",",
+            "   30: ]",
+            "   31: "
+          ]
+        },
+        {
+          "line": 32,
+          "terms": [
+            "anomaly_prompts"
+          ],
+          "context": [
+            "   28:     \"a clean and defect-free vial surface\",",
+            "   29:     \"a normal product image of a vial with no defect\",",
+            "   30: ]",
+            "   31: ",
+            "   32: ANOMALY_PROMPTS = [",
+            "   33:     \"a quality inspection image of a defective vial\",",
+            "   34:     \"an industrial inspection photo of a damaged vial\",",
+            "   35:     \"a vial with visible defects or anomalies\",",
+            "   36:     \"an abnormal product image of a vial with defect\",",
+            "   37: ]",
+            "   38: "
+          ]
+        },
+        {
+          "line": 172,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  168: ",
+            "  169:         self.device = \"cuda\" if torch.cuda.is_available() else \"cpu\"",
+            "  170: ",
+            "  171:         try:",
+            "  172:             import open_clip",
+            "  173: ",
+            "  174:             model, _, preprocess = open_clip.create_model_and_transforms(",
+            "  175:                 \"ViT-B-32\",",
+            "  176:                 pretrained=\"openai\",",
+            "  177:             )",
+            "  178:             tokenizer = open_clip.get_tokenizer(\"ViT-B-32\")"
+          ]
+        },
+        {
+          "line": 174,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  170: ",
+            "  171:         try:",
+            "  172:             import open_clip",
+            "  173: ",
+            "  174:             model, _, preprocess = open_clip.create_model_and_transforms(",
+            "  175:                 \"ViT-B-32\",",
+            "  176:                 pretrained=\"openai\",",
+            "  177:             )",
+            "  178:             tokenizer = open_clip.get_tokenizer(\"ViT-B-32\")",
+            "  179: ",
+            "  180:             self.backend = \"open_clip:ViT-B-32/openai\""
+          ]
+        },
+        {
+          "line": 178,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  174:             model, _, preprocess = open_clip.create_model_and_transforms(",
+            "  175:                 \"ViT-B-32\",",
+            "  176:                 pretrained=\"openai\",",
+            "  177:             )",
+            "  178:             tokenizer = open_clip.get_tokenizer(\"ViT-B-32\")",
+            "  179: ",
+            "  180:             self.backend = \"open_clip:ViT-B-32/openai\"",
+            "  181:             self.model = model.to(self.device).eval()",
+            "  182:             self.preprocess = preprocess",
+            "  183:             self.tokenizer = tokenizer",
+            "  184:             return"
+          ]
+        },
+        {
+          "line": 180,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  176:                 pretrained=\"openai\",",
+            "  177:             )",
+            "  178:             tokenizer = open_clip.get_tokenizer(\"ViT-B-32\")",
+            "  179: ",
+            "  180:             self.backend = \"open_clip:ViT-B-32/openai\"",
+            "  181:             self.model = model.to(self.device).eval()",
+            "  182:             self.preprocess = preprocess",
+            "  183:             self.tokenizer = tokenizer",
+            "  184:             return",
+            "  185:         except Exception as open_clip_error:",
+            "  186:             print(\"[WARN] open_clip backend unavailable:\", repr(open_clip_error))"
+          ]
+        },
+        {
+          "line": 185,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  181:             self.model = model.to(self.device).eval()",
+            "  182:             self.preprocess = preprocess",
+            "  183:             self.tokenizer = tokenizer",
+            "  184:             return",
+            "  185:         except Exception as open_clip_error:",
+            "  186:             print(\"[WARN] open_clip backend unavailable:\", repr(open_clip_error))",
+            "  187: ",
+            "  188:         try:",
+            "  189:             from transformers import CLIPModel, CLIPProcessor",
+            "  190: ",
+            "  191:             model_name = \"openai/clip-vit-base-patch32\""
+          ]
+        },
+        {
+          "line": 186,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  182:             self.preprocess = preprocess",
+            "  183:             self.tokenizer = tokenizer",
+            "  184:             return",
+            "  185:         except Exception as open_clip_error:",
+            "  186:             print(\"[WARN] open_clip backend unavailable:\", repr(open_clip_error))",
+            "  187: ",
+            "  188:         try:",
+            "  189:             from transformers import CLIPModel, CLIPProcessor",
+            "  190: ",
+            "  191:             model_name = \"openai/clip-vit-base-patch32\"",
+            "  192:             self.model = CLIPModel.from_pretrained(model_name).to(self.device).eval()"
+          ]
+        },
+        {
+          "line": 198,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  194:             self.backend = \"transformers:openai/clip-vit-base-patch32\"",
+            "  195:             return",
+            "  196:         except Exception as transformers_error:",
+            "  197:             raise RuntimeError(",
+            "  198:                 \"No usable CLIP backend found. Install/cache open_clip_torch or transformers CLIP first. \"",
+            "  199:                 f\"transformers error={repr(transformers_error)}\"",
+            "  200:             )",
+            "  201: ",
+            "  202:     def _prepare_text_features(self) -> None:",
+            "  203:         import torch",
+            "  204: "
+          ]
+        },
+        {
+          "line": 205,
+          "terms": [
+            "normal_prompts",
+            "anomaly_prompts"
+          ],
+          "context": [
+            "  201: ",
+            "  202:     def _prepare_text_features(self) -> None:",
+            "  203:         import torch",
+            "  204: ",
+            "  205:         prompts = NORMAL_PROMPTS + ANOMALY_PROMPTS",
+            "  206: ",
+            "  207:         with torch.no_grad():",
+            "  208:             if self.backend.startswith(\"open_clip\"):",
+            "  209:                 tokens = self.tokenizer(prompts).to(self.device)",
+            "  210:                 text_features = self.model.encode_text(tokens)",
+            "  211:             else:"
+          ]
+        },
+        {
+          "line": 208,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  204: ",
+            "  205:         prompts = NORMAL_PROMPTS + ANOMALY_PROMPTS",
+            "  206: ",
+            "  207:         with torch.no_grad():",
+            "  208:             if self.backend.startswith(\"open_clip\"):",
+            "  209:                 tokens = self.tokenizer(prompts).to(self.device)",
+            "  210:                 text_features = self.model.encode_text(tokens)",
+            "  211:             else:",
+            "  212:                 inputs = self.processor(",
+            "  213:                     text=prompts,",
+            "  214:                     return_tensors=\"pt\","
+          ]
+        },
+        {
+          "line": 221,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "  217:                 text_features = self.model.get_text_features(**inputs)",
+            "  218: ",
+            "  219:             text_features = text_features / text_features.norm(dim=-1, keepdim=True)",
+            "  220: ",
+            "  221:             n_normal = len(NORMAL_PROMPTS)",
+            "  222:             normal_feature = text_features[:n_normal].mean(dim=0, keepdim=True)",
+            "  223:             anomaly_feature = text_features[n_normal:].mean(dim=0, keepdim=True)",
+            "  224: ",
+            "  225:             normal_feature = normal_feature / normal_feature.norm(dim=-1, keepdim=True)",
+            "  226:             anomaly_feature = anomaly_feature / anomaly_feature.norm(dim=-1, keepdim=True)",
+            "  227: "
+          ]
+        },
+        {
+          "line": 239,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  235: ",
+            "  236:         image = Image.open(image_path).convert(\"RGB\")",
+            "  237: ",
+            "  238:         with torch.no_grad():",
+            "  239:             if self.backend.startswith(\"open_clip\"):",
+            "  240:                 image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)",
+            "  241:                 image_feature = self.model.encode_image(image_tensor)",
+            "  242:             else:",
+            "  243:                 inputs = self.processor(images=image, return_tensors=\"pt\").to(self.device)",
+            "  244:                 image_feature = self.model.get_image_features(**inputs)",
+            "  245: "
+          ]
+        },
+        {
+          "line": 310,
+          "terms": [
+            "clip_backend"
+          ],
+          "context": [
+            "  306:         crop_scores = crop_cache[str(crop_path)]",
+            "  307: ",
+            "  308:         out = row.to_dict()",
+            "  309:         out.update({",
+            "  310:             \"clip_backend\": scorer.backend,",
+            "  311:             \"full_normal_score\": full_scores[\"normal_score\"],",
+            "  312:             \"full_anomaly_score\": full_scores[\"anomaly_score\"],",
+            "  313:             \"full_vlm_margin\": full_scores[\"vlm_anomaly_margin\"],",
+            "  314:             \"crop_normal_score\": crop_scores[\"normal_score\"],",
+            "  315:             \"crop_anomaly_score\": crop_scores[\"anomaly_score\"],",
+            "  316:             \"crop_vlm_margin\": crop_scores[\"vlm_anomaly_margin\"],"
+          ]
+        },
+        {
+          "line": 342,
+          "terms": [
+            "clip_backend"
+          ],
+          "context": [
+            "  338:             \"category\": \"vial\",",
+            "  339:             \"image_path\": image_path,",
+            "  340:             \"gt_binary\": int(top1[\"gt_binary\"]),",
+            "  341:             \"num_candidates\": int(len(part)),",
+            "  342:             \"clip_backend\": top1[\"clip_backend\"],",
+            "  343: ",
+            "  344:             \"full_image_score\": float(top1[\"full_vlm_margin\"]),",
+            "  345: ",
+            "  346:             \"crop_top1_score\": float(top1[\"crop_vlm_margin\"]),",
+            "  347:             \"crop_top1_path\": top1[\"crop_path\"],",
+            "  348: "
+          ]
+        },
+        {
+          "line": 411,
+          "terms": [
+            "clip_backend"
+          ],
+          "context": [
+            "  407: ",
+            "  408: def write_report(candidate_scores: pd.DataFrame, image_pred: pd.DataFrame, summary: pd.DataFrame) -> None:",
+            "  409:     DOC_DIR.mkdir(parents=True, exist_ok=True)",
+            "  410: ",
+            "  411:     backend = candidate_scores[\"clip_backend\"].iloc[0] if len(candidate_scores) else \"unknown\"",
+            "  412: ",
+            "  413:     lines: List[str] = []",
+            "  414:     lines.append(\"# Stage 10-E MVTec AD 2 VLM Full-image vs Candidate-crop Reasoning\")",
+            "  415:     lines.append(\"\")",
+            "  416:     lines.append(\"## 1. Purpose\")",
+            "  417:     lines.append(\"\")"
+          ]
+        },
+        {
+          "line": 434,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "  430:     lines.append(\"## 4. Prompts\")",
+            "  431:     lines.append(\"\")",
+            "  432:     lines.append(\"Normal prompts:\")",
+            "  433:     lines.append(\"\")",
+            "  434:     for p in NORMAL_PROMPTS:",
+            "  435:         lines.append(f\"- {p}\")",
+            "  436:     lines.append(\"\")",
+            "  437:     lines.append(\"Anomaly prompts:\")",
+            "  438:     lines.append(\"\")",
+            "  439:     for p in ANOMALY_PROMPTS:",
+            "  440:         lines.append(f\"- {p}\")"
+          ]
+        },
+        {
+          "line": 439,
+          "terms": [
+            "anomaly_prompts"
+          ],
+          "context": [
+            "  435:         lines.append(f\"- {p}\")",
+            "  436:     lines.append(\"\")",
+            "  437:     lines.append(\"Anomaly prompts:\")",
+            "  438:     lines.append(\"\")",
+            "  439:     for p in ANOMALY_PROMPTS:",
+            "  440:         lines.append(f\"- {p}\")",
+            "  441:     lines.append(\"\")",
+            "  442:     lines.append(\"## 5. Output Files\")",
+            "  443:     lines.append(\"\")",
+            "  444:     lines.append(f\"- Candidate scores: `{OUT_CANDIDATES.relative_to(ROOT)}`\")",
+            "  445:     lines.append(f\"- Image predictions: `{OUT_IMAGES.relative_to(ROOT)}`\")"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "experiments/analysis/clip_semantic_candidate_scoring.py",
+      "score": 11,
+      "functions": [
+        "load_clip_model",
+        "encode_texts",
+        "encode_image_crop",
+        "load_prompt_groups",
+        "read_resized_image",
+        "crop_candidate",
+        "minmax_norm",
+        "score_category",
+        "main"
+      ],
+      "hits": [
+        {
+          "line": 10,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "    6: import pandas as pd",
+            "    7: import torch",
+            "    8: from PIL import Image",
+            "    9: ",
+            "   10: import open_clip",
+            "   11: ",
+            "   12: ",
+            "   13: PROJECT_ROOT = Path(__file__).resolve().parents[2]",
+            "   14: ",
+            "   15: ",
+            "   16: def load_clip_model(args):"
+          ]
+        },
+        {
+          "line": 19,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "   15: ",
+            "   16: def load_clip_model(args):",
+            "   17:     device = \"cuda\" if torch.cuda.is_available() else \"cpu\"",
+            "   18: ",
+            "   19:     model, _, preprocess = open_clip.create_model_and_transforms(",
+            "   20:         args.clip_model,",
+            "   21:         pretrained=args.clip_pretrained,",
+            "   22:         device=device,",
+            "   23:     )",
+            "   24:     tokenizer = open_clip.get_tokenizer(args.clip_model)",
+            "   25: "
+          ]
+        },
+        {
+          "line": 24,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "   20:         args.clip_model,",
+            "   21:         pretrained=args.clip_pretrained,",
+            "   22:         device=device,",
+            "   23:     )",
+            "   24:     tokenizer = open_clip.get_tokenizer(args.clip_model)",
+            "   25: ",
+            "   26:     model.eval()",
+            "   27: ",
+            "   28:     print(f\"[INFO] Loaded CLIP model: {args.clip_model}\")",
+            "   29:     print(f\"[INFO] Pretrained: {args.clip_pretrained}\")",
+            "   30:     print(f\"[INFO] Device: {device}\")"
+          ]
+        },
+        {
+          "line": 57,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "   53: ",
+            "   54:     category_df = df[df[\"category\"] == category]",
+            "   55:     generic_df = df[df[\"category\"] == \"generic\"]",
+            "   56: ",
+            "   57:     normal_prompts = []",
+            "   58:     defect_prompts = []",
+            "   59: ",
+            "   60:     normal_prompts.extend(",
+            "   61:         category_df[category_df[\"prompt_type\"] == \"normal\"][\"prompt\"].dropna().tolist()",
+            "   62:     )",
+            "   63:     defect_prompts.extend("
+          ]
+        },
+        {
+          "line": 60,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "   56: ",
+            "   57:     normal_prompts = []",
+            "   58:     defect_prompts = []",
+            "   59: ",
+            "   60:     normal_prompts.extend(",
+            "   61:         category_df[category_df[\"prompt_type\"] == \"normal\"][\"prompt\"].dropna().tolist()",
+            "   62:     )",
+            "   63:     defect_prompts.extend(",
+            "   64:         category_df[category_df[\"prompt_type\"] == \"defect\"][\"prompt\"].dropna().tolist()",
+            "   65:     )",
+            "   66: "
+          ]
+        },
+        {
+          "line": 67,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "   63:     defect_prompts.extend(",
+            "   64:         category_df[category_df[\"prompt_type\"] == \"defect\"][\"prompt\"].dropna().tolist()",
+            "   65:     )",
+            "   66: ",
+            "   67:     normal_prompts.extend(",
+            "   68:         generic_df[generic_df[\"prompt_type\"].str.startswith(\"negative_\", na=False)][\"prompt\"].dropna().tolist()",
+            "   69:     )",
+            "   70:     defect_prompts.extend(",
+            "   71:         generic_df[generic_df[\"prompt_type\"].str.startswith(\"defect_\", na=False)][\"prompt\"].dropna().tolist()",
+            "   72:     )",
+            "   73: "
+          ]
+        },
+        {
+          "line": 74,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "   70:     defect_prompts.extend(",
+            "   71:         generic_df[generic_df[\"prompt_type\"].str.startswith(\"defect_\", na=False)][\"prompt\"].dropna().tolist()",
+            "   72:     )",
+            "   73: ",
+            "   74:     normal_prompts = list(dict.fromkeys(normal_prompts))",
+            "   75:     defect_prompts = list(dict.fromkeys(defect_prompts))",
+            "   76: ",
+            "   77:     if len(normal_prompts) == 0:",
+            "   78:         raise ValueError(f\"No normal prompts found for category: {category}\")",
+            "   79: ",
+            "   80:     if len(defect_prompts) == 0:"
+          ]
+        },
+        {
+          "line": 77,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "   73: ",
+            "   74:     normal_prompts = list(dict.fromkeys(normal_prompts))",
+            "   75:     defect_prompts = list(dict.fromkeys(defect_prompts))",
+            "   76: ",
+            "   77:     if len(normal_prompts) == 0:",
+            "   78:         raise ValueError(f\"No normal prompts found for category: {category}\")",
+            "   79: ",
+            "   80:     if len(defect_prompts) == 0:",
+            "   81:         raise ValueError(f\"No defect prompts found for category: {category}\")",
+            "   82: ",
+            "   83:     return normal_prompts, defect_prompts"
+          ]
+        },
+        {
+          "line": 83,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "   79: ",
+            "   80:     if len(defect_prompts) == 0:",
+            "   81:         raise ValueError(f\"No defect prompts found for category: {category}\")",
+            "   82: ",
+            "   83:     return normal_prompts, defect_prompts",
+            "   84: ",
+            "   85: ",
+            "   86: def read_resized_image(image_path, image_size):",
+            "   87:     image_path = Path(image_path)",
+            "   88:     if not image_path.is_absolute():",
+            "   89:         image_path = PROJECT_ROOT / image_path"
+          ]
+        },
+        {
+          "line": 140,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "  136: ",
+            "  137:     if not candidate_csv.exists():",
+            "  138:         raise FileNotFoundError(f\"Candidate CSV not found: {candidate_csv}\")",
+            "  139: ",
+            "  140:     normal_prompts, defect_prompts = load_prompt_groups(args.prompt_bank_csv, category)",
+            "  141: ",
+            "  142:     normal_text_features = encode_texts(model, tokenizer, normal_prompts, device)",
+            "  143:     defect_text_features = encode_texts(model, tokenizer, defect_prompts, device)",
+            "  144: ",
+            "  145:     df = pd.read_csv(candidate_csv)",
+            "  146: "
+          ]
+        },
+        {
+          "line": 142,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "  138:         raise FileNotFoundError(f\"Candidate CSV not found: {candidate_csv}\")",
+            "  139: ",
+            "  140:     normal_prompts, defect_prompts = load_prompt_groups(args.prompt_bank_csv, category)",
+            "  141: ",
+            "  142:     normal_text_features = encode_texts(model, tokenizer, normal_prompts, device)",
+            "  143:     defect_text_features = encode_texts(model, tokenizer, defect_prompts, device)",
+            "  144: ",
+            "  145:     df = pd.read_csv(candidate_csv)",
+            "  146: ",
+            "  147:     for col in [\"component_rank\", \"x1\", \"y1\", \"x2\", \"y2\", \"mean_score\", \"max_score\", \"area\", \"gt_iou\", \"gt_f1\"]:",
+            "  148:         df[col] = pd.to_numeric(df[col], errors=\"coerce\")"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "experiments/stage22_selective_qcr/run_stage22_d5_mvtec15_clip_crop_reasoning.py",
+      "score": 11,
+      "functions": [
+        "load_stage7_module",
+        "category_paths",
+        "load_boxes",
+        "validate_category",
+        "safe_metric",
+        "close_images",
+        "run_category",
+        "rebuild_summary",
+        "main"
+      ],
+      "hits": [
+        {
+          "line": 78,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "   74:     module = importlib.util.module_from_spec(spec)",
+            "   75:     spec.loader.exec_module(module)",
+            "   76: ",
+            "   77:     required = [",
+            "   78:         \"open_clip\",",
+            "   79:         \"canonical_path\",",
+            "   80:         \"build_text_features\",",
+            "   81:         \"get_eval_images\",",
+            "   82:         \"encode_images\",",
+            "   83:     ]",
+            "   84: "
+          ]
+        },
+        {
+          "line": 337,
+          "terms": [
+            "inspection_binary"
+          ],
+          "context": [
+            "  333:         module.build_text_features(",
+            "  334:             model=model,",
+            "  335:             tokenizer=tokenizer,",
+            "  336:             category=category,",
+            "  337:             strategy=\"inspection_binary\",",
+            "  338:             device=device,",
+            "  339:         )",
+            "  340:     )",
+            "  341: ",
+            "  342:     rows = []",
+            "  343:     started = time.perf_counter()"
+          ]
+        },
+        {
+          "line": 420,
+          "terms": [
+            "inspection_binary"
+          ],
+          "context": [
+            "  416:                     \"num_eval_images\": len(",
+            "  417:                         eval_images",
+            "  418:                     ),",
+            "  419:                     \"strategy\": (",
+            "  420:                         \"inspection_binary\"",
+            "  421:                     ),",
+            "  422:                     \"eval_mode\": (",
+            "  423:                         \"crop_topk_ensemble\"",
+            "  424:                     ),",
+            "  425:                     \"clip_model\": args.clip_model,",
+            "  426:                     \"clip_pretrained\": ("
+          ]
+        },
+        {
+          "line": 508,
+          "terms": [
+            "inspection_binary"
+          ],
+          "context": [
+            "  504:         \"elapsed_sec\": elapsed,",
+            "  505:         \"sec_per_image\": (",
+            "  506:             elapsed / len(result)",
+            "  507:         ),",
+            "  508:         \"strategy\": \"inspection_binary\",",
+            "  509:         \"eval_mode\": \"crop_topk_ensemble\",",
+            "  510:         \"clip_model\": args.clip_model,",
+            "  511:         \"clip_pretrained\": (",
+            "  512:             args.clip_pretrained",
+            "  513:         ),",
+            "  514:         \"normal_prompts\": ("
+          ]
+        },
+        {
+          "line": 514,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "  510:         \"clip_model\": args.clip_model,",
+            "  511:         \"clip_pretrained\": (",
+            "  512:             args.clip_pretrained",
+            "  513:         ),",
+            "  514:         \"normal_prompts\": (",
+            "  515:             prompt_row[\"normal_prompts\"]",
+            "  516:         ),",
+            "  517:         \"anomaly_prompts\": (",
+            "  518:             prompt_row[\"anomaly_prompts\"]",
+            "  519:         ),",
+            "  520:     }"
+          ]
+        },
+        {
+          "line": 515,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "  511:         \"clip_pretrained\": (",
+            "  512:             args.clip_pretrained",
+            "  513:         ),",
+            "  514:         \"normal_prompts\": (",
+            "  515:             prompt_row[\"normal_prompts\"]",
+            "  516:         ),",
+            "  517:         \"anomaly_prompts\": (",
+            "  518:             prompt_row[\"anomaly_prompts\"]",
+            "  519:         ),",
+            "  520:     }",
+            "  521: "
+          ]
+        },
+        {
+          "line": 517,
+          "terms": [
+            "anomaly_prompts"
+          ],
+          "context": [
+            "  513:         ),",
+            "  514:         \"normal_prompts\": (",
+            "  515:             prompt_row[\"normal_prompts\"]",
+            "  516:         ),",
+            "  517:         \"anomaly_prompts\": (",
+            "  518:             prompt_row[\"anomaly_prompts\"]",
+            "  519:         ),",
+            "  520:     }",
+            "  521: ",
+            "  522:     result.to_csv(",
+            "  523:         paths[\"prediction_csv\"],"
+          ]
+        },
+        {
+          "line": 518,
+          "terms": [
+            "anomaly_prompts"
+          ],
+          "context": [
+            "  514:         \"normal_prompts\": (",
+            "  515:             prompt_row[\"normal_prompts\"]",
+            "  516:         ),",
+            "  517:         \"anomaly_prompts\": (",
+            "  518:             prompt_row[\"anomaly_prompts\"]",
+            "  519:         ),",
+            "  520:     }",
+            "  521: ",
+            "  522:     result.to_csv(",
+            "  523:         paths[\"prediction_csv\"],",
+            "  524:         index=False,"
+          ]
+        },
+        {
+          "line": 662,
+          "terms": [
+            "inspection_binary"
+          ],
+          "context": [
+            "  658:     module = load_stage7_module()",
+            "  659: ",
+            "  660:     print(\"===== STAGE 22-D5 PROTOCOL =====\")",
+            "  661:     print(\"categories:\", args.categories)",
+            "  662:     print(\"strategy: inspection_binary\")",
+            "  663:     print(\"eval mode: crop_topk_ensemble\")",
+            "  664:     print(",
+            "  665:         \"CLIP:\",",
+            "  666:         f\"{args.clip_model}/{args.clip_pretrained}\",",
+            "  667:     )",
+            "  668:     print()"
+          ]
+        },
+        {
+          "line": 707,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  703:     print()",
+            "  704:     print(\"[INFO] Loading CLIP once...\")",
+            "  705: ",
+            "  706:     model, _, preprocess = (",
+            "  707:         module.open_clip",
+            "  708:         .create_model_and_transforms(",
+            "  709:             args.clip_model,",
+            "  710:             pretrained=args.clip_pretrained,",
+            "  711:             device=args.device,",
+            "  712:         )",
+            "  713:     )"
+          ]
+        },
+        {
+          "line": 716,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  712:         )",
+            "  713:     )",
+            "  714: ",
+            "  715:     tokenizer = (",
+            "  716:         module.open_clip.get_tokenizer(",
+            "  717:             args.clip_model",
+            "  718:         )",
+            "  719:     )",
+            "  720: ",
+            "  721:     model.eval()",
+            "  722: "
+          ]
+        }
+      ]
+    },
+    {
+      "path": "experiments/stage23_ad2_mirror/run_stage23_c2_ad2_actual_selective_runtime.py",
+      "score": 11,
+      "functions": [
+        "load_python_module",
+        "canonical_path",
+        "resolve_file",
+        "as_bool",
+        "load_predictions",
+        "load_runtime_crops",
+        "load_image_reference_scores",
+        "build_runtime_assets",
+        "open_crop_images",
+        "close_images",
+        "infer_one",
+        "synchronize",
+        "warmup",
+        "run_mode",
+        "normalize_runtime_m",
+        "build_score_audit",
+        "paired_results",
+        "write_report",
+        "main"
+      ],
+      "hits": [
+        {
+          "line": 34,
+          "terms": [
+            "stage11_d_vlm_image_predictions.csv"
+          ],
+          "context": [
+            "   30: ",
+            "   31: IMAGE_PREDICTIONS = (",
+            "   32:     ROOT",
+            "   33:     / \"results/stage11_mvtecad2_multicategory\"",
+            "   34:     / \"stage11_d_vlm_image_predictions.csv\"",
+            "   35: )",
+            "   36: ",
+            "   37: CANDIDATE_SCORES = (",
+            "   38:     ROOT",
+            "   39:     / \"results/stage11_mvtecad2_multicategory\"",
+            "   40:     / \"stage11_d_vlm_candidate_scores.csv\""
+          ]
+        },
+        {
+          "line": 40,
+          "terms": [
+            "stage11_d_vlm_candidate_scores.csv"
+          ],
+          "context": [
+            "   36: ",
+            "   37: CANDIDATE_SCORES = (",
+            "   38:     ROOT",
+            "   39:     / \"results/stage11_mvtecad2_multicategory\"",
+            "   40:     / \"stage11_d_vlm_candidate_scores.csv\"",
+            "   41: )",
+            "   42: ",
+            "   43: OUTPUT_ROOT = (",
+            "   44:     ROOT",
+            "   45:     / \"results/stage23_ad2_mirror\"",
+            "   46:     / \"ad2_actual_selective_runtime\""
+          ]
+        },
+        {
+          "line": 352,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  348:         \"category\",",
+            "  349:         \"image_path\",",
+            "  350:         \"candidate_rank\",",
+            "  351:         \"context_1p50_crop_path\",",
+            "  352:         \"context_vlm_margin\",",
+            "  353:     }",
+            "  354: ",
+            "  355:     missing = sorted(",
+            "  356:         required - set(candidates.columns)",
+            "  357:     )",
+            "  358: "
+          ]
+        },
+        {
+          "line": 390,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  386:             errors=\"coerce\",",
+            "  387:         )",
+            "  388:     )",
+            "  389: ",
+            "  390:     candidates[\"context_vlm_margin\"] = (",
+            "  391:         pd.to_numeric(",
+            "  392:             candidates[\"context_vlm_margin\"],",
+            "  393:             errors=\"coerce\",",
+            "  394:         )",
+            "  395:     )",
+            "  396: "
+          ]
+        },
+        {
+          "line": 392,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  388:     )",
+            "  389: ",
+            "  390:     candidates[\"context_vlm_margin\"] = (",
+            "  391:         pd.to_numeric(",
+            "  392:             candidates[\"context_vlm_margin\"],",
+            "  393:             errors=\"coerce\",",
+            "  394:         )",
+            "  395:     )",
+            "  396: ",
+            "  397:     candidates = candidates[",
+            "  398:         candidates[\"candidate_rank\"] > 0"
+          ]
+        },
+        {
+          "line": 404,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  400: ",
+            "  401:     if candidates[",
+            "  402:         [",
+            "  403:             \"candidate_rank\",",
+            "  404:             \"context_vlm_margin\",",
+            "  405:         ]",
+            "  406:     ].isna().any().any():",
+            "  407:         raise RuntimeError(",
+            "  408:             \"Candidate rows contain invalid ranks \"",
+            "  409:             \"or cached context margins.\"",
+            "  410:         )"
+          ]
+        },
+        {
+          "line": 448,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  444:                         crop_path",
+            "  445:                     ),",
+            "  446:                     \"cached_margin\": float(",
+            "  447:                         row[",
+            "  448:                             \"context_vlm_margin\"",
+            "  449:                         ]",
+            "  450:                     ),",
+            "  451:                 }",
+            "  452:             )",
+            "  453: ",
+            "  454:         crops_by_path["
+          ]
+        },
+        {
+          "line": 558,
+          "terms": [
+            "inspection_binary"
+          ],
+          "context": [
+            "  554:                 model=model,",
+            "  555:                 tokenizer=tokenizer,",
+            "  556:                 category=category,",
+            "  557:                 strategy=(",
+            "  558:                     \"inspection_binary\"",
+            "  559:                 ),",
+            "  560:                 device=device,",
+            "  561:             )",
+            "  562:         )",
+            "  563: ",
+            "  564:         text_features["
+          ]
+        },
+        {
+          "line": 1363,
+          "terms": [
+            "inspection_binary"
+          ],
+          "context": [
+            " 1359:         \"- target: `AD2 four categories`\",",
+            " 1360:         f\"- categories: `{len(categories)}`\",",
+            " 1361:         f\"- images: `{len(predictions)}`\",",
+            " 1362:         \"- CLIP: `ViT-B-32/openai`\",",
+            " 1363:         \"- prompt strategy: `inspection_binary`\",",
+            " 1364:         \"- exact M source: `context_topk_mean_score`\",",
+            " 1365:         \"- crop source: cached `context_1p50_crop_path` images\",",
+            " 1366:         f\"- maximum candidates per logical VLM call: `{args.top_k}`\",",
+            " 1367:         \"- CLIP model loading excluded from timing\",",
+            " 1368:         \"- text encoding and crop-index loading excluded from timing\",",
+            " 1369:         \"- crop-image file I/O, preprocessing, and CLIP image inference included\","
+          ]
+        },
+        {
+          "line": 1688,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            " 1684:         \"model load is excluded from timing.\"",
+            " 1685:     )",
+            " 1686: ",
+            " 1687:     model, _, preprocess = (",
+            " 1688:         stage7.open_clip",
+            " 1689:         .create_model_and_transforms(",
+            " 1690:             args.clip_model,",
+            " 1691:             pretrained=(",
+            " 1692:                 args.clip_pretrained",
+            " 1693:             ),",
+            " 1694:             device=args.device,"
+          ]
+        },
+        {
+          "line": 1699,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            " 1695:         )",
+            " 1696:     )",
+            " 1697: ",
+            " 1698:     tokenizer = (",
+            " 1699:         stage7.open_clip.get_tokenizer(",
+            " 1700:             args.clip_model",
+            " 1701:         )",
+            " 1702:     )",
+            " 1703: ",
+            " 1704:     model.eval()",
+            " 1705: "
+          ]
+        }
+      ]
+    },
+    {
+      "path": "experiments/stage7_generalization/visa_binary_prompt_reasoning.py",
+      "score": 11,
+      "functions": [
+        "canonical_path",
+        "build_prompts",
+        "encode_prompt_set",
+        "build_text_features",
+        "load_candidate_boxes",
+        "crop_candidate",
+        "get_eval_images",
+        "encode_images",
+        "safe_auroc",
+        "safe_ap",
+        "best_f1_threshold",
+        "evaluate_category",
+        "main"
+      ],
+      "hits": [
+        {
+          "line": 10,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "    6: import torch",
+            "    7: from PIL import Image",
+            "    8: from sklearn.metrics import average_precision_score, f1_score, roc_auc_score",
+            "    9: ",
+            "   10: import open_clip",
+            "   11: ",
+            "   12: ",
+            "   13: VISA_CATEGORIES = [",
+            "   14:     \"candle\",",
+            "   15:     \"capsules\",",
+            "   16:     \"cashew\","
+          ]
+        },
+        {
+          "line": 85,
+          "terms": [
+            "inspection_binary"
+          ],
+          "context": [
+            "   81:             f\"a damaged or contaminated {obj}\",",
+            "   82:         ]",
+            "   83:         return normal, anomaly",
+            "   84: ",
+            "   85:     if strategy == \"inspection_binary\":",
+            "   86:         normal = [",
+            "   87:             f\"a quality inspection image of a normal {obj}\",",
+            "   88:             f\"an industrial inspection photo of a defect-free {obj}\",",
+            "   89:             f\"a close-up inspection image showing a normal {obj}\",",
+            "   90:         ]",
+            "   91:         anomaly = ["
+          ]
+        },
+        {
+          "line": 114,
+          "terms": [
+            "normal_prompts",
+            "anomaly_prompts"
+          ],
+          "context": [
+            "  110:     return feature",
+            "  111: ",
+            "  112: ",
+            "  113: def build_text_features(model, tokenizer, category, strategy, device):",
+            "  114:     normal_prompts, anomaly_prompts = build_prompts(category, strategy)",
+            "  115: ",
+            "  116:     normal_feature = encode_prompt_set(model, tokenizer, normal_prompts, device)",
+            "  117:     anomaly_feature = encode_prompt_set(model, tokenizer, anomaly_prompts, device)",
+            "  118: ",
+            "  119:     text_features = torch.cat([normal_feature, anomaly_feature], dim=0)",
+            "  120: "
+          ]
+        },
+        {
+          "line": 116,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "  112: ",
+            "  113: def build_text_features(model, tokenizer, category, strategy, device):",
+            "  114:     normal_prompts, anomaly_prompts = build_prompts(category, strategy)",
+            "  115: ",
+            "  116:     normal_feature = encode_prompt_set(model, tokenizer, normal_prompts, device)",
+            "  117:     anomaly_feature = encode_prompt_set(model, tokenizer, anomaly_prompts, device)",
+            "  118: ",
+            "  119:     text_features = torch.cat([normal_feature, anomaly_feature], dim=0)",
+            "  120: ",
+            "  121:     prompt_row = {",
+            "  122:         \"category\": category,"
+          ]
+        },
+        {
+          "line": 117,
+          "terms": [
+            "anomaly_prompts"
+          ],
+          "context": [
+            "  113: def build_text_features(model, tokenizer, category, strategy, device):",
+            "  114:     normal_prompts, anomaly_prompts = build_prompts(category, strategy)",
+            "  115: ",
+            "  116:     normal_feature = encode_prompt_set(model, tokenizer, normal_prompts, device)",
+            "  117:     anomaly_feature = encode_prompt_set(model, tokenizer, anomaly_prompts, device)",
+            "  118: ",
+            "  119:     text_features = torch.cat([normal_feature, anomaly_feature], dim=0)",
+            "  120: ",
+            "  121:     prompt_row = {",
+            "  122:         \"category\": category,",
+            "  123:         \"strategy\": strategy,"
+          ]
+        },
+        {
+          "line": 124,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "  120: ",
+            "  121:     prompt_row = {",
+            "  122:         \"category\": category,",
+            "  123:         \"strategy\": strategy,",
+            "  124:         \"normal_prompts\": \" || \".join(normal_prompts),",
+            "  125:         \"anomaly_prompts\": \" || \".join(anomaly_prompts),",
+            "  126:     }",
+            "  127: ",
+            "  128:     return text_features, prompt_row",
+            "  129: ",
+            "  130: "
+          ]
+        },
+        {
+          "line": 125,
+          "terms": [
+            "anomaly_prompts"
+          ],
+          "context": [
+            "  121:     prompt_row = {",
+            "  122:         \"category\": category,",
+            "  123:         \"strategy\": strategy,",
+            "  124:         \"normal_prompts\": \" || \".join(normal_prompts),",
+            "  125:         \"anomaly_prompts\": \" || \".join(anomaly_prompts),",
+            "  126:     }",
+            "  127: ",
+            "  128:     return text_features, prompt_row",
+            "  129: ",
+            "  130: ",
+            "  131: def load_candidate_boxes(candidate_root, category, top_k):"
+          ]
+        },
+        {
+          "line": 386,
+          "terms": [
+            "inspection_binary"
+          ],
+          "context": [
+            "  382:     parser = argparse.ArgumentParser()",
+            "  383:     parser.add_argument(\"--patchcore_root\", type=str, default=\"results/stage7_generalization/visa_patchcore\")",
+            "  384:     parser.add_argument(\"--output_root\", type=str, default=\"results/stage7_generalization/visa_binary_prompt_reasoning\")",
+            "  385:     parser.add_argument(\"--categories\", nargs=\"+\", default=VISA_CATEGORIES)",
+            "  386:     parser.add_argument(\"--strategies\", nargs=\"+\", default=[\"generic_binary\", \"category_binary\", \"inspection_binary\"])",
+            "  387:     parser.add_argument(\"--eval_modes\", nargs=\"+\", default=[\"full_all\", \"crop_or_full\", \"crop_topk_ensemble\"])",
+            "  388:     parser.add_argument(\"--clip_model\", type=str, default=\"ViT-B-32\")",
+            "  389:     parser.add_argument(\"--clip_pretrained\", type=str, default=\"openai\")",
+            "  390:     parser.add_argument(\"--device\", type=str, default=\"\")",
+            "  391:     parser.add_argument(\"--top_k\", type=int, default=3)",
+            "  392:     parser.add_argument(\"--map_size\", type=int, default=224)"
+          ]
+        },
+        {
+          "line": 403,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  399: ",
+            "  400:     device = args.device or (\"cuda\" if torch.cuda.is_available() else \"cpu\")",
+            "  401: ",
+            "  402:     print(f\"[INFO] Loading CLIP: {args.clip_model}, pretrained={args.clip_pretrained}, device={device}\")",
+            "  403:     model, _, preprocess = open_clip.create_model_and_transforms(",
+            "  404:         args.clip_model,",
+            "  405:         pretrained=args.clip_pretrained,",
+            "  406:         device=device,",
+            "  407:     )",
+            "  408:     tokenizer = open_clip.get_tokenizer(args.clip_model)",
+            "  409:     model.eval()"
+          ]
+        },
+        {
+          "line": 408,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  404:         args.clip_model,",
+            "  405:         pretrained=args.clip_pretrained,",
+            "  406:         device=device,",
+            "  407:     )",
+            "  408:     tokenizer = open_clip.get_tokenizer(args.clip_model)",
+            "  409:     model.eval()",
+            "  410: ",
+            "  411:     summary_rows = []",
+            "  412:     detail_rows = []",
+            "  413:     prompt_rows = []",
+            "  414: "
+          ]
+        }
+      ]
+    },
+    {
+      "path": "experiments/stage7_generalization/visa_multibackbone_binary_prompt_reasoning.py",
+      "score": 11,
+      "functions": [
+        "canonical_path",
+        "build_prompts",
+        "encode_prompt_set",
+        "build_text_features",
+        "load_candidate_boxes",
+        "crop_candidate",
+        "get_eval_images",
+        "encode_images",
+        "safe_auroc",
+        "safe_ap",
+        "best_f1_threshold",
+        "evaluate_category",
+        "main"
+      ],
+      "hits": [
+        {
+          "line": 10,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "    6: import torch",
+            "    7: from PIL import Image",
+            "    8: from sklearn.metrics import average_precision_score, f1_score, roc_auc_score",
+            "    9: ",
+            "   10: import open_clip",
+            "   11: ",
+            "   12: ",
+            "   13: VISA_CATEGORIES = [",
+            "   14:     \"candle\",",
+            "   15:     \"capsules\",",
+            "   16:     \"cashew\","
+          ]
+        },
+        {
+          "line": 85,
+          "terms": [
+            "inspection_binary"
+          ],
+          "context": [
+            "   81:             f\"a damaged or contaminated {obj}\",",
+            "   82:         ]",
+            "   83:         return normal, anomaly",
+            "   84: ",
+            "   85:     if strategy == \"inspection_binary\":",
+            "   86:         normal = [",
+            "   87:             f\"a quality inspection image of a normal {obj}\",",
+            "   88:             f\"an industrial inspection photo of a defect-free {obj}\",",
+            "   89:             f\"a close-up inspection image showing a normal {obj}\",",
+            "   90:         ]",
+            "   91:         anomaly = ["
+          ]
+        },
+        {
+          "line": 114,
+          "terms": [
+            "normal_prompts",
+            "anomaly_prompts"
+          ],
+          "context": [
+            "  110:     return feature",
+            "  111: ",
+            "  112: ",
+            "  113: def build_text_features(model, tokenizer, category, strategy, device):",
+            "  114:     normal_prompts, anomaly_prompts = build_prompts(category, strategy)",
+            "  115: ",
+            "  116:     normal_feature = encode_prompt_set(model, tokenizer, normal_prompts, device)",
+            "  117:     anomaly_feature = encode_prompt_set(model, tokenizer, anomaly_prompts, device)",
+            "  118: ",
+            "  119:     text_features = torch.cat([normal_feature, anomaly_feature], dim=0)",
+            "  120: "
+          ]
+        },
+        {
+          "line": 116,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "  112: ",
+            "  113: def build_text_features(model, tokenizer, category, strategy, device):",
+            "  114:     normal_prompts, anomaly_prompts = build_prompts(category, strategy)",
+            "  115: ",
+            "  116:     normal_feature = encode_prompt_set(model, tokenizer, normal_prompts, device)",
+            "  117:     anomaly_feature = encode_prompt_set(model, tokenizer, anomaly_prompts, device)",
+            "  118: ",
+            "  119:     text_features = torch.cat([normal_feature, anomaly_feature], dim=0)",
+            "  120: ",
+            "  121:     prompt_row = {",
+            "  122:         \"category\": category,"
+          ]
+        },
+        {
+          "line": 117,
+          "terms": [
+            "anomaly_prompts"
+          ],
+          "context": [
+            "  113: def build_text_features(model, tokenizer, category, strategy, device):",
+            "  114:     normal_prompts, anomaly_prompts = build_prompts(category, strategy)",
+            "  115: ",
+            "  116:     normal_feature = encode_prompt_set(model, tokenizer, normal_prompts, device)",
+            "  117:     anomaly_feature = encode_prompt_set(model, tokenizer, anomaly_prompts, device)",
+            "  118: ",
+            "  119:     text_features = torch.cat([normal_feature, anomaly_feature], dim=0)",
+            "  120: ",
+            "  121:     prompt_row = {",
+            "  122:         \"category\": category,",
+            "  123:         \"strategy\": strategy,"
+          ]
+        },
+        {
+          "line": 124,
+          "terms": [
+            "normal_prompts"
+          ],
+          "context": [
+            "  120: ",
+            "  121:     prompt_row = {",
+            "  122:         \"category\": category,",
+            "  123:         \"strategy\": strategy,",
+            "  124:         \"normal_prompts\": \" || \".join(normal_prompts),",
+            "  125:         \"anomaly_prompts\": \" || \".join(anomaly_prompts),",
+            "  126:     }",
+            "  127: ",
+            "  128:     return text_features, prompt_row",
+            "  129: ",
+            "  130: "
+          ]
+        },
+        {
+          "line": 125,
+          "terms": [
+            "anomaly_prompts"
+          ],
+          "context": [
+            "  121:     prompt_row = {",
+            "  122:         \"category\": category,",
+            "  123:         \"strategy\": strategy,",
+            "  124:         \"normal_prompts\": \" || \".join(normal_prompts),",
+            "  125:         \"anomaly_prompts\": \" || \".join(anomaly_prompts),",
+            "  126:     }",
+            "  127: ",
+            "  128:     return text_features, prompt_row",
+            "  129: ",
+            "  130: ",
+            "  131: def load_candidate_boxes(candidate_root, category, top_k):"
+          ]
+        },
+        {
+          "line": 395,
+          "terms": [
+            "inspection_binary"
+          ],
+          "context": [
+            "  391:     default=\"fastflow\",",
+            "  392:     )",
+            "  393:     parser.add_argument(\"--output_root\", type=str, default=\"results/stage7_generalization/visa_binary_prompt_reasoning\")",
+            "  394:     parser.add_argument(\"--categories\", nargs=\"+\", default=VISA_CATEGORIES)",
+            "  395:     parser.add_argument(\"--strategies\", nargs=\"+\", default=[\"generic_binary\", \"category_binary\", \"inspection_binary\"])",
+            "  396:     parser.add_argument(\"--eval_modes\", nargs=\"+\", default=[\"full_all\", \"crop_or_full\", \"crop_topk_ensemble\"])",
+            "  397:     parser.add_argument(\"--clip_model\", type=str, default=\"ViT-B-32\")",
+            "  398:     parser.add_argument(\"--clip_pretrained\", type=str, default=\"openai\")",
+            "  399:     parser.add_argument(\"--device\", type=str, default=\"\")",
+            "  400:     parser.add_argument(\"--top_k\", type=int, default=3)",
+            "  401:     parser.add_argument(\"--map_size\", type=int, default=224)"
+          ]
+        },
+        {
+          "line": 412,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  408: ",
+            "  409:     device = args.device or (\"cuda\" if torch.cuda.is_available() else \"cpu\")",
+            "  410: ",
+            "  411:     print(f\"[INFO] Loading CLIP: {args.clip_model}, pretrained={args.clip_pretrained}, device={device}\")",
+            "  412:     model, _, preprocess = open_clip.create_model_and_transforms(",
+            "  413:         args.clip_model,",
+            "  414:         pretrained=args.clip_pretrained,",
+            "  415:         device=device,",
+            "  416:     )",
+            "  417:     tokenizer = open_clip.get_tokenizer(args.clip_model)",
+            "  418:     model.eval()"
+          ]
+        },
+        {
+          "line": 417,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  413:         args.clip_model,",
+            "  414:         pretrained=args.clip_pretrained,",
+            "  415:         device=device,",
+            "  416:     )",
+            "  417:     tokenizer = open_clip.get_tokenizer(args.clip_model)",
+            "  418:     model.eval()",
+            "  419: ",
+            "  420:     summary_rows = []",
+            "  421:     detail_rows = []",
+            "  422:     prompt_rows = []",
+            "  423: "
+          ]
+        }
+      ]
+    },
+    {
+      "path": "experiments/stage22_selective_qcr/run_stage22_c2b_actual_selective_runtime.py",
+      "score": 8,
+      "functions": [
+        "load_reasoning_module",
+        "normalize_path",
+        "as_bool",
+        "load_gate_lookup",
+        "lookup_gate",
+        "build_selective_view",
+        "synchronize",
+        "load_clip_model",
+        "warm_up",
+        "benchmark_mode",
+        "main"
+      ],
+      "hits": [
+        {
+          "line": 101,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "   97:         \"get_eval_images\",",
+            "   98:         \"build_text_features\",",
+            "   99:         \"encode_images\",",
+            "  100:         \"evaluate_category\",",
+            "  101:         \"open_clip\",",
+            "  102:     ]",
+            "  103: ",
+            "  104:     missing = [",
+            "  105:         name",
+            "  106:         for name in required",
+            "  107:         if not hasattr(module, name)"
+          ]
+        },
+        {
+          "line": 152,
+          "terms": [
+            "inspection_binary"
+          ],
+          "context": [
+            "  148:     gate = pd.read_csv(GATE_PREDICTIONS)",
+            "  149: ",
+            "  150:     filters = {",
+            "  151:         \"dataset\": \"VisA\",",
+            "  152:         \"strategy\": \"inspection_binary\",",
+            "  153:         \"eval_mode\": \"crop_topk_ensemble\",",
+            "  154:     }",
+            "  155: ",
+            "  156:     for column, value in filters.items():",
+            "  157:         if column in gate.columns:",
+            "  158:             gate = gate["
+          ]
+        },
+        {
+          "line": 453,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  449: ",
+            "  450:     started = time.perf_counter()",
+            "  451: ",
+            "  452:     model, _, preprocess = (",
+            "  453:         module.open_clip",
+            "  454:         .create_model_and_transforms(",
+            "  455:             clip_model,",
+            "  456:             pretrained=clip_pretrained,",
+            "  457:             device=device,",
+            "  458:         )",
+            "  459:     )"
+          ]
+        },
+        {
+          "line": 462,
+          "terms": [
+            "open_clip"
+          ],
+          "context": [
+            "  458:         )",
+            "  459:     )",
+            "  460: ",
+            "  461:     tokenizer = (",
+            "  462:         module.open_clip",
+            "  463:         .get_tokenizer(clip_model)",
+            "  464:     )",
+            "  465: ",
+            "  466:     model.eval()",
+            "  467: ",
+            "  468:     synchronize(device)"
+          ]
+        },
+        {
+          "line": 534,
+          "terms": [
+            "inspection_binary"
+          ],
+          "context": [
+            "  530:         module.build_text_features(",
+            "  531:             model=model,",
+            "  532:             tokenizer=tokenizer,",
+            "  533:             category=category,",
+            "  534:             strategy=\"inspection_binary\",",
+            "  535:             device=device,",
+            "  536:         )",
+            "  537:     )",
+            "  538: ",
+            "  539:     row = df.iloc[0]",
+            "  540: "
+          ]
+        },
+        {
+          "line": 633,
+          "terms": [
+            "inspection_binary"
+          ],
+          "context": [
+            "  629:                 preprocess=preprocess,",
+            "  630:                 tokenizer=tokenizer,",
+            "  631:                 device=device,",
+            "  632:                 category=category,",
+            "  633:                 strategy=\"inspection_binary\",",
+            "  634:                 eval_mode=\"crop_topk_ensemble\",",
+            "  635:             )",
+            "  636:         )",
+            "  637: ",
+            "  638:         total_calls += len(details)",
+            "  639: "
+          ]
+        },
+        {
+          "line": 1057,
+          "terms": [
+            "inspection_binary"
+          ],
+          "context": [
+            " 1053:         \"clip_model\": args.clip_model,",
+            " 1054:         \"clip_pretrained\": (",
+            " 1055:             args.clip_pretrained",
+            " 1056:         ),",
+            " 1057:         \"strategy\": \"inspection_binary\",",
+            " 1058:         \"eval_mode\": (",
+            " 1059:             \"crop_topk_ensemble\"",
+            " 1060:         ),",
+            " 1061:         \"top_k\": args.top_k,",
+            " 1062:         \"repeats\": args.repeats,",
+            " 1063:         \"model_load_sec_excluded\": ("
+          ]
+        },
+        {
+          "line": 1125,
+          "terms": [
+            "inspection_binary"
+          ],
+          "context": [
+            " 1121:         \"## Scope\",",
+            " 1122:         \"\",",
+            " 1123:         \"- dataset: `VisA`\",",
+            " 1124:         \"- detector: `PatchCore`\",",
+            " 1125:         \"- reasoning strategy: `inspection_binary`\",",
+            " 1126:         \"- evaluation mode: `crop_topk_ensemble`\",",
+            " 1127:         f\"- GPU: `{summary['gpu_name']}`\",",
+            " 1128:         f\"- CLIP: `{args.clip_model} / {args.clip_pretrained}`\",",
+            " 1129:         \"- detector and candidate generation: `excluded`\",",
+            " 1130:         \"- model loading: `excluded from mode timing`\",",
+            " 1131:         \"\","
+          ]
+        }
+      ]
+    },
+    {
+      "path": "experiments/stage23_ad2_mirror/build_stage23_c1b_ad2_exact_m_source.py",
+      "score": 8,
+      "functions": [
+        "normalize_path",
+        "as_bool",
+        "prepare_b2b",
+        "prepare_image_predictions",
+        "prepare_candidate_aggregates",
+        "compare_column",
+        "main"
+      ],
+      "hits": [
+        {
+          "line": 29,
+          "terms": [
+            "stage11_d_vlm_image_predictions.csv"
+          ],
+          "context": [
+            "   25: ",
+            "   26: IMAGE_PATH = (",
+            "   27:     ROOT",
+            "   28:     / \"results/stage11_mvtecad2_multicategory\"",
+            "   29:     / \"stage11_d_vlm_image_predictions.csv\"",
+            "   30: )",
+            "   31: ",
+            "   32: CANDIDATE_PATH = (",
+            "   33:     ROOT",
+            "   34:     / \"results/stage11_mvtecad2_multicategory\"",
+            "   35:     / \"stage11_d_vlm_candidate_scores.csv\""
+          ]
+        },
+        {
+          "line": 35,
+          "terms": [
+            "stage11_d_vlm_candidate_scores.csv"
+          ],
+          "context": [
+            "   31: ",
+            "   32: CANDIDATE_PATH = (",
+            "   33:     ROOT",
+            "   34:     / \"results/stage11_mvtecad2_multicategory\"",
+            "   35:     / \"stage11_d_vlm_candidate_scores.csv\"",
+            "   36: )",
+            "   37: ",
+            "   38: OUT_JSON = (",
+            "   39:     ROOT",
+            "   40:     / \"results/stage23_ad2_mirror\"",
+            "   41:     / \"stage23_c1b_ad2_exact_m_source.json\""
+          ]
+        },
+        {
+          "line": 208,
+          "terms": [
+            "tight_vlm_margin"
+          ],
+          "context": [
+            "  204:     required = {",
+            "  205:         \"category\",",
+            "  206:         \"image_path\",",
+            "  207:         \"candidate_rank\",",
+            "  208:         \"tight_vlm_margin\",",
+            "  209:         \"context_vlm_margin\",",
+            "  210:     }",
+            "  211: ",
+            "  212:     missing = sorted(",
+            "  213:         required - set(frame.columns)",
+            "  214:     )"
+          ]
+        },
+        {
+          "line": 209,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  205:         \"category\",",
+            "  206:         \"image_path\",",
+            "  207:         \"candidate_rank\",",
+            "  208:         \"tight_vlm_margin\",",
+            "  209:         \"context_vlm_margin\",",
+            "  210:     }",
+            "  211: ",
+            "  212:     missing = sorted(",
+            "  213:         required - set(frame.columns)",
+            "  214:     )",
+            "  215: "
+          ]
+        },
+        {
+          "line": 240,
+          "terms": [
+            "tight_vlm_margin"
+          ],
+          "context": [
+            "  236:     )",
+            "  237: ",
+            "  238:     for column in [",
+            "  239:         \"candidate_rank\",",
+            "  240:         \"tight_vlm_margin\",",
+            "  241:         \"context_vlm_margin\",",
+            "  242:     ]:",
+            "  243:         frame[column] = pd.to_numeric(",
+            "  244:             frame[column],",
+            "  245:             errors=\"coerce\",",
+            "  246:         )"
+          ]
+        },
+        {
+          "line": 241,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  237: ",
+            "  238:     for column in [",
+            "  239:         \"candidate_rank\",",
+            "  240:         \"tight_vlm_margin\",",
+            "  241:         \"context_vlm_margin\",",
+            "  242:     ]:",
+            "  243:         frame[column] = pd.to_numeric(",
+            "  244:             frame[column],",
+            "  245:             errors=\"coerce\",",
+            "  246:         )",
+            "  247: "
+          ]
+        },
+        {
+          "line": 266,
+          "terms": [
+            "tight_vlm_margin"
+          ],
+          "context": [
+            "  262:             \"candidate_rank\"",
+            "  263:         )",
+            "  264: ",
+            "  265:         tight = (",
+            "  266:             group[\"tight_vlm_margin\"]",
+            "  267:             .dropna()",
+            "  268:             .to_numpy(dtype=float)",
+            "  269:         )",
+            "  270: ",
+            "  271:         context = (",
+            "  272:             group[\"context_vlm_margin\"]"
+          ]
+        },
+        {
+          "line": 272,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  268:             .to_numpy(dtype=float)",
+            "  269:         )",
+            "  270: ",
+            "  271:         context = (",
+            "  272:             group[\"context_vlm_margin\"]",
+            "  273:             .dropna()",
+            "  274:             .to_numpy(dtype=float)",
+            "  275:         )",
+            "  276: ",
+            "  277:         record = {",
+            "  278:             \"category\": category,"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "experiments/stage23_ad2_mirror/build_stage23_c1c_ad2_crop_identity_bridge.py",
+      "score": 6,
+      "functions": [
+        "canonical_image_path",
+        "resolve_existing_file",
+        "crop_suffix",
+        "sha256_file",
+        "prepare",
+        "build_candidate_identity",
+        "unique_bridge",
+        "main"
+      ],
+      "hits": [
+        {
+          "line": 22,
+          "terms": [
+            "stage11_d_vlm_image_predictions.csv"
+          ],
+          "context": [
+            "   18: ",
+            "   19: IMAGE = (",
+            "   20:     ROOT",
+            "   21:     / \"results/stage11_mvtecad2_multicategory\"",
+            "   22:     / \"stage11_d_vlm_image_predictions.csv\"",
+            "   23: )",
+            "   24: ",
+            "   25: CAND = (",
+            "   26:     ROOT",
+            "   27:     / \"results/stage11_mvtecad2_multicategory\"",
+            "   28:     / \"stage11_d_vlm_candidate_scores.csv\""
+          ]
+        },
+        {
+          "line": 28,
+          "terms": [
+            "stage11_d_vlm_candidate_scores.csv"
+          ],
+          "context": [
+            "   24: ",
+            "   25: CAND = (",
+            "   26:     ROOT",
+            "   27:     / \"results/stage11_mvtecad2_multicategory\"",
+            "   28:     / \"stage11_d_vlm_candidate_scores.csv\"",
+            "   29: )",
+            "   30: ",
+            "   31: OUT_DIR = (",
+            "   32:     ROOT",
+            "   33:     / \"results/stage23_ad2_mirror\"",
+            "   34:     / \"ad2_actual_selective_runtime\""
+          ]
+        },
+        {
+          "line": 209,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  205:         cand[\"item_idx\"],",
+            "  206:         errors=\"coerce\",",
+            "  207:     ).astype(\"Int64\")",
+            "  208: ",
+            "  209:     cand[\"context_vlm_margin\"] = (",
+            "  210:         pd.to_numeric(",
+            "  211:             cand[\"context_vlm_margin\"],",
+            "  212:             errors=\"coerce\",",
+            "  213:         )",
+            "  214:     )",
+            "  215: "
+          ]
+        },
+        {
+          "line": 211,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  207:     ).astype(\"Int64\")",
+            "  208: ",
+            "  209:     cand[\"context_vlm_margin\"] = (",
+            "  210:         pd.to_numeric(",
+            "  211:             cand[\"context_vlm_margin\"],",
+            "  212:             errors=\"coerce\",",
+            "  213:         )",
+            "  214:     )",
+            "  215: ",
+            "  216:     cand = cand[",
+            "  217:         (cand[\"candidate_rank\"] > 0)"
+          ]
+        },
+        {
+          "line": 224,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  220:         ].notna()",
+            "  221:         & cand[\"batch_idx\"].notna()",
+            "  222:         & cand[\"item_idx\"].notna()",
+            "  223:         & cand[",
+            "  224:             \"context_vlm_margin\"",
+            "  225:         ].notna()",
+            "  226:     ].copy()",
+            "  227: ",
+            "  228:     return b2b, image, cand",
+            "  229: ",
+            "  230: "
+          ]
+        },
+        {
+          "line": 334,
+          "terms": [
+            "context_vlm_margin"
+          ],
+          "context": [
+            "  330:                 \"image_path\",",
+            "  331:                 \"first\",",
+            "  332:             ),",
+            "  333:             candidate_context_mean=(",
+            "  334:                 \"context_vlm_margin\",",
+            "  335:                 \"mean\",",
+            "  336:             ),",
+            "  337:             first_context_crop=(",
+            "  338:                 \"resolved_crop_path\",",
+            "  339:                 \"first\",",
+            "  340:             ),"
+          ]
+        }
+      ]
+    }
+  ],
+  "image_prediction_columns": [
+    "dataset",
+    "category",
+    "image_path",
+    "gt_binary",
+    "num_candidates",
+    "clip_backend",
+    "full_image_score",
+    "full_image_normal_score",
+    "full_image_anomaly_score",
+    "tight_top1_score",
+    "tight_topk_max_score",
+    "tight_topk_mean_score",
+    "tight_best_crop_path",
+    "context_top1_score",
+    "context_topk_max_score",
+    "context_topk_mean_score",
+    "context_best_crop_path",
+    "patchcore_score"
+  ]
+}

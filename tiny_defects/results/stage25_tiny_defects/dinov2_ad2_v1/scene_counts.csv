@@ -1,0 +1,16 @@
+scope,category,positive_images,negative_images,positive_groups,negative_groups
+all,can,90,72,15,12
+all,fabric,90,66,15,11
+all,fruit_jelly,60,20,15,5
+all,rice,90,42,15,7
+all,sheet_metal,90,24,15,4
+all,vial,105,35,15,5
+all,wallplugs,90,60,15,10
+all,walnuts,90,60,15,10
+tiny_only,can,78,72,13,12
+tiny_only,fabric,72,66,12,11
+tiny_only,fruit_jelly,8,20,2,5
+tiny_only,rice,30,42,5,7
+tiny_only,sheet_metal,18,24,3,4
+tiny_only,wallplugs,60,60,10,10
+tiny_only,walnuts,12,60,2,10

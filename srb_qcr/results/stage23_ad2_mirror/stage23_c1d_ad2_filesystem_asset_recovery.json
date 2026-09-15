@@ -1,0 +1,16 @@
+{
+  "protocol_id": "stage23_c1d_ad2_filesystem_asset_recovery_v1",
+  "top_k": 3,
+  "rows": 243,
+  "full_vlm_calls": 243,
+  "selective_vlm_calls": 182,
+  "calls_saved": 61,
+  "call_saving_rate": 0.2510288065843621,
+  "context_rows": 243,
+  "fallback_rows": 0,
+  "gate_on_without_context": 0,
+  "context_rows_missing_assets": 0,
+  "max_fallback_reference_diff": 0.0,
+  "mapping_csv": "results/stage23_ad2_mirror/ad2_actual_selective_runtime/stage23_c1d_ad2_runtime_asset_mapping.csv",
+  "runtime_runner_ready": true
+}

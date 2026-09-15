@@ -1,0 +1,192 @@
+{
+  "protocol_id": "stage23_c1b_ad2_exact_m_source_v1",
+  "rows": 243,
+  "available_m_rows": 243,
+  "matched_image_rows": 243,
+  "stage18_source_counts": {
+    "stage18_m_score_source": {
+      "context_topk_mean_score": 243
+    },
+    "stage18_q_score_source": {
+      "max(candidate_score_mean)": 243
+    },
+    "stage18_full_image_source": {
+      "full_image_score": 243
+    },
+    "stage18_note": {
+      "AD2 QCR ablation assembled from Stage11 image-level VLM predictions and candidate-level non-GT quality evidence.": 243
+    }
+  },
+  "comparisons": [
+    {
+      "source": "stage11_d_vlm_image_predictions",
+      "column": "context_topk_mean_score",
+      "rows_compared": 243,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "median_abs_diff": 0.0,
+      "p99_abs_diff": 0.0,
+      "exact_1e_12": true,
+      "exact_1e_9": true,
+      "exact_1e_6": true
+    },
+    {
+      "source": "recomputed_from_candidate_scores",
+      "column": "candidate_context_topk_mean",
+      "rows_compared": 163,
+      "max_abs_diff": 0.0062047839164734,
+      "mean_abs_diff": 0.0017951141075366315,
+      "median_abs_diff": 0.0013895183801651,
+      "p99_abs_diff": 0.005818839073181108,
+      "exact_1e_12": false,
+      "exact_1e_9": false,
+      "exact_1e_6": false
+    },
+    {
+      "source": "recomputed_from_candidate_scores",
+      "column": "candidate_context_top1",
+      "rows_compared": 163,
+      "max_abs_diff": 0.0100759317477544,
+      "mean_abs_diff": 0.0023716570074329086,
+      "median_abs_diff": 0.0021100987990697005,
+      "p99_abs_diff": 0.006472398440043115,
+      "exact_1e_12": false,
+      "exact_1e_9": false,
+      "exact_1e_6": false
+    },
+    {
+      "source": "recomputed_from_candidate_scores",
+      "column": "candidate_context_topk_max",
+      "rows_compared": 163,
+      "max_abs_diff": 0.0100759317477544,
+      "mean_abs_diff": 0.0026477755243549056,
+      "median_abs_diff": 0.0024708956480026002,
+      "p99_abs_diff": 0.006980215112368293,
+      "exact_1e_12": false,
+      "exact_1e_9": false,
+      "exact_1e_6": false
+    },
+    {
+      "source": "stage11_d_vlm_image_predictions",
+      "column": "context_top1_score",
+      "rows_compared": 243,
+      "max_abs_diff": 0.0108200460672379,
+      "mean_abs_diff": 0.0016764397381591508,
+      "median_abs_diff": 0.0011381010214488,
+      "p99_abs_diff": 0.006185870766639681,
+      "exact_1e_12": false,
+      "exact_1e_9": false,
+      "exact_1e_6": false
+    },
+    {
+      "source": "stage11_d_vlm_image_predictions",
+      "column": "context_topk_max_score",
+      "rows_compared": 243,
+      "max_abs_diff": 0.0108200460672379,
+      "mean_abs_diff": 0.0019674625232386474,
+      "median_abs_diff": 0.0015666087468465002,
+      "p99_abs_diff": 0.00833528995513911,
+      "exact_1e_12": false,
+      "exact_1e_9": false,
+      "exact_1e_6": false
+    },
+    {
+      "source": "recomputed_from_candidate_scores",
+      "column": "candidate_tight_topk_mean",
+      "rows_compared": 163,
+      "max_abs_diff": 0.012380763888359101,
+      "mean_abs_diff": 0.00386181859211931,
+      "median_abs_diff": 0.0034054666757583497,
+      "p99_abs_diff": 0.012116694450378421,
+      "exact_1e_12": false,
+      "exact_1e_9": false,
+      "exact_1e_6": false
+    },
+    {
+      "source": "recomputed_from_candidate_scores",
+      "column": "candidate_tight_top1",
+      "rows_compared": 163,
+      "max_abs_diff": 0.0154057145118713,
+      "mean_abs_diff": 0.004288911987057975,
+      "median_abs_diff": 0.0036738142371178003,
+      "p99_abs_diff": 0.012530537346998879,
+      "exact_1e_12": false,
+      "exact_1e_9": false,
+      "exact_1e_6": false
+    },
+    {
+      "source": "recomputed_from_candidate_scores",
+      "column": "candidate_tight_topk_max",
+      "rows_compared": 163,
+      "max_abs_diff": 0.0154057145118713,
+      "mean_abs_diff": 0.004561373442106693,
+      "median_abs_diff": 0.0041963259379069005,
+      "p99_abs_diff": 0.012530537346998879,
+      "exact_1e_12": false,
+      "exact_1e_9": false,
+      "exact_1e_6": false
+    },
+    {
+      "source": "stage11_d_vlm_image_predictions",
+      "column": "tight_top1_score",
+      "rows_compared": 243,
+      "max_abs_diff": 0.0168832540512084,
+      "mean_abs_diff": 0.004913891201892503,
+      "median_abs_diff": 0.0042140260338782995,
+      "p99_abs_diff": 0.013963350057601924,
+      "exact_1e_12": false,
+      "exact_1e_9": false,
+      "exact_1e_6": false
+    },
+    {
+      "source": "stage11_d_vlm_image_predictions",
+      "column": "tight_topk_max_score",
+      "rows_compared": 243,
+      "max_abs_diff": 0.0168832540512084,
+      "mean_abs_diff": 0.005467573157799093,
+      "median_abs_diff": 0.004685839017232201,
+      "p99_abs_diff": 0.014822786450386012,
+      "exact_1e_12": false,
+      "exact_1e_9": false,
+      "exact_1e_6": false
+    },
+    {
+      "source": "stage11_d_vlm_image_predictions",
+      "column": "tight_topk_mean_score",
+      "rows_compared": 243,
+      "max_abs_diff": 0.0168832540512084,
+      "mean_abs_diff": 0.00417176640205422,
+      "median_abs_diff": 0.0035264094670614003,
+      "p99_abs_diff": 0.013879997432231853,
+      "exact_1e_12": false,
+      "exact_1e_9": false,
+      "exact_1e_6": false
+    },
+    {
+      "source": "stage11_d_vlm_image_predictions",
+      "column": "full_image_score",
+      "rows_compared": 243,
+      "max_abs_diff": 0.0171600580215454,
+      "mean_abs_diff": 0.005556838635472752,
+      "median_abs_diff": 0.0050445795059204015,
+      "p99_abs_diff": 0.015977138578891773,
+      "exact_1e_12": false,
+      "exact_1e_9": false,
+      "exact_1e_6": false
+    }
+  ],
+  "selected_source": {
+    "source": "stage11_d_vlm_image_predictions",
+    "column": "context_topk_mean_score",
+    "rows_compared": 243,
+    "max_abs_diff": 0.0,
+    "mean_abs_diff": 0.0,
+    "median_abs_diff": 0.0,
+    "p99_abs_diff": 0.0,
+    "exact_1e_12": true,
+    "exact_1e_9": true,
+    "exact_1e_6": true
+  },
+  "exact_m_source_identified": true,
+  "runtime_runner_ready": true
+}

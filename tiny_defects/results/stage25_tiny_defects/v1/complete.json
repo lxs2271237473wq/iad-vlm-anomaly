@@ -1,0 +1,21 @@
+{
+  "status": "complete",
+  "images": 14735,
+  "components": 5886,
+  "evaluation_images": 3246,
+  "source_roles": {
+    "pcb2": "source_fit",
+    "fryum": "source_fit",
+    "chewinggum": "source_fit",
+    "pcb4": "source_fit",
+    "capsules": "source_fit",
+    "pcb3": "source_fit",
+    "macaroni2": "source_fit",
+    "macaroni1": "source_fit",
+    "pipe_fryum": "source_validation",
+    "cashew": "source_validation",
+    "pcb1": "source_development_holdout",
+    "candle": "source_development_holdout"
+  },
+  "independent_test_created": false
+}

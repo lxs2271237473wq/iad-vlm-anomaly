@@ -1,0 +1,13 @@
+{
+  "code_sha256": "8d743b857f76dc6417fcc498d29b539c5768082610f33e3afa955371df04822a",
+  "model": "facebook/dinov2-base",
+  "input_size": 518,
+  "reference_count": 32,
+  "reference_selection": "First 32 normal train image IDs per category; every patch retained",
+  "feature": "L2 normalized last hidden patch tokens, exclude CLS",
+  "primary": "max cosine nearest-normal distance",
+  "secondary": "mean largest 1% patch distances",
+  "scope": "All 1462 source_fit images; validation/holdout/AD2 not evaluated",
+  "training": false,
+  "limitations": "New backbone baseline only, not novel algorithm or exact AnomalyDINO reproduction; reference budget differs from original WRN50."
+}

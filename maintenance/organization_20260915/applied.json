@@ -1,0 +1,788 @@
+[
+  {
+    "old": "experiments/analysis",
+    "new": "srb_qcr/src/analysis",
+    "inode": 2358823864069,
+    "device": 178
+  },
+  {
+    "old": "experiments/paper_stage",
+    "new": "srb_qcr/src/paper_stage",
+    "inode": 2341135679757,
+    "device": 178
+  },
+  {
+    "old": "experiments/stage10_dataset_expansion",
+    "new": "srb_qcr/src/stage10_dataset_expansion",
+    "inode": 2612186151947,
+    "device": 178
+  },
+  {
+    "old": "experiments/stage11_mvtecad2_multicategory",
+    "new": "srb_qcr/src/stage11_mvtecad2_multicategory",
+    "inode": 2516931115779,
+    "device": 178
+  },
+  {
+    "old": "experiments/stage12_paper_writing",
+    "new": "srb_qcr/src/stage12_paper_writing",
+    "inode": 2309643463439,
+    "device": 178
+  },
+  {
+    "old": "experiments/stage13_strong_baseline",
+    "new": "srb_qcr/src/stage13_strong_baseline",
+    "inode": 2286322414876,
+    "device": 178
+  },
+  {
+    "old": "experiments/stage14_strong_vlm_baselines",
+    "new": "srb_qcr/src/stage14_strong_vlm_baselines",
+    "inode": 2498911207696,
+    "device": 178
+  },
+  {
+    "old": "experiments/stage15_modern_detector_baselines",
+    "new": "srb_qcr/src/stage15_modern_detector_baselines",
+    "inode": 2467725689622,
+    "device": 178
+  },
+  {
+    "old": "experiments/stage16_qcru_ablation",
+    "new": "srb_qcr/src/stage16_qcru_ablation",
+    "inode": 2318636827663,
+    "device": 178
+  },
+  {
+    "old": "experiments/stage17_defensive_sensitivity",
+    "new": "srb_qcr/src/stage17_defensive_sensitivity",
+    "inode": 2441455168014,
+    "device": 178
+  },
+  {
+    "old": "experiments/stage18_ad2_qcr_ablation",
+    "new": "srb_qcr/src/stage18_ad2_qcr_ablation",
+    "inode": 2385085938693,
+    "device": 178
+  },
+  {
+    "old": "experiments/stage19_efficientad100_sensitivity",
+    "new": "srb_qcr/src/stage19_efficientad100_sensitivity",
+    "inode": 2334320085770,
+    "device": 178
+  },
+  {
+    "old": "experiments/stage20_anomalyclip_baseline",
+    "new": "srb_qcr/src/stage20_anomalyclip_baseline",
+    "inode": 2468986398740,
+    "device": 178
+  },
+  {
+    "old": "experiments/stage22_selective_qcr",
+    "new": "srb_qcr/src/stage22_selective_qcr",
+    "inode": 2580622293508,
+    "device": 178
+  },
+  {
+    "old": "experiments/stage23_ad2_mirror",
+    "new": "srb_qcr/src/stage23_ad2_mirror",
+    "inode": 2346959782169,
+    "device": 178
+  },
+  {
+    "old": "experiments/stage24_evidence",
+    "new": "evidence_fusion/src/stage24_evidence",
+    "inode": 2914419612932,
+    "device": 178
+  },
+  {
+    "old": "experiments/stage7_generalization",
+    "new": "srb_qcr/src/stage7_generalization",
+    "inode": 2273482214408,
+    "device": 178
+  },
+  {
+    "old": "experiments/stage9_qcr_u",
+    "new": "srb_qcr/src/stage9_qcr_u",
+    "inode": 2346372396044,
+    "device": 178
+  },
+  {
+    "old": "docs/anomaly_map_calibration_analysis.md",
+    "new": "srb_qcr/docs/anomaly_map_calibration_analysis.md",
+    "inode": 2483068254480,
+    "device": 178
+  },
+  {
+    "old": "docs/anomaly_region_scoring_baseline_analysis.md",
+    "new": "srb_qcr/docs/anomaly_region_scoring_baseline_analysis.md",
+    "inode": 2483013010704,
+    "device": 178
+  },
+  {
+    "old": "docs/clip_semantic_weight_sweep_analysis.md",
+    "new": "srb_qcr/docs/clip_semantic_weight_sweep_analysis.md",
+    "inode": 2451712689415,
+    "device": 178
+  },
+  {
+    "old": "docs/conservative_residual_anomaly_calibration_analysis.md",
+    "new": "srb_qcr/docs/conservative_residual_anomaly_calibration_analysis.md",
+    "inode": 2483106634768,
+    "device": 178
+  },
+  {
+    "old": "docs/conservative_residual_calibration_sweep_analysis.md",
+    "new": "srb_qcr/docs/conservative_residual_calibration_sweep_analysis.md",
+    "inode": 2451878836487,
+    "device": 178
+  },
+  {
+    "old": "docs/defect_type_prompt_reasoning_gt_crop_analysis.md",
+    "new": "srb_qcr/docs/defect_type_prompt_reasoning_gt_crop_analysis.md",
+    "inode": 2451920766983,
+    "device": 178
+  },
+  {
+    "old": "docs/defect_type_visual_prompt_refinement_analysis.md",
+    "new": "srb_qcr/docs/defect_type_visual_prompt_refinement_analysis.md",
+    "inode": 2451939730951,
+    "device": 178
+  },
+  {
+    "old": "docs/enhanced_anomaly_region_scoring_analysis.md",
+    "new": "srb_qcr/docs/enhanced_anomaly_region_scoring_analysis.md",
+    "inode": 2483047499536,
+    "device": 178
+  },
+  {
+    "old": "docs/final_method_framework.md",
+    "new": "srb_qcr/docs/final_method_framework.md",
+    "inode": 2453737790215,
+    "device": 178
+  },
+  {
+    "old": "docs/final_method_framework_en.md",
+    "new": "srb_qcr/docs/final_method_framework_en.md",
+    "inode": 2484978592784,
+    "device": 178
+  },
+  {
+    "old": "docs/final_method_framework_zh.md",
+    "new": "srb_qcr/docs/final_method_framework_zh.md",
+    "inode": 2484978890256,
+    "device": 178
+  },
+  {
+    "old": "docs/final_paper_outline_and_experiment_narrative_zh.md",
+    "new": "srb_qcr/docs/final_paper_outline_and_experiment_narrative_zh.md",
+    "inode": 2453745918215,
+    "device": 178
+  },
+  {
+    "old": "docs/full_test_anomaly_crop_visual_prompt_reasoning_analysis.md",
+    "new": "srb_qcr/docs/full_test_anomaly_crop_visual_prompt_reasoning_analysis.md",
+    "inode": 2484422535184,
+    "device": 178
+  },
+  {
+    "old": "docs/manufacturing_defect_explanation_analysis.md",
+    "new": "srb_qcr/docs/manufacturing_defect_explanation_analysis.md",
+    "inode": 2453183456263,
+    "device": 178
+  },
+  {
+    "old": "docs/paper_p1",
+    "new": "srb_qcr/docs/paper_p1",
+    "inode": 2363096345868,
+    "device": 178
+  },
+  {
+    "old": "docs/paper_p10",
+    "new": "srb_qcr/docs/paper_p10",
+    "inode": 2477255250710,
+    "device": 178
+  },
+  {
+    "old": "docs/paper_p11",
+    "new": "srb_qcr/docs/paper_p11",
+    "inode": 2441894665236,
+    "device": 178
+  },
+  {
+    "old": "docs/paper_p11b",
+    "new": "srb_qcr/docs/paper_p11b",
+    "inode": 2353510055703,
+    "device": 178
+  },
+  {
+    "old": "docs/paper_p12",
+    "new": "srb_qcr/docs/paper_p12",
+    "inode": 2392881454611,
+    "device": 178
+  },
+  {
+    "old": "docs/paper_p13",
+    "new": "srb_qcr/docs/paper_p13",
+    "inode": 2477427095318,
+    "device": 178
+  },
+  {
+    "old": "docs/paper_p14",
+    "new": "srb_qcr/docs/paper_p14",
+    "inode": 2312311264793,
+    "device": 178
+  },
+  {
+    "old": "docs/paper_p2",
+    "new": "srb_qcr/docs/paper_p2",
+    "inode": 2343627008288,
+    "device": 178
+  },
+  {
+    "old": "docs/paper_p3",
+    "new": "srb_qcr/docs/paper_p3",
+    "inode": 2321223612175,
+    "device": 178
+  },
+  {
+    "old": "docs/paper_p4",
+    "new": "srb_qcr/docs/paper_p4",
+    "inode": 2316212197641,
+    "device": 178
+  },
+  {
+    "old": "docs/paper_p5",
+    "new": "srb_qcr/docs/paper_p5",
+    "inode": 2363161536780,
+    "device": 178
+  },
+  {
+    "old": "docs/paper_p6",
+    "new": "srb_qcr/docs/paper_p6",
+    "inode": 2353359133719,
+    "device": 178
+  },
+  {
+    "old": "docs/paper_p7",
+    "new": "srb_qcr/docs/paper_p7",
+    "inode": 2326977792518,
+    "device": 178
+  },
+  {
+    "old": "docs/paper_p8",
+    "new": "srb_qcr/docs/paper_p8",
+    "inode": 2363226016524,
+    "device": 178
+  },
+  {
+    "old": "docs/paper_p9",
+    "new": "srb_qcr/docs/paper_p9",
+    "inode": 2552755798276,
+    "device": 178
+  },
+  {
+    "old": "docs/paper_ready_experiment_tables.md",
+    "new": "srb_qcr/docs/paper_ready_experiment_tables.md",
+    "inode": 2484441589776,
+    "device": 178
+  },
+  {
+    "old": "docs/patchcore_candidate_region_analysis.md",
+    "new": "srb_qcr/docs/patchcore_candidate_region_analysis.md",
+    "inode": 2482677088784,
+    "device": 178
+  },
+  {
+    "old": "docs/patchcore_failure_case_analysis.md",
+    "new": "srb_qcr/docs/patchcore_failure_case_analysis.md",
+    "inode": 2482598640144,
+    "device": 178
+  },
+  {
+    "old": "docs/patchcore_mvtec_baseline_analysis.md",
+    "new": "srb_qcr/docs/patchcore_mvtec_baseline_analysis.md",
+    "inode": 2483261336592,
+    "device": 178
+  },
+  {
+    "old": "docs/real_anomaly_crop_visual_prompt_reasoning_analysis.md",
+    "new": "srb_qcr/docs/real_anomaly_crop_visual_prompt_reasoning_analysis.md",
+    "inode": 2452977103879,
+    "device": 178
+  },
+  {
+    "old": "docs/sam2_anomaly_aware_selection_analysis.md",
+    "new": "srb_qcr/docs/sam2_anomaly_aware_selection_analysis.md",
+    "inode": 2451680708615,
+    "device": 178
+  },
+  {
+    "old": "docs/sam2_prompt_feasibility_analysis.md",
+    "new": "srb_qcr/docs/sam2_prompt_feasibility_analysis.md",
+    "inode": 2482894107920,
+    "device": 178
+  },
+  {
+    "old": "docs/stage10_dataset_expansion",
+    "new": "srb_qcr/docs/stage10_dataset_expansion",
+    "inode": 2249491603487,
+    "device": 178
+  },
+  {
+    "old": "docs/stage11_mvtecad2_multicategory",
+    "new": "srb_qcr/docs/stage11_mvtecad2_multicategory",
+    "inode": 2613774361611,
+    "device": 178
+  },
+  {
+    "old": "docs/stage12_paper_writing",
+    "new": "srb_qcr/docs/stage12_paper_writing",
+    "inode": 2617252134155,
+    "device": 178
+  },
+  {
+    "old": "docs/stage13_strong_baseline",
+    "new": "srb_qcr/docs/stage13_strong_baseline",
+    "inode": 2351711523596,
+    "device": 178
+  },
+  {
+    "old": "docs/stage14_strong_vlm_baselines",
+    "new": "srb_qcr/docs/stage14_strong_vlm_baselines",
+    "inode": 2542897086468,
+    "device": 178
+  },
+  {
+    "old": "docs/stage15_modern_detector_baselines",
+    "new": "srb_qcr/docs/stage15_modern_detector_baselines",
+    "inode": 2350419427346,
+    "device": 178
+  },
+  {
+    "old": "docs/stage16_qcru_ablation",
+    "new": "srb_qcr/docs/stage16_qcru_ablation",
+    "inode": 2382026094341,
+    "device": 178
+  },
+  {
+    "old": "docs/stage17_defensive_sensitivity",
+    "new": "srb_qcr/docs/stage17_defensive_sensitivity",
+    "inode": 2325379882758,
+    "device": 178
+  },
+  {
+    "old": "docs/stage18_ad2_qcr_ablation",
+    "new": "srb_qcr/docs/stage18_ad2_qcr_ablation",
+    "inode": 2316594867977,
+    "device": 178
+  },
+  {
+    "old": "docs/stage19_efficientad100_sensitivity",
+    "new": "srb_qcr/docs/stage19_efficientad100_sensitivity",
+    "inode": 2297947486216,
+    "device": 178
+  },
+  {
+    "old": "docs/stage20_anomalyclip_baseline",
+    "new": "srb_qcr/docs/stage20_anomalyclip_baseline",
+    "inode": 2559770305795,
+    "device": 178
+  },
+  {
+    "old": "docs/stage21_final_paper_update",
+    "new": "srb_qcr/docs/stage21_final_paper_update",
+    "inode": 2469660738324,
+    "device": 178
+  },
+  {
+    "old": "docs/stage22_selective_qcr",
+    "new": "srb_qcr/docs/stage22_selective_qcr",
+    "inode": 2294355141919,
+    "device": 178
+  },
+  {
+    "old": "docs/stage23_ad2_mirror",
+    "new": "srb_qcr/docs/stage23_ad2_mirror",
+    "inode": 2376244750605,
+    "device": 178
+  },
+  {
+    "old": "docs/stage7_generalization",
+    "new": "srb_qcr/docs/stage7_generalization",
+    "inode": 2336216326162,
+    "device": 178
+  },
+  {
+    "old": "docs/stage8_paper_tables",
+    "new": "srb_qcr/docs/stage8_paper_tables",
+    "inode": 2352533955605,
+    "device": 178
+  },
+  {
+    "old": "docs/trainable_anomaly_map_calibration_analysis.md",
+    "new": "srb_qcr/docs/trainable_anomaly_map_calibration_analysis.md",
+    "inode": 2451817351175,
+    "device": 178
+  },
+  {
+    "old": "results/analysis",
+    "new": "srb_qcr/results/analysis",
+    "inode": 2487934991105,
+    "device": 178
+  },
+  {
+    "old": "results/paper_p1",
+    "new": "srb_qcr/results/paper_p1",
+    "inode": 2392585518355,
+    "device": 178
+  },
+  {
+    "old": "results/paper_p10",
+    "new": "srb_qcr/results/paper_p10",
+    "inode": 2363251250444,
+    "device": 178
+  },
+  {
+    "old": "results/paper_p11",
+    "new": "srb_qcr/results/paper_p11",
+    "inode": 2384842357253,
+    "device": 178
+  },
+  {
+    "old": "results/paper_p11b",
+    "new": "srb_qcr/results/paper_p11b",
+    "inode": 2384899037701,
+    "device": 178
+  },
+  {
+    "old": "results/paper_p12",
+    "new": "srb_qcr/results/paper_p12",
+    "inode": 2266832036383,
+    "device": 178
+  },
+  {
+    "old": "results/paper_p13",
+    "new": "srb_qcr/results/paper_p13",
+    "inode": 2373164682270,
+    "device": 178
+  },
+  {
+    "old": "results/paper_p14",
+    "new": "srb_qcr/results/paper_p14",
+    "inode": 2321553762575,
+    "device": 178
+  },
+  {
+    "old": "results/paper_p2",
+    "new": "srb_qcr/results/paper_p2",
+    "inode": 2442884712718,
+    "device": 178
+  },
+  {
+    "old": "results/paper_p3",
+    "new": "srb_qcr/results/paper_p3",
+    "inode": 2552639703812,
+    "device": 178
+  },
+  {
+    "old": "results/paper_p4",
+    "new": "srb_qcr/results/paper_p4",
+    "inode": 2297402146824,
+    "device": 178
+  },
+  {
+    "old": "results/paper_p5",
+    "new": "srb_qcr/results/paper_p5",
+    "inode": 2477333925383,
+    "device": 178
+  },
+  {
+    "old": "results/paper_p6",
+    "new": "srb_qcr/results/paper_p6",
+    "inode": 2392669675795,
+    "device": 178
+  },
+  {
+    "old": "results/paper_p7",
+    "new": "srb_qcr/results/paper_p7",
+    "inode": 2477209211670,
+    "device": 178
+  },
+  {
+    "old": "results/paper_p8",
+    "new": "srb_qcr/results/paper_p8",
+    "inode": 2343759957792,
+    "device": 178
+  },
+  {
+    "old": "results/paper_p9",
+    "new": "srb_qcr/results/paper_p9",
+    "inode": 2384805620229,
+    "device": 178
+  },
+  {
+    "old": "results/stage10_dataset_expansion",
+    "new": "srb_qcr/results/stage10_dataset_expansion",
+    "inode": 2515570447363,
+    "device": 178
+  },
+  {
+    "old": "results/stage11_mvtecad2_multicategory",
+    "new": "srb_qcr/results/stage11_mvtecad2_multicategory",
+    "inode": 2334303537681,
+    "device": 178
+  },
+  {
+    "old": "results/stage12_paper_writing",
+    "new": "srb_qcr/results/stage12_paper_writing",
+    "inode": 2540923930884,
+    "device": 178
+  },
+  {
+    "old": "results/stage13_strong_baseline",
+    "new": "srb_qcr/results/stage13_strong_baseline",
+    "inode": 2305191801097,
+    "device": 178
+  },
+  {
+    "old": "results/stage14_strong_vlm_baselines",
+    "new": "srb_qcr/results/stage14_strong_vlm_baselines",
+    "inode": 2522509110019,
+    "device": 178
+  },
+  {
+    "old": "results/stage15_modern_detector_baselines",
+    "new": "srb_qcr/results/stage15_modern_detector_baselines",
+    "inode": 2432438523924,
+    "device": 178
+  },
+  {
+    "old": "results/stage16_qcru_ablation",
+    "new": "srb_qcr/results/stage16_qcru_ablation",
+    "inode": 2511717022721,
+    "device": 178
+  },
+  {
+    "old": "results/stage17_defensive_sensitivity",
+    "new": "srb_qcr/results/stage17_defensive_sensitivity",
+    "inode": 2295885013512,
+    "device": 178
+  },
+  {
+    "old": "results/stage18_ad2_qcr_ablation",
+    "new": "srb_qcr/results/stage18_ad2_qcr_ablation",
+    "inode": 2454107107610,
+    "device": 178
+  },
+  {
+    "old": "results/stage19_efficientad100_sensitivity",
+    "new": "srb_qcr/results/stage19_efficientad100_sensitivity",
+    "inode": 2443478277902,
+    "device": 178
+  },
+  {
+    "old": "results/stage20_anomalyclip_baseline",
+    "new": "srb_qcr/results/stage20_anomalyclip_baseline",
+    "inode": 2339351731225,
+    "device": 178
+  },
+  {
+    "old": "results/stage22_selective_qcr",
+    "new": "srb_qcr/results/stage22_selective_qcr",
+    "inode": 2388092260626,
+    "device": 178
+  },
+  {
+    "old": "results/stage23_ad2_mirror",
+    "new": "srb_qcr/results/stage23_ad2_mirror",
+    "inode": 2332580041756,
+    "device": 178
+  },
+  {
+    "old": "results/stage24_evidence",
+    "new": "evidence_fusion/results/stage24_evidence",
+    "inode": 2803079558401,
+    "device": 178
+  },
+  {
+    "old": "results/stage25_tiny_defects",
+    "new": "tiny_defects/results/stage25_tiny_defects",
+    "inode": 2605782784258,
+    "device": 178
+  },
+  {
+    "old": "results/stage7_generalization",
+    "new": "srb_qcr/results/stage7_generalization",
+    "inode": 2273482216200,
+    "device": 178
+  },
+  {
+    "old": "results/stage8_paper_tables",
+    "new": "srb_qcr/results/stage8_paper_tables",
+    "inode": 2299958854409,
+    "device": 178
+  },
+  {
+    "old": "results/stage9_qcr_u",
+    "new": "srb_qcr/results/stage9_qcr_u",
+    "inode": 2295857176345,
+    "device": 178
+  },
+  {
+    "old": "results/visualizations",
+    "new": "srb_qcr/results/visualizations",
+    "inode": 2301180016390,
+    "device": 178
+  },
+  {
+    "old": "runs/analysis",
+    "new": "srb_qcr/runs/analysis",
+    "inode": 2358830994949,
+    "device": 178
+  },
+  {
+    "old": "runs/stage10_mvtecad2_patchcore",
+    "new": "srb_qcr/runs/stage10_mvtecad2_patchcore",
+    "inode": 2353090515477,
+    "device": 178
+  },
+  {
+    "old": "runs/stage11_mvtecad2_multicategory",
+    "new": "srb_qcr/runs/stage11_mvtecad2_multicategory",
+    "inode": 2329032501536,
+    "device": 178
+  },
+  {
+    "old": "runs/stage14_strong_vlm_baselines",
+    "new": "srb_qcr/runs/stage14_strong_vlm_baselines",
+    "inode": 2522512630787,
+    "device": 178
+  },
+  {
+    "old": "runs/stage15_modern_detector_baselines",
+    "new": "srb_qcr/runs/stage15_modern_detector_baselines",
+    "inode": 2504892933889,
+    "device": 178
+  },
+  {
+    "old": "runs/stage17_defensive_sensitivity",
+    "new": "srb_qcr/runs/stage17_defensive_sensitivity",
+    "inode": 2332971106845,
+    "device": 178
+  },
+  {
+    "old": "runs/stage19_efficientad100_sensitivity",
+    "new": "srb_qcr/runs/stage19_efficientad100_sensitivity",
+    "inode": 2385257035781,
+    "device": 178
+  },
+  {
+    "old": "runs/stage22_selective_qcr",
+    "new": "srb_qcr/runs/stage22_selective_qcr",
+    "inode": 2309879792408,
+    "device": 178
+  },
+  {
+    "old": "runs/stage24_evidence",
+    "new": "evidence_fusion/runs/stage24_evidence",
+    "inode": 2595712265218,
+    "device": 178
+  },
+  {
+    "old": "runs/stage7_generalization",
+    "new": "srb_qcr/runs/stage7_generalization",
+    "inode": 2490559959041,
+    "device": 178
+  },
+  {
+    "old": "logs/archive",
+    "new": "srb_qcr/logs/archive",
+    "inode": 2338073393421,
+    "device": 178
+  },
+  {
+    "old": "logs/stage15_d_efficientad_fixed_budget_primary4_epoch30.log",
+    "new": "srb_qcr/logs/stage15_d_efficientad_fixed_budget_primary4_epoch30.log",
+    "inode": 2263463459615,
+    "device": 178
+  },
+  {
+    "old": "logs/stage15_d_efficientad_fixed_budget_probe.log",
+    "new": "srb_qcr/logs/stage15_d_efficientad_fixed_budget_probe.log",
+    "inode": 2331422352669,
+    "device": 178
+  },
+  {
+    "old": "logs/stage17_a_efficientad100_fruit_jelly.log",
+    "new": "srb_qcr/logs/stage17_a_efficientad100_fruit_jelly.log",
+    "inode": 2265023924511,
+    "device": 178
+  },
+  {
+    "old": "logs/stage20_c3_anomalyclip_single_image_smoke.log",
+    "new": "srb_qcr/logs/stage20_c3_anomalyclip_single_image_smoke.log",
+    "inode": 2293760773407,
+    "device": 178
+  },
+  {
+    "old": "logs/stage20_d_anomalyclip_ad2four_full.log",
+    "new": "srb_qcr/logs/stage20_d_anomalyclip_ad2four_full.log",
+    "inode": 2361831944477,
+    "device": 178
+  },
+  {
+    "old": "paper",
+    "new": "srb_qcr/paper",
+    "inode": 2443041169422,
+    "device": 178
+  },
+  {
+    "old": "SRB_QCR_Final_Package.zip",
+    "new": "srb_qcr/archives/SRB_QCR_Final_Package.zip",
+    "inode": 2477834742804,
+    "device": 178
+  },
+  {
+    "old": "ad2_model_zoo_sources.tar.gz",
+    "new": "ad2_model_zoo/archives/ad2_model_zoo_sources.tar.gz",
+    "inode": 2817978903060,
+    "device": 178
+  },
+  {
+    "old": "experiments/glass_env",
+    "new": "ad2_model_zoo/envs/GLASS",
+    "inode": 2609348082946,
+    "device": 178
+  },
+  {
+    "old": "experiments/glass_official_f788d56",
+    "new": "ad2_model_zoo/repos/GLASS",
+    "inode": 2806300414228,
+    "device": 178
+  },
+  {
+    "old": "experiments/glass_wheels",
+    "new": "ad2_model_zoo/dependencies/GLASS_wheels",
+    "inode": 2849884219920,
+    "device": 178
+  },
+  {
+    "old": "experiments/glass_source.tar.gz",
+    "new": "ad2_model_zoo/archives/glass_source.tar.gz",
+    "inode": 2768991736602,
+    "device": 178
+  },
+  {
+    "old": "experiments/glass_wheels.tar.gz",
+    "new": "ad2_model_zoo/archives/glass_wheels.tar.gz",
+    "inode": 2769007954714,
+    "device": 178
+  },
+  {
+    "old": "orbitad/superadd_source.tar.gz",
+    "new": "orbitad/archives/superadd_source.tar.gz",
+    "inode": 2586898386200,
+    "device": 178
+  }
+]

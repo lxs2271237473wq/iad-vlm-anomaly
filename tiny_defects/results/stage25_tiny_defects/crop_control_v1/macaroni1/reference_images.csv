@@ -1,0 +1,9 @@
+image_id,dataset,category,original_split,role,path,width,height
+006976a37f7fd9cc547bcca6,VisA,macaroni1,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/macaroni1/Data/Images/Normal/0547.JPG,1500,1000
+006fbc35271ec7704ec07367,VisA,macaroni1,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/macaroni1/Data/Images/Normal/0364.JPG,1500,1000
+00ab8c2f74580891d3b2d83e,VisA,macaroni1,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/macaroni1/Data/Images/Normal/0986.JPG,1500,1000
+00fcb1a5db4e82293a9fe8f3,VisA,macaroni1,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/macaroni1/Data/Images/Normal/0702.JPG,1500,1000
+012b711576d87a01913b4926,VisA,macaroni1,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/macaroni1/Data/Images/Normal/0245.JPG,1500,1000
+013ee3bb941194bac71b74ab,VisA,macaroni1,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/macaroni1/Data/Images/Normal/0058.JPG,1500,1000
+014fbb7d80fb754ee15bf8dd,VisA,macaroni1,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/macaroni1/Data/Images/Normal/0707.JPG,1500,1000
+0165115b1071d5983f371160,VisA,macaroni1,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/macaroni1/Data/Images/Normal/0791.JPG,1500,1000

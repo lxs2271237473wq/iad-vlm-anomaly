@@ -1,0 +1,1 @@
+../../../scripts/a7_evaluate_relational.py

@@ -1,0 +1,16 @@
+{
+  "category": "carpet",
+  "num_test_images": 117,
+  "num_normal": 28,
+  "num_anomaly": 89,
+  "image_auroc": 0.9907704654895666,
+  "image_ap": 0.9974808185873639,
+  "num_candidate_rows": 172,
+  "num_images_with_candidates": 117,
+  "candidate_coverage_rate": 1.0,
+  "threshold_quantile": 0.97,
+  "top_components": 3,
+  "min_area": 20,
+  "image_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/carpet/patchcore_image_predictions.csv",
+  "candidate_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/carpet/candidate_regions.csv"
+}

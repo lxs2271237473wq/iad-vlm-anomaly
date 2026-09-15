@@ -1,0 +1,2 @@
+category,num_test_images,num_normal,num_anomaly,image_auroc,image_ap,num_candidate_rows,num_images_with_candidates,candidate_coverage_rate,threshold_quantile,top_components,min_area,image_csv,candidate_csv
+zipper,151,32,119,0.9900210084033614,0.9974809062551003,243,151,1.0,0.97,3,20,results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/zipper/patchcore_image_predictions.csv,results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/zipper/candidate_regions.csv

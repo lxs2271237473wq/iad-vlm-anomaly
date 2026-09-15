@@ -1,0 +1,29 @@
+file,max_epochs,precision,train_batch_size,eval_batch_size,num_workers
+experiments/stage7_generalization/progress_utils.py,1,,,,
+experiments/stage10_dataset_expansion/refresh_stage10_f_context_summary.py,,tp / (np.arange(len(y_sorted)) + 1),,,
+experiments/stage10_dataset_expansion/build_stage10_g_mvtecad2_vial_conclusion.py,,tp / (np.arange(len(y_sorted)) + 1),,,
+experiments/stage10_dataset_expansion/build_mvtecad2_folder_dataset.py,,,1,1,0
+experiments/stage10_dataset_expansion/run_stage10_e_vlm_full_vs_crop.py,,tp / (np.arange(len(y_sorted)) + 1),,,
+experiments/stage10_dataset_expansion/run_stage10_f_multiscale_context_crop.py,,tp / (np.arange(len(y_sorted)) + 1),,,
+experiments/stage11_mvtecad2_multicategory/run_stage11_d_vlm_full_vs_context.py,,tp / (np.arange(len(y_sorted)) + 1),,,
+experiments/stage14_strong_vlm_baselines/run_stage14_d_winclip_fruit_jelly_sensitivity.py,,,8,8,0
+experiments/stage14_strong_vlm_baselines/run_stage14_e_winclip_primary_fixed_protocol.py,,,8,8,0
+experiments/stage15_modern_detector_baselines/run_stage15_b_efficientad_fruit_jelly_pilot.py,20,,,,
+experiments/stage15_modern_detector_baselines/build_stage15_c_fruit_jelly_modern_baseline_comparison.py,20,,1,,
+experiments/stage15_modern_detector_baselines/run_stage15_d_efficientad_primary_fixed_protocol.py,,CONFIG[,1,,8
+experiments/stage15_modern_detector_baselines/run_stage15_d_efficientad_primary_fixed_budget.py,,args.precision,1,,
+experiments/analysis/defect_type_prompt_reasoning.py,,tp / (tp + fp) if (tp + fp) > 0 else 0.0,,,
+experiments/analysis/defect_type_visual_prompt_refinement.py,,tp / (tp + fp) if (tp + fp) > 0 else 0.0,,,
+experiments/analysis/real_anomaly_crop_visual_prompt_reasoning.py,,tp / (tp + fp) if (tp + fp) > 0 else 0.0,,,
+experiments/analysis/defect_type_prompt_reasoning_crop.py,,tp / (tp + fp) if (tp + fp) > 0 else 0.0,,,
+experiments/analysis/defect_type_prompt_reasoning_gt_crop.py,,tp / (tp + fp) if (tp + fp) > 0 else 0.0,,,
+experiments/stage9_qcr_u/run_stage9_a1_qcr_u_fusion.py,,tp / (np.arange(len(y_sorted)) + 1),,,
+experiments/stage9_qcr_u/run_stage9_a3_qcr_u_debias_check.py,,tp / (np.arange(len(y_sorted)) + 1),,,
+experiments/stage9_qcr_u/run_stage9_a2_qcr_u_sanity_check.py,,tp / (np.arange(len(y_sorted)) + 1),,,
+configs/first_baselines.yaml,,,16,16,8
+docs/stage15_modern_detector_baselines/stage15_d_efficientad_primary_fixed_budget_report.md,,`16-mixed`,1,,
+docs/stage15_modern_detector_baselines/stage15_c_fruit_jelly_modern_baseline_comparison.md,20,,1,,
+results/stage9_qcr_u/stage9_a0_input_structure.csv,,str | anomalib.PrecisionType = <PrecisionType.FLOAT32:,,,
+results/stage9_qcr_u/stage9_a0_input_structure_report.md,,str | anomalib.PrecisionType = <PrecisionType.FLOAT32:,,,
+results/stage15_modern_detector_baselines/stage15_c_fruit_jelly_modern_baseline_comparison.csv,20,,1,,
+results/stage7_generalization/multibackbone_availability/anomalib_model_availability.csv,,str | anomalib.PrecisionType = <PrecisionType.FLOAT32:,,,

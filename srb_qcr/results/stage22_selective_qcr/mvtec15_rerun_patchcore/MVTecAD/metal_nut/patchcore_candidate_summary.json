@@ -1,0 +1,16 @@
+{
+  "category": "metal_nut",
+  "num_test_images": 115,
+  "num_normal": 22,
+  "num_anomaly": 93,
+  "image_auroc": 0.9975562072336266,
+  "image_ap": 0.9994513934606101,
+  "num_candidate_rows": 226,
+  "num_images_with_candidates": 115,
+  "candidate_coverage_rate": 1.0,
+  "threshold_quantile": 0.97,
+  "top_components": 3,
+  "min_area": 20,
+  "image_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/metal_nut/patchcore_image_predictions.csv",
+  "candidate_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/metal_nut/candidate_regions.csv"
+}

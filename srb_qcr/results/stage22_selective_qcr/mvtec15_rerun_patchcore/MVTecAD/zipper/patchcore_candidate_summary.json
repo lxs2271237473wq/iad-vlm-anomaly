@@ -1,0 +1,16 @@
+{
+  "category": "zipper",
+  "num_test_images": 151,
+  "num_normal": 32,
+  "num_anomaly": 119,
+  "image_auroc": 0.9900210084033614,
+  "image_ap": 0.9974809062551003,
+  "num_candidate_rows": 243,
+  "num_images_with_candidates": 151,
+  "candidate_coverage_rate": 1.0,
+  "threshold_quantile": 0.97,
+  "top_components": 3,
+  "min_area": 20,
+  "image_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/zipper/patchcore_image_predictions.csv",
+  "candidate_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/zipper/candidate_regions.csv"
+}

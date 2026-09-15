@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "images": 1462,
+  "anomalous_images": 800,
+  "tiny_instances": 2018,
+  "gate_passed": true,
+  "gate_value": 0.9177013044572128,
+  "limitations": "Source-fit feasibility only; GT coverage not detection recall; fixed teacher and budgets; exact connected regions are not guaranteed physical instances."
+}

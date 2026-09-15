@@ -1,0 +1,9 @@
+category,FPR_at_TPR95,achieved_TPR,threshold,note
+can,0.9861111111111112,0.9555555555555556,-1.5195107975351598,test-label ROC diagnostic only; not deployment threshold
+fabric,0.6515151515151515,0.9555555555555556,-0.1047838275564749,test-label ROC diagnostic only; not deployment threshold
+fruit_jelly,0.4,0.95,0.0934810980171543,test-label ROC diagnostic only; not deployment threshold
+rice,0.7857142857142857,0.9555555555555556,-0.7442992247751516,test-label ROC diagnostic only; not deployment threshold
+sheet_metal,0.875,0.9555555555555556,-0.4344151849147453,test-label ROC diagnostic only; not deployment threshold
+vial,0.7142857142857143,0.9523809523809523,-0.1379346217289113,test-label ROC diagnostic only; not deployment threshold
+wallplugs,0.9,0.9555555555555556,-0.6830079195374322,test-label ROC diagnostic only; not deployment threshold
+walnuts,0.6833333333333333,0.9555555555555556,0.0799659607055235,test-label ROC diagnostic only; not deployment threshold

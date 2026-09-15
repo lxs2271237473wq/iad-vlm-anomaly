@@ -1,0 +1,7 @@
+mode,repeat,vlm_calls,eval_crops,elapsed_sec,peak_gpu_mib
+full,1,243,502,297.023,602.2
+selective,1,182,397,240.746,602.2
+selective,2,182,397,232.422,602.2
+full,2,243,502,287.022,602.2
+full,3,243,502,287.431,602.2
+selective,3,182,397,243.133,602.2

@@ -1,0 +1,1 @@
+../../../scripts/a9_evaluate_diagnostic.py

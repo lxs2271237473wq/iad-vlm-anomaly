@@ -1,0 +1,5 @@
+{
+  "status": "complete",
+  "protocol": "Fixed C=1 two-score logistic versus one-score logistic. Category-held-out scaler and training. Eight source-fit categories only.",
+  "limitations": "Uses source image labels; exploratory fixed precomputed predictions; no target/new backbone tuning; ordinary fusion is not novelty."
+}

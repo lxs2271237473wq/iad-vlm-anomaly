@@ -1,0 +1,32 @@
+[
+  {
+    "model": "linear_42",
+    "final_batch_loss": 0.41749733686447144,
+    "epochs": 20
+  },
+  {
+    "model": "linear_123",
+    "final_batch_loss": 0.3036308288574219,
+    "epochs": 20
+  },
+  {
+    "model": "linear_2026",
+    "final_batch_loss": 0.33030974864959717,
+    "epochs": 20
+  },
+  {
+    "model": "mlp_42",
+    "final_batch_loss": 0.10225941240787506,
+    "epochs": 20
+  },
+  {
+    "model": "mlp_123",
+    "final_batch_loss": 0.07230371981859207,
+    "epochs": 20
+  },
+  {
+    "model": "mlp_2026",
+    "final_batch_loss": 0.07771314680576324,
+    "epochs": 20
+  }
+]

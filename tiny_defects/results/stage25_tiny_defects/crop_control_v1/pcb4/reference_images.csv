@@ -1,0 +1,9 @@
+image_id,dataset,category,original_split,role,path,width,height
+0004e7d4b3616fab23ab1947,VisA,pcb4,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/pcb4/Data/Images/Normal/0028.JPG,1358,1104
+001e904e67eaa84ce06b34c2,VisA,pcb4,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/pcb4/Data/Images/Normal/0362.JPG,1358,1104
+004a742a52dedce3bd7edce3,VisA,pcb4,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/pcb4/Data/Images/Normal/0828.JPG,1358,1104
+0093e2d53f7a4bca92e40de6,VisA,pcb4,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/pcb4/Data/Images/Normal/0395.JPG,1358,1104
+010195a0aaa8ec86300b3222,VisA,pcb4,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/pcb4/Data/Images/Normal/0978.JPG,1358,1104
+021844263bd9c1cb4ec39043,VisA,pcb4,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/pcb4/Data/Images/Normal/0634.JPG,1358,1104
+0260218752200f372710c942,VisA,pcb4,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/pcb4/Data/Images/Normal/0037.JPG,1358,1104
+030d34822d6783fe7b209090,VisA,pcb4,train,normal_reference,/root/private_data/iad-vlm-anomaly/datasets/VisA/pcb4/Data/Images/Normal/0110.JPG,1358,1104

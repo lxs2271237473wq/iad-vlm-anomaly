@@ -1,0 +1,16 @@
+{
+  "category": "grid",
+  "num_test_images": 78,
+  "num_normal": 21,
+  "num_anomaly": 57,
+  "image_auroc": 0.9782790309106099,
+  "image_ap": 0.9934625348486719,
+  "num_candidate_rows": 167,
+  "num_images_with_candidates": 78,
+  "candidate_coverage_rate": 1.0,
+  "threshold_quantile": 0.97,
+  "top_components": 3,
+  "min_area": 20,
+  "image_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/grid/patchcore_image_predictions.csv",
+  "candidate_csv": "results/stage22_selective_qcr/mvtec15_rerun_patchcore/MVTecAD/grid/candidate_regions.csv"
+}

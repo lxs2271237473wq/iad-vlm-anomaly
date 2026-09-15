@@ -1,0 +1,72 @@
+experiment:
+  name: a3_0_resolution_loss_audit
+  seed: 20260913
+
+dataset:
+  root: /root/private_data/iad-vlm-anomaly/datasets/MVTec_AD_2
+
+  categories:
+    - can
+    - fabric
+    - fruit_jelly
+    - rice
+    - sheet_metal
+    - vial
+    - wallplugs
+    - walnuts
+
+protocol:
+  train_split: train/good
+  validation_split: validation/good
+  public_good_manifest: orbitad/data/manifests/test_public_good.csv
+  public_bad_manifest: orbitad/data/manifests/test_public_bad.csv
+
+  train_regular_only: true
+  use_public_for_training: false
+  use_test_gt_for_threshold_selection: false
+  full_frame_resize: true
+  center_crop: false
+
+model:
+  name: vit_base_patch16_dinov3.lvd1689m
+  frozen: true
+  patch_size: 16
+
+resolutions:
+  - 256
+  - 512
+  - 1024
+
+memory:
+  sampled_patches_per_train_image: 256
+  max_patches_per_category: 32768
+  metric: cosine
+  deterministic: true
+
+scoring:
+  image_topk: 10
+
+evaluation:
+  pixel_metrics:
+    - pixel_auroc
+    - aupro_0_05
+    - segf1
+
+  segmentation_threshold:
+    source: validation_normal
+    quantile: 0.995
+
+  defect_size:
+    mode: data_quantile
+    quantiles:
+      - 0.25
+      - 0.50
+      - 0.75
+
+  border_bins_px:
+    - 0
+    - 32
+    - 64
+
+output:
+  root: orbitad/results/a3_resolution_audit

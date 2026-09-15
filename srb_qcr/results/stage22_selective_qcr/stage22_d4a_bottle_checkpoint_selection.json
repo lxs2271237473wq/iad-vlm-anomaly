@@ -1,0 +1,5 @@
+{
+  "decision": "checkpoint_reuse_not_yet_validated",
+  "selected_checkpoint": null,
+  "reason": "No bottle checkpoint reproduced the locked summary AUROC within 0.0020."
+}

@@ -1,0 +1,1 @@
+../../../scripts/a2_quantify_synthetic_alignment.py
