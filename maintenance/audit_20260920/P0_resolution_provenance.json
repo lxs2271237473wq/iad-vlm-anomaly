@@ -1,0 +1,29 @@
+{
+  "ad2_model_zoo/logs/a45_superad_reg4_public.log": [
+    "CATEGORY_START can 2026-09-17T13:44:38+08:00",
+    "Smaller edge size: 672",
+    "CATEGORY_START fabric 2026-09-17T14:40:11+08:00",
+    "Smaller edge size: 672",
+    "CATEGORY_START fruit_jelly 2026-09-17T15:39:05+08:00",
+    "Smaller edge size: 672",
+    "CATEGORY_START rice 2026-09-17T16:20:10+08:00",
+    "Smaller edge size: 672",
+    "CATEGORY_START sheet_metal 2026-09-17T17:24:23+08:00",
+    "Smaller edge size: 448",
+    "A45_INFERENCE_COMPLETE"
+  ],
+  "ad2_model_zoo/logs/a45_superad_reg4_aux.log": [
+    "AUX_CATEGORY_START walnuts 2026-09-17T14:47:04+08:00",
+    "Smaller edge size: 672",
+    "AUX_CATEGORY_START wallplugs 2026-09-17T15:51:52+08:00",
+    "Smaller edge size: 672",
+    "AUX_CATEGORY_START vial 2026-09-17T16:49:31+08:00",
+    "Smaller edge size: 672"
+  ],
+  "orbitad/logs/a71_mvtec_cable_train_normal_dual_resolution.log": [
+    "Resolution for cable: 448",
+    "Smaller edge size: 448",
+    "A71_INFERENCE_COMPLETE"
+  ],
+  "finding": "A69 global test maps use A45 at 672 for seven categories, but normal global q99 is from A67 at 448. Only sheet_metal uses matching A60 global component. Historical 448 labels in A66 A69 A70 are incorrect."
+}

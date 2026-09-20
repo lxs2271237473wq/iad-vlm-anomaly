@@ -1,0 +1,152 @@
+{
+  "time": "2026-09-20T13:14:20.193158",
+  "meta_columns": [
+    "map_index",
+    "set_type",
+    "label",
+    "category",
+    "instance_id",
+    "condition",
+    "image_path",
+    "mask_path"
+  ],
+  "n_public": 1084,
+  "by_category": {
+    "can": {
+      "n": 162,
+      "labels": {
+        "0": 72,
+        "1": 90
+      },
+      "conditions": [
+        "overexposed",
+        "regular",
+        "shift_1",
+        "shift_2",
+        "shift_3",
+        "underexposed"
+      ],
+      "normal_validation": 46
+    },
+    "fabric": {
+      "n": 156,
+      "labels": {
+        "0": 66,
+        "1": 90
+      },
+      "conditions": [
+        "overexposed",
+        "regular",
+        "shift_1",
+        "shift_2",
+        "shift_3",
+        "underexposed"
+      ],
+      "normal_validation": 43
+    },
+    "fruit_jelly": {
+      "n": 80,
+      "labels": {
+        "0": 20,
+        "1": 60
+      },
+      "conditions": [
+        "overexposed",
+        "regular",
+        "shift_1",
+        "underexposed"
+      ],
+      "normal_validation": 37
+    },
+    "rice": {
+      "n": 132,
+      "labels": {
+        "0": 42,
+        "1": 90
+      },
+      "conditions": [
+        "overexposed",
+        "regular",
+        "shift_1",
+        "shift_2",
+        "shift_3",
+        "underexposed"
+      ],
+      "normal_validation": 35
+    },
+    "sheet_metal": {
+      "n": 114,
+      "labels": {
+        "0": 24,
+        "1": 90
+      },
+      "conditions": [
+        "overexposed",
+        "regular",
+        "shift_1",
+        "shift_2",
+        "shift_3",
+        "underexposed"
+      ],
+      "normal_validation": 19
+    },
+    "vial": {
+      "n": 140,
+      "labels": {
+        "0": 35,
+        "1": 105
+      },
+      "conditions": [
+        "overexposed",
+        "regular",
+        "shift_1",
+        "shift_2",
+        "shift_3",
+        "shift_4",
+        "underexposed"
+      ],
+      "normal_validation": 41
+    },
+    "wallplugs": {
+      "n": 150,
+      "labels": {
+        "0": 60,
+        "1": 90
+      },
+      "conditions": [
+        "overexposed",
+        "regular",
+        "shift_1",
+        "shift_2",
+        "shift_3",
+        "underexposed"
+      ],
+      "normal_validation": 33
+    },
+    "walnuts": {
+      "n": 150,
+      "labels": {
+        "0": 60,
+        "1": 90
+      },
+      "conditions": [
+        "overexposed",
+        "regular",
+        "shift_1",
+        "shift_2",
+        "shift_3",
+        "underexposed"
+      ],
+      "normal_validation": 48
+    }
+  },
+  "a73_markers": [],
+  "hashes": {
+    "work/stage25/a69_normal_calibrated_multires_fusion.py": "9b135f64448c1b80a7275d1381f6f67ffe7376b21c0a36844aaae8ede65e12df",
+    "work/stage25/a70_a69_paired_audit.py": "1c4d1939f684d44e4a3022ff53316b627b37743cce10419758a102b173f1b8aa",
+    "work/stage25/a72_evaluate_frozen_q99_mean_cable.py": "d71a0a02e4adb50e7911723803e088d4e9d6afb925e7b0df0e93cd84aeacaee7",
+    "work/stage25/run_a73_mvtec14_dual_resolution.sh": "1ffc2327e65d8b7d5b0d5f9a42fde4018810868687a0ec03682700278269c446",
+    "ad2_model_zoo/repos/SuperAD/src/detection.py": "1ca7cb2c12e1c7cdfcbfdaa03604381eccc5837fd8dccbbea34af060d2b73780",
+    "ad2_model_zoo/repos/SuperAD/src/sampler.py": "6af467d73566117ba15182717d7fdd776297d7a7b8675d789d00f0067ac8c27c"
+  }
+}

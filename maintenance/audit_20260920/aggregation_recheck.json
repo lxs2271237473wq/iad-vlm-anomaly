@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "scope": "CSV-to-summary arithmetic only; does not validate map provenance",
+  "values": {
+    "global": 0.5697546763660257,
+    "tiled": 0.5797526114484418,
+    "q99_mean": 0.6024190456874704,
+    "q99_geomean": 0.6021816772827908,
+    "q99_harmonic": 0.6016330693590637,
+    "q99_positive_025": 0.5841327958156937,
+    "q99_positive_050": 0.5932505115224953,
+    "tail_mean": 0.5949860802185425,
+    "tail_geomean": 0.5648803233245588
+  }
+}

@@ -176,3 +176,29 @@ ad2_model_zoo/dependencies/
 ad2_model_zoo/repos/
 maintenance/organization_20260915/code_before/
 orbitad/third_party/SuperADD
+
+# ============================================================
+# Local workspaces, downloads, archives and model-zoo runtime
+# ============================================================
+work/
+downloads/
+backups/
+**/archives/
+ad2_model_zoo/results/
+ad2_model_zoo/logs/
+
+# Large numeric/runtime artifacts are reproducible from scripts.
+*.npy
+*.npz
+*.joblib
+*.pkl
+*.pickle
+*.tif
+*.tiff
+*.pid
+*.lock
+
+# Keep external source checkouts local. Only runners/configs are versioned.
+**/third_party/
+!third_party/
+!third_party/README.md

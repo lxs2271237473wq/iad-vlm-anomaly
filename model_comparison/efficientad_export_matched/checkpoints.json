@@ -1,0 +1,38 @@
+[
+  {
+    "category": "fruit_jelly",
+    "checkpoint": "/root/private_data/iad-vlm-anomaly/srb_qcr/runs/stage17_defensive_sensitivity/efficientad100_fruit_jelly/fruit_jelly/EfficientAd/ad2_fruit_jelly_efficientad_fixed_budget/v0/weights/lightning/model.ckpt",
+    "sha256": "1179c49c6b2fe60022d5fdac9e05a9dda89021fdc19582d38523928613c3c85d",
+    "epoch": 99,
+    "images": 80,
+    "legacy_test": 80,
+    "seconds": 8.786072015762329
+  },
+  {
+    "category": "sheet_metal",
+    "checkpoint": "/root/private_data/iad-vlm-anomaly/srb_qcr/runs/stage19_efficientad100_sensitivity/efficientad100_full_four_categories/sheet_metal/EfficientAd/ad2_sheet_metal_efficientad_fixed_budget/v0/weights/lightning/model.ckpt",
+    "sha256": "d0a6ac34a23ce54b77f6a1406f85870912af6e72316557af3494e47f58ac281b",
+    "epoch": 99,
+    "images": 114,
+    "legacy_test": 114,
+    "seconds": 15.142691373825073
+  },
+  {
+    "category": "vial",
+    "checkpoint": "/root/private_data/iad-vlm-anomaly/srb_qcr/runs/stage19_efficientad100_sensitivity/efficientad100_full_four_categories/vial/EfficientAd/ad2_vial_efficientad_fixed_budget/v0/weights/lightning/model.ckpt",
+    "sha256": "6d52e4a696f1d789214cbbcbf2e8bf902c16af2b1a83a77f964f9193c99a7cf0",
+    "epoch": 99,
+    "images": 140,
+    "legacy_test": 140,
+    "seconds": 6.901910305023193
+  },
+  {
+    "category": "walnuts",
+    "checkpoint": "/root/private_data/iad-vlm-anomaly/srb_qcr/runs/stage19_efficientad100_sensitivity/efficientad100_full_four_categories/walnuts/EfficientAd/ad2_walnuts_efficientad_fixed_budget/v0/weights/lightning/model.ckpt",
+    "sha256": "fadd8c580142749252431cdb9c91ffb5ba9853be6077271a661ddf5d34b232da",
+    "epoch": 99,
+    "images": 150,
+    "legacy_test": 150,
+    "seconds": 48.654165744781494
+  }
+]

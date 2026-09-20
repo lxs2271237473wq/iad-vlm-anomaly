@@ -1,0 +1,26 @@
+[
+  {
+    "category": "fruit_jelly",
+    "n": 40,
+    "source": "Historical test visualization filenames -> original Folder test files -> SHA256 -> canonical AD2 public",
+    "visual_root": "/root/private_data/iad-vlm-anomaly/srb_qcr/runs/stage17_defensive_sensitivity/efficientad100_fruit_jelly/fruit_jelly/EfficientAd/ad2_fruit_jelly_efficientad_fixed_budget/v0/images"
+  },
+  {
+    "category": "sheet_metal",
+    "n": 57,
+    "source": "Historical test visualization filenames -> original Folder test files -> SHA256 -> canonical AD2 public",
+    "visual_root": "/root/private_data/iad-vlm-anomaly/srb_qcr/runs/stage19_efficientad100_sensitivity/efficientad100_full_four_categories/sheet_metal/EfficientAd/ad2_sheet_metal_efficientad_fixed_budget/v0/images"
+  },
+  {
+    "category": "vial",
+    "n": 71,
+    "source": "Historical test visualization filenames -> original Folder test files -> SHA256 -> canonical AD2 public",
+    "visual_root": "/root/private_data/iad-vlm-anomaly/srb_qcr/runs/stage19_efficientad100_sensitivity/efficientad100_full_four_categories/vial/EfficientAd/ad2_vial_efficientad_fixed_budget/v0/images"
+  },
+  {
+    "category": "walnuts",
+    "n": 75,
+    "source": "Historical test visualization filenames -> original Folder test files -> SHA256 -> canonical AD2 public",
+    "visual_root": "/root/private_data/iad-vlm-anomaly/srb_qcr/runs/stage19_efficientad100_sensitivity/efficientad100_full_four_categories/walnuts/EfficientAd/ad2_walnuts_efficientad_fixed_budget/v0/images"
+  }
+]
