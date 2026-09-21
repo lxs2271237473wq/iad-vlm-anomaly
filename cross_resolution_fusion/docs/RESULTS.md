@@ -3,12 +3,13 @@
 All AD2 values are category-condition macro averages. The localization metric
 is AU-PRO integrated over false-positive rates up to 0.05.
 
-## Primary AD2 result (A69/A70)
+## Primary AD2 result and module ablation (A69/A70/A75)
 
 | Method | All | Tiny <=0.1% | Small 0.1–1% | Large >1% |
 |---|---:|---:|---:|---:|
 | Global | 0.569755 | 0.543316 | 0.767137 | 0.642961 |
 | Tiled | 0.579753 | 0.561172 | 0.787014 | 0.653982 |
+| Raw mean | 0.601961 | 0.582495 | **0.790940** | **0.661366** |
 | q99 mean | **0.602419** | **0.582886** | 0.790099 | 0.659482 |
 | q99 geomean | 0.602182 | 0.582543 | 0.789412 | 0.659345 |
 | q99 harmonic | 0.601633 | 0.581812 | 0.788758 | 0.659095 |
@@ -19,6 +20,16 @@ category-bootstrap 95% CI of [0.007174, 0.063030] and 6/8 category wins. It
 improves over Tiled by 0.022666, with CI [0.002874, 0.042679] and 5/8 wins.
 For tiny defects, its improvement over Global is 0.039571, with CI
 [0.010247, 0.072058] and 6/8 wins.
+
+A75 completes the previously missing same-input ablation. Without q99
+calibration, raw mean already improves over Global by 0.032206 (95% CI
+[0.004758, 0.063724], 6/8 wins) and over Tiled by 0.022208 (95% CI
+[0.003041, 0.041624], 6/8 wins). Adding q99 calibration to the same two maps
+changes the overall score by only +0.000458, with CI [-0.001337, 0.002845]
+and 3/8 category wins. Therefore the statistically supported module is the
+cross-resolution fusion itself. q99 remains the highest AD2 point estimate,
+but its independent contribution is not established and it should be reported
+as an optional ablation rather than the source of the fusion gain.
 
 These are the primary AD2 results. The earlier report that excluded A69 due to
 a protocol mismatch was incorrect; the error was in the report description,
@@ -56,8 +67,10 @@ cross-resolution complementarity transfers more consistently to MVTec AD.
 
 ## Claim boundary
 
-The supported contribution is an AD2-focused normal-calibrated
-cross-resolution fusion method with statistically positive A69/A70 evidence,
-plus a cross-dataset analysis showing when calibration transfers and when
-simple averaging is sufficient. Claims of universal q99 superiority would go
-beyond the current evidence.
+The supported contribution is an AD2-focused cross-resolution fusion method:
+the same-input A75 ablation shows statistically positive complementarity over
+both component branches. Normal q99 calibration is an optional variant whose
+small AD2 point improvement is not statistically resolved. The cross-dataset
+analysis further shows that simple averaging transfers more consistently to
+MVTec AD. Claims that q99 calibration is necessary or universally superior
+would go beyond the current evidence.

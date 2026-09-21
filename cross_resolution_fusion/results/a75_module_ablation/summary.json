@@ -1,0 +1,279 @@
+{
+  "status": "complete",
+  "scope": "A69-identical component maps and evaluator; adds raw_mean only",
+  "formula": {
+    "raw_mean": "0.5 * (G + T)",
+    "q99_mean": "0.5 * (G/qG + T/qT)"
+  },
+  "images": 1084,
+  "summary": {
+    "all": {
+      "global": 0.5697546763660257,
+      "tiled": 0.5797526114484419,
+      "raw_mean": 0.6019606815977983,
+      "q99_mean": 0.6024190456874704
+    },
+    "tiny_le_0.1pct": {
+      "global": 0.5433157874948767,
+      "tiled": 0.5611720895252841,
+      "raw_mean": 0.5824951361614452,
+      "q99_mean": 0.5828864975968335
+    },
+    "small_0.1_to_1pct": {
+      "global": 0.7671372875663679,
+      "tiled": 0.7870139623167915,
+      "raw_mean": 0.7909398964656954,
+      "q99_mean": 0.7900988664074239
+    },
+    "large_gt_1pct": {
+      "global": 0.6429614739616921,
+      "tiled": 0.6539818834846605,
+      "raw_mean": 0.6613660184443422,
+      "q99_mean": 0.6594820985181141
+    }
+  },
+  "comparisons": {
+    "all": {
+      "raw_mean_minus_global": {
+        "mean_delta": 0.03220600523177265,
+        "bootstrap_95ci": [
+          0.004757901471119257,
+          0.06372401568520114
+        ],
+        "category_wins": 6,
+        "category_losses": 2,
+        "categories": 8,
+        "by_category": {
+          "can": -0.023182453545556175,
+          "fabric": 0.02175709581797247,
+          "fruit_jelly": 0.013745709736043166,
+          "rice": 0.04185076837640844,
+          "sheet_metal": 0.12482800220129042,
+          "vial": -0.013382418682418407,
+          "wallplugs": 0.05624947818480952,
+          "walnuts": 0.03578185976563175
+        }
+      },
+      "raw_mean_minus_tiled": {
+        "mean_delta": 0.022208070149356447,
+        "bootstrap_95ci": [
+          0.0030408128267309653,
+          0.04162405076986385
+        ],
+        "category_wins": 6,
+        "category_losses": 2,
+        "categories": 8,
+        "by_category": {
+          "can": 0.05204909219469504,
+          "fabric": 0.03720972062769401,
+          "fruit_jelly": 0.004434551926198016,
+          "rice": -0.00309038257544314,
+          "sheet_metal": 0.06544050284293557,
+          "vial": 0.03841311762089905,
+          "wallplugs": -0.016809129175692883,
+          "walnuts": 1.708773356590143e-05
+        }
+      },
+      "q99_mean_minus_raw_mean": {
+        "mean_delta": 0.00045836408967208503,
+        "bootstrap_95ci": [
+          -0.001337324838910206,
+          0.002844922288480177
+        ],
+        "category_wins": 3,
+        "category_losses": 5,
+        "categories": 8,
+        "by_category": {
+          "can": 0.007868053532565089,
+          "fabric": 5.657940032455233e-05,
+          "fruit_jelly": -0.00016404247054013776,
+          "rice": -0.0010816204211782088,
+          "sheet_metal": -0.0032846054738092656,
+          "vial": 0.0016686517247981314,
+          "wallplugs": -0.0013243505232581887,
+          "walnuts": -7.175305152529177e-05
+        }
+      }
+    },
+    "tiny_le_0.1pct": {
+      "raw_mean_minus_global": {
+        "mean_delta": 0.039179348666568484,
+        "bootstrap_95ci": [
+          0.008026892236809,
+          0.07273862329264462
+        ],
+        "category_wins": 6,
+        "category_losses": 2,
+        "categories": 8,
+        "by_category": {
+          "can": -0.023182453545556175,
+          "fabric": 0.022521802116148182,
+          "fruit_jelly": 0.019374823611868486,
+          "rice": 0.07429492322503184,
+          "sheet_metal": 0.1295180683279228,
+          "vial": -0.017101085765395818,
+          "wallplugs": 0.06455926709568516,
+          "walnuts": 0.043449444266843384
+        }
+      },
+      "raw_mean_minus_tiled": {
+        "mean_delta": 0.021323046636161254,
+        "bootstrap_95ci": [
+          -0.0031623291336546067,
+          0.04539471427202461
+        ],
+        "category_wins": 6,
+        "category_losses": 2,
+        "categories": 8,
+        "by_category": {
+          "can": 0.05204909219469504,
+          "fabric": 0.03913425308802043,
+          "fruit_jelly": 0.0009123948515046276,
+          "rice": -0.035209403240624715,
+          "sheet_metal": 0.07130165500524488,
+          "vial": 0.05414455403035101,
+          "wallplugs": -0.015509363146066324,
+          "walnuts": 0.003761190306165063
+        }
+      },
+      "q99_mean_minus_raw_mean": {
+        "mean_delta": 0.0003913614353883224,
+        "bootstrap_95ci": [
+          -0.0014973961332384461,
+          0.00286021137875115
+        ],
+        "category_wins": 3,
+        "category_losses": 5,
+        "categories": 8,
+        "by_category": {
+          "can": 0.007868053532565089,
+          "fabric": 6.129400071497315e-05,
+          "fruit_jelly": -0.00028770605709338426,
+          "rice": -0.0024799223954022898,
+          "sheet_metal": -0.002835945479490398,
+          "vial": 0.0022821622256444796,
+          "wallplugs": -0.0014034358117863688,
+          "walnuts": -7.360853204552154e-05
+        }
+      }
+    },
+    "small_0.1_to_1pct": {
+      "raw_mean_minus_global": {
+        "mean_delta": 0.02380260889932752,
+        "bootstrap_95ci": [
+          0.006387785945615653,
+          0.04180439895461526
+        ],
+        "category_wins": 5,
+        "category_losses": 2,
+        "categories": 7,
+        "by_category": {
+          "fabric": -0.000328354835003708,
+          "fruit_jelly": 0.006419022899795235,
+          "rice": 0.016664384904799934,
+          "sheet_metal": 0.0546677587812362,
+          "vial": -0.007542982054672298,
+          "wallplugs": 0.05135233471559164,
+          "walnuts": 0.04538609788354564
+        }
+      },
+      "raw_mean_minus_tiled": {
+        "mean_delta": 0.003925934148903846,
+        "bootstrap_95ci": [
+          -0.015159788908247722,
+          0.020366494818958265
+        ],
+        "category_wins": 5,
+        "category_losses": 2,
+        "categories": 7,
+        "by_category": {
+          "fabric": 0.0004036607116612023,
+          "fruit_jelly": 0.004168384886732657,
+          "rice": 0.025376890563980292,
+          "sheet_metal": 0.0227695455664243,
+          "vial": 0.030931373221186553,
+          "wallplugs": -0.044535671670378474,
+          "walnuts": -0.01163264423727961
+        }
+      },
+      "q99_mean_minus_raw_mean": {
+        "mean_delta": -0.0008410300582714399,
+        "bootstrap_95ci": [
+          -0.002433420185587961,
+          0.0003199422092132277
+        ],
+        "category_wins": 3,
+        "category_losses": 4,
+        "categories": 7,
+        "by_category": {
+          "fabric": 2.4345010475324003e-06,
+          "fruit_jelly": -7.850067616388401e-05,
+          "rice": 7.027462423014885e-05,
+          "sheet_metal": -0.00503225248606598,
+          "vial": 0.0011607265952475743,
+          "wallplugs": -0.0018847256027241244,
+          "walnuts": -0.00012516736347134572
+        }
+      }
+    },
+    "large_gt_1pct": {
+      "raw_mean_minus_global": {
+        "mean_delta": 0.018404544482649967,
+        "bootstrap_95ci": [
+          -0.003851435074306377,
+          0.049520529256481836
+        ],
+        "category_wins": 5,
+        "category_losses": 2,
+        "categories": 7,
+        "by_category": {
+          "fabric": 0.020901357525695663,
+          "fruit_jelly": -0.007953959788341236,
+          "rice": 0.0017172094548352224,
+          "sheet_metal": 0.10334120767286348,
+          "vial": -0.018221009718862702,
+          "wallplugs": 0.02204624883423356,
+          "walnuts": 0.007000757398125779
+        }
+      },
+      "raw_mean_minus_tiled": {
+        "mean_delta": 0.007384134959681773,
+        "bootstrap_95ci": [
+          -0.014291610439863727,
+          0.022918469452689976
+        ],
+        "category_wins": 6,
+        "category_losses": 1,
+        "categories": 7,
+        "by_category": {
+          "fabric": 0.016279806734056324,
+          "fruit_jelly": 0.024941402409388136,
+          "rice": 0.0013080720168789917,
+          "sheet_metal": -0.05142733220352125,
+          "vial": 0.03346663399521138,
+          "wallplugs": 0.01828185441821839,
+          "walnuts": 0.008838507347540436
+        }
+      },
+      "q99_mean_minus_raw_mean": {
+        "mean_delta": -0.0018839199262280742,
+        "bootstrap_95ci": [
+          -0.00650268114405247,
+          0.0007535065057041046
+        ],
+        "category_wins": 3,
+        "category_losses": 4,
+        "categories": 7,
+        "by_category": {
+          "fabric": -3.071371212937102e-05,
+          "fruit_jelly": 0.00042040403209242516,
+          "rice": -1.5853107121599486e-05,
+          "sheet_metal": -0.015268081253268284,
+          "vial": 0.0017884280719858148,
+          "wallplugs": -8.836146140389634e-05,
+          "walnuts": 6.737946248391857e-06
+        }
+      }
+    }
+  }
+}
