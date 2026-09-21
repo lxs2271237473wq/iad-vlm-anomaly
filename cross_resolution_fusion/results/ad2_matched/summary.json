@@ -1,0 +1,244 @@
+{
+  "summary": {
+    "global": {
+      "all": 0.5251325509771326,
+      "tiny_le_0.1pct": 0.49083692924310135,
+      "small_0.1_to_1pct": 0.7673369368144093,
+      "large_gt_1pct": 0.6457505584597695
+    },
+    "tiled": {
+      "all": 0.5797526114484419,
+      "tiny_le_0.1pct": 0.5611720895252841,
+      "small_0.1_to_1pct": 0.7870139623167915,
+      "large_gt_1pct": 0.6539818834846605
+    },
+    "raw_mean": {
+      "all": 0.584005496200416,
+      "tiny_le_0.1pct": 0.561071310909203,
+      "small_0.1_to_1pct": 0.8013573629840695,
+      "large_gt_1pct": 0.6693791085792927
+    },
+    "q99_mean": {
+      "all": 0.5835453442785106,
+      "tiny_le_0.1pct": 0.5604179579437822,
+      "small_0.1_to_1pct": 0.8003331818501426,
+      "large_gt_1pct": 0.6674136594706558
+    },
+    "q99_geomean": {
+      "all": 0.5820905816753191,
+      "tiny_le_0.1pct": 0.5584501545401969,
+      "small_0.1_to_1pct": 0.8006799615501963,
+      "large_gt_1pct": 0.6666102604787258
+    },
+    "q99_harmonic": {
+      "all": 0.5805656324458937,
+      "tiny_le_0.1pct": 0.5563147672197861,
+      "small_0.1_to_1pct": 0.8009049577954708,
+      "large_gt_1pct": 0.6656792038822201
+    },
+    "q99_positive_025": {
+      "all": 0.5423253770885675,
+      "tiny_le_0.1pct": 0.5112946842295645,
+      "small_0.1_to_1pct": 0.7768994065605221,
+      "large_gt_1pct": 0.6540027325436856
+    },
+    "q99_positive_050": {
+      "all": 0.5588799900279613,
+      "tiny_le_0.1pct": 0.5317513019290957,
+      "small_0.1_to_1pct": 0.7838619754218359,
+      "large_gt_1pct": 0.659096407081397
+    },
+    "tail_mean": {
+      "all": 0.5877672279965798,
+      "tiny_le_0.1pct": 0.5655407936522876,
+      "small_0.1_to_1pct": 0.8002616357666865,
+      "large_gt_1pct": 0.6708929776623139
+    },
+    "tail_geomean": {
+      "all": 0.5586269583658799,
+      "tiny_le_0.1pct": 0.5304267094024989,
+      "small_0.1_to_1pct": 0.7960203447868379,
+      "large_gt_1pct": 0.6545437441108336
+    }
+  },
+  "delta_vs_global": {
+    "global": 0.0,
+    "tiled": 0.054620060471309295,
+    "raw_mean": 0.058872945223283346,
+    "q99_mean": 0.05841279330137794,
+    "q99_geomean": 0.0569580306981865,
+    "q99_harmonic": 0.055433081468761025,
+    "q99_positive_025": 0.01719282611143491,
+    "q99_positive_050": 0.033747439050828665,
+    "tail_mean": 0.06263467701944714,
+    "tail_geomean": 0.033494407388747316
+  },
+  "ranking": [
+    {
+      "method": "tail_mean",
+      "aupro_0_05": 0.5877672279965798
+    },
+    {
+      "method": "raw_mean",
+      "aupro_0_05": 0.584005496200416
+    },
+    {
+      "method": "q99_mean",
+      "aupro_0_05": 0.5835453442785106
+    },
+    {
+      "method": "q99_geomean",
+      "aupro_0_05": 0.5820905816753191
+    },
+    {
+      "method": "q99_harmonic",
+      "aupro_0_05": 0.5805656324458937
+    },
+    {
+      "method": "tiled",
+      "aupro_0_05": 0.5797526114484419
+    },
+    {
+      "method": "q99_positive_050",
+      "aupro_0_05": 0.5588799900279613
+    },
+    {
+      "method": "tail_geomean",
+      "aupro_0_05": 0.5586269583658799
+    },
+    {
+      "method": "q99_positive_025",
+      "aupro_0_05": 0.5423253770885675
+    },
+    {
+      "method": "global",
+      "aupro_0_05": 0.5251325509771326
+    }
+  ],
+  "comparisons": {
+    "raw_mean_vs_global": {
+      "mean_delta": 0.058872945223283395,
+      "paired_category_bootstrap_95ci": [
+        0.025116143489021987,
+        0.09316846028352896
+      ],
+      "wins": 7,
+      "losses": 1,
+      "ties": 0,
+      "by_category": {
+        "can": -0.016206645317810853,
+        "fabric": 0.0792472251030556,
+        "fruit_jelly": 0.03991121604419967,
+        "rice": 0.06829426176782827,
+        "sheet_metal": 0.12482793335524056,
+        "vial": 0.006653762230192872,
+        "wallplugs": 0.13240561869717327,
+        "walnuts": 0.035850189906387775
+      }
+    },
+    "raw_mean_vs_tiled": {
+      "mean_delta": 0.00425288475197416,
+      "paired_category_bootstrap_95ci": [
+        -0.03178429874338287,
+        0.03551997951139773
+      ],
+      "wins": 4,
+      "losses": 4,
+      "ties": 0,
+      "by_category": {
+        "can": 0.04345641027361262,
+        "fabric": -0.09886817993497038,
+        "fruit_jelly": -0.007082677209570454,
+        "rice": 0.005485344023361871,
+        "sheet_metal": 0.0654404534522659,
+        "vial": 0.05306207585655054,
+        "wallplugs": -0.02120294759861796,
+        "walnuts": -0.006267400846838855
+      }
+    },
+    "q99_mean_vs_global": {
+      "mean_delta": 0.058412793301377955,
+      "paired_category_bootstrap_95ci": [
+        0.026196810778926584,
+        0.09129903483049057
+      ],
+      "wins": 7,
+      "losses": 1,
+      "ties": 0,
+      "by_category": {
+        "can": -0.011055966089716346,
+        "fabric": 0.07852813761069333,
+        "fruit_jelly": 0.03932176673758303,
+        "rice": 0.06594644625849733,
+        "sheet_metal": 0.12154384735444956,
+        "vial": 0.00789396018269739,
+        "wallplugs": 0.12936100438758713,
+        "walnuts": 0.035763149969232244
+      }
+    },
+    "q99_mean_vs_tiled": {
+      "mean_delta": 0.003792732830068724,
+      "paired_category_bootstrap_95ci": [
+        -0.03278125827835655,
+        0.035619404841851554
+      ],
+      "wins": 4,
+      "losses": 4,
+      "ties": 0,
+      "by_category": {
+        "can": 0.048607089501707126,
+        "fabric": -0.09958726742733265,
+        "fruit_jelly": -0.007672126516187094,
+        "rice": 0.0031375285140309295,
+        "sheet_metal": 0.0621563674514749,
+        "vial": 0.05430227380905506,
+        "wallplugs": -0.024247561908204096,
+        "walnuts": -0.006354440783994386
+      }
+    },
+    "q99_mean_vs_raw_mean": {
+      "mean_delta": -0.00046015192190543633,
+      "paired_category_bootstrap_95ci": [
+        -0.0020638282964598603,
+        0.0014695206291205944
+      ],
+      "wins": 2,
+      "losses": 6,
+      "ties": 0,
+      "by_category": {
+        "can": 0.005150679228094507,
+        "fabric": -0.0007190874923622692,
+        "fruit_jelly": -0.0005894493066166406,
+        "rice": -0.0023478155093309416,
+        "sheet_metal": -0.0032840860007909978,
+        "vial": 0.0012401979525045181,
+        "wallplugs": -0.0030446143095861355,
+        "walnuts": -8.703993715553082e-05
+      }
+    },
+    "tail_mean_vs_raw_mean": {
+      "mean_delta": 0.0037617317961637572,
+      "paired_category_bootstrap_95ci": [
+        -0.006075989486756708,
+        0.018027802848460665
+      ],
+      "wins": 3,
+      "losses": 5,
+      "ties": 0,
+      "by_category": {
+        "can": -0.0020206439191058356,
+        "fabric": 0.04902422282352187,
+        "fruit_jelly": -0.00011094045016102339,
+        "rice": -0.002237140608540078,
+        "sheet_metal": -0.016216229468781984,
+        "vial": -0.0018576178740296045,
+        "wallplugs": 0.003159600479522018,
+        "walnuts": 0.00035260338688469783
+      }
+    }
+  },
+  "selection_rule": "Protocol repair of A69; report all predeclared candidates without overwriting A69",
+  "normal_calibration_source": "A67 normal validation maps only",
+  "test_component_source": "A74 matched reference/global 448 and tiled 672 component maps",
+  "protocol_repair": "Replaces seven A45 global-672 inputs used by A69 with matched global-448 inputs"
+}

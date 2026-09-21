@@ -1,0 +1,23 @@
+{
+  "status": "complete",
+  "dataset": "MVTec AD",
+  "categories": [
+    "grid",
+    "capsule",
+    "transistor",
+    "zipper",
+    "carpet",
+    "leather",
+    "tile",
+    "wood",
+    "bottle",
+    "hazelnut",
+    "metal_nut",
+    "pill",
+    "screw",
+    "toothbrush"
+  ],
+  "normal_calibration": "train/good only",
+  "global_resolution": 448,
+  "tiled_resolution": 672
+}

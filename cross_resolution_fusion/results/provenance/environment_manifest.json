@@ -1,0 +1,118 @@
+{
+  "created_for": "A67-A74 cross-resolution fusion audit",
+  "software": {
+    "python": "3.12.7",
+    "torch": "2.7.0+cu118",
+    "cuda": "11.8",
+    "numpy": "2.1.2",
+    "scikit_learn": "1.9.0",
+    "opencv": "4.13.0",
+    "tifffile": "2026.6.1"
+  },
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4090"
+  },
+  "backbone_weight": {
+    "filename": "dinov2_vitl14_reg4_pretrain.pth",
+    "bytes": 1217607321,
+    "sha256": "36e4deffbaef061a2576705b0c36f93621e2ae20bf6274694821b0b492551b51"
+  },
+  "superad": {
+    "base_commit": "cbe222a7a5668281c3d170ad88332c763e22533f",
+    "integration_patch_sha256": "e5d4460e973c1865c606eae42903c271dd7dd1a88633ef66d7950abf942196f5"
+  },
+  "dataset_counts": {
+    "MVTec_AD_2": {
+      "can": {
+        "normal_calibration": 46,
+        "evaluation": 252
+      },
+      "fabric": {
+        "normal_calibration": 43,
+        "evaluation": 246
+      },
+      "fruit_jelly": {
+        "normal_calibration": 37,
+        "evaluation": 140
+      },
+      "rice": {
+        "normal_calibration": 35,
+        "evaluation": 222
+      },
+      "sheet_metal": {
+        "normal_calibration": 19,
+        "evaluation": 204
+      },
+      "vial": {
+        "normal_calibration": 41,
+        "evaluation": 245
+      },
+      "wallplugs": {
+        "normal_calibration": 33,
+        "evaluation": 240
+      },
+      "walnuts": {
+        "normal_calibration": 48,
+        "evaluation": 240
+      }
+    },
+    "MVTecAD": {
+      "grid": {
+        "normal_calibration": 264,
+        "evaluation": 78
+      },
+      "capsule": {
+        "normal_calibration": 219,
+        "evaluation": 132
+      },
+      "transistor": {
+        "normal_calibration": 213,
+        "evaluation": 100
+      },
+      "zipper": {
+        "normal_calibration": 240,
+        "evaluation": 151
+      },
+      "carpet": {
+        "normal_calibration": 280,
+        "evaluation": 117
+      },
+      "leather": {
+        "normal_calibration": 245,
+        "evaluation": 124
+      },
+      "tile": {
+        "normal_calibration": 230,
+        "evaluation": 117
+      },
+      "wood": {
+        "normal_calibration": 247,
+        "evaluation": 79
+      },
+      "bottle": {
+        "normal_calibration": 209,
+        "evaluation": 83
+      },
+      "hazelnut": {
+        "normal_calibration": 391,
+        "evaluation": 110
+      },
+      "metal_nut": {
+        "normal_calibration": 220,
+        "evaluation": 115
+      },
+      "pill": {
+        "normal_calibration": 267,
+        "evaluation": 167
+      },
+      "screw": {
+        "normal_calibration": 320,
+        "evaluation": 160
+      },
+      "toothbrush": {
+        "normal_calibration": 60,
+        "evaluation": 42
+      }
+    }
+  }
+}

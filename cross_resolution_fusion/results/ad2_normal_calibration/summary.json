@@ -1,0 +1,123 @@
+{
+  "status": "complete",
+  "selection_data": "normal validation images only",
+  "anomaly_images_or_masks_read": false,
+  "criterion": "median log(q99_672/q99_448) <= Q3 + 1.5*IQR across categories",
+  "cutoff": 0.5169346593257832,
+  "routes": {
+    "can": 672,
+    "fabric": 672,
+    "fruit_jelly": 672,
+    "rice": 672,
+    "sheet_metal": 672,
+    "vial": 672,
+    "wallplugs": 672,
+    "walnuts": 672
+  },
+  "category_statistics": [
+    {
+      "category": "can",
+      "n_normal": 46,
+      "median_log_q95_ratio": 0.500558703777228,
+      "median_log_q99_ratio": 0.4584608646953906,
+      "median_log_q999_ratio": 0.3938041574647039,
+      "median_corr": 0.7885699324006892,
+      "median_positive_excess_over_global_q99": 0.43851450085639954,
+      "q90_log_q99_ratio": 0.6213666066376755,
+      "normal_tail_cutoff": 0.5169346593257832,
+      "selected_resolution": 672,
+      "route_reason": "normal-tail stable"
+    },
+    {
+      "category": "fabric",
+      "n_normal": 43,
+      "median_log_q95_ratio": 0.026153930864044803,
+      "median_log_q99_ratio": 0.015644870420997943,
+      "median_log_q999_ratio": -0.006526125589186268,
+      "median_corr": 0.7487705480934422,
+      "median_positive_excess_over_global_q99": 0.06463021039962769,
+      "q90_log_q99_ratio": 0.04334433163832607,
+      "normal_tail_cutoff": 0.5169346593257832,
+      "selected_resolution": 672,
+      "route_reason": "normal-tail stable"
+    },
+    {
+      "category": "fruit_jelly",
+      "n_normal": 37,
+      "median_log_q95_ratio": 0.07385653483501023,
+      "median_log_q99_ratio": 0.03769966780232664,
+      "median_log_q999_ratio": 0.0338802142018476,
+      "median_corr": 0.9406893781289745,
+      "median_positive_excess_over_global_q99": 0.11520708352327347,
+      "q90_log_q99_ratio": 0.08691738751136277,
+      "normal_tail_cutoff": 0.5169346593257832,
+      "selected_resolution": 672,
+      "route_reason": "normal-tail stable"
+    },
+    {
+      "category": "rice",
+      "n_normal": 35,
+      "median_log_q95_ratio": 0.09517398780262268,
+      "median_log_q99_ratio": 0.08597346603463753,
+      "median_log_q999_ratio": 0.06534037233089102,
+      "median_corr": 0.5677519304587718,
+      "median_positive_excess_over_global_q99": 0.10689256340265274,
+      "q90_log_q99_ratio": 0.10818135377159002,
+      "normal_tail_cutoff": 0.5169346593257832,
+      "selected_resolution": 672,
+      "route_reason": "normal-tail stable"
+    },
+    {
+      "category": "sheet_metal",
+      "n_normal": 19,
+      "median_log_q95_ratio": 0.4429420778604946,
+      "median_log_q99_ratio": 0.4694384473729665,
+      "median_log_q999_ratio": 0.4528668553932837,
+      "median_corr": 0.5448092259289031,
+      "median_positive_excess_over_global_q99": 0.3799480199813843,
+      "q90_log_q99_ratio": 0.5134986585550133,
+      "normal_tail_cutoff": 0.5169346593257832,
+      "selected_resolution": 672,
+      "route_reason": "normal-tail stable"
+    },
+    {
+      "category": "vial",
+      "n_normal": 41,
+      "median_log_q95_ratio": 0.21514163627428454,
+      "median_log_q99_ratio": 0.14862697150754975,
+      "median_log_q999_ratio": 0.1122028594254914,
+      "median_corr": 0.9217614553344979,
+      "median_positive_excess_over_global_q99": 0.06253405660390854,
+      "q90_log_q99_ratio": 0.20121766841567412,
+      "normal_tail_cutoff": 0.5169346593257832,
+      "selected_resolution": 672,
+      "route_reason": "normal-tail stable"
+    },
+    {
+      "category": "wallplugs",
+      "n_normal": 33,
+      "median_log_q95_ratio": 0.10562980056272152,
+      "median_log_q99_ratio": 0.07292352125631096,
+      "median_log_q999_ratio": 0.05640874781465228,
+      "median_corr": 0.8846604178742744,
+      "median_positive_excess_over_global_q99": 0.05731559917330742,
+      "q90_log_q99_ratio": 0.10258979440136098,
+      "normal_tail_cutoff": 0.5169346593257832,
+      "selected_resolution": 672,
+      "route_reason": "normal-tail stable"
+    },
+    {
+      "category": "walnuts",
+      "n_normal": 48,
+      "median_log_q95_ratio": 0.02099334401476364,
+      "median_log_q99_ratio": 0.014279715330566548,
+      "median_log_q999_ratio": 0.0065867041158164715,
+      "median_corr": 0.9301091691599312,
+      "median_positive_excess_over_global_q99": 0.05327390134334564,
+      "q90_log_q99_ratio": 0.04783994448817556,
+      "normal_tail_cutoff": 0.5169346593257832,
+      "selected_resolution": 672,
+      "route_reason": "normal-tail stable"
+    }
+  ]
+}

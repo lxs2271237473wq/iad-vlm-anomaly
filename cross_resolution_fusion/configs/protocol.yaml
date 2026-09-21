@@ -1,0 +1,20 @@
+project: cross_resolution_fusion
+seed: 20260921
+backbone: dinov2_vitl14_reg
+reference_resolution: 448
+global_query_resolution: 448
+tiled_query_resolution: 672
+tiled_residual_weight: 0.10
+normal_quantile: 0.99
+max_fpr: 0.05
+bootstrap_repetitions: 100000
+ad2:
+  dataset_directory: datasets/MVTec_AD_2
+  normal_calibration_split: validation/good
+  evaluation_split: test_public
+  categories: [can, fabric, fruit_jelly, rice, sheet_metal, vial, wallplugs, walnuts]
+mvtec_ad:
+  dataset_directory: datasets/MVTecAD
+  normal_calibration_split: train/good
+  evaluation_split: test
+  categories: [grid, capsule, transistor, zipper, carpet, leather, tile, wood, bottle, hazelnut, metal_nut, pill, screw, toothbrush]

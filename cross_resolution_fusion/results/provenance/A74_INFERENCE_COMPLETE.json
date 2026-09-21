@@ -1,0 +1,18 @@
+{
+  "status": "complete",
+  "categories": [
+    "can",
+    "fabric",
+    "fruit_jelly",
+    "rice",
+    "sheet_metal",
+    "vial",
+    "wallplugs",
+    "walnuts"
+  ],
+  "reference_resolution": 448,
+  "global_query_resolution": 448,
+  "tiled_query_resolution": 672,
+  "normal_calibration_source": "A67 normal validation maps with the same 448/672 protocol",
+  "purpose": "replace A69 mismatched A45 global maps without overwriting historical outputs"
+}

@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "routes": {
+    "can": 672,
+    "fabric": 672,
+    "fruit_jelly": 672,
+    "rice": 672,
+    "sheet_metal": 672,
+    "vial": 672,
+    "wallplugs": 672,
+    "walnuts": 672
+  }
+}

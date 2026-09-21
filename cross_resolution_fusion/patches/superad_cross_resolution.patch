@@ -1,0 +1,331 @@
+diff --git a/src/backbones.py b/src/backbones.py
+index 73ddb35..ec0c599 100644
+--- a/src/backbones.py
++++ b/src/backbones.py
+@@ -1,4 +1,6 @@
+ import cv2
++import os
++import sys
+ import torch
+ import torchvision.models as models
+ from PIL import Image
+@@ -91,8 +93,20 @@ class ViTWrapper(VisionTransformerWrapper):
+ # DINOv2 Wrapper
+ class DINOv2Wrapper(VisionTransformerWrapper):
+     def load_model(self):
+-        model = torch.hub.load('/home/huaiyuanzhang/.cache/torch/hub/facebookresearch_dinov2_main', self.model_name, source='local')
+-        # model = torch.hub.load('facebookresearch/dinov2', self.model_name)
++        local_repo = os.environ.get("DINOV2_LOCAL_REPO")
++        local_weights = os.environ.get("DINOV2_LOCAL_WEIGHTS")
++        if local_repo and local_weights:
++            repo_parent = os.path.dirname(os.path.abspath(local_repo))
++            if repo_parent not in sys.path:
++                sys.path.insert(0, repo_parent)
++            from dinov2.hub import backbones as dino_backbones
++            constructor = getattr(dino_backbones, self.model_name)
++            model = constructor(pretrained=False)
++            state = torch.load(local_weights, map_location="cpu")
++            model.load_state_dict(state, strict=True)
++            print(f"Loaded local DINOv2 weights: {local_weights}")
++        else:
++            model = torch.hub.load('facebookresearch/dinov2', self.model_name)
+         model.eval()
+ 
+         # print(f"Loaded model: {self.model_name}")
+@@ -120,6 +134,15 @@ class DINOv2Wrapper(VisionTransformerWrapper):
+ 
+         grid_size = (cropped_height // self.model.patch_size, cropped_width // self.model.patch_size)
+         return image_tensor, grid_size
++
++    def set_smaller_edge_size(self, size):
++        """Update both the public resolution value and the already-built resize transform."""
++        self.smaller_edge_size = int(size)
++        self.transform.transforms[0] = transforms.Resize(
++            size=self.smaller_edge_size,
++            interpolation=transforms.InterpolationMode.BICUBIC,
++            antialias=True,
++        )
+     
+ 
+     def extract_features(self, image_tensor):
+@@ -139,7 +162,17 @@ class DINOv2Wrapper(VisionTransformerWrapper):
+         # return tokens.cpu().numpy()
+         
+             layers = [5, 11, 17, 23]
+-            tokens_list = self.model.get_intermediate_layers(image_batch, layers)
++            # The vendored official DINOv2 snapshot exposes the older API that
++            # accepts only "last n layers". Reproduce the newer indexed API
++            # explicitly and remove CLS/register tokens from patch features.
++            tokens = self.model.prepare_tokens_with_masks(image_batch)
++            tokens_list = []
++            for layer_index, block in enumerate(self.model.blocks):
++                tokens = block(tokens)
++                if layer_index in layers:
++                    normalized = self.model.norm(tokens)
++                    start = 1 + int(getattr(self.model, "num_register_tokens", 0))
++                    tokens_list.append(normalized[:, start:])
+             features_list = [tokens.squeeze().cpu().numpy() for tokens in tokens_list]
+         
+         return features_list  # list of 4 arrays
+@@ -150,14 +183,10 @@ class DINOv2Wrapper(VisionTransformerWrapper):
+                 image_batch = image_tensor.unsqueeze(0).half().to(self.device)
+             else:
+                 image_batch = image_tensor.unsqueeze(0).to(self.device)
+-            # Obtain the class token; the return value is a tuple of (patch_tokens, class_token)
+-            output = self.model.get_intermediate_layers(
+-                image_batch,
+-                n=1,
+-                return_class_token=True
+-            )[0]
+-
+-            cls_token = output[1].squeeze(0)
++            tokens = self.model.prepare_tokens_with_masks(image_batch)
++            for block in self.model.blocks:
++                tokens = block(tokens)
++            cls_token = self.model.norm(tokens)[:, 0].squeeze(0)
+         return cls_token
+ 
+ 
+@@ -221,4 +250,4 @@ def get_model(model_name, device, smaller_edge_size=448):
+     elif model_name.startswith("dinov2"):
+         return DINOv2Wrapper(model_name, device, smaller_edge_size)
+     else:
+-        raise ValueError(f"Unknown model name: {model_name}")
+\ No newline at end of file
++        raise ValueError(f"Unknown model name: {model_name}")
+diff --git a/src/detection.py b/src/detection.py
+index b2eb383..1f0aa60 100644
+--- a/src/detection.py
++++ b/src/detection.py
+@@ -161,43 +161,95 @@ def run_anomaly_detection_multilayer(
+         inference_times = {}
+         anomaly_scores = {}
+ 
+-        for anomaly_type in tqdm(type_anomalies, desc=f"Processing {object_name}"):
+-            test_dir = f"{data_root}/{object_name}/test_public/{anomaly_type}"
+-            os.makedirs(f"{plots_dir}/anomaly_maps/seed={seed}/{object_name}/test/{anomaly_type}", exist_ok=True)
+-            os.makedirs(f"{plots_dir}/anomaly_maps/seed={seed}/{object_name}/test_hm_on_img/{anomaly_type}", exist_ok=True)
+-
+-            for idx, test_img_name in enumerate(sorted(os.listdir(test_dir))):
+-                start_time = time.time()
+-                test_path = os.path.join(test_dir, test_img_name)
+-                
+-                img_rgb = cv2.cvtColor(cv2.imread(test_path), cv2.COLOR_BGR2RGB)
+-                img_tensor, _ = model.prepare_image(img_rgb)
++        tiled_query = os.environ.get("SUPERAD_TILED_QUERY", "0") == "1"
++        tiled_only = os.environ.get("SUPERAD_TILED_ONLY", "0") == "1"
++        tiled_resolution = int(os.environ.get("SUPERAD_TILED_RESOLUTION", "672"))
++        residual_weight = float(os.environ.get("SUPERAD_TILED_RESIDUAL_WEIGHT", "0.10"))
++
++        def infer_map(img_rgb, resolution=None):
++            """Run the shared memory bank on one image/crop at a chosen shorter edge."""
++            previous_resolution = model.smaller_edge_size
++            if resolution is not None:
++                if hasattr(model, "set_smaller_edge_size"):
++                    model.set_smaller_edge_size(resolution)
++                else:
++                    model.smaller_edge_size = resolution
++            try:
++                img_tensor, query_grid_size = model.prepare_image(img_rgb)
+                 feats_dict = model.extract_features(img_tensor)
+-
+-                dists_per_layer = []
+-                
+-                mask = model.compute_background_mask(feats_dict[0], grid_size, threshold=1, masking_type=masking)
++                query_mask = model.compute_background_mask(
++                    feats_dict[0], query_grid_size, threshold=1, masking_type=masking)
++                maps = []
+                 for num, feats in enumerate(feats_dict):
+-                    masked_feats = feats[mask]
+-
++                    masked_feats = feats[query_mask]
+                     if knn_metric == "L2_normalized":
+                         faiss.normalize_L2(masked_feats)
+-
+                     dists, _ = knn_indices[f'layer{num}'].search(masked_feats, k=knn_neighbors)
+                     if knn_neighbors > 1:
+                         dists = dists.mean(axis=1)
++                    dists = 1 - dists
++                    dmap = np.zeros_like(query_mask, dtype=float)
++                    dmap[query_mask] = dists.squeeze()
++                    dmap = dmap.reshape(query_grid_size)
++                    maps.append(cv2.resize(dmap, (img_rgb.shape[1], img_rgb.shape[0])))
++                return np.mean(maps, axis=0)
++            finally:
++                if hasattr(model, "set_smaller_edge_size"):
++                    model.set_smaller_edge_size(previous_resolution)
++                else:
++                    model.smaller_edge_size = previous_resolution
++
++        def infer_tiled_map(img_rgb):
++            """Split along the long axis into non-overlapping square crops and stitch."""
++            height, width = img_rgb.shape[:2]
++            tile_size = min(height, width)
++            long_size = max(height, width)
++            starts = list(range(0, long_size, tile_size))
++            if starts and starts[-1] + tile_size > long_size:
++                starts[-1] = max(0, long_size - tile_size)
++            starts = sorted(set(starts))
++            accum = np.zeros((height, width), np.float32)
++            counts = np.zeros((height, width), np.float32)
++            for start in starts:
++                if width >= height:
++                    crop = img_rgb[:, start:min(start + tile_size, width)]
++                    tile_map = infer_map(crop, tiled_resolution)
++                    accum[:, start:start + crop.shape[1]] += tile_map
++                    counts[:, start:start + crop.shape[1]] += 1
++                else:
++                    crop = img_rgb[start:min(start + tile_size, height), :]
++                    tile_map = infer_map(crop, tiled_resolution)
++                    accum[start:start + crop.shape[0], :] += tile_map
++                    counts[start:start + crop.shape[0], :] += 1
++            return accum / np.maximum(counts, 1)
++
++        requested_split = os.environ.get("SUPERAD_TEST_SPLIT", "").strip()
++        test_split = requested_split or ("test_public" if os.path.isdir(f"{data_root}/{object_name}/test_public") else "test")
++        available_types = [name for name in type_anomalies if os.path.isdir(f"{data_root}/{object_name}/{test_split}/{name}")]
++        if not available_types:
++            raise FileNotFoundError(f"No supported image folders in {data_root}/{object_name}/{test_split}")
++        for anomaly_type in tqdm(available_types, desc=f"Processing {object_name}"):
++            test_dir = f"{data_root}/{object_name}/{test_split}/{anomaly_type}"
++            os.makedirs(f"{plots_dir}/anomaly_maps/seed={seed}/{object_name}/test/{anomaly_type}", exist_ok=True)
++            os.makedirs(f"{plots_dir}/anomaly_maps/seed={seed}/{object_name}/test_hm_on_img/{anomaly_type}", exist_ok=True)
+ 
+-                    dists = 1 - dists  # cosine distance
+-
+-                    dmap = np.zeros_like(mask, dtype=float)
+-                    dmap[mask] = dists.squeeze()
+-                    dmap = dmap.reshape(grid_size)
+-
+-                    dmap_resized = cv2.resize(dmap, (img_rgb.shape[1], img_rgb.shape[0]))
+-                    dists_per_layer.append(dmap_resized)
+-
+-                # Average the 4 layers
+-                anomaly_map = np.mean(dists_per_layer, axis=0)
++            for idx, test_img_name in enumerate(sorted(os.listdir(test_dir))):
++                start_time = time.time()
++                test_path = os.path.join(test_dir, test_img_name)
++                
++                img_rgb = cv2.cvtColor(cv2.imread(test_path), cv2.COLOR_BGR2RGB)
++                global_map = None if (tiled_query and tiled_only) else infer_map(img_rgb)
++                anomaly_map = global_map
++                tiled_map = None
++                if tiled_query:
++                    tiled_map = infer_tiled_map(img_rgb)
++                    if tiled_only:
++                        anomaly_map = tiled_map
++                    else:
++                        global_q = float(np.quantile(global_map, .995))
++                        tiled_q = float(np.quantile(tiled_map, .995))
++                        scale = global_q / max(tiled_q, 1e-12)
++                        anomaly_map = (1.0 - residual_weight) * global_map + residual_weight * tiled_map * scale
+                 anomaly_map_norm = min_max_norm(anomaly_map)
+                 score = mean_top1p(anomaly_map.flatten())
+ 
+@@ -205,16 +257,23 @@ def run_anomaly_detection_multilayer(
+                 anomaly_scores[f"{anomaly_type}/{test_img_name}"] = score
+ 
+                 if save_tiffs:
+-                    heatmap = cvt2heatmap(anomaly_map_norm * 255)
+-                    hm_on_img = heatmap_on_image(heatmap, img_rgb)
+                     fname = os.path.splitext(test_img_name)[0]
+-                    cv2.imwrite(f"{plots_dir}/anomaly_maps/seed={seed}/{object_name}/test_hm_on_img/{anomaly_type}/{fname}.jpg", hm_on_img)
++                    if os.environ.get("SUPERAD_SAVE_OVERLAYS", "0") == "1":
++                        heatmap = cvt2heatmap(anomaly_map_norm * 255)
++                        hm_on_img = heatmap_on_image(heatmap, img_rgb)
++                        cv2.imwrite(f"{plots_dir}/anomaly_maps/seed={seed}/{object_name}/test_hm_on_img/{anomaly_type}/{fname}.jpg", hm_on_img)
+                     tiff.imwrite(f"{plots_dir}/anomaly_maps/seed={seed}/{object_name}/test/{anomaly_type}/{fname}.tiff", anomaly_map)
++                    if tiled_query:
++                        component_dir = f"{plots_dir}/component_maps/seed={seed}/{object_name}/{anomaly_type}"
++                        os.makedirs(component_dir, exist_ok=True)
++                        if global_map is not None:
++                            tiff.imwrite(f"{component_dir}/{fname}_global.tiff", global_map)
++                        tiff.imwrite(f"{component_dir}/{fname}_tiled.tiff", tiled_map)
+                 if save_patch_dists:
+                     np.save(f"{plots_dir}/anomaly_maps/seed={seed}/{object_name}/test/{anomaly_type}/{test_img_name.split('.')[0]}.npy", anomaly_map)
+ 
+                 if save_examples and idx < 3:
+-                    num_layers = len(dists_per_layer)
++                    num_layers = 0
+                     cols = 3
+                     rows = int(np.ceil((3 + num_layers) / cols))
+ 
+@@ -238,7 +297,7 @@ def run_anomaly_detection_multilayer(
+                     axes[2].set_title("Score Histogram")
+ 
+                     # heatmaps by layers
+-                    for i, d_masked in enumerate(dists_per_layer):
++                    for i, d_masked in enumerate([]):
+                         ax = axes[3 + i]
+                         im = ax.imshow(d_masked, cmap='jet')
+                         ax.set_title(f"Layer {i} Map")
+@@ -464,4 +523,4 @@ def run_anomaly_detection_multilayer_private(
+                     )
+ 
+ 
+-    return anomaly_scores, time_memorybank, inference_times
+\ No newline at end of file
++    return anomaly_scores, time_memorybank, inference_times
+diff --git a/test_public.py b/test_public.py
+index 5144632..938cf06 100644
+--- a/test_public.py
++++ b/test_public.py
+@@ -32,7 +32,8 @@ def parse_args():
+                         help="Path to save the results.")
+     parser.add_argument("--preprocess", type=str, default="agnostic",
+                         help="Preprocessing method. Choose from ['agnostic', 'informed', 'masking_only'].")
+-    # parser.add_argument("--resolution", type=int, default=448)
++    parser.add_argument("--resolution", type=int, default=None,
++                        help="Override the category-specific shorter-edge resolution.")
+     parser.add_argument("--knn_metric", type=str, default="L2_normalized")
+     parser.add_argument("--k_neighbors", type=int, default=1)
+     parser.add_argument("--faiss_on_cpu", default=False, help="Use GPU for FAISS kNN search. (Conda install faiss-gpu recommended, does usually not work with pip install.)")
+@@ -46,6 +47,8 @@ def parse_args():
+     parser.add_argument("--eval_segm", default=True, help="Evaluate anomaly segmentation performance.")
+     parser.add_argument("--device", default='cuda:0')
+     parser.add_argument("--warmup_iters", type=int, default=25, help="Number of warmup iterations, relevant when benchmarking inference time.")
++    parser.add_argument("--objects", nargs="+", default=None,
++                        help="Optional subset of MVTec AD 2 object names.")
+ 
+     parser.add_argument("--tag", help="Optional tag for the saving directory.")
+ 
+@@ -61,6 +64,11 @@ if __name__=="__main__":
+     print(f"Requested to repeat the experiments {args.num_seeds} time(s).")
+ 
+     objects, object_anomalies, masking_default, rotation_default = get_dataset_info(args.dataset, args.preprocess)
++    if args.objects:
++        unknown = sorted(set(args.objects) - set(objects))
++        if unknown:
++            raise ValueError(f"Unknown objects: {unknown}")
++        objects = [name for name in objects if name in args.objects]
+ 
+     # set CUDA device
+     os.environ["CUDA_VISIBLE_DEVICES"] = str(args.device[-1])
+@@ -121,7 +129,9 @@ if __name__=="__main__":
+                     }
+ 
+                     for object_name in objects:
+-                        model = get_model(args.model_name, 'cuda', smaller_edge_size=resolution[object_name])
++                        object_resolution = args.resolution if args.resolution is not None else resolution[object_name]
++                        print(f"Resolution for {object_name}: {object_resolution}")
++                        model = get_model(args.model_name, 'cuda', smaller_edge_size=object_resolution)
+                         if save_examples:
+                             os.makedirs(f"{plots_dir}/{object_name}", exist_ok=True)
+                             os.makedirs(f"{plots_dir}/{object_name}/examples", exist_ok=True)
+@@ -167,6 +177,9 @@ if __name__=="__main__":
+                 print(f"Finished AD for {len(objects)} objects (seed {seed}), mean inference time: {sum(inference_times)/len(inference_times):.5f} s/sample")
+ 
+                 # evaluate all finished runs and create sample anomaly maps for inspection
++                if os.environ.get("SUPERAD_SKIP_POST_EVAL", "0") == "1":
++                    print(f"Skipping bundled post-evaluation for seed {seed}; maps will be scored by the unified evaluator.")
++                    continue
+                 print(f"=========== Evaluate seed = {seed} ===========")
+                 eval_finished_run(args.dataset, 
+                                 args.data_root, 
+@@ -181,4 +194,4 @@ if __name__=="__main__":
+                 # deactivate creation of examples for the next seeds...
+                 save_examples = False 
+ 
+-    print("Finished and evaluated all runs!")
+\ No newline at end of file
++    print("Finished and evaluated all runs!")

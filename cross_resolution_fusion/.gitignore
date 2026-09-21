@@ -1,0 +1,20 @@
+# Runtime artifacts are intentionally excluded from source control.
+runtime/
+logs/
+data/
+datasets/
+weights/
+checkpoints/
+pretrained/
+third_party/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.tif
+*.tiff
+*.npy
+*.npz
+*.log
+__pycache__/
+*.pyc
