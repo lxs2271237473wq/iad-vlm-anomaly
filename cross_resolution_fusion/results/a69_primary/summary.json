@@ -1,0 +1,109 @@
+{
+  "summary": {
+    "global": {
+      "all": 0.5697546763660257,
+      "tiny_le_0.1pct": 0.5433157874948767,
+      "small_0.1_to_1pct": 0.7671372875663679,
+      "large_gt_1pct": 0.6429614739616921
+    },
+    "tiled": {
+      "all": 0.5797526114484419,
+      "tiny_le_0.1pct": 0.5611720895252841,
+      "small_0.1_to_1pct": 0.7870139623167915,
+      "large_gt_1pct": 0.6539818834846605
+    },
+    "q99_mean": {
+      "all": 0.6024190456874704,
+      "tiny_le_0.1pct": 0.5828864975968335,
+      "small_0.1_to_1pct": 0.7900988664074239,
+      "large_gt_1pct": 0.6594820985181141
+    },
+    "q99_geomean": {
+      "all": 0.6021816772827908,
+      "tiny_le_0.1pct": 0.5825426625876431,
+      "small_0.1_to_1pct": 0.7894115401365764,
+      "large_gt_1pct": 0.6593451732882697
+    },
+    "q99_harmonic": {
+      "all": 0.6016330693590637,
+      "tiny_le_0.1pct": 0.5818117793466692,
+      "small_0.1_to_1pct": 0.7887577640019744,
+      "large_gt_1pct": 0.6590953878183894
+    },
+    "q99_positive_025": {
+      "all": 0.5841327958156937,
+      "tiny_le_0.1pct": 0.5607340742248047,
+      "small_0.1_to_1pct": 0.7780791752668461,
+      "large_gt_1pct": 0.6506401278950331
+    },
+    "q99_positive_050": {
+      "all": 0.5932505115224953,
+      "tiny_le_0.1pct": 0.572015180693878,
+      "small_0.1_to_1pct": 0.7862978073361739,
+      "large_gt_1pct": 0.6541745494812433
+    },
+    "tail_mean": {
+      "all": 0.5949860802185426,
+      "tiny_le_0.1pct": 0.5761267108892912,
+      "small_0.1_to_1pct": 0.7924802062892552,
+      "large_gt_1pct": 0.6585835901926183
+    },
+    "tail_geomean": {
+      "all": 0.564880323324559,
+      "tiny_le_0.1pct": 0.5414089649705764,
+      "small_0.1_to_1pct": 0.7745592186452959,
+      "large_gt_1pct": 0.6435497272761822
+    }
+  },
+  "delta_vs_global": {
+    "global": 0.0,
+    "tiled": 0.009997935082416198,
+    "q99_mean": 0.032664369321444675,
+    "q99_geomean": 0.03242700091676509,
+    "q99_harmonic": 0.03187839299303796,
+    "q99_positive_025": 0.014378119449667937,
+    "q99_positive_050": 0.02349583515646958,
+    "tail_mean": 0.025231403852516876,
+    "tail_geomean": -0.004874353041466772
+  },
+  "ranking": [
+    {
+      "method": "q99_mean",
+      "aupro_0_05": 0.6024190456874704
+    },
+    {
+      "method": "q99_geomean",
+      "aupro_0_05": 0.6021816772827908
+    },
+    {
+      "method": "q99_harmonic",
+      "aupro_0_05": 0.6016330693590637
+    },
+    {
+      "method": "tail_mean",
+      "aupro_0_05": 0.5949860802185426
+    },
+    {
+      "method": "q99_positive_050",
+      "aupro_0_05": 0.5932505115224953
+    },
+    {
+      "method": "q99_positive_025",
+      "aupro_0_05": 0.5841327958156937
+    },
+    {
+      "method": "tiled",
+      "aupro_0_05": 0.5797526114484419
+    },
+    {
+      "method": "global",
+      "aupro_0_05": 0.5697546763660257
+    },
+    {
+      "method": "tail_geomean",
+      "aupro_0_05": 0.564880323324559
+    }
+  ],
+  "selection_rule": "AD2 public development search; select highest all-band category-macro AU-PRO, then freeze for external transfer",
+  "normal_calibration_source": "A67 normal validation maps only"
+}

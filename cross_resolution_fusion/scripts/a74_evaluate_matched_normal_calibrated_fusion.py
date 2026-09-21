@@ -200,10 +200,10 @@ def main():
         "delta_vs_global": {m: summary[m]["all"] - baseline for m in METHODS},
         "ranking": [{"method": m, "aupro_0_05": v} for v, m in ranking],
         "comparisons": comparisons,
-        "selection_rule": "Protocol repair of A69; report all predeclared candidates without overwriting A69",
+        "selection_rule": "Supplementary uniform 448/672 protocol; report all predeclared candidates without overwriting A69",
         "normal_calibration_source": "A67 normal validation maps only",
         "test_component_source": "A74 matched reference/global 448 and tiled 672 component maps",
-        "protocol_repair": "Replaces seven A45 global-672 inputs used by A69 with matched global-448 inputs",
+        "protocol_relation": "Independent uniform global-448/tiled-672 ablation; does not repair, replace, or invalidate A69",
     }
     (OUT / "summary.json").write_text(json.dumps(payload, indent=2))
     (OUT / "A74_REEVALUATION_WITH_RAW_MEAN_COMPLETE.json").write_text(

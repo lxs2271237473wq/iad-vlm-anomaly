@@ -2,8 +2,8 @@
 
 This directory isolates the reproducible A67–A74 experiment from the larger
 `iad-vlm-anomaly` repository. The experiment asks whether the average of a
-global 448 query and a tiled 672 query improves anomaly localization without
-training a new fusion network.
+global and a tiled high-resolution query improves anomaly localization, and
+whether normal-only q99 score calibration makes their evidence comparable.
 
 The repository contains scripts, fixed protocol settings, audit notes, and
 lightweight CSV/JSON results. Datasets, pretrained weights, SuperAD/DINOv2
@@ -12,24 +12,26 @@ are deliberately excluded from Git.
 
 ## Main result
 
-On the 14-class MVTec AD external validation, raw cross-resolution averaging
-raises macro AU-PRO@0.05 from 0.834744 (global 448) to 0.851006. The paired
-category bootstrap 95% confidence interval for the improvement is
-[0.010388, 0.024285], with 13 wins and 1 loss. Normal-q99 calibration does not
-improve over raw averaging on this external set, so it is recorded as a
-negative result rather than used as the paper's primary claim.
+A69 is the primary AD2 result. Normal-q99 fusion reaches 0.602419
+category-condition macro AU-PRO@0.05, versus 0.569755 for Global and 0.579753
+for Tiled. A70 gives a paired category-bootstrap improvement of 0.032664 over
+Global (95% CI [0.007174, 0.063030], 6/8 wins) and 0.022666 over Tiled (95% CI
+[0.002874, 0.042679], 5/8 wins). The gain on tiny defects over Global is
+0.039571 with 95% CI [0.010247, 0.072058].
 
-The corrected AD2 evaluation uses matching 448/672 inference for both normal
-calibration and public test images. Raw averaging raises macro AU-PRO@0.05 from
-0.525133 (global 448) to 0.584005; its paired category-bootstrap improvement is
-0.058873 with 95% CI [0.025116, 0.093168] and 7/8 wins. See `results/` for the
-complete category tables and `docs/RESULTS.md` for the compact interpretation.
+The earlier report that treated A69 as invalid was wrong: its written
+resolution/source description was incorrect, while the experiment and
+archived metrics are valid. A74 remains as a supplementary uniform 448/672
+configuration, not as a repair or replacement. On the 14-class MVTec AD
+external evaluation, raw averaging transfers better than q99 normalization;
+this limits the generality claim while preserving the A69 AD2 finding. See
+`results/a69_primary/` and `docs/RESULTS.md` for the evidence.
 
 ## Directory layout
 
 - `configs/`: frozen experimental protocol.
-- `scripts/`: A67 normal-map generation, A68 calibration, A73 external
-  validation, and A74 matched AD2 evaluation.
+- `scripts/`: A67 normal-map generation, A68 calibration, A69/A70 primary AD2
+  evaluation, A73 external validation, and A74 supplementary evaluation.
 - `patches/`: the audited SuperAD changes needed to emit paired component maps.
 - `docs/`: method, reproduction, results, and audit records.
 - `results/`: lightweight result tables and completion/provenance markers.

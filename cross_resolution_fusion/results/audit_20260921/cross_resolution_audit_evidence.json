@@ -1,0 +1,541 @@
+{
+  "commit": "0e8d2d00864f181b8f806f6d13ebc4542ea0e293",
+  "metadata": {
+    "rows": 1084,
+    "unique_image_paths": 1084,
+    "category_condition_label": {
+      "can|overexposed|0": 12,
+      "can|regular|0": 12,
+      "can|shift_1|0": 12,
+      "can|shift_2|0": 12,
+      "can|shift_3|0": 12,
+      "can|underexposed|0": 12,
+      "fabric|overexposed|0": 11,
+      "fabric|regular|0": 11,
+      "fabric|shift_1|0": 11,
+      "fabric|shift_2|0": 11,
+      "fabric|shift_3|0": 11,
+      "fabric|underexposed|0": 11,
+      "fruit_jelly|overexposed|0": 5,
+      "fruit_jelly|regular|0": 5,
+      "fruit_jelly|shift_1|0": 5,
+      "fruit_jelly|underexposed|0": 5,
+      "rice|overexposed|0": 7,
+      "rice|regular|0": 7,
+      "rice|shift_1|0": 7,
+      "rice|shift_2|0": 7,
+      "rice|shift_3|0": 7,
+      "rice|underexposed|0": 7,
+      "sheet_metal|overexposed|0": 4,
+      "sheet_metal|regular|0": 4,
+      "sheet_metal|shift_1|0": 4,
+      "sheet_metal|shift_2|0": 4,
+      "sheet_metal|shift_3|0": 4,
+      "sheet_metal|underexposed|0": 4,
+      "vial|overexposed|0": 5,
+      "vial|regular|0": 5,
+      "vial|shift_1|0": 5,
+      "vial|shift_2|0": 5,
+      "vial|shift_3|0": 5,
+      "vial|shift_4|0": 5,
+      "vial|underexposed|0": 5,
+      "wallplugs|overexposed|0": 10,
+      "wallplugs|regular|0": 10,
+      "wallplugs|shift_1|0": 10,
+      "wallplugs|shift_2|0": 10,
+      "wallplugs|shift_3|0": 10,
+      "wallplugs|underexposed|0": 10,
+      "walnuts|overexposed|0": 10,
+      "walnuts|regular|0": 10,
+      "walnuts|shift_1|0": 10,
+      "walnuts|shift_2|0": 10,
+      "walnuts|shift_3|0": 10,
+      "walnuts|underexposed|0": 10,
+      "can|overexposed|1": 15,
+      "can|regular|1": 15,
+      "can|shift_1|1": 15,
+      "can|shift_2|1": 15,
+      "can|shift_3|1": 15,
+      "can|underexposed|1": 15,
+      "fabric|overexposed|1": 15,
+      "fabric|regular|1": 15,
+      "fabric|shift_1|1": 15,
+      "fabric|shift_2|1": 15,
+      "fabric|shift_3|1": 15,
+      "fabric|underexposed|1": 15,
+      "fruit_jelly|overexposed|1": 15,
+      "fruit_jelly|regular|1": 15,
+      "fruit_jelly|shift_1|1": 15,
+      "fruit_jelly|underexposed|1": 15,
+      "rice|overexposed|1": 15,
+      "rice|regular|1": 15,
+      "rice|shift_1|1": 15,
+      "rice|shift_2|1": 15,
+      "rice|shift_3|1": 15,
+      "rice|underexposed|1": 15,
+      "sheet_metal|overexposed|1": 15,
+      "sheet_metal|regular|1": 15,
+      "sheet_metal|shift_1|1": 15,
+      "sheet_metal|shift_2|1": 15,
+      "sheet_metal|shift_3|1": 15,
+      "sheet_metal|underexposed|1": 15,
+      "vial|overexposed|1": 15,
+      "vial|regular|1": 15,
+      "vial|shift_1|1": 15,
+      "vial|shift_2|1": 15,
+      "vial|shift_3|1": 15,
+      "vial|shift_4|1": 15,
+      "vial|underexposed|1": 15,
+      "wallplugs|overexposed|1": 15,
+      "wallplugs|regular|1": 15,
+      "wallplugs|shift_1|1": 15,
+      "wallplugs|shift_2|1": 15,
+      "wallplugs|shift_3|1": 15,
+      "wallplugs|underexposed|1": 15,
+      "walnuts|overexposed|1": 15,
+      "walnuts|regular|1": 15,
+      "walnuts|shift_1|1": 15,
+      "walnuts|shift_2|1": 15,
+      "walnuts|shift_3|1": 15,
+      "walnuts|underexposed|1": 15
+    },
+    "unique_category_label_instance": 184,
+    "dataset_vs_meta_missing": [],
+    "meta_vs_dataset_extra": [],
+    "missing_masks": []
+  },
+  "maps": {
+    "normal": {
+      "can": {
+        "global": 46,
+        "tiled": 46
+      },
+      "fabric": {
+        "global": 43,
+        "tiled": 43
+      },
+      "fruit_jelly": {
+        "global": 37,
+        "tiled": 37
+      },
+      "rice": {
+        "global": 35,
+        "tiled": 35
+      },
+      "sheet_metal": {
+        "global": 19,
+        "tiled": 19
+      },
+      "vial": {
+        "global": 41,
+        "tiled": 41
+      },
+      "wallplugs": {
+        "global": 33,
+        "tiled": 33
+      },
+      "walnuts": {
+        "global": 48,
+        "tiled": 48
+      }
+    },
+    "test": {
+      "can": {
+        "global": 162,
+        "tiled": 162
+      },
+      "fabric": {
+        "global": 156,
+        "tiled": 156
+      },
+      "fruit_jelly": {
+        "global": 80,
+        "tiled": 80
+      },
+      "rice": {
+        "global": 132,
+        "tiled": 132
+      },
+      "sheet_metal": {
+        "global": 114,
+        "tiled": 114
+      },
+      "vial": {
+        "global": 140,
+        "tiled": 140
+      },
+      "wallplugs": {
+        "global": 150,
+        "tiled": 150
+      },
+      "walnuts": {
+        "global": 150,
+        "tiled": 150
+      }
+    }
+  },
+  "a74_recomputed_macro": {
+    "global": 0.5251325509771326,
+    "tiled": 0.5797526114484419,
+    "raw_mean": 0.584005496200416,
+    "q99_mean": 0.5835453442785106,
+    "q99_geomean": 0.5820905816753191,
+    "q99_harmonic": 0.5805656324458937,
+    "q99_positive_025": 0.5423253770885675,
+    "q99_positive_050": 0.5588799900279613,
+    "tail_mean": 0.5877672279965798,
+    "tail_geomean": 0.5586269583658799
+  },
+  "a74_max_macro_abs_error": 0.0,
+  "a74_category_scores": {
+    "global": {
+      "can": 0.15117192311507327,
+      "fabric": 0.37289822905340125,
+      "fruit_jelly": 0.5223619790554709,
+      "rice": 0.6764290786867847,
+      "sheet_metal": 0.5974826919586014,
+      "vial": 0.7696376597869168,
+      "wallplugs": 0.45575361451951624,
+      "walnuts": 0.6553252316412965
+    },
+    "tiled": {
+      "can": 0.0915088675236498,
+      "fabric": 0.5510136340914272,
+      "fruit_jelly": 0.569355872309241,
+      "rice": 0.7392379964312511,
+      "sheet_metal": 0.656870171861576,
+      "vial": 0.7232293461605591,
+      "wallplugs": 0.6093621808153075,
+      "walnuts": 0.6974428223945232
+    },
+    "raw_mean": {
+      "can": 0.13496527779726242,
+      "fabric": 0.45214545415645685,
+      "fruit_jelly": 0.5622731950996706,
+      "rice": 0.744723340454613,
+      "sheet_metal": 0.7223106253138419,
+      "vial": 0.7762914220171097,
+      "wallplugs": 0.5881592332166895,
+      "walnuts": 0.6911754215476843
+    },
+    "q99_mean": {
+      "can": 0.14011595702535692,
+      "fabric": 0.4514263666640946,
+      "fruit_jelly": 0.5616837457930539,
+      "rice": 0.742375524945282,
+      "sheet_metal": 0.7190265393130509,
+      "vial": 0.7775316199696142,
+      "wallplugs": 0.5851146189071034,
+      "walnuts": 0.6910883816105288
+    },
+    "q99_geomean": {
+      "can": 0.1400105169028987,
+      "fabric": 0.4440708690084925,
+      "fruit_jelly": 0.5617392063691411,
+      "rice": 0.7414617570816452,
+      "sheet_metal": 0.7172021992790739,
+      "vial": 0.7779942988470826,
+      "wallplugs": 0.5824287348750455,
+      "walnuts": 0.6918170710391737
+    },
+    "q99_harmonic": {
+      "can": 0.139701937030522,
+      "fabric": 0.4391914537685561,
+      "fruit_jelly": 0.5616717468786158,
+      "rice": 0.7402251264198302,
+      "sheet_metal": 0.714534315120419,
+      "vial": 0.7780452499590472,
+      "wallplugs": 0.5787923722033735,
+      "walnuts": 0.6923628581867861
+    },
+    "q99_positive_025": {
+      "can": 0.14955531182943171,
+      "fabric": 0.3924972852545108,
+      "fruit_jelly": 0.536030952623553,
+      "rice": 0.6954658441834378,
+      "sheet_metal": 0.6294193202077248,
+      "vial": 0.7722540536024353,
+      "wallplugs": 0.49886598930711124,
+      "walnuts": 0.6645142597003355
+    },
+    "q99_positive_050": {
+      "can": 0.1469735918179945,
+      "fabric": 0.423447743406083,
+      "fruit_jelly": 0.5458757032549115,
+      "rice": 0.7119833188295687,
+      "sheet_metal": 0.65894204897869,
+      "vial": 0.7724014514033372,
+      "wallplugs": 0.5403031147953806,
+      "walnuts": 0.6711129477377243
+    },
+    "tail_mean": {
+      "can": 0.13294463387815658,
+      "fabric": 0.5011696769799787,
+      "fruit_jelly": 0.5621622546495095,
+      "rice": 0.7424861998460729,
+      "sheet_metal": 0.70609439584506,
+      "vial": 0.77443380414308,
+      "wallplugs": 0.5913188336962115,
+      "walnuts": 0.691528024934569
+    },
+    "tail_geomean": {
+      "can": 0.13325020857725547,
+      "fabric": 0.4008547532076907,
+      "fruit_jelly": 0.5603905090740415,
+      "rice": 0.7202205263916784,
+      "sheet_metal": 0.6378274859996252,
+      "vial": 0.7719963833437732,
+      "wallplugs": 0.5517785893084389,
+      "walnuts": 0.6926972110245361
+    }
+  },
+  "a74_size_band_categories": {
+    "all": [
+      "can",
+      "fabric",
+      "fruit_jelly",
+      "rice",
+      "sheet_metal",
+      "vial",
+      "wallplugs",
+      "walnuts"
+    ],
+    "tiny_le_0.1pct": [
+      "can",
+      "fabric",
+      "fruit_jelly",
+      "rice",
+      "sheet_metal",
+      "vial",
+      "wallplugs",
+      "walnuts"
+    ],
+    "small_0.1_to_1pct": [
+      "fabric",
+      "fruit_jelly",
+      "rice",
+      "sheet_metal",
+      "vial",
+      "wallplugs",
+      "walnuts"
+    ],
+    "large_gt_1pct": [
+      "fabric",
+      "fruit_jelly",
+      "rice",
+      "sheet_metal",
+      "vial",
+      "wallplugs",
+      "walnuts"
+    ]
+  },
+  "a73_max_macro_abs_error": 0.0,
+  "a73_missing_categories": [
+    "cable"
+  ],
+  "geometry": {
+    "can": {
+      "original_wh": [
+        2232,
+        1024
+      ],
+      "resize_wh": [
+        976,
+        448
+      ],
+      "cropped_wh": [
+        966,
+        448
+      ],
+      "lost_original_pixels_wh": [
+        22.857142857142858,
+        0.0
+      ],
+      "tiled_crops": 3
+    },
+    "fabric": {
+      "original_wh": [
+        2448,
+        2048
+      ],
+      "resize_wh": [
+        535,
+        448
+      ],
+      "cropped_wh": [
+        532,
+        448
+      ],
+      "lost_original_pixels_wh": [
+        13.714285714285714,
+        0.0
+      ],
+      "tiled_crops": 2
+    },
+    "fruit_jelly": {
+      "original_wh": [
+        2100,
+        1520
+      ],
+      "resize_wh": [
+        618,
+        448
+      ],
+      "cropped_wh": [
+        616,
+        448
+      ],
+      "lost_original_pixels_wh": [
+        6.7857142857142865,
+        0.0
+      ],
+      "tiled_crops": 2
+    },
+    "rice": {
+      "original_wh": [
+        2448,
+        2048
+      ],
+      "resize_wh": [
+        535,
+        448
+      ],
+      "cropped_wh": [
+        532,
+        448
+      ],
+      "lost_original_pixels_wh": [
+        13.714285714285714,
+        0.0
+      ],
+      "tiled_crops": 2
+    },
+    "sheet_metal": {
+      "original_wh": [
+        4224,
+        1056
+      ],
+      "resize_wh": [
+        1792,
+        448
+      ],
+      "cropped_wh": [
+        1792,
+        448
+      ],
+      "lost_original_pixels_wh": [
+        0.0,
+        0.0
+      ],
+      "tiled_crops": 4
+    },
+    "vial": {
+      "original_wh": [
+        1400,
+        1900
+      ],
+      "resize_wh": [
+        448,
+        608
+      ],
+      "cropped_wh": [
+        448,
+        602
+      ],
+      "lost_original_pixels_wh": [
+        0.0,
+        18.75
+      ],
+      "tiled_crops": 2
+    },
+    "wallplugs": {
+      "original_wh": [
+        2448,
+        2048
+      ],
+      "resize_wh": [
+        535,
+        448
+      ],
+      "cropped_wh": [
+        532,
+        448
+      ],
+      "lost_original_pixels_wh": [
+        13.714285714285714,
+        0.0
+      ],
+      "tiled_crops": 2
+    },
+    "walnuts": {
+      "original_wh": [
+        2448,
+        2048
+      ],
+      "resize_wh": [
+        535,
+        448
+      ],
+      "cropped_wh": [
+        532,
+        448
+      ],
+      "lost_original_pixels_wh": [
+        13.714285714285714,
+        0.0
+      ],
+      "tiled_crops": 2
+    }
+  },
+  "publication": {
+    "tracked_files": 35,
+    "bytes": 307120,
+    "forbidden_files": [],
+    "legacy_meta_tracked": false,
+    "faiss_fallback_tracked": false,
+    "patch_hash_matches": true
+  },
+  "manifest_count_check": {
+    "can": {
+      "reported_evaluation": 252,
+      "actual_test_images": 162
+    },
+    "fabric": {
+      "reported_evaluation": 246,
+      "actual_test_images": 156
+    },
+    "fruit_jelly": {
+      "reported_evaluation": 140,
+      "actual_test_images": 80
+    },
+    "rice": {
+      "reported_evaluation": 222,
+      "actual_test_images": 132
+    },
+    "sheet_metal": {
+      "reported_evaluation": 204,
+      "actual_test_images": 114
+    },
+    "vial": {
+      "reported_evaluation": 245,
+      "actual_test_images": 140
+    },
+    "wallplugs": {
+      "reported_evaluation": 240,
+      "actual_test_images": 150
+    },
+    "walnuts": {
+      "reported_evaluation": 240,
+      "actual_test_images": 150
+    }
+  },
+  "histogram_integration_test": {
+    "cases": 100,
+    "maximum_absolute_error": 1.3877787807814457e-17,
+    "scope": "synthetic integration only; does not establish parity with official evaluation or real-map binning accuracy"
+  },
+  "condition_aggregation_counterexample": {
+    "per_condition_mean": 1.0,
+    "pooled_score_aupro": 0.5
+  }
+}

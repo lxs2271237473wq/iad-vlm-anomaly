@@ -74,7 +74,7 @@ categories = ['can', 'fabric', 'fruit_jelly', 'rice', 'sheet_metal', 'vial', 'wa
     'global_query_resolution': 448,
     'tiled_query_resolution': 672,
     'normal_calibration_source': 'A67 normal validation maps with the same 448/672 protocol',
-    'purpose': 'replace A69 mismatched A45 global maps without overwriting historical outputs'
+    'purpose': 'supplementary uniform global-448/tiled-672 evaluation without overwriting A69'
 }, indent=2))
 print('A74_INFERENCE_COMPLETE')
 PY

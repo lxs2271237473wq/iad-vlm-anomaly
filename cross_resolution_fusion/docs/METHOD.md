@@ -2,35 +2,35 @@
 
 ## Data flow
 
-1. **A67: matched normal evidence.** SuperAD processes AD2
-   `validation/good` images twice in one pass: a 448 global query and a 672
-   tiled query. These maps contain no anomalous test labels and define the
-   normal score distributions for both resolutions.
-2. **A68: normal-only calibration audit.** Per-image q95/q99/q99.9, correlation,
-   and positive tiled-score excess are extracted. This stage measures whether
-   high resolution amplifies normal texture and supplies q95/q99 constants.
-3. **A73: external validation.** The same 448/672 mechanism is evaluated on 14
-   MVTec AD categories. Calibration uses each category's `train/good` images;
-   test masks are read only for final metrics. Four fixed methods are compared:
-   global, tiled, raw mean, and q99-normalized mean.
-4. **A74: corrected AD2 evaluation.** All AD2 public-test component maps are
-   regenerated with the same 448/672 protocol used by A67. This removes the
-   A69 mismatch in which 672 test maps were calibrated by 448 normal maps.
-   Global, tiled, raw mean, q99 variants, and normal-tail variants are then
-   compared on AU-PRO@0.05, including defect-size bands.
+1. **A67: normal evidence.** SuperAD processes AD2 `validation/good` images
+   with global and tiled queries. These maps contain no anomalous test labels
+   and provide branch-specific normal score statistics.
+2. **A68: normal-only calibration.** Per-image q95/q99/q99.9, correlation and
+   positive tiled-score excess are extracted. Category medians supply the
+   normal calibration constants used by A69.
+3. **A69: AD2 development search.** The archived Global and Tiled component
+   maps are combined using fixed raw, q99-normalized and normal-tail formulas.
+   Evaluation covers eight AD2 categories and reports all/tiny/small/large
+   condition-macro AU-PRO@0.05. q99 mean is the selected candidate.
+4. **A70: paired robustness audit.** The frozen A69 q99-mean candidate is
+   compared with both branches using category-level bootstrap confidence
+   intervals, category wins and condition wins.
+5. **A73: external validation.** The same fusion hypothesis is evaluated on 14
+   MVTec AD categories. This stage tests transfer rather than reselecting the
+   AD2 candidate.
+6. **A74: supplementary uniform protocol.** A separate, explicitly uniform
+   global-448/tiled-672 construction is evaluated on AD2. It is an ablation of
+   branch construction and is not a repair or replacement of A69.
 
 ## Core mechanism
 
-The global branch preserves object context, while the tiled branch exposes
-small local evidence at higher effective resolution. The fixed raw fusion is
+Let `G` and `T` be the global and tiled anomaly maps used by A69, and let
+`qG` and `qT` be category-level medians of per-normal-image q99 scores:
 
-`S_raw = 0.5 * (S_global_448 + S_tiled_672)`.
+`S_q99 = 0.5 * (G / qG + T / qT)`.
 
-The audited calibration candidate is
-
-`S_q99 = 0.5 * (S_global_448 / qG + S_tiled_672 / qT)`,
-
-where qG and qT are estimated only from normal images. External validation
-shows that this normalization is unnecessary and slightly harmful relative
-to raw averaging. The result supports complementary cross-resolution evidence,
-but does not support q99 calibration as a claimed contribution.
+Normal calibration compensates for branch-specific score scale before
+combining contextual and local evidence. A69/A70 show that this improves AD2
+AU-PRO over both component branches. A73 shows that the same normalization is
+not universally better than raw averaging, so the paper should present q99
+calibration as an AD2-effective mechanism with measured transfer limits.

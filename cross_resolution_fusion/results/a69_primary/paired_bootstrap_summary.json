@@ -1,0 +1,406 @@
+{
+  "candidate": "q99_mean",
+  "normal_calibration": "A67 normal validation only",
+  "summary": {
+    "all": {
+      "category_macro": {
+        "global": 0.5697546763660257,
+        "tiled": 0.5797526114484419,
+        "q99_mean": 0.6024190456874704
+      },
+      "mean_delta_vs_global": 0.03266436932144473,
+      "mean_delta_vs_tiled": 0.022666434239028532,
+      "category_wins_vs_global": 6,
+      "category_wins_vs_tiled": 5,
+      "categories": 8,
+      "bootstrap_95ci_vs_global": [
+        0.007173805946223084,
+        0.06303030428842554
+      ],
+      "bootstrap_95ci_vs_tiled": [
+        0.0028739339272424586,
+        0.04267850480088601
+      ],
+      "condition_wins_vs_global": 34,
+      "condition_wins_vs_tiled": 35,
+      "category_condition_pairs": 47,
+      "by_category": {
+        "can": {
+          "global": 0.16674041326390102,
+          "tiled": 0.0915088675236498,
+          "q99_mean": 0.15142601325090993,
+          "delta_vs_global": -0.015314400012991086,
+          "delta_vs_tiled": 0.05991714572726013,
+          "condition_wins_vs_global": 0,
+          "condition_wins_vs_tiled": 6,
+          "conditions": 6
+        },
+        "fabric": {
+          "global": 0.5664662589011488,
+          "tiled": 0.5510136340914272,
+          "q99_mean": 0.5882799341194458,
+          "delta_vs_global": 0.021813675218297024,
+          "delta_vs_tiled": 0.03726630002801856,
+          "condition_wins_vs_global": 6,
+          "condition_wins_vs_tiled": 6,
+          "conditions": 6
+        },
+        "fruit_jelly": {
+          "global": 0.5600447144993959,
+          "tiled": 0.569355872309241,
+          "q99_mean": 0.5736263817648989,
+          "delta_vs_global": 0.013581667265503028,
+          "delta_vs_tiled": 0.004270509455657878,
+          "condition_wins_vs_global": 4,
+          "condition_wins_vs_tiled": 4,
+          "conditions": 4
+        },
+        "rice": {
+          "global": 0.6942968454793995,
+          "tiled": 0.7392379964312511,
+          "q99_mean": 0.7350659934346297,
+          "delta_vs_global": 0.040769147955230234,
+          "delta_vs_tiled": -0.004172002996621349,
+          "condition_wins_vs_global": 6,
+          "condition_wins_vs_tiled": 2,
+          "conditions": 6
+        },
+        "sheet_metal": {
+          "global": 0.5974826725032212,
+          "tiled": 0.656870171861576,
+          "q99_mean": 0.7190260692307023,
+          "delta_vs_global": 0.12154339672748116,
+          "delta_vs_tiled": 0.0621558973691263,
+          "condition_wins_vs_global": 6,
+          "condition_wins_vs_tiled": 6,
+          "conditions": 6
+        },
+        "vial": {
+          "global": 0.7750248824638766,
+          "tiled": 0.7232293461605591,
+          "q99_mean": 0.7633111155062563,
+          "delta_vs_global": -0.011713766957620275,
+          "delta_vs_tiled": 0.04008176934569718,
+          "condition_wins_vs_global": 0,
+          "condition_wins_vs_tiled": 7,
+          "conditions": 7
+        },
+        "wallplugs": {
+          "global": 0.5363035734548051,
+          "tiled": 0.6093621808153075,
+          "q99_mean": 0.5912287011163564,
+          "delta_vs_global": 0.05492512766155133,
+          "delta_vs_tiled": -0.01813347969895107,
+          "condition_wins_vs_global": 6,
+          "condition_wins_vs_tiled": 0,
+          "conditions": 6
+        },
+        "walnuts": {
+          "global": 0.6616780503624573,
+          "tiled": 0.6974428223945232,
+          "q99_mean": 0.6973881570765638,
+          "delta_vs_global": 0.03571010671410646,
+          "delta_vs_tiled": -5.4665317959390336e-05,
+          "condition_wins_vs_global": 6,
+          "condition_wins_vs_tiled": 4,
+          "conditions": 6
+        }
+      }
+    },
+    "tiny_le_0.1pct": {
+      "category_macro": {
+        "global": 0.5433157874948767,
+        "tiled": 0.5611720895252841,
+        "q99_mean": 0.5828864975968335
+      },
+      "mean_delta_vs_global": 0.0395707101019568,
+      "mean_delta_vs_tiled": 0.021714408071549576,
+      "category_wins_vs_global": 6,
+      "category_wins_vs_tiled": 6,
+      "categories": 8,
+      "bootstrap_95ci_vs_global": [
+        0.010246610138989445,
+        0.07205751759839682
+      ],
+      "bootstrap_95ci_vs_tiled": [
+        -0.0041386418665475405,
+        0.046452581583206684
+      ],
+      "condition_wins_vs_global": 34,
+      "condition_wins_vs_tiled": 31,
+      "category_condition_pairs": 47,
+      "by_category": {
+        "can": {
+          "global": 0.16674041326390102,
+          "tiled": 0.0915088675236498,
+          "q99_mean": 0.15142601325090993,
+          "delta_vs_global": -0.015314400012991086,
+          "delta_vs_tiled": 0.05991714572726013,
+          "condition_wins_vs_global": 0,
+          "condition_wins_vs_tiled": 6,
+          "conditions": 6
+        },
+        "fabric": {
+          "global": 0.5567946479904121,
+          "tiled": 0.5401821970185399,
+          "q99_mean": 0.5793777441072753,
+          "delta_vs_global": 0.022583096116863155,
+          "delta_vs_tiled": 0.039195547088735405,
+          "condition_wins_vs_global": 6,
+          "condition_wins_vs_tiled": 6,
+          "conditions": 6
+        },
+        "fruit_jelly": {
+          "global": 0.5111496117951142,
+          "tiled": 0.5296120405554781,
+          "q99_mean": 0.5302367293498893,
+          "delta_vs_global": 0.0190871175547751,
+          "delta_vs_tiled": 0.0006246887944112434,
+          "condition_wins_vs_global": 4,
+          "condition_wins_vs_tiled": 2,
+          "conditions": 4
+        },
+        "rice": {
+          "global": 0.5056321556046869,
+          "tiled": 0.6151364820703434,
+          "q99_mean": 0.5774471564343164,
+          "delta_vs_global": 0.07181500082962955,
+          "delta_vs_tiled": -0.037689325636027005,
+          "condition_wins_vs_global": 6,
+          "condition_wins_vs_tiled": 0,
+          "conditions": 6
+        },
+        "sheet_metal": {
+          "global": 0.5824539445239886,
+          "tiled": 0.6406703578466665,
+          "q99_mean": 0.709136067372421,
+          "delta_vs_global": 0.1266821228484324,
+          "delta_vs_tiled": 0.06846570952575448,
+          "condition_wins_vs_global": 6,
+          "condition_wins_vs_tiled": 6,
+          "conditions": 6
+        },
+        "vial": {
+          "global": 0.8562781770849442,
+          "tiled": 0.7850325372891974,
+          "q99_mean": 0.8414592535451929,
+          "delta_vs_global": -0.014818923539751339,
+          "delta_vs_tiled": 0.05642671625599549,
+          "condition_wins_vs_global": 0,
+          "condition_wins_vs_tiled": 7,
+          "conditions": 7
+        },
+        "wallplugs": {
+          "global": 0.5602985794859249,
+          "tiled": 0.6403672097276764,
+          "q99_mean": 0.6234544107698237,
+          "delta_vs_global": 0.06315583128389879,
+          "delta_vs_tiled": -0.016912798957852693,
+          "condition_wins_vs_global": 6,
+          "condition_wins_vs_tiled": 0,
+          "conditions": 6
+        },
+        "walnuts": {
+          "global": 0.607178770210042,
+          "tiled": 0.6468670241707203,
+          "q99_mean": 0.6505546059448398,
+          "delta_vs_global": 0.04337583573479786,
+          "delta_vs_tiled": 0.0036875817741195416,
+          "condition_wins_vs_global": 6,
+          "condition_wins_vs_tiled": 4,
+          "conditions": 6
+        }
+      }
+    },
+    "small_0.1_to_1pct": {
+      "category_macro": {
+        "global": 0.7671372875663679,
+        "tiled": 0.7870139623167915,
+        "q99_mean": 0.7900988664074239
+      },
+      "mean_delta_vs_global": 0.02296157884105608,
+      "mean_delta_vs_tiled": 0.003084904090632406,
+      "category_wins_vs_global": 5,
+      "category_wins_vs_tiled": 5,
+      "categories": 7,
+      "bootstrap_95ci_vs_global": [
+        0.006360803340082171,
+        0.04031113417349952
+      ],
+      "bootstrap_95ci_vs_tiled": [
+        -0.016448304587082987,
+        0.01961597178756071
+      ],
+      "condition_wins_vs_global": 27,
+      "condition_wins_vs_tiled": 26,
+      "category_condition_pairs": 41,
+      "by_category": {
+        "fabric": {
+          "global": 0.9976467647225732,
+          "tiled": 0.9969147491759083,
+          "q99_mean": 0.997320844388617,
+          "delta_vs_global": -0.0003259203339561756,
+          "delta_vs_tiled": 0.0004060952127087347,
+          "condition_wins_vs_global": 0,
+          "condition_wins_vs_tiled": 6,
+          "conditions": 6
+        },
+        "fruit_jelly": {
+          "global": 0.776827595104671,
+          "tiled": 0.7790782331177336,
+          "q99_mean": 0.7831681173283024,
+          "delta_vs_global": 0.006340522223631351,
+          "delta_vs_tiled": 0.004089884210568773,
+          "condition_wins_vs_global": 4,
+          "condition_wins_vs_tiled": 4,
+          "conditions": 4
+        },
+        "rice": {
+          "global": 0.8343555575356844,
+          "tiled": 0.825643051876504,
+          "q99_mean": 0.8510902170647144,
+          "delta_vs_global": 0.016734659529030083,
+          "delta_vs_tiled": 0.02544716518821044,
+          "condition_wins_vs_global": 5,
+          "condition_wins_vs_tiled": 6,
+          "conditions": 6
+        },
+        "sheet_metal": {
+          "global": 0.903893928757908,
+          "tiled": 0.9357921419727199,
+          "q99_mean": 0.9535294350530782,
+          "delta_vs_global": 0.04963550629517022,
+          "delta_vs_tiled": 0.01773729308035832,
+          "condition_wins_vs_global": 6,
+          "condition_wins_vs_tiled": 3,
+          "conditions": 6
+        },
+        "vial": {
+          "global": 0.8979721853687038,
+          "tiled": 0.859497830092845,
+          "q99_mean": 0.8915899299092791,
+          "delta_vs_global": -0.006382255459424724,
+          "delta_vs_tiled": 0.03209209981643413,
+          "condition_wins_vs_global": 0,
+          "condition_wins_vs_tiled": 7,
+          "conditions": 7
+        },
+        "wallplugs": {
+          "global": 0.2717011336859903,
+          "tiled": 0.3675891400719604,
+          "q99_mean": 0.3211687427988578,
+          "delta_vs_global": 0.04946760911286752,
+          "delta_vs_tiled": -0.0464203972731026,
+          "condition_wins_vs_global": 6,
+          "condition_wins_vs_tiled": 0,
+          "conditions": 6
+        },
+        "walnuts": {
+          "global": 0.6875638477890441,
+          "tiled": 0.7445825899098694,
+          "q99_mean": 0.7328247783091184,
+          "delta_vs_global": 0.045260930520074294,
+          "delta_vs_tiled": -0.011757811600750956,
+          "condition_wins_vs_global": 6,
+          "condition_wins_vs_tiled": 0,
+          "conditions": 6
+        }
+      }
+    },
+    "large_gt_1pct": {
+      "category_macro": {
+        "global": 0.6429614739616921,
+        "tiled": 0.6539818834846605,
+        "q99_mean": 0.6594820985181141
+      },
+      "mean_delta_vs_global": 0.016520624556421892,
+      "mean_delta_vs_tiled": 0.005500215033453699,
+      "category_wins_vs_global": 5,
+      "category_wins_vs_tiled": 6,
+      "categories": 7,
+      "bootstrap_95ci_vs_global": [
+        -0.003184968916542081,
+        0.042972338586973406
+      ],
+      "bootstrap_95ci_vs_tiled": [
+        -0.020579035360977445,
+        0.02361458721372126
+      ],
+      "condition_wins_vs_global": 30,
+      "condition_wins_vs_tiled": 34,
+      "category_condition_pairs": 41,
+      "by_category": {
+        "fabric": {
+          "global": 0.42543408040211844,
+          "tiled": 0.4300556311937578,
+          "q99_mean": 0.44630472421568473,
+          "delta_vs_global": 0.020870643813566292,
+          "delta_vs_tiled": 0.016249093021926952,
+          "condition_wins_vs_global": 6,
+          "condition_wins_vs_tiled": 6,
+          "conditions": 6
+        },
+        "fruit_jelly": {
+          "global": 0.529755471944918,
+          "tiled": 0.49686010974718864,
+          "q99_mean": 0.5222219161886692,
+          "delta_vs_global": -0.007533555756248811,
+          "delta_vs_tiled": 0.02536180644148056,
+          "condition_wins_vs_global": 0,
+          "condition_wins_vs_tiled": 4,
+          "conditions": 4
+        },
+        "rice": {
+          "global": 0.9916919337893378,
+          "tiled": 0.9921010712272941,
+          "q99_mean": 0.9933932901370515,
+          "delta_vs_global": 0.0017013563477136229,
+          "delta_vs_tiled": 0.0012922189097573922,
+          "condition_wins_vs_global": 6,
+          "condition_wins_vs_tiled": 5,
+          "conditions": 6
+        },
+        "sheet_metal": {
+          "global": 0.5031512752772398,
+          "tiled": 0.6579198151536245,
+          "q99_mean": 0.591224401696835,
+          "delta_vs_global": 0.0880731264195952,
+          "delta_vs_tiled": -0.06669541345678953,
+          "condition_wins_vs_global": 6,
+          "condition_wins_vs_tiled": 0,
+          "conditions": 6
+        },
+        "vial": {
+          "global": 0.5030288590956934,
+          "tiled": 0.4513412153816193,
+          "q99_mean": 0.4865962774488165,
+          "delta_vs_global": -0.016432581646876887,
+          "delta_vs_tiled": 0.035255062067197196,
+          "condition_wins_vs_global": 0,
+          "condition_wins_vs_tiled": 7,
+          "conditions": 7
+        },
+        "wallplugs": {
+          "global": 0.8132322029524751,
+          "tiled": 0.8169965973684903,
+          "q99_mean": 0.8351900903253048,
+          "delta_vs_global": 0.021957887372829665,
+          "delta_vs_tiled": 0.018193492956814494,
+          "condition_wins_vs_global": 6,
+          "condition_wins_vs_tiled": 6,
+          "conditions": 6
+        },
+        "walnuts": {
+          "global": 0.7344364942700631,
+          "tiled": 0.7325987443206484,
+          "q99_mean": 0.7414439896144372,
+          "delta_vs_global": 0.0070074953443741705,
+          "delta_vs_tiled": 0.008845245293788828,
+          "condition_wins_vs_global": 6,
+          "condition_wins_vs_tiled": 6,
+          "conditions": 6
+        }
+      }
+    }
+  }
+}

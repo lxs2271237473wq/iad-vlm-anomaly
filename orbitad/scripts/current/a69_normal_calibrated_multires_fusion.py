@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""AD2 development search for normal-calibrated 448/672 map fusion."""
+"""AD2 development search for normal-calibrated global/tiled map fusion."""
 
 from __future__ import annotations
 

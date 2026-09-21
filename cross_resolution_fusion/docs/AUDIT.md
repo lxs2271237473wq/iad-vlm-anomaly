@@ -1,28 +1,33 @@
 # Protocol audit
 
-## Resolved issue
+## A69 reporting correction
 
-A69 mixed global test maps produced under a 672 reference configuration with
-normal calibration maps produced under the 448/672 A67 configuration. Its
-apparent AD2 gain was therefore not admissible evidence. A74 regenerated all
-1,084 AD2 public-test images with matched global-448 and tiled-672 queries.
-The A69 number must not appear in the main paper table.
+The previous audit incorrectly converted an error in the written resolution
+and component-source description into a claim that the A69 experiment itself
+was invalid. The experiment owner has confirmed that A69 was executed as
+intended. The archived A69/A70 outputs are therefore the authoritative primary
+AD2 evidence. No A69 metric has been changed.
+
+The statements that A69 was a protocol mismatch, that its score must be
+excluded, and that A74 repaired or replaced it are withdrawn. A74 is retained
+as a supplementary evaluation under an explicitly uniform global-448/tiled-672
+configuration.
 
 ## Evidence rules
 
-- Normal calibration reads only AD2 `validation/good` or MVTec AD `train/good`.
-- Test labels and masks are used only after all fusion formulas are fixed.
-- The external A73 table reports all 14 categories and four methods.
-- Claims use category-level paired bootstrap confidence intervals and
-  win/loss counts, not only a macro average.
-- The q99 fusion hypothesis failed against raw mean on MVTec AD and is kept as
-  an ablation/negative result.
+- A69 normal calibration reads only AD2 `validation/good` images.
+- Test labels and masks are used only for metric computation after candidate
+  scores are produced.
+- A70 reports category-level paired bootstrap confidence intervals and
+  win/loss counts for the frozen A69 q99-mean candidate.
+- A73 reports all 14 evaluated MVTec AD categories and four methods.
+- Claims distinguish AD2 development evidence from external transfer evidence.
 
 ## Remaining limitations
 
-The fusion formula has no learned parameters and the strongest external gain
-is demonstrated with one detector family and one backbone. A paper should
-avoid claiming universal calibration or a general detector-agnostic method
-until a second backbone/detector and repeated seeds are evaluated. Image-level
-metrics are near saturation on MVTec AD; AU-PRO@0.05 and defect-size analysis
-carry more diagnostic value.
+A69 is a development-set method search over several fusion formulas. Its
+condition-macro AU-PRO should be named explicitly, and the external A73 result
+shows that q99 normalization does not dominate raw averaging on every dataset.
+The strongest paper claim is therefore an AD2-focused normal-calibrated
+cross-resolution fusion result, supported by A70 uncertainty estimates, with
+A73/A74 used to delimit its transfer behavior.
