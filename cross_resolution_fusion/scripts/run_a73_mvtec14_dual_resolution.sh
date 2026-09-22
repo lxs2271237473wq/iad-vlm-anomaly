@@ -5,6 +5,8 @@ ROOT="${IAD_REPO_ROOT:-/root/private_data/iad-vlm-anomaly}"
 REPO="$ROOT/ad2_model_zoo/repos/SuperAD"
 DATA="$ROOT/datasets/MVTecAD"
 OUT="$ROOT/ad2_model_zoo/results/a73_mvtec14_dual_resolution_v1"
+# Historical 14-class run. The paper table now uses the 15-class evaluation
+# (A76, cable included): run_a76_mvtec15_add_cable.sh + a76_evaluate_mvtec15_unified.py.
 CATEGORIES=(grid capsule transistor zipper carpet leather tile wood bottle hazelnut metal_nut pill screw toothbrush)
 
 export DINOV2_LOCAL_REPO="$ROOT/ad2_model_zoo/repos/dinov2"

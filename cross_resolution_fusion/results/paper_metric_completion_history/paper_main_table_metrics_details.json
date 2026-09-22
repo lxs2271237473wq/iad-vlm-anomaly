@@ -1,0 +1,20 @@
+{
+  "metric_definitions": {
+    "image_score": "99.9th percentile of anomaly map for map-based methods",
+    "image_f1max": "maximum F1 over all image-score thresholds within each category, then category macro",
+    "pixel_f1max": "maximum F1 over pixel-score thresholds using 65,536-bin histograms",
+    "pixel_ap": "histogram approximation of average precision with 65,536 bins",
+    "aupro_0_05": "normalized area under PRO for pixel FPR <= 0.05",
+    "tiny": "connected-region area <= 0.1% of image area",
+    "small": "0.1% < connected-region area <= 1%",
+    "large": "connected-region area > 1%"
+  },
+  "important": [
+    "No backbone retraining or new feature extraction is performed.",
+    "Blank values mean the saved method output does not support that metric or the required local artifact is absent.",
+    "Image-only historical score methods are not assigned fabricated pixel/region metrics."
+  ],
+  "details": {
+    "historical_ad2_image_scores": {}
+  }
+}

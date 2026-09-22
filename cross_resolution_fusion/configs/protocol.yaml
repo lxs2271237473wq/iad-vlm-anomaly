@@ -13,8 +13,11 @@ ad2:
   normal_calibration_split: validation/good
   evaluation_split: test_public
   categories: [can, fabric, fruit_jelly, rice, sheet_metal, vial, wallplugs, walnuts]
+# All MVTec AD images are square, so the tiler (tile_size = min(h, w)) emits a
+# single tile equal to the whole image: the 672 branch is a higher-resolution
+# whole-image branch, not a local view. Tables label it Res672.
 mvtec_ad:
   dataset_directory: datasets/MVTecAD
   normal_calibration_split: train/good
   evaluation_split: test
-  categories: [grid, capsule, transistor, zipper, carpet, leather, tile, wood, bottle, hazelnut, metal_nut, pill, screw, toothbrush]
+  categories: [grid, capsule, transistor, zipper, carpet, leather, tile, wood, bottle, hazelnut, metal_nut, pill, screw, toothbrush, cable]

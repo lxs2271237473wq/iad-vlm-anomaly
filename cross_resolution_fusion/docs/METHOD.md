@@ -15,9 +15,17 @@
 4. **A70: paired robustness audit.** The frozen A69 q99-mean candidate is
    compared with both branches using category-level bootstrap confidence
    intervals, category wins and condition wins.
-5. **A73: external validation.** The same fusion hypothesis is evaluated on 14
-   MVTec AD categories. This stage tests transfer rather than reselecting the
-   AD2 candidate.
+5. **A76: external evaluation on all 15 MVTec AD categories.** The frozen
+   fusion is evaluated on the complete MVTec AD benchmark, cable included,
+   using one evaluator for all 15 classes. This stage measures transfer rather
+   than reselecting the AD2 candidate.
+   Scope limit that must be stated: every MVTec AD image is square and the
+   tiler uses `tile_size = min(height, width)`, so it emits a single tile equal
+   to the whole image. On MVTec the 672 branch is therefore a higher-resolution
+   whole-image branch, not a local view, and this stage tests a two-resolution
+   ensemble of one view rather than the tiled-view hypothesis that A69/A75 test
+   on AD2. Tables label this branch `Res672` for that reason. A73 is the
+   earlier 14-class run and is retained as history only.
 6. **A74: supplementary uniform protocol.** A separate, explicitly uniform
    global-448/tiled-672 construction is evaluated on AD2. It is an ablation of
    branch construction and is not a repair or replacement of A69.
@@ -31,6 +39,7 @@ Let `G` and `T` be the global and tiled anomaly maps used by A69, and let
 
 Normal calibration compensates for branch-specific score scale before
 combining contextual and local evidence. A69/A70 show that this improves AD2
-AU-PRO over both component branches. A73 shows that the same normalization is
-not universally better than raw averaging, so the paper should present q99
-calibration as an AD2-effective mechanism with measured transfer limits.
+AU-PRO over both component branches. A76 (15 MVTec AD classes) shows that the
+same normalization is not universally better than raw averaging, so the paper
+should present q99 calibration as an AD2-effective mechanism with measured
+transfer limits.

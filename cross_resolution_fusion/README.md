@@ -22,10 +22,13 @@ Global (95% CI [0.007174, 0.063030], 6/8 wins) and 0.022666 over Tiled (95% CI
 The earlier report that treated A69 as invalid was wrong: its written
 resolution/source description was incorrect, while the experiment and
 archived metrics are valid. A74 remains as a supplementary uniform 448/672
-configuration, not as a repair or replacement. On the 14-class MVTec AD
-external evaluation, raw averaging transfers better than q99 normalization;
-this limits the generality claim while preserving the A69 AD2 finding. See
-`results/a69_primary/` and `docs/RESULTS.md` for the evidence.
+configuration, not as a repair or replacement. On the 15-class MVTec AD
+external evaluation (A76, cable included), raw averaging transfers better than
+q99 normalization; this limits the generality claim while preserving the A69
+AD2 finding. Because every MVTec AD image is square, the tiler emits a single
+tile equal to the whole image there, so that branch is labelled `Res672` and
+the external stage does not test the tiled-view hypothesis that A69/A75 test on
+AD2. See `results/a69_primary/` and `docs/RESULTS.md` for the evidence.
 
 ## Directory layout
 

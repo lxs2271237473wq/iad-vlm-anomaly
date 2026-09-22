@@ -36,7 +36,12 @@ from tqdm import tqdm
 
 
 ROOT = Path(os.environ.get("IAD_REPO_ROOT", "/root/private_data/iad-vlm-anomaly"))
-OUT = ROOT / "cross_resolution_fusion/results/paper_metric_completion"
+OUT = Path(
+    os.environ.get(
+        "IAD_PAPER_METRIC_OUT",
+        str(ROOT / "cross_resolution_fusion/results/paper_metric_completion"),
+    )
+)
 
 BINS = 65536
 MAX_FPR = 0.05
@@ -298,6 +303,7 @@ def ad2_maps(row, calibration):
     return {
         "Global 448": g,
         "Local 672": t,
+        "Raw mean": 0.5 * (g + t),
         "Ours: q99 fusion": 0.5 * (
             g / max(c["global_q99"], EPS)
             + t / max(c["tiled_q99"], EPS)
@@ -322,7 +328,7 @@ def evaluate_ad2_cross_resolution():
 
     rows = read_csv(AD2_META)
     calibration = ad2_calibration()
-    methods = ("Global 448", "Local 672", "Ours: q99 fusion")
+    methods = ("Global 448", "Local 672", "Raw mean", "Ours: q99 fusion")
 
     missing = [
         str(path)
@@ -393,11 +399,29 @@ MVTEC_A73 = ROOT / "ad2_model_zoo/results/a73_mvtec14_dual_resolution_v1"
 MVTEC_CATEGORIES = (
     "grid", "capsule", "transistor", "zipper", "carpet", "leather", "tile",
     "wood", "bottle", "hazelnut", "metal_nut", "pill", "screw", "toothbrush",
+    "cable",
 )
+
+# Cable is one of the 15 MVTec AD categories and belongs in the same external
+# evaluation. Its component maps come from the A59 (test) and A71 (train/good)
+# legacy runs, whose directory layout differs from A73. A grid-pitch check on the
+# stored maps gives 21.17 px for cable tiled and 31.75 px for cable global,
+# identical to the certified A73 reference (672 and 448 at 1024 px), so the maps
+# are read in place rather than regenerated.
+LEGACY_MVTEC_MAP_ROOTS = {
+    "cable": {
+        "train": ROOT / "ad2_model_zoo/results/a71_mvtec_cable_train_normal_dual_resolution_v1",
+        "test": ROOT / "ad2_model_zoo/results/a59_superad_reg4_mvtec_cable_tiled_query_v1",
+    },
+}
 
 
 def mvtec_component_paths(split, category, anomaly_type, stem):
-    folder = MVTEC_A73 / split / category / "component_maps/seed=0" / category / anomaly_type
+    if category in LEGACY_MVTEC_MAP_ROOTS:
+        root = LEGACY_MVTEC_MAP_ROOTS[category][split]
+        folder = root / category / "component_maps/seed=0" / category / anomaly_type
+    else:
+        folder = MVTEC_A73 / split / category / "component_maps/seed=0" / category / anomaly_type
     return folder / f"{stem}_global.tiff", folder / f"{stem}_tiled.tiff"
 
 
@@ -440,9 +464,13 @@ def mvtec_mask(category, anomaly_type, image_path):
 
 
 def mvtec_methods(g, t, calibration):
+    # Every MVTec AD image is square, so the tiler (tile_size = min(h, w)) emits a
+    # single tile equal to the whole image. The 672 branch is therefore a
+    # higher-resolution whole-image branch, not a local view, and is labelled
+    # Res672 instead of Local 672.
     return {
         "Global 448": g,
-        "Local 672": t,
+        "Res672": t,
         "Raw mean": 0.5 * (g + t),
         "q99 fusion": 0.5 * (
             g / max(calibration["global_q99"], EPS)
@@ -451,11 +479,11 @@ def mvtec_methods(g, t, calibration):
     }
 
 
-def evaluate_mvtec14():
+def evaluate_mvtec15():
     if not MVTEC_A73.exists():
-        return [], {"warning": f"MVTec-14 map directory not found: {MVTEC_A73}"}
+        return [], {"warning": f"MVTec-15 map directory not found: {MVTEC_A73}"}
 
-    methods = ("Global 448", "Local 672", "Raw mean", "q99 fusion")
+    methods = ("Global 448", "Res672", "Raw mean", "q99 fusion")
     calibration = {c: mvtec_calibration(c) for c in MVTEC_CATEGORIES}
     maxima = defaultdict(float)
     image_data = {
@@ -465,7 +493,7 @@ def evaluate_mvtec14():
 
     all_samples = [(c, t, p) for c in MVTEC_CATEGORIES for t, p in mvtec_samples(c)]
     for category, anomaly_type, image_path in tqdm(
-        all_samples, desc="MVTec14 pass 1/2: image scores", unit="img", dynamic_ncols=True
+        all_samples, desc="MVTec15 pass 1/2: image scores", unit="img", dynamic_ncols=True
     ):
         g, t = mvtec_read_pair("test", category, anomaly_type, image_path.stem)
         maps = mvtec_methods(g, t, calibration[category])
@@ -480,7 +508,7 @@ def evaluate_mvtec14():
         for method in methods
     }
     for category, anomaly_type, image_path in tqdm(
-        all_samples, desc="MVTec14 pass 2/2: pixel/region", unit="img", dynamic_ncols=True
+        all_samples, desc="MVTec15 pass 2/2: pixel/region", unit="img", dynamic_ncols=True
     ):
         g, t = mvtec_read_pair("test", category, anomaly_type, image_path.stem)
         maps = mvtec_methods(g, t, calibration[category])
@@ -496,7 +524,7 @@ def evaluate_mvtec14():
         image_macro, image_detail = macro_image_metrics(image_data[method])
         pixel_macro, pixel_detail = summarize_map_stats(pixel_stats[method])
         output.append({
-            "protocol": "MVTec AD-14",
+            "protocol": "MVTec AD-15",
             "method": method,
             **image_macro,
             "pixel_auroc": pixel_macro["pixel_auroc"],
@@ -506,113 +534,13 @@ def evaluate_mvtec14():
             "tiny": pixel_macro["tiny_le_0.1pct"],
             "small": pixel_macro["small_0.1_to_1pct"],
             "large": pixel_macro["large_gt_1pct"],
-            "note": "14 categories excluding cable; category-macro metrics",
+            "note": (
+                "all 15 MVTec AD categories; category-macro metrics; "
+                "Res672 is the whole image at short edge 672 because all MVTec images are square"
+            ),
         })
         details[method] = {"image": image_detail, "pixel": pixel_detail}
     return output, details
-
-
-# ---------------------------------------------------------------------------
-# MVTec Cable frozen transfer
-# ---------------------------------------------------------------------------
-
-CABLE_DATA = ROOT / "datasets/MVTecAD/cable"
-CABLE_NORMAL = ROOT / "ad2_model_zoo/results/a71_mvtec_cable_train_normal_dual_resolution_v1"
-CABLE_TEST = ROOT / "ad2_model_zoo/results/a59_superad_reg4_mvtec_cable_tiled_query_v1/cable"
-
-
-def cable_component_paths(base, anomaly_type, stem):
-    folder = base / "component_maps/seed=0/cable" / anomaly_type
-    return folder / f"{stem}_global.tiff", folder / f"{stem}_tiled.tiff"
-
-
-def cable_calibration():
-    folder = CABLE_NORMAL / "cable/component_maps/seed=0/cable/good"
-    gs, ts = [], []
-    for gp in sorted(folder.glob("*_global.tiff")):
-        tp = gp.with_name(gp.name.replace("_global.tiff", "_tiled.tiff"))
-        gs.append(float(np.quantile(tifffile.imread(gp), 0.99)))
-        ts.append(float(np.quantile(tifffile.imread(tp), 0.99)))
-    if not gs:
-        raise RuntimeError("Cable normal calibration maps not found")
-    return {"global_q99": float(np.median(gs)), "tiled_q99": float(np.median(ts))}
-
-
-def cable_maps(anomaly_type, stem, calibration):
-    gp, tp = cable_component_paths(CABLE_TEST, anomaly_type, stem)
-    g = np.asarray(tifffile.imread(gp), np.float32)
-    t = np.asarray(tifffile.imread(tp), np.float32)
-    return {
-        "Global 448": g,
-        "Local 672": t,
-        "Ours: q99 fusion": 0.5 * (
-            g / max(calibration["global_q99"], EPS)
-            + t / max(calibration["tiled_q99"], EPS)
-        ),
-    }
-
-
-def evaluate_cable():
-    if not CABLE_TEST.exists() or not CABLE_NORMAL.exists():
-        return [], {"warning": "Cable component maps not found"}
-    calibration = cable_calibration()
-    samples = [
-        (folder.name, path)
-        for folder in sorted((CABLE_DATA / "test").iterdir())
-        if folder.is_dir()
-        for path in sorted(folder.glob("*.png"))
-    ]
-    methods = ("Global 448", "Local 672", "Ours: q99 fusion")
-
-    maxima = defaultdict(float)
-    image_data = {m: {"labels": [], "scores": []} for m in methods}
-    for anomaly_type, image_path in tqdm(
-        samples, desc="Cable pass 1/2: image scores", unit="img", dynamic_ncols=True
-    ):
-        maps = cable_maps(anomaly_type, image_path.stem, calibration)
-        label = int(anomaly_type != "good")
-        for method, score in maps.items():
-            maxima[method] = max(maxima[method], float(np.nanmax(score)))
-            image_data[method]["labels"].append(label)
-            image_data[method]["scores"].append(float(np.quantile(score, 0.999)))
-
-    stats = {m: PixelStats() for m in methods}
-    for anomaly_type, image_path in tqdm(
-        samples, desc="Cable pass 2/2: pixel/region", unit="img", dynamic_ncols=True
-    ):
-        maps = cable_maps(anomaly_type, image_path.stem, calibration)
-        image = cv2.imread(str(image_path), cv2.IMREAD_GRAYSCALE)
-        if anomaly_type == "good":
-            mask = np.zeros_like(image, np.uint8)
-        else:
-            path = CABLE_DATA / "ground_truth" / anomaly_type / f"{image_path.stem}_mask.png"
-            mask = (cv2.imread(str(path), cv2.IMREAD_GRAYSCALE) > 0).astype(np.uint8)
-        for method, score in maps.items():
-            scale = BINS / max(maxima[method] * 1.001, maxima[method] + 1e-6)
-            add_map_to_stats(stats[method], score, mask, scale)
-
-    output = []
-    details = {}
-    for method in methods:
-        im = safe_image_metrics(image_data[method]["labels"], image_data[method]["scores"])
-        stat = stats[method]
-        row = {
-            "protocol": "Cable",
-            "method": method,
-            "image_auroc": im["image_auroc"],
-            "image_ap": im["image_ap"],
-            "image_f1max": im["image_f1max"],
-            "pixel_auroc": histogram_auroc(stat.negative, stat.positive),
-            "pixel_ap": histogram_ap(stat.negative, stat.positive),
-            "pixel_f1max": histogram_f1max(stat.negative, stat.positive),
-            "aupro_0_05": aupro(stat.negative, stat.region["all"], stat.regions["all"]),
-            "tiny": aupro(stat.negative, stat.region["tiny_le_0.1pct"], stat.regions["tiny_le_0.1pct"]),
-            "small": aupro(stat.negative, stat.region["small_0.1_to_1pct"], stat.regions["small_0.1_to_1pct"]),
-            "large": aupro(stat.negative, stat.region["large_gt_1pct"], stat.regions["large_gt_1pct"]),
-            "note": "single-category frozen-transfer evaluation",
-        }
-        output.append(row)
-    return output, {"normal_calibration": calibration}
 
 
 def blank(value):
@@ -627,7 +555,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--only",
-        choices=("all", "history", "ad2", "mvtec14", "cable"),
+        choices=("all", "history", "ad2", "mvtec15"),
         default="all",
         help="Run only one evaluation block if desired.",
     )
@@ -642,10 +570,8 @@ def main():
         jobs.append(("historical_ad2_image_scores", evaluate_ad2_image_score_history))
     if args.only in ("all", "ad2"):
         jobs.append(("ad2_cross_resolution", evaluate_ad2_cross_resolution))
-    if args.only in ("all", "mvtec14"):
-        jobs.append(("mvtec14_cross_resolution", evaluate_mvtec14))
-    if args.only in ("all", "cable"):
-        jobs.append(("cable_cross_resolution", evaluate_cable))
+    if args.only in ("all", "mvtec15"):
+        jobs.append(("mvtec15_cross_resolution", evaluate_mvtec15))
 
     for name, fn in jobs:
         print(f"\n[{name}] start", flush=True)
@@ -661,7 +587,7 @@ def main():
         "aupro_0_05", "tiny", "small", "large", "note",
     ]
     with (OUT / "paper_main_table_metrics.csv").open("w", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         for row in rows:
             writer.writerow({key: blank(row.get(key, "")) for key in fields})

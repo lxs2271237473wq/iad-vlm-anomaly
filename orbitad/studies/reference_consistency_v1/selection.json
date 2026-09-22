@@ -1,0 +1,925 @@
+{
+  "seed": "paired-reference-pilot-v1",
+  "instances_per_label": 2,
+  "validation_images_per_category": 6,
+  "categories": {
+    "can": {
+      "public": [
+        {
+          "map_index": "18",
+          "set_type": "normal",
+          "label": "0",
+          "category": "can",
+          "instance_id": "003",
+          "condition": "overexposed",
+          "image_path": "can/test_public/good/003_overexposed.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "19",
+          "set_type": "normal",
+          "label": "0",
+          "category": "can",
+          "instance_id": "003",
+          "condition": "regular",
+          "image_path": "can/test_public/good/003_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "20",
+          "set_type": "normal",
+          "label": "0",
+          "category": "can",
+          "instance_id": "003",
+          "condition": "shift_1",
+          "image_path": "can/test_public/good/003_shift_1.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "21",
+          "set_type": "normal",
+          "label": "0",
+          "category": "can",
+          "instance_id": "003",
+          "condition": "shift_2",
+          "image_path": "can/test_public/good/003_shift_2.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "22",
+          "set_type": "normal",
+          "label": "0",
+          "category": "can",
+          "instance_id": "003",
+          "condition": "shift_3",
+          "image_path": "can/test_public/good/003_shift_3.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "23",
+          "set_type": "normal",
+          "label": "0",
+          "category": "can",
+          "instance_id": "003",
+          "condition": "underexposed",
+          "image_path": "can/test_public/good/003_underexposed.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "66",
+          "set_type": "normal",
+          "label": "0",
+          "category": "can",
+          "instance_id": "011",
+          "condition": "overexposed",
+          "image_path": "can/test_public/good/011_overexposed.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "67",
+          "set_type": "normal",
+          "label": "0",
+          "category": "can",
+          "instance_id": "011",
+          "condition": "regular",
+          "image_path": "can/test_public/good/011_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "68",
+          "set_type": "normal",
+          "label": "0",
+          "category": "can",
+          "instance_id": "011",
+          "condition": "shift_1",
+          "image_path": "can/test_public/good/011_shift_1.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "69",
+          "set_type": "normal",
+          "label": "0",
+          "category": "can",
+          "instance_id": "011",
+          "condition": "shift_2",
+          "image_path": "can/test_public/good/011_shift_2.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "70",
+          "set_type": "normal",
+          "label": "0",
+          "category": "can",
+          "instance_id": "011",
+          "condition": "shift_3",
+          "image_path": "can/test_public/good/011_shift_3.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "71",
+          "set_type": "normal",
+          "label": "0",
+          "category": "can",
+          "instance_id": "011",
+          "condition": "underexposed",
+          "image_path": "can/test_public/good/011_underexposed.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "409",
+          "set_type": "defect",
+          "label": "1",
+          "category": "can",
+          "instance_id": "005",
+          "condition": "overexposed",
+          "image_path": "can/test_public/bad/005_overexposed.png",
+          "mask_path": "can/test_public/ground_truth/bad/005_overexposed_mask.png"
+        },
+        {
+          "map_index": "410",
+          "set_type": "defect",
+          "label": "1",
+          "category": "can",
+          "instance_id": "005",
+          "condition": "regular",
+          "image_path": "can/test_public/bad/005_regular.png",
+          "mask_path": "can/test_public/ground_truth/bad/005_regular_mask.png"
+        },
+        {
+          "map_index": "411",
+          "set_type": "defect",
+          "label": "1",
+          "category": "can",
+          "instance_id": "005",
+          "condition": "shift_1",
+          "image_path": "can/test_public/bad/005_shift_1.png",
+          "mask_path": "can/test_public/ground_truth/bad/005_shift_1_mask.png"
+        },
+        {
+          "map_index": "412",
+          "set_type": "defect",
+          "label": "1",
+          "category": "can",
+          "instance_id": "005",
+          "condition": "shift_2",
+          "image_path": "can/test_public/bad/005_shift_2.png",
+          "mask_path": "can/test_public/ground_truth/bad/005_shift_2_mask.png"
+        },
+        {
+          "map_index": "413",
+          "set_type": "defect",
+          "label": "1",
+          "category": "can",
+          "instance_id": "005",
+          "condition": "shift_3",
+          "image_path": "can/test_public/bad/005_shift_3.png",
+          "mask_path": "can/test_public/ground_truth/bad/005_shift_3_mask.png"
+        },
+        {
+          "map_index": "414",
+          "set_type": "defect",
+          "label": "1",
+          "category": "can",
+          "instance_id": "005",
+          "condition": "underexposed",
+          "image_path": "can/test_public/bad/005_underexposed.png",
+          "mask_path": "can/test_public/ground_truth/bad/005_underexposed_mask.png"
+        },
+        {
+          "map_index": "421",
+          "set_type": "defect",
+          "label": "1",
+          "category": "can",
+          "instance_id": "007",
+          "condition": "overexposed",
+          "image_path": "can/test_public/bad/007_overexposed.png",
+          "mask_path": "can/test_public/ground_truth/bad/007_overexposed_mask.png"
+        },
+        {
+          "map_index": "422",
+          "set_type": "defect",
+          "label": "1",
+          "category": "can",
+          "instance_id": "007",
+          "condition": "regular",
+          "image_path": "can/test_public/bad/007_regular.png",
+          "mask_path": "can/test_public/ground_truth/bad/007_regular_mask.png"
+        },
+        {
+          "map_index": "423",
+          "set_type": "defect",
+          "label": "1",
+          "category": "can",
+          "instance_id": "007",
+          "condition": "shift_1",
+          "image_path": "can/test_public/bad/007_shift_1.png",
+          "mask_path": "can/test_public/ground_truth/bad/007_shift_1_mask.png"
+        },
+        {
+          "map_index": "424",
+          "set_type": "defect",
+          "label": "1",
+          "category": "can",
+          "instance_id": "007",
+          "condition": "shift_2",
+          "image_path": "can/test_public/bad/007_shift_2.png",
+          "mask_path": "can/test_public/ground_truth/bad/007_shift_2_mask.png"
+        },
+        {
+          "map_index": "425",
+          "set_type": "defect",
+          "label": "1",
+          "category": "can",
+          "instance_id": "007",
+          "condition": "shift_3",
+          "image_path": "can/test_public/bad/007_shift_3.png",
+          "mask_path": "can/test_public/ground_truth/bad/007_shift_3_mask.png"
+        },
+        {
+          "map_index": "426",
+          "set_type": "defect",
+          "label": "1",
+          "category": "can",
+          "instance_id": "007",
+          "condition": "underexposed",
+          "image_path": "can/test_public/bad/007_underexposed.png",
+          "mask_path": "can/test_public/ground_truth/bad/007_underexposed_mask.png"
+        }
+      ],
+      "validation": [
+        {
+          "map_index": "29",
+          "set_type": "validation_normal",
+          "label": "0",
+          "category": "can",
+          "instance_id": "029",
+          "condition": "regular",
+          "image_path": "can/validation/good/029_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "39",
+          "set_type": "validation_normal",
+          "label": "0",
+          "category": "can",
+          "instance_id": "039",
+          "condition": "regular",
+          "image_path": "can/validation/good/039_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "6",
+          "set_type": "validation_normal",
+          "label": "0",
+          "category": "can",
+          "instance_id": "006",
+          "condition": "regular",
+          "image_path": "can/validation/good/006_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "7",
+          "set_type": "validation_normal",
+          "label": "0",
+          "category": "can",
+          "instance_id": "007",
+          "condition": "regular",
+          "image_path": "can/validation/good/007_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "34",
+          "set_type": "validation_normal",
+          "label": "0",
+          "category": "can",
+          "instance_id": "034",
+          "condition": "regular",
+          "image_path": "can/validation/good/034_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "35",
+          "set_type": "validation_normal",
+          "label": "0",
+          "category": "can",
+          "instance_id": "035",
+          "condition": "regular",
+          "image_path": "can/validation/good/035_regular.png",
+          "mask_path": ""
+        }
+      ]
+    },
+    "fabric": {
+      "public": [
+        {
+          "map_index": "90",
+          "set_type": "normal",
+          "label": "0",
+          "category": "fabric",
+          "instance_id": "003",
+          "condition": "overexposed",
+          "image_path": "fabric/test_public/good/003_overexposed.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "91",
+          "set_type": "normal",
+          "label": "0",
+          "category": "fabric",
+          "instance_id": "003",
+          "condition": "regular",
+          "image_path": "fabric/test_public/good/003_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "92",
+          "set_type": "normal",
+          "label": "0",
+          "category": "fabric",
+          "instance_id": "003",
+          "condition": "shift_1",
+          "image_path": "fabric/test_public/good/003_shift_1.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "93",
+          "set_type": "normal",
+          "label": "0",
+          "category": "fabric",
+          "instance_id": "003",
+          "condition": "shift_2",
+          "image_path": "fabric/test_public/good/003_shift_2.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "94",
+          "set_type": "normal",
+          "label": "0",
+          "category": "fabric",
+          "instance_id": "003",
+          "condition": "shift_3",
+          "image_path": "fabric/test_public/good/003_shift_3.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "95",
+          "set_type": "normal",
+          "label": "0",
+          "category": "fabric",
+          "instance_id": "003",
+          "condition": "underexposed",
+          "image_path": "fabric/test_public/good/003_underexposed.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "126",
+          "set_type": "normal",
+          "label": "0",
+          "category": "fabric",
+          "instance_id": "009",
+          "condition": "overexposed",
+          "image_path": "fabric/test_public/good/009_overexposed.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "127",
+          "set_type": "normal",
+          "label": "0",
+          "category": "fabric",
+          "instance_id": "009",
+          "condition": "regular",
+          "image_path": "fabric/test_public/good/009_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "128",
+          "set_type": "normal",
+          "label": "0",
+          "category": "fabric",
+          "instance_id": "009",
+          "condition": "shift_1",
+          "image_path": "fabric/test_public/good/009_shift_1.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "129",
+          "set_type": "normal",
+          "label": "0",
+          "category": "fabric",
+          "instance_id": "009",
+          "condition": "shift_2",
+          "image_path": "fabric/test_public/good/009_shift_2.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "130",
+          "set_type": "normal",
+          "label": "0",
+          "category": "fabric",
+          "instance_id": "009",
+          "condition": "shift_3",
+          "image_path": "fabric/test_public/good/009_shift_3.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "131",
+          "set_type": "normal",
+          "label": "0",
+          "category": "fabric",
+          "instance_id": "009",
+          "condition": "underexposed",
+          "image_path": "fabric/test_public/good/009_underexposed.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "499",
+          "set_type": "defect",
+          "label": "1",
+          "category": "fabric",
+          "instance_id": "005",
+          "condition": "overexposed",
+          "image_path": "fabric/test_public/bad/005_overexposed.png",
+          "mask_path": "fabric/test_public/ground_truth/bad/005_overexposed_mask.png"
+        },
+        {
+          "map_index": "500",
+          "set_type": "defect",
+          "label": "1",
+          "category": "fabric",
+          "instance_id": "005",
+          "condition": "regular",
+          "image_path": "fabric/test_public/bad/005_regular.png",
+          "mask_path": "fabric/test_public/ground_truth/bad/005_regular_mask.png"
+        },
+        {
+          "map_index": "501",
+          "set_type": "defect",
+          "label": "1",
+          "category": "fabric",
+          "instance_id": "005",
+          "condition": "shift_1",
+          "image_path": "fabric/test_public/bad/005_shift_1.png",
+          "mask_path": "fabric/test_public/ground_truth/bad/005_shift_1_mask.png"
+        },
+        {
+          "map_index": "502",
+          "set_type": "defect",
+          "label": "1",
+          "category": "fabric",
+          "instance_id": "005",
+          "condition": "shift_2",
+          "image_path": "fabric/test_public/bad/005_shift_2.png",
+          "mask_path": "fabric/test_public/ground_truth/bad/005_shift_2_mask.png"
+        },
+        {
+          "map_index": "503",
+          "set_type": "defect",
+          "label": "1",
+          "category": "fabric",
+          "instance_id": "005",
+          "condition": "shift_3",
+          "image_path": "fabric/test_public/bad/005_shift_3.png",
+          "mask_path": "fabric/test_public/ground_truth/bad/005_shift_3_mask.png"
+        },
+        {
+          "map_index": "504",
+          "set_type": "defect",
+          "label": "1",
+          "category": "fabric",
+          "instance_id": "005",
+          "condition": "underexposed",
+          "image_path": "fabric/test_public/bad/005_underexposed.png",
+          "mask_path": "fabric/test_public/ground_truth/bad/005_underexposed_mask.png"
+        },
+        {
+          "map_index": "529",
+          "set_type": "defect",
+          "label": "1",
+          "category": "fabric",
+          "instance_id": "010",
+          "condition": "overexposed",
+          "image_path": "fabric/test_public/bad/010_overexposed.png",
+          "mask_path": "fabric/test_public/ground_truth/bad/010_overexposed_mask.png"
+        },
+        {
+          "map_index": "530",
+          "set_type": "defect",
+          "label": "1",
+          "category": "fabric",
+          "instance_id": "010",
+          "condition": "regular",
+          "image_path": "fabric/test_public/bad/010_regular.png",
+          "mask_path": "fabric/test_public/ground_truth/bad/010_regular_mask.png"
+        },
+        {
+          "map_index": "531",
+          "set_type": "defect",
+          "label": "1",
+          "category": "fabric",
+          "instance_id": "010",
+          "condition": "shift_1",
+          "image_path": "fabric/test_public/bad/010_shift_1.png",
+          "mask_path": "fabric/test_public/ground_truth/bad/010_shift_1_mask.png"
+        },
+        {
+          "map_index": "532",
+          "set_type": "defect",
+          "label": "1",
+          "category": "fabric",
+          "instance_id": "010",
+          "condition": "shift_2",
+          "image_path": "fabric/test_public/bad/010_shift_2.png",
+          "mask_path": "fabric/test_public/ground_truth/bad/010_shift_2_mask.png"
+        },
+        {
+          "map_index": "533",
+          "set_type": "defect",
+          "label": "1",
+          "category": "fabric",
+          "instance_id": "010",
+          "condition": "shift_3",
+          "image_path": "fabric/test_public/bad/010_shift_3.png",
+          "mask_path": "fabric/test_public/ground_truth/bad/010_shift_3_mask.png"
+        },
+        {
+          "map_index": "534",
+          "set_type": "defect",
+          "label": "1",
+          "category": "fabric",
+          "instance_id": "010",
+          "condition": "underexposed",
+          "image_path": "fabric/test_public/bad/010_underexposed.png",
+          "mask_path": "fabric/test_public/ground_truth/bad/010_underexposed_mask.png"
+        }
+      ],
+      "validation": [
+        {
+          "map_index": "68",
+          "set_type": "validation_normal",
+          "label": "0",
+          "category": "fabric",
+          "instance_id": "022",
+          "condition": "regular",
+          "image_path": "fabric/validation/good/022_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "48",
+          "set_type": "validation_normal",
+          "label": "0",
+          "category": "fabric",
+          "instance_id": "002",
+          "condition": "regular",
+          "image_path": "fabric/validation/good/002_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "54",
+          "set_type": "validation_normal",
+          "label": "0",
+          "category": "fabric",
+          "instance_id": "008",
+          "condition": "regular",
+          "image_path": "fabric/validation/good/008_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "58",
+          "set_type": "validation_normal",
+          "label": "0",
+          "category": "fabric",
+          "instance_id": "012",
+          "condition": "regular",
+          "image_path": "fabric/validation/good/012_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "65",
+          "set_type": "validation_normal",
+          "label": "0",
+          "category": "fabric",
+          "instance_id": "019",
+          "condition": "regular",
+          "image_path": "fabric/validation/good/019_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "61",
+          "set_type": "validation_normal",
+          "label": "0",
+          "category": "fabric",
+          "instance_id": "015",
+          "condition": "regular",
+          "image_path": "fabric/validation/good/015_regular.png",
+          "mask_path": ""
+        }
+      ]
+    },
+    "sheet_metal": {
+      "public": [
+        {
+          "map_index": "200",
+          "set_type": "normal",
+          "label": "0",
+          "category": "sheet_metal",
+          "instance_id": "000",
+          "condition": "overexposed",
+          "image_path": "sheet_metal/test_public/good/000_overexposed.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "201",
+          "set_type": "normal",
+          "label": "0",
+          "category": "sheet_metal",
+          "instance_id": "000",
+          "condition": "regular",
+          "image_path": "sheet_metal/test_public/good/000_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "202",
+          "set_type": "normal",
+          "label": "0",
+          "category": "sheet_metal",
+          "instance_id": "000",
+          "condition": "shift_1",
+          "image_path": "sheet_metal/test_public/good/000_shift_1.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "203",
+          "set_type": "normal",
+          "label": "0",
+          "category": "sheet_metal",
+          "instance_id": "000",
+          "condition": "shift_2",
+          "image_path": "sheet_metal/test_public/good/000_shift_2.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "204",
+          "set_type": "normal",
+          "label": "0",
+          "category": "sheet_metal",
+          "instance_id": "000",
+          "condition": "shift_3",
+          "image_path": "sheet_metal/test_public/good/000_shift_3.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "205",
+          "set_type": "normal",
+          "label": "0",
+          "category": "sheet_metal",
+          "instance_id": "000",
+          "condition": "underexposed",
+          "image_path": "sheet_metal/test_public/good/000_underexposed.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "206",
+          "set_type": "normal",
+          "label": "0",
+          "category": "sheet_metal",
+          "instance_id": "001",
+          "condition": "overexposed",
+          "image_path": "sheet_metal/test_public/good/001_overexposed.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "207",
+          "set_type": "normal",
+          "label": "0",
+          "category": "sheet_metal",
+          "instance_id": "001",
+          "condition": "regular",
+          "image_path": "sheet_metal/test_public/good/001_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "208",
+          "set_type": "normal",
+          "label": "0",
+          "category": "sheet_metal",
+          "instance_id": "001",
+          "condition": "shift_1",
+          "image_path": "sheet_metal/test_public/good/001_shift_1.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "209",
+          "set_type": "normal",
+          "label": "0",
+          "category": "sheet_metal",
+          "instance_id": "001",
+          "condition": "shift_2",
+          "image_path": "sheet_metal/test_public/good/001_shift_2.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "210",
+          "set_type": "normal",
+          "label": "0",
+          "category": "sheet_metal",
+          "instance_id": "001",
+          "condition": "shift_3",
+          "image_path": "sheet_metal/test_public/good/001_shift_3.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "211",
+          "set_type": "normal",
+          "label": "0",
+          "category": "sheet_metal",
+          "instance_id": "001",
+          "condition": "underexposed",
+          "image_path": "sheet_metal/test_public/good/001_underexposed.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "757",
+          "set_type": "defect",
+          "label": "1",
+          "category": "sheet_metal",
+          "instance_id": "008",
+          "condition": "overexposed",
+          "image_path": "sheet_metal/test_public/bad/008_overexposed.png",
+          "mask_path": "sheet_metal/test_public/ground_truth/bad/008_overexposed_mask.png"
+        },
+        {
+          "map_index": "758",
+          "set_type": "defect",
+          "label": "1",
+          "category": "sheet_metal",
+          "instance_id": "008",
+          "condition": "regular",
+          "image_path": "sheet_metal/test_public/bad/008_regular.png",
+          "mask_path": "sheet_metal/test_public/ground_truth/bad/008_regular_mask.png"
+        },
+        {
+          "map_index": "759",
+          "set_type": "defect",
+          "label": "1",
+          "category": "sheet_metal",
+          "instance_id": "008",
+          "condition": "shift_1",
+          "image_path": "sheet_metal/test_public/bad/008_shift_1.png",
+          "mask_path": "sheet_metal/test_public/ground_truth/bad/008_shift_1_mask.png"
+        },
+        {
+          "map_index": "760",
+          "set_type": "defect",
+          "label": "1",
+          "category": "sheet_metal",
+          "instance_id": "008",
+          "condition": "shift_2",
+          "image_path": "sheet_metal/test_public/bad/008_shift_2.png",
+          "mask_path": "sheet_metal/test_public/ground_truth/bad/008_shift_2_mask.png"
+        },
+        {
+          "map_index": "761",
+          "set_type": "defect",
+          "label": "1",
+          "category": "sheet_metal",
+          "instance_id": "008",
+          "condition": "shift_3",
+          "image_path": "sheet_metal/test_public/bad/008_shift_3.png",
+          "mask_path": "sheet_metal/test_public/ground_truth/bad/008_shift_3_mask.png"
+        },
+        {
+          "map_index": "762",
+          "set_type": "defect",
+          "label": "1",
+          "category": "sheet_metal",
+          "instance_id": "008",
+          "condition": "underexposed",
+          "image_path": "sheet_metal/test_public/bad/008_underexposed.png",
+          "mask_path": "sheet_metal/test_public/ground_truth/bad/008_underexposed_mask.png"
+        },
+        {
+          "map_index": "781",
+          "set_type": "defect",
+          "label": "1",
+          "category": "sheet_metal",
+          "instance_id": "012",
+          "condition": "overexposed",
+          "image_path": "sheet_metal/test_public/bad/012_overexposed.png",
+          "mask_path": "sheet_metal/test_public/ground_truth/bad/012_overexposed_mask.png"
+        },
+        {
+          "map_index": "782",
+          "set_type": "defect",
+          "label": "1",
+          "category": "sheet_metal",
+          "instance_id": "012",
+          "condition": "regular",
+          "image_path": "sheet_metal/test_public/bad/012_regular.png",
+          "mask_path": "sheet_metal/test_public/ground_truth/bad/012_regular_mask.png"
+        },
+        {
+          "map_index": "783",
+          "set_type": "defect",
+          "label": "1",
+          "category": "sheet_metal",
+          "instance_id": "012",
+          "condition": "shift_1",
+          "image_path": "sheet_metal/test_public/bad/012_shift_1.png",
+          "mask_path": "sheet_metal/test_public/ground_truth/bad/012_shift_1_mask.png"
+        },
+        {
+          "map_index": "784",
+          "set_type": "defect",
+          "label": "1",
+          "category": "sheet_metal",
+          "instance_id": "012",
+          "condition": "shift_2",
+          "image_path": "sheet_metal/test_public/bad/012_shift_2.png",
+          "mask_path": "sheet_metal/test_public/ground_truth/bad/012_shift_2_mask.png"
+        },
+        {
+          "map_index": "785",
+          "set_type": "defect",
+          "label": "1",
+          "category": "sheet_metal",
+          "instance_id": "012",
+          "condition": "shift_3",
+          "image_path": "sheet_metal/test_public/bad/012_shift_3.png",
+          "mask_path": "sheet_metal/test_public/ground_truth/bad/012_shift_3_mask.png"
+        },
+        {
+          "map_index": "786",
+          "set_type": "defect",
+          "label": "1",
+          "category": "sheet_metal",
+          "instance_id": "012",
+          "condition": "underexposed",
+          "image_path": "sheet_metal/test_public/bad/012_underexposed.png",
+          "mask_path": "sheet_metal/test_public/ground_truth/bad/012_underexposed_mask.png"
+        }
+      ],
+      "validation": [
+        {
+          "map_index": "177",
+          "set_type": "validation_normal",
+          "label": "0",
+          "category": "sheet_metal",
+          "instance_id": "016",
+          "condition": "regular",
+          "image_path": "sheet_metal/validation/good/016_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "170",
+          "set_type": "validation_normal",
+          "label": "0",
+          "category": "sheet_metal",
+          "instance_id": "009",
+          "condition": "regular",
+          "image_path": "sheet_metal/validation/good/009_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "166",
+          "set_type": "validation_normal",
+          "label": "0",
+          "category": "sheet_metal",
+          "instance_id": "005",
+          "condition": "regular",
+          "image_path": "sheet_metal/validation/good/005_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "163",
+          "set_type": "validation_normal",
+          "label": "0",
+          "category": "sheet_metal",
+          "instance_id": "002",
+          "condition": "regular",
+          "image_path": "sheet_metal/validation/good/002_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "167",
+          "set_type": "validation_normal",
+          "label": "0",
+          "category": "sheet_metal",
+          "instance_id": "006",
+          "condition": "regular",
+          "image_path": "sheet_metal/validation/good/006_regular.png",
+          "mask_path": ""
+        },
+        {
+          "map_index": "162",
+          "set_type": "validation_normal",
+          "label": "0",
+          "category": "sheet_metal",
+          "instance_id": "001",
+          "condition": "regular",
+          "image_path": "sheet_metal/validation/good/001_regular.png",
+          "mask_path": ""
+        }
+      ]
+    }
+  }
+}

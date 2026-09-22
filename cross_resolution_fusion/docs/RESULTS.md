@@ -50,20 +50,34 @@ It shows that the best fusion rule depends on how the two branches are
 constructed: under this explicit uniform configuration, q99 mean does not add
 to raw averaging.
 
-## MVTec AD 14-category external evaluation (A73)
+## MVTec AD 15-class external evaluation (A76)
+
+MVTec AD has 15 categories and cable is one of them, so cable is evaluated
+inside the same protocol instead of being reported as a separate
+single-category transfer experiment. A73 was the earlier 14-class run and is
+retained as history only.
+
+Scope limit that must be stated with this table: every MVTec AD image is
+square, and the tiler uses `tile_size = min(height, width)`, so it emits a
+single tile equal to the whole image. The 672 branch is therefore a
+higher-resolution whole-image branch rather than a local view, and is labelled
+`Res672`. This stage measures a two-resolution ensemble of one view; it does
+not test the tiled-view complementarity that A69/A75 measure on AD2.
 
 | Method | AU-PRO@0.05 | Pixel AUROC | Image AUROC |
 |---|---:|---:|---:|
-| Global 448 | 0.834744 | 0.979813 | **0.993930** |
-| Tiled 672 | 0.848133 | 0.975655 | 0.992576 |
-| Raw mean | **0.851006** | 0.980752 | 0.993524 |
-| q99 mean | 0.849918 | **0.980819** | 0.993553 |
+| Global 448 | 0.829913 | 0.979800 | 0.992960 |
+| Res672 | 0.843436 | 0.975899 | 0.992034 |
+| Raw mean | **0.846739** | 0.980806 | 0.993044 |
+| q99 mean | 0.845696 | **0.980868** | **0.993070** |
 
-Raw mean improves AU-PRO over Global by 0.016262, with paired category
-bootstrap CI [0.010388, 0.024285] and 13/14 wins. q99 mean is 0.001088 below
-raw mean, with CI [-0.002495, -0.000200]. This external result limits the
-generality claim: A69's q99 benefit is established on AD2, while raw
-cross-resolution complementarity transfers more consistently to MVTec AD.
+Raw mean improves AU-PRO over Global 448 by 0.016827, with paired category
+bootstrap CI [0.011136, 0.024379] and 14/15 wins. Against Res672 the
+improvement is 0.003304, CI [-0.000742, 0.007482], which does not exclude zero.
+q99 mean is 0.001044 below raw mean, CI [-0.002370, -0.000218]: on this
+benchmark normal q99 calibration is significantly worse than plain averaging.
+This external result limits the generality claim while preserving the AD2
+finding.
 
 ## Claim boundary
 

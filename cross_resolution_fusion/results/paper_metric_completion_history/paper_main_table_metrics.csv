@@ -1,0 +1,5 @@
+protocol,method,image_auroc,image_ap,image_f1max,pixel_auroc,pixel_ap,pixel_f1max,aupro_0_05,tiny,small,large,note
+AD2 image-level,PatchCore256,0.6689311410591172,0.7907620982668357,0.8178429450600185,,,,,,,,image-score method; pixel/region metrics not defined for this saved output
+AD2 image-level,PatchCore512,0.7314441466822419,0.8299810920101379,0.8327744481442255,,,,,,,,image-score method; pixel/region metrics not defined for this saved output
+AD2 image-level,DINOv2 top1,0.7221361002313382,0.8217788468940938,0.8148886260648724,,,,,,,,image-score method; pixel/region metrics not defined for this saved output
+AD2 image-level,Frozen score fusion,0.7583050888705651,0.8405491048408504,0.8373764317676804,,,,,,,,image-score method; pixel/region metrics not defined for this saved output
