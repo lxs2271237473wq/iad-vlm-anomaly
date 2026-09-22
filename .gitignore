@@ -202,3 +202,7 @@ ad2_model_zoo/logs/
 **/third_party/
 !third_party/
 !third_party/README.md
+
+# Local convenience symlink to the vendored DINOv2 checkout.
+# The real checkout lives under ad2_model_zoo/repos/ and is ignored separately.
+dinov2_pkg
